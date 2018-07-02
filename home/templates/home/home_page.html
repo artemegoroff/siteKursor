@@ -1,0 +1,313 @@
+{% extends "base.html" %}
+
+
+{% block seo_block %}
+    <title>Сайт репетитора по информатике и программированию Егорова Артема!</title>
+    <meta name="description" content="Сайт содержит полезные материалы для подтовки школьников
+к успешной сдаче ОГЭ и ЕГЭ по информатике">
+    <meta name="keywords" content="Репетитор информатика, Репетитор программирование, Python,
+          Paskal, ЕГЭ информатика, ОГЭ информатика">
+{% endblock %}
+
+
+{% load staticfiles %}
+{% block extracss %}
+    <link href="https://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link rel="stylesheet/less" href="{% static 'home/css/home_page_less.less' %}" type="text/less">
+{% endblock %}
+
+
+{% block content %}
+    <section class="zastavka">
+    </section>
+
+    <div class="container zagolovokBlock">
+        <div class="row text-center">
+            <h1>Я предлагаю следующие услуги: </h1>
+        </div>
+    </div>
+    <div class="container services">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/ЕГЭ фото.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Подготовка к успешной сдачи ЕГЭ по информатике </p>#}
+                {#                    </div>#}
+
+                {#                </div>#}
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/web_pages.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Обучение программированию с целью создания веб-страниц и веб-приложений</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/gameDev.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Обучение программированию с целью создания игр</p>#}
+                {#                    </div>#}
+
+                {#                </div>#}
+            </div>
+            <div class="clearfix visible-md visible-lg"></div>
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/ОГЭ.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Подготовка к безукоризненной сдаче ОГЭ по информатике</p>#}
+                {#                    </div>#}
+
+                {#                </div>#}
+            </div>
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/olimp.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Подготовка к олимпиадным соревнованиям</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+            </div>
+            <div class="col-md-4 col-sm-6">
+                {#                <div class="thumbnail">#}
+                <img class="img-responsive cartoon" src="{% static 'home/img/labu.png' %}" alt="Lights"
+                     style="width:100%">
+                {#                    <div class="caption">#}
+                {#                        <p>Помощь в решении лабораторных и курсовых работ</p>#}
+                {#                    </div>#}
+
+                {#                </div>#}
+            </div>
+        </div>
+    </div>
+
+
+
+    {#    <div class="container-fluid" id="ege_service">#}
+    {#        <div class="row">#}
+    {#            <div class="col-md-offset-1 col-md-10">#}
+    {#                <h1>Подготовка к ЕГЭ</h1>#}
+    {#                <p>ЕГЭ – очень ответственный этап в жизни современного российского человека. И к этому этапу нужно#}
+    {#                    готовится, заранее обдумав все «за» и «против». Важным на этапе подготовки является выбор человека,#}
+    {#                    который поможет вам прийти к цели. Я предлагаю вам длительный курс, рассчитанный не только на работу#}
+    {#                    во время занятий, а в течение всего времени до дня экзамена. Это позволит вам чувствовать себя более#}
+    {#                    уверенными в будущих баллах, а значит и поступлении в желаемый вуз.#}
+    {#                </p>#}
+    {#                <h3>Процесс подготовки моих учеников к ЕГЭ состоит из параллельного изучения 2х блоков тем:</h3>#}
+    {##}
+    {##}
+    {#                <div class="col-md-6 col-sm-6 col-xs-12">#}
+    {#                    <ul class="list-group">#}
+    {#                        <li class="list-group-item zagolovok_list">Информатика</li>#}
+    {#                        <li class="list-group-item">Системы счисления</li>#}
+    {#                        <li class="list-group-item">Кодирование информации</li>#}
+    {#                        <li class="list-group-item">Таблицы и графы</li>#}
+    {#                        <li class="list-group-item">Логика. Логические функции и выражения</li>#}
+    {#                        <li class="list-group-item">Электронные таблицы</li>#}
+    {#                        <li class="list-group-item">Адресация в глобальных и локальных сетях</li>#}
+    {#                        <li class="list-group-item">Комбинаторика</li>#}
+    {#                    </ul>#}
+    {#                </div>#}
+    {#                <div class="col-md-6 col-sm-6 col-xs-12 progr">#}
+    {#                    <ul class="list-group">#}
+    {#                        <li class="list-group-item zagolovok_list">Программирование</li>#}
+    {#                        <li class="list-group-item">Переменная и типы данных.</li>#}
+    {#                        <li class="list-group-item">Ввод/вывод информации.</li>#}
+    {#                        <li class="list-group-item">Операции над типами данных</li>#}
+    {#                        <li class="list-group-item">Условный оператор</li>#}
+    {#                        <li class="list-group-item">Циклические конструкции</li>#}
+    {#                        <li class="list-group-item">Функция и рекурсия</li>#}
+    {#                        <li class="list-group-item">Динамическое программирование</li>#}
+    {#                    </ul>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="col-md-12">#}
+    {#                    <p>В качестве языка программирования, вы можете выбрать Pascal, C++ или Python. Если сомневаетесь в#}
+    {#                        выборе или хотите знать мое мнение – определенно выбирайте Python!!!</p>#}
+    {#                    <p>После каждого занятия мои ученики получают домашнее задание по пройденному материалу, выполнение#}
+    {#                        которого является обязательным для достижения эффективного результата.</p>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {##}
+    {##}
+    {#    <div class="container-fluid" id="web_service">#}
+    {#        <div class="row">#}
+    {#            <div class="col-md-offset-1 col-md-10">#}
+    {#                <h1>Программирование веб сайтов</h1>#}
+    {#                <p>Пожалуй, самый интересный курс. Отличается своей прикладной направленностью. Уже с первых занятий#}
+    {#                    можете увидеть результат своей работы и применит его на практике. В изучении данного курса входят#}
+    {#                    следующие темы:#}
+    {#                </p>#}
+    {##}
+    {#                <div class="row">#}
+    {#                    <div class="col-md-offset-3  col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">#}
+    {#                        <ul class="list-group">#}
+    {#                            <li class="list-group-item">Все необходимые элементы HTML</li>#}
+    {#                            <li class="list-group-item">Основы и применение CSS</li>#}
+    {#                            <li class="list-group-item">Верстка страниц с помощью CSS</li>#}
+    {#                            <li class="list-group-item">Javascript</li>#}
+    {#                            <li class="list-group-item">Bootstrap</li>#}
+    {#                            <li class="list-group-item">Jquery</li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="col-md-12">#}
+    {#                    <p>Для учеников, знающих Python, предлагаю обучение популярного веб-фрэймворка Django. С помощью#}
+    {#                        него можно создать серверную часть приложения, в которой будут хранится и обрабатываться данные#}
+    {#                        вашей страницы.#}
+    {#                    </p>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+    {#    <div class="container-fluid" id="game_service">#}
+    {#        <div class="row">#}
+    {#            <div class="col-md-offset-1 col-md-10">#}
+    {#                <h1>Программирование игр</h1>#}
+    {#                <p>Желающих узнать процесс создания игр изнутри в последние годы все больше и больше, ведь этот процесс#}
+    {#                    доставляет огромное удовольствие. Сразу скажу – это непросто.#}
+    {#                </p>#}
+    {#                <p>Например, многие игры состоят из нарисованных геометрических фигур, они движутся и нередко#}
+    {#                    сталкиваются между собой. Вы должны будете уметь описать последствия этих физических столкновений с#}
+    {#                    помощью кода. При этом практически каждая игра состоит из каких-то повторяющихся действий (циклов) и#}
+    {#                    выбора действий игрока (условных конструкций).</p>#}
+    {#                <p>Поэтому перед написанием игры необходимо познакомиться с основами программирования и узнать#}
+    {#                    особенности выбранного языка, а также обладать необходимым набором математических навыков.</p>#}
+    {#                <p>Если вы читаете и понимаете, что у вас не хватает каких-либо знаний – это не проблема. Скорее#}
+    {#                    решайтесь начать обучение, и я помогу вам устранить все пробелы.</p>#}
+    {#                <p>Python – идеальный выбор для новичка в деле написания игр. Наш курс изучения будет состоять из#}
+    {#                    последовательного изучения следующих этапов:</p>#}
+    {##}
+    {#                <div class="row">#}
+    {#                    <div class="col-md-offset-3  col-md-6 col-sm-offset-2 col-sm-8 col-xs-offset-1 col-xs-10">#}
+    {#                        <ul class="list-group">#}
+    {#                            <li class="list-group-item">Знакомство с python</li>#}
+    {#                            <li class="list-group-item">Переменные и для чего они нам понадобятся</li>#}
+    {#                            <li class="list-group-item">Какой выбор сделать? Условные конструкции</li>#}
+    {#                            <li class="list-group-item">Многократное повторение действий - цикл</li>#}
+    {#                            <li class="list-group-item">Функции могут улучшить способности героя</li>#}
+    {#                            <li class="list-group-item">Знакомство с GUI – графический интерфейс пользователя</li>#}
+    {#                            <li class="list-group-item">Модуль tkinter и его основные компоненты</li>#}
+    {#                            <li class="list-group-item">Модуль PYGAME</li>#}
+    {#                        </ul>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {##}
+    {#                <div class="col-md-12">#}
+    {#                    <p>Мы научимся создавать такие игры как «Змейка», «Сапер», «2048». Напишем свой собственный#}
+    {#                        калькулятор и много других проектов.#}
+    {#                    </p>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+
+
+
+    {#     Отзывы Заголовок#}
+    <div class="container zagolovokBrown">
+        <div class="row text-center">
+            <h2>Что говорят мои ученики и их родители: </h2>
+        </div>
+    </div>
+    {#     Отзывы Заголовок#}
+
+    {#     Отзывы #}
+    <div class="carousel-reviews broun-block">
+        <div class="container">
+            <div class="row">
+                <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        {#        цикл для блоков отзывов#}
+                        {% for review in reviews %}
+                            <div class="{% if forloop.first %}item active {% else %} item{% endif %}">
+                                {#         цикл для одной строки отзывов#}
+                                {% for item in review %}
+                                    <div class="{% if forloop.first %}col-md-4 col-sm-6 {% elif forloop.last %}col-md-4 col-sm-6 hidden-sm hidden-xs{% else %}col-md-4 col-sm-6 hidden-xs {% endif %}">
+                                        <div class="block-text rel zmin">
+                                            <p class="ClientName">{{ item.client }}</p>
+                                            <div class="mark">Оценка за работу: {{ item.mark }}:
+                                                <span class="rating-input">
+                                            {% for i in '12345' %}
+                                                {% if item.mark >= forloop.counter %}
+                                                    <span data-value="{{ i }}" class="glyphicon glyphicon-star"
+                                                          style="color: #f9a81b"></span>
+                                                {% else %}
+                                                    <span data-value="{{ i }}" class="glyphicon glyphicon-star-empty">
+                                                    </span>
+                                                {% endif %}
+                                            {% endfor %}
+                                                </span>
+                                            </div>
+                                            <p class="descriptionReview"> {{ item.get_review }} </p>
+                                            <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                                        </div>
+                                        {#   TODO сделать фотки учеников         #}
+                                        {#                                        <div class="person-text rel">#}
+                                        {#                                            <img src=""/>#}
+                                        {#                                            <a title="" href="#">Anna</a>#}
+                                        {#                                            <i>from Glasgow, Scotland</i>#}
+                                        {#                                        </div>#}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+
+                    <a class="left carousel-control reviewleft" href="#carousel-reviews" role="button"
+                       data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control reviewright" href="#carousel-reviews" role="button"
+                       data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container otzovu">
+        <div class="row text-center">
+            <h2>Все отзывы взяты из <a href="http://penza.profi.ru/profile/EgorovAV4/" target="_blank">моей анкеты сайта
+                компании "Ваш репетитор"</a>. </h2>
+        </div>
+    </div>
+
+    {#     Отзывы #}
+
+    <script>
+        {#                $(document).ready(function () {#}
+        {#                    $('.services').each(function () {#}
+        {#                        // Cache the highest#}
+        {#                        var highestBox = 999999;#}
+        {#                        // Select and loop the elements you want to equalise#}
+        {#                        $('.thumbnail', this).each(function () {#}
+        {#                            // If this box is higher than the cached highest then store it#}
+        {#                            if ($(this).height() < highestBox) {#}
+        {#                                highestBox = $(this).height();#}
+        {#                            }#}
+        {#                        });#}
+        {#                        // Set the height of all those children to whichever was highest#}
+        {#                        $('.thumbnail', this).height(highestBox);#}
+        {#                    });#}
+        {#                });#}
+    </script>
+
+{% endblock %}

@@ -1,0 +1,384 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+    <title>{{ number_task.seo_title }}</title>
+    <meta name="description" content=" {{ number_task.seo_description }}">
+    <meta name="keywords" content="{{ number_task.seo_keywords }}">
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css_base/tasks_detail_less.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
+    {% if number_task.number in tasks_prism or exam == 'ege_var' or exam == 'oge_var' %}
+        <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
+        <script src="{% static 'js_base/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+    <!-- HTML-код модального окна -->
+    <div id="myModalBox" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Заголовок модального окна -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Ваш результат:</h4>
+                </div>
+                <!-- Основное содержимое модального окна -->
+                <div class="modal-body">
+                    <h3 class="text-center"><span class="allTaskNumber"></span></h3>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Правильно</th>
+                            <th>Ошибки</th>
+                            <th>Пустые ответы</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><span class="goodNumber"></span></td>
+                            <td><span class="wrongNumber"></span></td>
+                            <td><span class="emptyNumber"></span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Футер модального окна -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {#  Кнопка прокрутки вверх  #}
+    <a href="#" class="scrollup"></a>
+    {#  Кнопка прокрутки вверх  #}
+
+    <div class="container-fluid block-exam-tasks">
+        {% if exam == 'ege_var' %}
+            <h2>Вариант ЕГЭ № {{ number_task }}</h2>
+        {% elif exam == 'oge_var' %}
+            <h2>Вариант ОГЭ № {{ number_task }}</h2>
+        {% elif exam == 'ege' %}
+            <h2>ЕГЭ. Задания на тему "{{ number_task.title }}".</h2>
+        {% elif exam == 'oge' %}
+            <h2>ОГЭ. Задания на тему "{{ number_task.title }}".</h2>
+        {% endif %}
+        <div class="row">
+            <div class="col-sm-2 col-md-2 numberTask">
+                <div class="list-group">
+                    {% if exam == 'ege' %}
+                        {% for task in tasks %}
+                            <a href="{% url 'ege:ege_task_detail' task.number %}" class="list-group-item text-center">Задание {{ task.number }}</a>
+                        {% endfor %}
+                    {% elif exam == 'oge' %}
+                        {% for task in tasks %}
+                            <a href="{% url 'oge:oge_task_detail' task.number %}" class="list-group-item text-center">Задание
+                                № {{ task.number }}</a>
+                        {% endfor %}
+                    {% elif exam == 'ege_var' %}
+                        {% for task in tasks %}
+                            <a href="{% url 'ege:ege_get_var' task.number_var %}" class="list-group-item text-center">Вариант
+                                ЕГЭ № {{ task.number_var }}</a>
+                        {% endfor %}
+                    {% elif exam == 'oge_var' %}
+                        {% for task in tasks %}
+                            <a href="{% url 'oge:oge_get_var' task.number_var %}" class="list-group-item text-center">Вариант
+                                OГЭ № {{ task.number_var }}</a>
+                        {% endfor %}
+                    {% endif %}
+
+                </div>
+            </div>
+
+            <div class="col-md-9">
+
+                {% if exam == 'oge' or exam == 'ege' %}
+                    <form action="" class="form-inline" method="get" name="param_search">
+                        <label for="category_sel">Категория вопросов:</label>
+                        <select class="form-control" id="category_sel" name="category_sel">
+                            {% for cat in category %}
+                                <option {% if cat.text == text_cat or cat == text_cat %}
+                                    selected {% endif %}> {{ cat }}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" class="btn-success btn-sm" value="Изменить">
+                    </form>
+                {% endif %}
+
+
+
+                <form name="list" method="POST" action="" id="list_questions">
+                    {% csrf_token %}
+                    {% for vopros in questions %}
+                        <div class="well well-sm {% if vopros.status %} {{ vopros.status }} {% endif %}">
+                            {#  here ref of redactor#}
+{#                                {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
+{#                                    <div class="abs_spanRedact">#}
+{#                                        <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
+{#                                                target="_blank" class="btn btn-info" role="button">Редактировать#}
+{#                                        </a>#}
+{#                                    </div>#}
+{#                                {% endif %}#}
+                            {#  here ref of redactor#}
+                            {% if vopros.q_url_video %}
+                                <div class="abs_span">
+                                    <a target="_blank" href="{% url 'ege:ege_videotask_detail' vopros.q_url_video.id %}"
+                                       class="btn btn-info" role="button">
+                                        ВИДЕОРАЗБОР
+                                    </a>
+                                </div>
+                            {% endif %}
+                            {#    Проверка на наличие картинки     #}
+                            {% if vopros.picture %}
+                                <img src="{{ vopros.picture.url }}" class="img-rounded img-responsive"
+                                     style="float: right">
+                            {% endif %}
+                            {#    Проверка на наличие картинки     #}
+
+                            {#начало вопроса#}
+
+                            {% for part in vopros.get_part_question_1 %}
+                                <p class="text-justify ">
+                                    {% if forloop.first %}
+                                        {% if exam == 'ege_var' or exam == 'oge_var' %}
+                                            {{ vopros.number_of_task.number }})
+                                        {% else %}
+                                            {{ forloop.parentloop.counter }})
+                                        {% endif %}
+                                    {% endif %}
+                                    {{ part|safe }}
+                                </p>
+                            {% endfor %}
+
+                            {#    Проверка на наличие таблицы     #}
+                            {% if vopros.table_data %}
+                                <div class="row">
+                                    {% for table in vopros.table_in_row %}
+                                        <div class="col-md-offset-1 col-md-4">
+                                            <table class="table table-condensed table-bordered table-responsive table-striped">
+                                                {% for rows in table %}
+
+                                                    {% if forloop.first %}
+                                                        <thead>
+                                                        <tr>
+                                                            {% for row in rows %}
+                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                    &nbsp;{% else %}{{ row }}{% endif %}</th>
+                                                            {% endfor %}
+                                                        </tr>
+                                                        </thead>
+                                                    {% else %}
+
+                                                        {% if forloop.counter == 2 %}
+                                                            <tbody>
+                                                        {% endif %}
+                                                    <tr>
+                                                        {% for row in rows %}
+                                                            {% if row %}
+                                                                <td> {% if row == "x" %} &nbsp;&nbsp;
+                                                                    &nbsp;{% else %}{{ row }}{% endif %} </td>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </tr>
+                                                    {% if forloop.last %}
+                                                        </tbody>
+                                                    {% endif %}
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            {#    Проверка на наличие таблицы     #}
+
+                            {#    Проверка на наличие кода     #}
+                            {% if vopros.code_python %}
+                                <div class="row blockcode">
+                                    <div class="col-md-4">
+                                        <pre><code class="language-python">{{ vopros.code_python }}</code></pre>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <pre><code class="language-pascal">{{ vopros.code_pascal }}</code></pre>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <pre><code class="language-cpp">{{ vopros.code_c_plus }}</code></pre>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% if vopros.code_executor %}
+                                <div class="row blockcode">
+                                    <div class="col-md-offset-1 col-md-4">
+                                        <pre><code class="language-python">{{ vopros.code_executor }}</code></pre>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {#    Проверка на наличие кода     #}
+
+                            {#    Футер вопроса     #}
+
+                            {% for part in vopros.get_part_question_2 %}
+                                {% if vopros.picture %}
+                                    <p class="text-justify" style="float: left"> {{ part|safe }}</p>
+                                {% else %}
+                                    <p class="text-justify "> {{ part|safe }}</p>
+                                {% endif %}
+                            {% endfor %}
+
+                            {#    Футер вопроса     #}
+                            {% if vopros.picture %}
+                                <div class="clearfix">
+                                {#                                <img src="{{ vopros.picture.url }}" class="img-rounded img-responsive pull-right gap-left">#}
+                            {% endif %}
+                            {#    Заполнение формы ответа     #}
+                            {% if vopros.number_of_task.type_of_answer == 'Input' %}
+                                <div class="form-group form-inline">
+                                    <label for="input{{ vopros.id }}">Ваш ответ:</label>
+                                    <input type="text" name="input{{ vopros.id }}"
+                                           value="{% if vopros.old_answer %}{{ vopros.old_answer }}{% endif %}">
+                                </div>
+                            {% elif vopros.number_of_task.type_of_answer == 'Radio' %}
+                                <div class="form-group">
+                                    {% for variant_ans in vopros.get_var_answers %}
+                                        <div class="radio">
+                                            <label><input type="radio"
+                                                          {% if forloop.counter|slugify == vopros.old_answer %}checked{% endif %}
+                                                          name="radio{{ vopros.id }}"
+                                                          value="{{ forloop.counter }}"> {{ variant_ans }} </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            {% elif vopros.number_of_task.type_of_answer == 'NoInp' %}
+                                <br> <br> <br>
+                            {% endif %}
+                            {#    Заполнение формы ответа     #}
+
+                            {#    Проверка на наличие картинки   Закрываем блок clearfix  #}
+                            {% if vopros.picture %}
+                                </div>
+                            {% endif %}
+                            {#    Проверка на наличие картинки     #}
+                        </div>
+                    {% endfor %}
+                    {% if number_task.type_of_answer != 'NoInp' %}
+                        <input type="submit" class="btn-success btn-lg " value="Проверить ответы" id="check_ans">
+                    {% endif %}
+                </form>
+                {#Комменты Вконтакте#}
+                <!-- Put this script tag to the <head> of your page -->
+                <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
+
+                <script type="text/javascript">
+                    VK.init({apiId: 6204845, onlyWidgets: true});
+                </script>
+
+                <!-- Put this div tag to the place, where the Comments block will be -->
+                <div id="vk_comments"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+                </script>
+                {#Комменты Вконтакте#}
+            </div>
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.list-group a').each(function () {
+                var location = window.location.href;
+                var link = this.href;
+                {#в случае get запроса нужно получить короткий путь#}
+                if (location.indexOf('category') >= 0) {
+                    var index = location.indexOf('category');
+                    location = location.substr(0, index - 1);
+                }
+                if (location.length == link.length && location.indexOf(link) == 0) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('.blockcode').each(function () {
+                // Cache the highest
+                var highestBox = 0;
+                // Select and loop the elements you want to equalise
+                $('code', this).each(function () {
+                    // If this box is higher than the cached highest then store it
+                    if ($(this).height() > highestBox) {
+                        highestBox = $(this).height();
+                    }
+                });
+                // Set the height of all those children to whichever was highest
+                $('code', this).height(highestBox);
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 700) {
+                    $('.scrollup').fadeIn();
+                } else {
+                    $('.scrollup').fadeOut();
+                }
+            });
+            $('.scrollup').click(function () {
+                $("html, body").animate({scrollTop: 0}, 600);
+                return false;
+            });
+        });
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var elemsWrong = $(".wrong");
+            var elemsWrongTotal = elemsWrong.length;
+            for (var i = 0; i < elemsWrongTotal; ++i) {
+                $(elemsWrong[i]).css({'border': "3px red solid"});
+            }
+            elemsGood = $(".good");
+            var elemsGoodTotal = elemsGood.length;
+            for (var i = 0; i < elemsGoodTotal; ++i) {
+                $(elemsGood[i]).css({'border': "3px green solid"});
+            }
+            elemsRadio = $(".radio");
+            if (elemsRadio.length > 0 && (elemsWrongTotal > 0 || elemsGoodTotal > 0)) {
+                for (var i = 0; i < elemsRadio.length; i += 4) {
+                    var wall = $(elemsRadio[i].parentElement.parentElement);
+                    console.log(wall);
+                    if (!(wall.hasClass("wrong") || wall.hasClass("good"))) {
+                        wall.addClass("empty");
+                    }
+                }
+            }
+            elemsEmpty = $(".empty");
+            var elemsEmptyTotal = elemsEmpty.length;
+            for (var i = 0; i < elemsEmptyTotal; ++i) {
+                $(elemsEmpty[i]).css({'border': "3px blue solid"});
+            }
+            if (elemsEmptyTotal > 0 || elemsGoodTotal > 0 || elemsWrongTotal > 0) {
+                $(".allTaskNumber").html("Всего заданий: " + String(elemsEmptyTotal + elemsGoodTotal + elemsWrongTotal));
+                $(".wrongNumber").html(elemsWrongTotal);
+                $(".goodNumber").html(elemsGoodTotal);
+                $(".emptyNumber").html(elemsEmptyTotal);
+                $("#myModalBox").modal('show');
+            }
+        })
+    </script>
+
+
+
+{% endblock %}

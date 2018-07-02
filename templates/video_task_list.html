@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+    <title>{{ number_task.seo_title }}</title>
+    <meta name="description" content=" {{ number_task.seo_description }}">
+    <meta name="keywords" content="{{ number_task.seo_keywords }}">
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css_base/video_task_list.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
+    {% if vopros.code_python %}
+        <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
+        <script src="{% static 'js_base/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="container-fluid block-video-list">
+        <div class="row">
+            <div class="col-sm-2 col-md-2 numberTask">
+                {#               menu side#}
+            </div>
+
+            <div class="col-md-9">
+            <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                <table class="table table-bordered table-responsive table-striped table-razbor">
+                    <thead>
+                    <tr>
+                        <th>Видео</th>
+                        <th>Задание</th>
+                        <th>Дата добавления</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for video in videos %}
+                        <tr class='clickable-row' data-href='{% url 'ege:ege_videotask_detail' video.id %}'>
+                            <td><img class="img-responsive img-rounded"
+                                     src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg"></td>
+                            <td>
+                                Разбор задачи № {{ video.number_of_task }}
+                            </td>
+                            <td>
+                                {{ video.data_add }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                <script src="https://apis.google.com/js/platform.js"></script>
+
+                <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
+                     data-count="hidden">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.list-group a').each(function () {
+                var location = window.location.href;
+                var link = this.href;
+                {#в случае get запроса нужно получить короткий путь#}
+                if (location.indexOf('category') >= 0) {
+                    var index = location.indexOf('category');
+                    location = location.substr(0, index - 1);
+                }
+                if (location.length == link.length && location.indexOf(link) == 0) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+        $(document).ready(function($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+
+
+{% endblock %}

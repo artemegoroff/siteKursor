@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block seo_block %}
+    <title>Подготовка к ЕГЭ по Информатике 2018. Репетитор Егоров Артем</title>
+    <meta name="description" content="Успешно подготовьтесь к сдаче ЕГЭ по информатике.
+    Решайте только актуальные задачи.Выбирайте вариант тестирования: либо целый вариант,
+    либо выполните тест по конкретной теме. На сайте имеется более 10 пробных вариантов по ЕГЭ информатике">
+    <meta name="keywords" content="ЕГЭ информатика, Тесты по информатике, Онлайн тесты,
+    задания по информатике, Пробный вариант">
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'ege/css/home_ege_less.less' %}" type="text/less">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+    {#блок панель по ЕГЭ информатике#}
+    <div class="container-fluid block-choice-razdel">
+        <div class="row text-center">
+            <div class="row" style="padding-top: 40px">
+                <h2>ЕГЭ по информатике</h2>
+                <h4>Выберите интересующий Вас раздел:</h4>
+            </div>
+        </div>
+        <div class="text-center">
+            <div class="row block-panel">
+                <div class="col-md-offset-2 col-md-3">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Задания</h1>
+                        </div>
+                        <div class="panel-footer">
+                            <p></p>
+                            <a class="btn btn-default btn-lg" href="{% url 'ege:ege_list' %}">Перейти к заданиям</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Видеоразборы</h1>
+                        </div>
+                        <div class="panel-footer">
+                            <p></p>
+                            <a class="btn btn-default btn-lg" href="{% url 'ege:ege_videotask_list' %}" id="hrefVideo">Перейти к списку видео</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Варианты</h1>
+                        </div>
+                        <div class="panel-footer">
+                            <p></p>
+                            <a class="btn btn-default btn-lg" href="#block_var_ege" id="hrefVar">Перейти к вариантам</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {#  заголовок задания  #}
+    <div class="container-fluid block-header">
+        <div class="text-center">
+            <h2>Ниже представлены имеющиеся типы заданий по ЕГЭ информатике</h2>
+            <h4>Выберите интересующий Вас тип задания:</h4>
+        </div>
+    </div>
+    {#  заголовок задания  #}
+
+    {# Блок: типы задач #}
+    <div class="container-fluid block-tasks">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="list-group">
+                    {% for task in tasksEge %}
+                        <a href="{% url 'ege:ege_task_detail' task.number %}" class="list-group-item" style="overflow: hidden">
+                            {{ task }} <span class="badge">Заданий {{ task.count_questions }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Блок: типы задач #}
+
+
+    {#  заголовок варианты  #}
+    <div class="container-fluid block-header">
+        <div class="text-center">
+            <h2>Ниже представлены имеющиеся варианты ЕГЭ информатике</h2>
+            <h4>Выберите интересующий Вас вариант:</h4>
+        </div>
+    </div>
+    {#  заголовок варианты  #}
+    {#блок варианты ЕГЭ по информатике#}
+    <div class="container-fluid block-var" id="block_var_ege">
+        <div class="row">
+            {#   обходим цикл 3 раза (такого количество колонок#}
+            {% for foo in groups %}
+                <div class="col-md-4">
+                    <div class="list-group">
+                        {% for var in varsEGE %}
+                            {#  проверяем какие элементы относятся к текущей колонке #}
+                            {% if forloop.counter >= foo and forloop.counter < foo|add:kol %}
+                                {#  TODO сделать ссылки на варианты          #}
+                                <a href="{% url 'ege:ege_get_var' var.number_var %}"
+                                   class="list-group-item text-center"> {{ var }} </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $("#hrefVar").on("click", function (event) {
+                event.preventDefault();
+                var id = $(this).attr('href'),
+                    top = $(id).offset().top;
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+
+
+{% endblock %}

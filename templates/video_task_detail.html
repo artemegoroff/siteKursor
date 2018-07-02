@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+    <title>{{ number_task.seo_title }}</title>
+    <meta name="description" content=" {{ number_task.seo_description }}">
+    <meta name="keywords" content="{{ number_task.seo_keywords }}">
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css_base/video_task_detail.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
+    {% if vopros.code_python %}
+        <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
+        <script src="{% static 'js_base/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+    <div class="container-fluid block-video-detail">
+
+        <div class="row">
+            <div class="col-sm-2 col-md-2 numberTask">
+{#               menu side#}
+            </div>
+
+            <div class="col-md-9">
+                <h2> Разбор задачи № {{ vopros.number_of_task }}</h2>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" width="854" height="480" src="https:/www.youtube.com/embed/{{video.url_video}}"
+                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                    </iframe>
+                </div>
+
+                <script src="https://apis.google.com/js/platform.js"></script>
+
+                <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
+                     data-count="hidden"></div>
+
+                <h3>Условие задачи</h3>
+                <div class="well well-sm">
+
+                    {#    Проверка на наличие картинки     #}
+                    {% if vopros.picture %}
+                        <img src="{{ vopros.picture.url }}" class="img-rounded img-responsive"
+                             style="float: right">
+                    {% endif %}
+                    {#    Проверка на наличие картинки     #}
+
+                    {#начало вопроса#}
+                    {% for part in vopros.get_part_question_1 %}
+                        <p class="text-justify ">
+                            {% if forloop.first %}
+                                {{ vopros.id }})
+                            {% endif %}
+                            {{ part|safe }}
+                        </p>
+                    {% endfor %}
+
+                    {#    Проверка на наличие таблицы     #}
+                    {% if vopros.table_data %}
+                        <div class="row">
+                            {% for table in vopros.table_in_row %}
+                                <div class="col-md-offset-1 col-md-4">
+                                    <table class="table table-condensed table-bordered table-responsive table-striped">
+                                        {% for rows in table %}
+
+                                            {% if forloop.first %}
+                                                <thead>
+                                                <tr>
+                                                    {% for row in rows %}
+                                                        <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                            &nbsp;{% else %}{{ row }}{% endif %}</th>
+                                                    {% endfor %}
+                                                </tr>
+                                                </thead>
+                                            {% else %}
+
+                                                {% if forloop.counter == 2 %}
+                                                    <tbody>
+                                                {% endif %}
+                                            <tr>
+                                                {% for row in rows %}
+                                                    {% if row %}
+                                                        <td> {% if row == "x" %} &nbsp;&nbsp;
+                                                            &nbsp;{% else %}{{ row }}{% endif %} </td>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </tr>
+                                            {% if forloop.last %}
+                                                </tbody>
+                                            {% endif %}
+                                            {% endif %}
+
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                    {#    Проверка на наличие таблицы     #}
+
+                    {#    Проверка на наличие кода     #}
+                    {% if vopros.code_python %}
+                        <div class="row blockcode">
+                            <div class="col-md-4">
+                                <pre><code class="language-python">{{ vopros.code_python }}</code></pre>
+                            </div>
+                            <div class="col-md-4">
+                                <pre><code class="language-pascal">{{ vopros.code_pascal }}</code></pre>
+                            </div>
+                            <div class="col-md-4">
+                                <pre><code class="language-cpp">{{ vopros.code_c_plus }}</code></pre>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {% if vopros.code_executor %}
+                        <div class="row blockcode">
+                            <div class="col-md-offset-1 col-md-4">
+                                <pre><code class="language-python">{{ vopros.code_executor }}</code></pre>
+                            </div>
+                        </div>
+                    {% endif %}
+                    {#    Проверка на наличие кода     #}
+
+                    {#    Футер вопроса     #}
+
+                    {% for part in vopros.get_part_question_2 %}
+                        {% if vopros.picture %}
+                            <p class="text-justify" style="float: left"> {{ part|safe }}</p>
+                        {% else %}
+                            <p class="text-justify "> {{ part|safe }}</p>
+                        {% endif %}
+                    {% endfor %}
+
+                    {#    Футер вопроса     #}
+                    {% if vopros.picture %}
+                        <div class="clearfix">
+                    {% endif %}
+
+                    {#    Проверка на наличие картинки   Закрываем блок clearfix  #}
+                    {% if vopros.picture %}
+                        </div>
+                    {% endif %}
+                    {#    Проверка на наличие картинки     #}
+                </div>
+
+
+                {#Комменты Вконтакте#}
+                <!-- Put this script tag to the <head> of your page -->
+                <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
+
+                <script type="text/javascript">
+                    VK.init({apiId: 6204845, onlyWidgets: true});
+                </script>
+
+                <!-- Put this div tag to the place, where the Comments block will be -->
+                <div id="vk_comments"></div>
+                <script type="text/javascript">
+                    VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+                </script>
+                {#Комменты Вконтакте#}
+            </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('.list-group a').each(function () {
+                var location = window.location.href;
+                var link = this.href;
+                {#в случае get запроса нужно получить короткий путь#}
+                if (location.indexOf('category') >= 0) {
+                    var index = location.indexOf('category');
+                    location = location.substr(0, index - 1);
+                }
+                if (location.length == link.length && location.indexOf(link) == 0) {
+                    $(this).addClass('active');
+                }
+            });
+        });
+    </script>
+
+{% endblock %}

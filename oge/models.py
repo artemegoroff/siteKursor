@@ -1,0 +1,122 @@
+from django.db import models
+
+
+class VariantOge(models.Model):
+    number_var = models.IntegerField(verbose_name="Номер задания", unique=True)
+
+    def __str__(self):
+        return str(self.number_var) + ' Вариант'
+
+    def seo_title(self):
+        return 'Тренировачный вариант ' + str(self.number_var) + ' ЕГЭ по информатике'
+
+    def seo_description(self):
+        return "Испытайте Ваши знания! Решите пробный вариант № " + str(self.number_var) + """ по ОГЭ Информатика
+    В данном варианте собраны все актуальные задачи, аналогичные тем, что присутствуют в демо варианте ФИПИ или были
+    на последнем реальном экзамене"""
+
+    def seo_keywords(self):
+        return "ОГЭ Информатика, Информатика 2018, Варианты информатика, тесты ОГЭ информатика, Тесты онлайн Информатика ОГЭ"
+
+    class Meta:
+        verbose_name = "Вариант ОГЭ"
+        verbose_name_plural = "Варианты ОГЭ"
+
+
+class NumberTaskOge(models.Model):
+    number = models.IntegerField(verbose_name="Номер задания", primary_key=True)
+    title = models.CharField("Название", max_length=150)
+    picture = models.ImageField(upload_to='oge/photo', blank=True, default='')
+    types = (
+        ('Radio', 'RadioButton'),
+        ('Input', 'Input'),
+    )
+    type_of_answer = models.CharField(
+        max_length=5,
+        choices=types,
+        default='Input',
+    )
+    seo_description = models.TextField('Description', blank=True, max_length=160)
+    seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
+
+    def __str__(self):
+        return str(self.number) + '. ' + self.title
+
+    def seo_title(self):
+        return "Тест по заданию " + str(self.number) + " " + self.title + " ОГЭ Информатика"
+
+    def count_questions(self):
+        return len(QuestionsOge.objects.filter(number_of_task=self.number))
+
+    class Meta:
+        verbose_name = "Номер задания ОГЭ"
+        verbose_name_plural = "Номера заданий ОГЭ"
+        ordering = ["number"]
+
+
+class CategoryOge(models.Model):
+    number_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
+    text = models.CharField(verbose_name="Название", max_length=60)
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural = "Категории вопросов ОГЭ"
+        verbose_name = "Категория вопросов ОГЭ"
+        ordering = ["number_task"]
+
+
+class QuestionsOge(models.Model):
+    text = models.TextField("Вопрос")
+    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
+    category = models.ForeignKey(CategoryOge, verbose_name="Категория вопроса", blank=True, null=True)
+    number_of_variant = models.ForeignKey(VariantOge, verbose_name="Номер варианта", blank=True, null=True)
+    picture = models.ImageField(upload_to='oge/photo', blank=True, default='')
+    table_data = models.TextField("Табличные данные", blank=True, null=True)
+    code_python = models.TextField("Python", blank=True, null=True)
+    code_pascal = models.TextField("Paskal", blank=True, null=True)
+    code_c_plus = models.TextField("C++", blank=True, null=True)
+    code_executor = models.TextField("Испольнитель", blank=True, null=True)
+    var_of_choice_answer = models.TextField("Варианты ответа", blank=True, null=True)
+    answer = models.CharField(verbose_name="Ответ", max_length=30)
+
+    def __str__(self):
+        return "%s %s " % (self.number_of_task, self.text)
+
+    def get_part_question_1(self):
+        return self.text.split('---')[0].split('===')
+
+    def get_part_question_2(self):
+        if len(self.text.split('---')) > 1:
+            return self.text.split('---')[1].split('===') or ''
+
+    def get_var_answers(self):
+        return self.var_of_choice_answer.split('\n')
+
+    def table_in_row(self):
+        s = self.table_data.split('#####')
+        for i in range(len(s)):
+            s[i] = s[i].replace('\r', '')
+        for i in range(len(s)):
+            s[i] = s[i].strip()
+        for i in range(len(s)):
+            s[i] = s[i].split('\n')
+        for i in range(len(s)):
+            for j in range(len(s[i])):
+                s[i][j] = s[i][j].split('\t')
+        return s
+
+    def get_vars(self):
+        variants_list = self.number_of_variant.get_queryset()
+        variants_str = ''
+        for variant in variants_list:
+            variants_str += ', ' + str(variant.number_var)
+        return variants_str.lstrip(', ')
+
+    # В админке поле будет называться не get_nomination, а Номинации
+    get_vars.short_description = 'Варианты'
+
+    class Meta:
+        verbose_name = "Вопрос ОГЭ"
+        verbose_name_plural = "Вопросы ОГЭ"

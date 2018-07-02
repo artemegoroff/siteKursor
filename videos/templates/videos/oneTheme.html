@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block seo_block %}
+    <title>Программирование на языке Python. Репетитор Егоров Артем</title>
+    <meta name="description" content="{{ Theme.seo_description }}">
+    <meta name="keywords" content="Python, Питон, Программирование на питоне,
+    Программирование python, {{ Theme.seo_keywords }}>
+{% endblock %}
+
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'videos/css/oneTheme.less' %}" type="text/less">
+    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+{% endblock %}
+
+
+{% block content %}
+
+
+    <div class="container-fluid" id="wrapper">
+        <div class="row">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar -->
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#"> Разделы: </a>
+                    </li>
+                    {% for oneTheme in allThemes %}
+                        <li>
+                            <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">
+                                {{ forloop.counter }}.{{ oneTheme.theme }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                    <li><a href="#"> Спасибо за внимание! </a></li>
+
+                </ul>
+                <!-- /#sidebar-wrapper -->
+            </div>
+            <!-- Page Content -->
+            <div class="col-md-offset-2 col-md-8" id="page-content-wrapper">
+                <span id="menu-checker" style="font-size:30px;cursor:pointer">&#9776; Содержание</span>
+                {% if not Theme.url_video and not Theme.article %}
+                    <h2 class="text-center">Извините</h2>
+                    <h2 class="text-center">В данный момент контент по теме:</h2>
+                    <h2 class="text-center"> "{{ Theme.theme }}"</h2>
+                    <h2 class="text-center"> еще не опубликован</h2>
+                    <h2 class="text-center">В скором времени появиться содержимое раздела</h2>
+                    <h2 class="text-center">Спасибо </h2>
+                    <h2 class="text-center">за</h2>
+                    <h2 class="text-center">внимание</h2>
+                {% else %}
+                    <h1>{{ Theme.theme }}</h1>
+                    {% if Theme.url_video %}
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <iframe class="embed-responsive-item" width="854" height="480" src="{{ Theme.url_video }}"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                        </div>
+                    {% endif %}
+                    {{ Theme.article|safe }}
+                {% endif %}
+
+            </div>
+            <!-- /#page-content-wrapper -->
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        var openCloseMenu = function () {
+            var sect = $("#page-content-wrapper");
+            sect.toggleClass("col-md-offset-2");
+            if (sect.hasClass("col-md-8")) {
+                sect.removeClass("col-md-8");
+                sect.addClass("col-md-10");
+            }
+            else {
+                sect.removeClass("col-md-10");
+                sect.addClass("col-md-8");
+            }
+        }
+        $(document).ready(function () {
+            $('#page-content-wrapper img').addClass('responseImg');
+            var a = localStorage.getItem("menu");
+            if (isNaN(a)) {
+                a = false;
+            }
+            ;
+            if (a == true) {
+                $("#wrapper").addClass("checked");
+                openCloseMenu();
+            }
+        });
+
+        $("#menu-checker").click(function (e) {
+            e.preventDefault();
+            var a = localStorage.getItem("menu");
+            localStorage.setItem("menu", a ^ true);
+            $("#wrapper").toggleClass("checked");
+            openCloseMenu();
+        });
+
+    </script>
+{% endblock %}

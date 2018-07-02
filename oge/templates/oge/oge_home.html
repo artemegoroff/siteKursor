@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block seo_block %}
+    <title>Подготовка к ЕГЭ по Информатике 2018. Репетитор Егоров Артем</title>
+    <meta name="description" content="Успешно подготовьтесь к сдаче ОГЭ по информатике.
+    Решайте только актуальные задачи. Выбирайте вариант тестирования: либо целый вариант,
+    либо выполните тест по конкретной теме. На сайте имеется более 10 пробных
+вариантов по ОГЭ информатике">
+    <meta name="keywords" content="ОГЭ информатика, Тесты по информатике, Онлайн тесты,
+          задания по информатике, Пробный вариант">
+{% endblock %}
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'oge/css/oge_home_less.less' %}" type="text/less">
+{% endblock %}
+
+
+{% block content %}
+    {#блок панель по ОГЭ информатике#}
+    <div class="container-fluid block-choice-razdel">
+        <div class="row text-center" style="padding-top: 40px">
+            <h2>ОГЭ по информатике</h2>
+            <h4>Выберите интересующий Вас раздел:</h4>
+        </div>
+        <div class="text-center">
+            <div class="row block-panel">
+                <div class="col-md-offset-3 col-md-3 col-sm-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Задания</h1>
+                        </div>
+                        {#                        <div class="panel-body">#}
+                        {#                            <p><strong>6</strong> задания части А</p>#}
+                        {#                            <p><strong>12</strong> задания части В</p>#}
+                        {#                            <p> Коды программ представлены на языках </p>#}
+                        {#                            <p><strong>Python</strong> <strong>C++</strong> <strong>Pacsal</strong></p>#}
+                        {#                        </div>#}
+                        <div class="panel-footer">
+                            <p></p>
+                            {#                            <p><span class="glyphicon glyphicon-hand-down logo-small"></span></p>#}
+                            <a class="btn btn-default btn-lg" href="{% url 'oge:oge_list' %}">Перейти к заданиям</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Варианты</h1>
+                        </div>
+                        {#                        <div class="panel-body">#}
+                        {#                            <p><strong>Официальные демо-варианты</strong></p>#}
+                        {#                            <p><strong>Досрочные варианты</strong></p>#}
+                        {#                            <p><strong>Авторские варианты ОГЭ</strong></p>#}
+                        {#                            <p>Что-то еще</p>#}
+                        {#                        </div>#}
+                        <div class="panel-footer">
+                            <p></p>
+                            {#                            <p><span class="glyphicon glyphicon-circle-arrow-down logo-small"></span></p>#}
+                            <a class="btn btn-default btn-lg" href="#block_var_oge" id="hrefVar">Перейти к вариантам</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {#  заголовок задания  #}
+    <div class="container-fluid block-header">
+        <div class="text-center">
+            <h2>Ниже представлены имеющиеся типы заданий по ЕГЭ информатике</h2>
+            <h4>Выберите интересующий Вас тип задания:</h4>
+        </div>
+    </div>
+    {#  заголовок задания  #}
+
+    {# Блок: типы задач #}
+    <div class="container-fluid block-tasks">
+        <div class="row">
+            <div class="col-md-offset-4 col-md-4">
+                <div class="list-group">
+                    {% for task in tasksOge %}
+                        <a href="{% url 'oge:oge_task_detail' task.number %}" class="list-group-item">
+                            {{ task }} <span class="badge">Заданий {{ task.count_questions }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {# Блок: типы задач #}
+
+
+    {#  заголовок варианты  #}
+    <div class="container-fluid block-header">
+        <div class="text-center">
+            <h2>Ниже представлены имеющиеся варианты ОГЭ информатике</h2>
+            <h4>Выберите интересующий Вас вариант:</h4>
+        </div>
+    </div>
+    {#  заголовок варианты  #}
+    {#блок варианты ЕГЭ по информатике#}
+    <div class="container-fluid block-var" id="block_var_oge">
+        <div class="row">
+            {#   обходим цикл 3 раза (такого количество колонок#}
+            {% for foo in groups %}
+                <div class="col-md-4">
+                    <div class="list-group">
+                        {% for var in varsOge %}
+                            {#  проверяем какие элементы относятся к текущей колонке #}
+                            {% if forloop.counter >= foo and forloop.counter < foo|add:kol %}
+                                {#  TODO сделать ссылки на варианты          #}
+                                <a href="{% url 'oge:oge_get_var' var.number_var %}"
+                                   class="list-group-item text-center"> {{ var }} </a>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#hrefVar").on("click", function (event) {
+                event.preventDefault();
+                var id = $(this).attr('href'),
+                    top = $(id).offset().top;
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
+        });
+    </script>
+
+{% endblock %}
+
+

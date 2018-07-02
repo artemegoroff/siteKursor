@@ -1,0 +1,229 @@
+
+/*картинки карусели*/
+.carousel-inner > .item > img {
+    width: 100%; /* Set width to 100% */
+    margin: auto; /*центрирование картинки карусели*/
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}
+
+/*отзывы*/
+.carousel-control.reviewleft, .carousel-control.reviewright {
+    background: none;
+    width: 25px;
+}
+
+.carousel-control.reviewleft {
+    left: -25px;
+}
+
+.carousel-control.reviewright {
+    right: -25px;
+}
+
+.broun-block {
+    padding-bottom: 34px;
+}
+
+.block-text {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 0 #2c2222;
+    color: #626262;
+    font-size: 14px;
+    margin-top: 27px;
+    padding: 15px 18px;
+}
+
+.block-text a {
+    color: #7d4702;
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 21px;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.mark {
+    padding: 12px 0;
+    background: none;
+}
+
+.block-text p {
+    color: #585858;
+    font-family: Georgia;
+    font-style: italic;
+    line-height: 20px;
+}
+
+.sprite-i-triangle {
+    background-position: 0 -1298px;
+    height: 44px;
+    width: 50px;
+}
+
+.block-text ins {
+    bottom: -44px;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.block {
+    display: block;
+}
+
+.zmin {
+    z-index: 1;
+}
+
+.ab {
+    position: absolute;
+}
+
+.person-text {
+    padding: 10px 0 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.person-text a {
+    color: #563838;
+    display: block;
+    font-size: 14px;
+    margin-top: 3px;
+    text-decoration: underline;
+}
+
+.person-text i {
+    color: #fff;
+    font-family: Georgia;
+    font-size: 13px;
+}
+
+.rel {
+    position: relative;
+}
+
+.block-review-header{
+    width: 100%;
+    font-family: 'Lora', serif;
+    background-color: #563838;
+    color: white;
+    height: 80px;
+}
+
+.block-review-header a{
+    color: white;
+}
+
+.block-review-header a:hover{
+    text-decoration: underline;
+}
+
+/*касается вариантов выбора обучения*/
+.p-top-100{
+    padding:100px 0;
+}
+.m-top-40{
+    margin-top: 40px;
+}
+
+/*=================================================
+Pricint fiv
+===================================================*/
+.bs-five-area{
+    width:100%;
+    display: inline-block;
+    box-shadow: 5px 6px 6px 5px #ddd;
+    overflow: hidden;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    color:#563838;
+}
+
+.bs-five-area.bs-radius{
+    border-radius: 30px;
+}
+.bs-five-area > div{
+    padding:0;
+}
+
+
+.bs-five-area .bs-five{
+    position: relative;
+    width: 100%;
+    margin: auto;
+    transition: all 0.4s;
+    padding:20px 0px;
+}
+.bs-five-area .bs-five h6{
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+.bs-five-area .bs-five h1{
+    font-size:64px;
+    font-weight: 100;
+    line-height: 72px;
+}
+.bs-five-area .bs-five h1 sup{
+    font-size:30px;
+    top:-30px;
+}
+.bs-five-area .bs-five ul {
+    margin:0;
+    padding:0;
+    list-style: none;
+}
+
+
+
+.bs-five-area .bs-five:hover{
+
+    background: -webkit-linear-gradient(left, #563838 , #c4bcaf);
+    background: -o-linear-gradient(right, #563838, #c4bcaf);
+    background: -moz-linear-gradient(right, #563838, #c4bcaf);
+    background: linear-gradient(to right, #563838 , #c4bcaf);
+    transition: all 0.4s;
+}
+
+.bs-five-area .bs-five.active {
+    background: -webkit-linear-gradient(left, #563838 , #c4bcaf);
+    background: -o-linear-gradient(right, #563838, #c4bcaf);
+    background: -moz-linear-gradient(right, #563838, #c4bcaf);
+    background: linear-gradient(to right, #563838 , #c4bcaf);
+    /*background: #563838;*/
+}
+
+.bs-five-area .bs-five .btn-success{
+    padding: 10px 50px;
+    display: inline-block;
+    border-radius: 30px;
+    background-color: #563838;
+    border-color: #c4bcaf;
+}
+
+
+.bs-five-area .bs-five.active .btn.btn-success,
+.bs-five-area .bs-five:hover.bs-five .btn.btn-success{
+    background: #E0FFF6 ;
+    color:#444 ;
+
+}
+
+.bs-five-area .bs-five.active,
+.bs-five-area .bs-five.active ul li,
+.bs-five-area .bs-five:hover.bs-five,
+.bs-five-area .bs-five:hover.bs-five ul li
+{
+    color:#fff;
+}
+

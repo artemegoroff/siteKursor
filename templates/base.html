@@ -1,0 +1,66 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71737580-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-71737580-2');
+    </script>
+
+    <meta http-equiv="content-type" charset="UTF-8" content="text/html">
+    <meta name="yandex-verification" content="8653db1f1f70db74"/>
+    <meta name="google-site-verification" content="GpdpVby8w1414HOe6JdW7QMDQqjTRvNMM8HbxehHwpY"/>
+
+    {% block seo_block %}
+    {% endblock %}
+
+    <!--Шрифты -->
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <!--Шрифты -->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled and minified CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+                  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+                crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet/less" href="{% static 'css_base/fonts.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/navbar_less.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/mediaNav.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css_base/footer_less.less' %}" type="text/less">
+    {% block extracss %} {% endblock %}
+    <!-- Подключение LESS -->
+    <script src="{% static 'js_base/less.min.js' %}"></script>
+
+</head>
+<body>
+
+{% include  'navbar_menu.html' %}
+
+
+<!--КОНТЕНТ-->
+{% block content %}
+{% endblock %}
+
+<!--футер-->
+{% include 'footer.html' %}
+
+
+</body>
+</html>

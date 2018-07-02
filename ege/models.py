@@ -1,0 +1,138 @@
+from _sitebuiltins import _Printer
+
+from django.db import models
+
+
+class VarEge(models.Model):
+    number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
+
+    def __str__(self):
+        return str(self.number_var) + ' Вариант'
+
+    def seo_title(self):
+        return 'Тренировачный вариант ' + str(self.number_var) + ' ЕГЭ по информатике'
+
+    def seo_description(self):
+        return "Испытайте Ваши знания! Решите пробный вариант № " + str(self.number_var) + """ по ЕГЭ Информатика
+    В данном варианте собраны все актуальные задачи, аналогичные тем, что присутствуют в демо варианте ФИПИ или были
+    на последнем реальном экзамене"""
+
+    def seo_keywords(self):
+        return "ЕГЭ Информатика, Информатика 2018, Варианты информатика, тесты ЕГЭ информатика, Тесты онлайн Информатика"
+
+    class Meta:
+        verbose_name = "Вариант ЕГЭ"
+        verbose_name_plural = "Варианты ЕГЭ"
+
+
+class NumberTaskEge(models.Model):
+    number = models.IntegerField(verbose_name="Номер задания", primary_key=True)
+    title = models.CharField("Название", max_length=150)
+    picture = models.ImageField(upload_to='ege/photo', blank=True, default='')
+    types = (
+        ('ManyT', 'ManyText'),
+        ('Input', 'Input'),
+        ('NoInp', 'NoInput'),
+    )
+    type_of_answer = models.CharField(
+        max_length=5,
+        choices=types,
+        default='Input',
+    )
+    seo_description = models.TextField('SEO Description', blank=True, max_length=160)
+    seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
+
+    def __str__(self):
+        return str(self.number) + '. ' + self.title
+
+    def seo_title(self):
+        return "Тест по заданию " + str(self.number) + " " + self.title + " ЕГЭ Информатика"
+
+    def count_questions(self):
+        return len(QuestionsEGE.objects.filter(number_of_task=self.number))
+
+    class Meta:
+        verbose_name = "Номер задания ЕГЭ"
+        verbose_name_plural = "Номера заданий ЕГЭ"
+        ordering = ["number"]
+
+
+class CategoryEge(models.Model):
+    number_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
+    text = models.CharField(verbose_name="Название", max_length=60)
+
+    def __str__(self):
+        return self.text
+
+    class Meta:
+        verbose_name_plural = "Категории вопросов ЕГЭ"
+        verbose_name = "Категория вопросов ЕГЭ"
+        ordering = ["number_task"]
+
+
+class VideoRazborEGE(models.Model):
+    url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
+    description = models.CharField(verbose_name='Описание', max_length=150)
+    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
+    data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
+    seo_description = models.TextField('SEO Description', blank=True, max_length=160)
+    seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
+
+    def __str__(self):
+        return self.url_video + ' ' + self.description
+
+    def get_thumbnail_url(self):
+        return 'https://www.youtube.com/watch?v=' + self.url_video
+
+    def get_text_of_question(self):
+        return QuestionsEGE.objects.get(q_url_video=self)
+
+    class Meta:
+        verbose_name = "Разбор задач ЕГЭ"
+        verbose_name_plural = "Разборы ЕГЭ"
+
+
+class QuestionsEGE(models.Model):
+    text = models.TextField("Вопрос")
+    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
+    category = models.ForeignKey(CategoryEge, verbose_name="Категория вопроса", blank=True, null=True)
+    number_of_variant = models.ForeignKey(VarEge, verbose_name="Номер варианта", blank=True, null=True)
+    picture = models.ImageField(upload_to='ege/photo', blank=True, default='')
+    table_data = models.TextField("Табличные данные", blank=True, null=True)
+    code_python = models.TextField("Python", blank=True, null=True)
+    code_pascal = models.TextField("Paskal", blank=True, null=True)
+    code_c_plus = models.TextField("C++", blank=True, null=True)
+    code_executor = models.TextField("Испольнитель", blank=True, null=True)
+    q_url_video = models.OneToOneField(VideoRazborEGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
+                                       null=True)
+    answer = models.CharField(verbose_name="Ответ", max_length=30)
+
+    def __str__(self):
+        return "%s %s" % (self.number_of_task, self.text)
+
+    def get_part_question_1(self):
+        return self.text.split('---')[0].split('===')
+
+    def get_part_question_2(self):
+        if len(self.text.split('---')) > 1:
+            return self.text.split('---')[1].split('===') or ''
+
+    def get_var_answers(self):
+        return self.var_of_choice_answer.split('\n')
+
+    def table_in_row(self):
+        s = self.table_data.split('#####')
+        for i in range(len(s)):
+            s[i] = s[i].replace('\r', '')
+        for i in range(len(s)):
+            s[i] = s[i].strip()
+        for i in range(len(s)):
+            s[i] = s[i].split('\n')
+        for i in range(len(s)):
+            for j in range(len(s[i])):
+                s[i][j] = s[i][j].split('\t')
+        return s
+
+    class Meta:
+        verbose_name = "Вопрос ЕГЭ"
+        verbose_name_plural = "Вопросы ЕГЭ"
