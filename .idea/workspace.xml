@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="second">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ege/migrations/0016_remove_videorazborege_description.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css_base/prism.css" afterPath="$PROJECT_DIR$/base_static/css_base/prism.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/js_base/prism.js" afterPath="$PROJECT_DIR$/base_static/js_base/prism.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/admin.py" afterPath="$PROJECT_DIR$/ege/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/models.py" afterPath="$PROJECT_DIR$/ege/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/views.py" afterPath="$PROJECT_DIR$/ege/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/admin.py" afterPath="$PROJECT_DIR$/oge/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/models.py" afterPath="$PROJECT_DIR$/oge/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" afterPath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/urls.py" afterPath="$PROJECT_DIR$/oge/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/views.py" afterPath="$PROJECT_DIR$/oge/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_list.html" afterPath="$PROJECT_DIR$/templates/video_task_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,7 +38,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1262">
@@ -81,7 +70,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ege/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
@@ -315,92 +304,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="oge" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ege" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ege" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ege" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -428,16 +331,16 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Python36\Django projects\Kursor\home\static\home\img" />
-      <recent name="C:\Python36\Django projects\Kursor\ege\static\ege\css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python36\Django projects\Kursor\Kursor" />
       <recent name="C:\Python36\Django projects\Kursor\home" />
       <recent name="C:\Python36\Django projects\Kursor\oge\static\oge\photo" />
       <recent name="C:\Python36\Django projects\Kursor\base_static\css_base" />
       <recent name="C:\Python36\Django projects\Kursor\ege\static\ege\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Python36\Django projects\Kursor\home\static\home\img" />
+      <recent name="C:\Python36\Django projects\Kursor\ege\static\ege\css" />
     </key>
   </component>
   <component name="RunManager" selected="Django server.Kursor">
@@ -744,6 +647,14 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
+    <task id="LOCAL-00001" summary="second">
+      <created>1530737983409</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1530737983409</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -757,9 +668,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1651671" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1651671" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2696011" sideWeight="0.5064935" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32813516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -806,6 +717,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="second" />
+    <option name="LAST_COMMIT_MESSAGE" value="second" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1132,16 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oge/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1157,6 +1062,16 @@
         <state relative-caret-position="-1262">
           <caret line="326" column="10" lean-forward="false" selection-start-line="326" selection-start-column="10" selection-end-line="340" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
