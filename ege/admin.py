@@ -63,8 +63,8 @@ class AdminVariantEge(admin.ModelAdmin):
     ordering = ['number_var']
 
 class AdminVideoRazborEGE(admin.ModelAdmin):
-    list_display = ['id','description','url_video','number_of_task']
-    list_editable = ['description','url_video','number_of_task']
+    list_display = ['id','url_video','number_of_task']
+    list_editable = ['url_video','number_of_task']
 
 
 

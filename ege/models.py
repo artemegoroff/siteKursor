@@ -72,14 +72,13 @@ class CategoryEge(models.Model):
 
 class VideoRazborEGE(models.Model):
     url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
-    description = models.CharField(verbose_name='Описание', max_length=150)
     number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
 
     def __str__(self):
-        return self.url_video + ' ' + self.description
+        return str(self.id) + ' ' + self.url_video
 
     def get_thumbnail_url(self):
         return 'https://www.youtube.com/watch?v=' + self.url_video

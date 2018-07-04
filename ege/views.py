@@ -29,8 +29,7 @@ def ege_task_detail(request, number_task):
     tasks_prism = [8, 11, 14, 19, 20, 21, 24, 25]
     questions = QuestionsEGE.objects.filter(number_of_task=number_task)
     category = list(CategoryEge.objects.filter(number_task=number_task))
-    if len(category) != 1:
-        category += ['Все']
+    category.insert(0,'Все категории задания')
     if request.method == "POST":
         text_cat = request.GET.get("category_sel", 'Все')
         if text_cat != 'Все':
@@ -51,14 +50,10 @@ def ege_task_detail(request, number_task):
                         questions[i].status = 'good'
                     questions[i].old_answer = request.POST[dataPost]
                     break
-    elif request.method == "GET":
-        text_cat = request.GET.get("category_sel", 'Все')
-        if text_cat != "Все":
-            id_cat = CategoryEge.objects.all().get(text=text_cat)
-            questions = questions.filter(number_of_task=number_task).filter(category=id_cat)
+
     questions = list(questions)
     tasks = NumberTaskEge.objects.all()
-    context = {"questions": questions, 'text_cat': text_cat, 'tasks': tasks,
+    context = {"questions": questions, 'tasks': tasks,
                'number_task': NumberTaskEge.objects.all().get(number=number_task), 'exam': exam,
                'tasks_prism': tasks_prism, 'category': category}
 
@@ -100,7 +95,15 @@ def ege_videotask_detail(request, id_task):
 
 
 def ege_videotask_list(request):
-    razbors = VideoRazborEGE.objects.all()
-    context = {'videos': razbors}
+
+    razbors = VideoRazborEGE.objects.all().order_by('-data_add')
+    number_values = list(razbors.values_list('number_of_task',flat=True).distinct())
+    numbers=[]
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskEge.objects.get(number = cat))
+    if len(numbers) != 1:
+        numbers.insert(0,'Все видеоразборы')
+
+    context = {'videos': razbors, 'numbers':numbers}
 
     return render(request, 'video_task_list.html', context)

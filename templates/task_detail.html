@@ -100,16 +100,14 @@
             <div class="col-md-9">
 
                 {% if exam == 'oge' or exam == 'ege' %}
-                    <form action="" class="form-inline" method="get" name="param_search">
-                        <label for="category_sel">Категория вопросов:</label>
-                        <select class="form-control" id="category_sel" name="category_sel">
-                            {% for cat in category %}
-                                <option {% if cat.text == text_cat or cat == text_cat %}
-                                    selected {% endif %}> {{ cat }}</option>
-                            {% endfor %}
-                        </select>
-                        <input type="submit" class="btn-success btn-sm" value="Изменить">
-                    </form>
+                    <label class="control-label" for="category_sel">Категория вопросов:</label>
+                    <select class="form-control" id="category_sel" name="category_sel">
+                        {% for cat in category %}
+                            <option {% if cat.text == text_cat or cat == text_cat %}
+                                selected {% endif %}> {{ cat }}</option>
+                        {% endfor %}
+                    </select>
+                    <br>
                 {% endif %}
 
 
@@ -117,22 +115,40 @@
                 <form name="list" method="POST" action="" id="list_questions">
                     {% csrf_token %}
                     {% for vopros in questions %}
-                        <div class="well well-sm {% if vopros.status %} {{ vopros.status }} {% endif %}">
+                        <div class="well well-sm {% if vopros.status %} {{ vopros.status }} {% endif %}"
+                             data-categ="{{ vopros.category }}">
                             {#  here ref of redactor#}
-{#                                {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
-{#                                    <div class="abs_spanRedact">#}
-{#                                        <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
-{#                                                target="_blank" class="btn btn-info" role="button">Редактировать#}
-{#                                        </a>#}
-{#                                    </div>#}
-{#                                {% endif %}#}
+                            {% if '127.0.0.1' in request.META.HTTP_HOST %}
+                                <div class="abs_spanRedact">
+                                    {% if exam == 'ege' %}
+                                        <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
+                                           target="_blank" class="btn btn-info" role="button">Редактировать
+                                        </a>
+                                    {% elif exam == 'oge' %}
+                                        <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
+                                           target="_blank" class="btn btn-info" role="button">Редактировать
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                             {#  here ref of redactor#}
                             {% if vopros.q_url_video %}
                                 <div class="abs_span">
-                                    <a target="_blank" href="{% url 'ege:ege_videotask_detail' vopros.q_url_video.id %}"
-                                       class="btn btn-info" role="button">
-                                        ВИДЕОРАЗБОР
-                                    </a>
+                                    {% if exam == 'ege' %}
+                                        <a target="_blank"
+                                           href="{% url 'ege:ege_videotask_detail' vopros.q_url_video.id %}"
+                                           class="btn btn-info" role="button">
+                                            ВИДЕОРАЗБОР
+                                        </a>
+                                    {% elif exam == 'oge' %}
+                                        <a target="_blank"
+                                           href="{% url 'oge:oge_videotask_detail' vopros.q_url_video.id %}"
+                                           class="btn btn-info" role="button">
+                                            ВИДЕОРАЗБОР
+                                        </a>
+                                    {% endif %}
+
+
                                 </div>
                             {% endif %}
                             {#    Проверка на наличие картинки     #}
@@ -308,21 +324,21 @@
             });
         });
 
-        $(document).ready(function () {
-            $('.blockcode').each(function () {
-                // Cache the highest
-                var highestBox = 0;
-                // Select and loop the elements you want to equalise
-                $('code', this).each(function () {
-                    // If this box is higher than the cached highest then store it
-                    if ($(this).height() > highestBox) {
-                        highestBox = $(this).height();
-                    }
-                });
-                // Set the height of all those children to whichever was highest
-                $('code', this).height(highestBox);
-            });
-        });
+{#        $(document).ready(function () {#}
+{#            $('.blockcode').each(function () {#}
+{#                // Cache the highest#}
+{#                var highestBox = 0;#}
+{#                // Select and loop the elements you want to equalise#}
+{#                $('code', this).each(function () {#}
+{#                    // If this box is higher than the cached highest then store it#}
+{#                    if ($(this).height() > highestBox) {#}
+{#                        highestBox = $(this).height();#}
+{#                    }#}
+{#                });#}
+{#                // Set the height of all those children to whichever was highest#}
+{#                $('code', this).height(highestBox);#}
+{#            });#}
+{#        });#}
     </script>
 
     <script type="text/javascript">
@@ -377,6 +393,22 @@
                 $("#myModalBox").modal('show');
             }
         })
+    </script>
+
+    <script>
+        {#фильтруем видео по номеру вопроса#}
+        $(document).ready(function () {
+            $("#category_sel").on("click", function () {
+                var value = $(this).val().toLowerCase();
+                console.log(value);
+                if (value == "все категории задания") {
+                    value = ' ';
+                }
+                $(".well").filter(function () {
+                    $(this).toggle($(this).data('categ').toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
     </script>
 
 

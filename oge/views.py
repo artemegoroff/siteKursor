@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge
+from django.shortcuts import render,get_object_or_404
+from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE
 
 
 def oge_home_page(request):
@@ -28,8 +28,7 @@ def oge_task_detail(request, number_task):
     tasks_prism = [6, 8, 9, 10]
     questions = QuestionsOge.objects.filter(number_of_task=number_task)
     category = list(CategoryOge.objects.filter(number_task=number_task))
-    if len(category) != 1:
-        category += ['Все']
+    category.insert(0, 'Все категории задания')
     if request.method == "POST":
         text_cat = request.GET.get("category_sel", 'Все')
         if text_cat != 'Все':
@@ -49,11 +48,6 @@ def oge_task_detail(request, number_task):
                         questions[i].status = 'good'
                     questions[i].old_answer = request.POST[dataPost]
                     break
-    elif request.method == "GET":
-        text_cat = request.GET.get("category_sel", 'Все')
-        if text_cat != "Все":
-            id_cat = CategoryOge.objects.all().get(text=text_cat)
-            questions = questions.filter(number_of_task=number_task).filter(category=id_cat)
     questions=list(questions)
     tasks = NumberTaskOge.objects.all()
     context = {"questions": questions, 'tasks': tasks, 'number_task': NumberTaskOge.objects.all().get(number=number_task), 'exam': exam,'tasks_prism':tasks_prism, 'category':category}
@@ -83,3 +77,26 @@ def oge_get_var(request,variant_number):
                'tasks_prism': tasks_prism}
 
     return render(request, 'task_detail.html', context)
+
+
+def oge_videotask_detail(request, id_task):
+    razbor = get_object_or_404(VideoRazborOGE, id=int(id_task))
+    task = QuestionsOge.objects.get(q_url_video=razbor)
+    context = {'vopros': task, 'video': razbor}
+
+    return render(request, 'video_task_detail.html', context)
+
+
+def oge_videotask_list(request):
+
+    razbors = VideoRazborOGE.objects.all().order_by('-data_add')
+    number_values = list(razbors.values_list('number_of_task',flat=True).distinct())
+    numbers=[]
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskOge.objects.get(number = cat))
+    if len(numbers) != 1:
+        numbers.insert(0,'Все видеоразборы')
+
+    context = {'videos': razbors, 'numbers':numbers}
+
+    return render(request, 'video_task_list.html', context)

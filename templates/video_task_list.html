@@ -27,7 +27,14 @@
             </div>
 
             <div class="col-md-9">
-            <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                <select class="form-control" id="myInput" type="text">
+                    {% for cat in numbers %}
+                        <option {% if forloop.first %}
+                            selected {% endif %}> {{ cat }}</option>
+                    {% endfor %}
+                </select>
+                <br>
                 <table class="table table-bordered table-responsive table-striped table-razbor">
                     <thead>
                     <tr>
@@ -36,7 +43,7 @@
                         <th>Дата добавления</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="myTable">
                     {% for video in videos %}
                         <tr class='clickable-row' data-href='{% url 'ege:ege_videotask_detail' video.id %}'>
                             <td><img class="img-responsive img-rounded"
@@ -77,9 +84,23 @@
                 }
             });
         });
-        $(document).ready(function($) {
+        $(document).ready(function ($) {
             $(".clickable-row").click(function () {
                 window.location = $(this).data("href");
+            });
+        });
+
+        {#фильтруем видео по номеру вопроса#}
+        $(document).ready(function () {
+            $("#myInput").on("click", function () {
+                var value = $(this).val().toLowerCase();
+                console.log(value);
+                if (value=="все видеоразборы"){
+                    value=' ';
+                }
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
         });
     </script>

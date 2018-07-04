@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import QuestionsOge, NumberTaskOge, CategoryOge, VariantOge
+from .models import QuestionsOge, NumberTaskOge, CategoryOge, VariantOge, VideoRazborOGE
 from django.forms import TextInput, Textarea, Select
 from django.db import models
 
@@ -60,7 +60,12 @@ class AdminVariantOGE(admin.ModelAdmin):
     list_display = ['number_var']
     ordering = ['number_var']
 
+class AdminVideoRazborOGE(admin.ModelAdmin):
+    list_display = ['url_video','number_of_task','seo_description','seo_keywords']
+    ordering = ['number_of_task']
+
 admin.site.register(QuestionsOge, AdminQuestionsOGE)
 admin.site.register(NumberTaskOge, AdminNumberTaskOGE)
 admin.site.register(CategoryOge, AdminCategoryOGE)
 admin.site.register(VariantOge, AdminVariantOGE)
+admin.site.register(VideoRazborOGE, AdminVideoRazborOGE)

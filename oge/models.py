@@ -67,6 +67,27 @@ class CategoryOge(models.Model):
         ordering = ["number_task"]
 
 
+class VideoRazborOGE(models.Model):
+    url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
+    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
+    data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
+    seo_description = models.TextField('SEO Description', blank=True, max_length=160)
+    seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
+
+    def __str__(self):
+        return str(self.id) + ' ' + self.url_video
+
+    def get_thumbnail_url(self):
+        return 'https://www.youtube.com/watch?v=' + self.url_video
+
+    def get_text_of_question(self):
+        return QuestionsOge.objects.get(q_url_video=self)
+
+    class Meta:
+        verbose_name = "Разбор задач ОГЭ"
+        verbose_name_plural = "Разборы ОГЭ"
+
+
 class QuestionsOge(models.Model):
     text = models.TextField("Вопрос")
     number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
@@ -79,6 +100,9 @@ class QuestionsOge(models.Model):
     code_c_plus = models.TextField("C++", blank=True, null=True)
     code_executor = models.TextField("Испольнитель", blank=True, null=True)
     var_of_choice_answer = models.TextField("Варианты ответа", blank=True, null=True)
+    q_url_video = models.OneToOneField(VideoRazborOGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
+                                       null=True)
+
     answer = models.CharField(verbose_name="Ответ", max_length=30)
 
     def __str__(self):

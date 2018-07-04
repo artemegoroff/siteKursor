@@ -24,21 +24,25 @@
         </div>
         <div class="text-center">
             <div class="row block-panel">
-                <div class="col-md-offset-3 col-md-3 col-sm-12">
+                <div class="col-md-offset-2 col-md-3 col-sm-12">
                     <div class="panel panel-default text-center">
                         <div class="panel-heading">
                             <h1>Задания</h1>
                         </div>
-                        {#                        <div class="panel-body">#}
-                        {#                            <p><strong>6</strong> задания части А</p>#}
-                        {#                            <p><strong>12</strong> задания части В</p>#}
-                        {#                            <p> Коды программ представлены на языках </p>#}
-                        {#                            <p><strong>Python</strong> <strong>C++</strong> <strong>Pacsal</strong></p>#}
-                        {#                        </div>#}
                         <div class="panel-footer">
-                            <p></p>
-                            {#                            <p><span class="glyphicon glyphicon-hand-down logo-small"></span></p>#}
+                            <br>
                             <a class="btn btn-default btn-lg" href="{% url 'oge:oge_list' %}">Перейти к заданиям</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="panel panel-default text-center">
+                        <div class="panel-heading">
+                            <h1>Видеоразборы</h1>
+                        </div>
+                        <div class="panel-footer">
+                            <br>
+                            <a class="btn btn-default btn-lg" href="{% url 'oge:oge_videotask_list' %}">Перейти к списку видео</a>
                         </div>
                     </div>
                 </div>
@@ -47,15 +51,8 @@
                         <div class="panel-heading">
                             <h1>Варианты</h1>
                         </div>
-                        {#                        <div class="panel-body">#}
-                        {#                            <p><strong>Официальные демо-варианты</strong></p>#}
-                        {#                            <p><strong>Досрочные варианты</strong></p>#}
-                        {#                            <p><strong>Авторские варианты ОГЭ</strong></p>#}
-                        {#                            <p>Что-то еще</p>#}
-                        {#                        </div>#}
                         <div class="panel-footer">
-                            <p></p>
-                            {#                            <p><span class="glyphicon glyphicon-circle-arrow-down logo-small"></span></p>#}
+                            <br>
                             <a class="btn btn-default btn-lg" href="#block_var_oge" id="hrefVar">Перейти к вариантам</a>
                         </div>
                     </div>
