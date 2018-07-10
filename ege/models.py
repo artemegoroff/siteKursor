@@ -80,6 +80,15 @@ class VideoRazborEGE(models.Model):
     def __str__(self):
         return str(self.id) + ' ' + self.url_video
 
+    def TITLE(self):
+        return "Видеоразборы задач ЕГЭ по информатике"
+
+    def SEO_DESCRIP_ALL(self):
+        return "Видеоразборы актуальных задач из ЕГЭ по информатике. Видеоуроки по подготовке к ЕГЭ по информатике"
+
+    def SEO_KEYWORDS_ALL(self):
+        return 'информатика,ЕГЭ информатика,решение егэ информатика,видеоразборы информатика егэ,видеоуроки информатика егэ,егэ фипи решение,поляков решение задач,егэ по информатике,ЕГЭ информатика и ИКТ,как решать егэ информатика,информатика как решать егэ'
+
     def get_thumbnail_url(self):
         return 'https://www.youtube.com/watch?v=' + self.url_video
 

@@ -77,6 +77,15 @@ class VideoRazborOGE(models.Model):
     def __str__(self):
         return str(self.id) + ' ' + self.url_video
 
+    def TITLE(self):
+        return "Видеоразборы задач ОГЭ по информатике"
+
+    def SEO_DESCRIP_ALL(self):
+        return "Видеоразборы актуальных задач из ОГЭ по информатике. Видеоуроки по подготовке к ОГЭ по информатике"
+
+    def SEO_KEYWORDS_ALL(self):
+        return 'информатика,ОГЭ информатика,решение ОГЭ информатика,видеоразборы информатика ОГЭ,видеоуроки информатика ОГЭ,ОГЭ фипи решение,поляков решение задач,ОГЭ по информатике,ОГЭ информатика и ИКТ,как решать ОГЭ информатика,информатика как решать ОГЭ'
+
     def get_thumbnail_url(self):
         return 'https://www.youtube.com/watch?v=' + self.url_video
 

@@ -107,24 +107,31 @@ pre {
 .cyrilic li:nth-child(1)::before {
   content: 'а)';
 }
+
 .cyrilic li:nth-child(2)::before {
   content: 'б)';
 }
+
 .cyrilic li:nth-child(3)::before {
   content: 'в)';
 }
+
 .cyrilic li:nth-child(4)::before {
   content: 'г)';
 }
+
 .cyrilic li:nth-child(5)::before {
   content: 'д)';
 }
+
 .cyrilic li:nth-child(6)::before {
   content: 'е)';
 }
+
 .cyrilic li:nth-child(7)::before {
   content: 'ж)';
 }
+
 form {
   padding-bottom: 30px;
 }
@@ -132,7 +139,7 @@ form {
 /*стиль стены*/
 
 .well-sm {
-
+  position: relative;
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 20px;
@@ -146,5 +153,24 @@ form {
     font-size: 13px;
     font-weight: bold;
   }
-
+  .abs_span {
+    position: absolute;
+    font-size: 16px;
+    bottom: 25px;
+    right: 15px;
+    a {
+      color: white;
+    }
+  }
+  .abs_spanRedact {
+    position: absolute;
+    font-size: 16px;
+    top: 1px;
+    right: 1px;
+    a {
+      color: white;
+      margin: 1px;
+      padding: 0px;
+    }
+  }
 }

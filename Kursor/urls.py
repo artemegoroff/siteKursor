@@ -1,4 +1,7 @@
-from .sitemaps import EgeTaskSiteMap, EgeVarSiteMap, EgeStaticSitemap, OgeTaskSiteMap, OgeVarSiteMap
+from .sitemaps import EgeTaskSiteMap, EgeVarSiteMap, EgeVideoSiteMap, EgeStaticSiteMap
+from .sitemaps import OgeTaskSiteMap, OgeVarSiteMap, OgeVideoSiteMap, OgeStaticSiteMap
+
+from .sitemaps import CoursePythonSiteMap, AllLastSiteMap
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
@@ -6,11 +9,18 @@ from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 
 sitemaps = {
-    'ege_static': EgeStaticSitemap,
-    'ege_task': EgeTaskSiteMap,
-    'ege_var': EgeVarSiteMap,
-    'oge_task': OgeTaskSiteMap,
-    'oge_var': OgeVarSiteMap,
+    'egeStatic': EgeStaticSiteMap,
+    'egeTask': EgeTaskSiteMap,
+    'egeVar': EgeVarSiteMap,
+    'egeRazbor': EgeVideoSiteMap,
+
+    'ogeStatic': OgeStaticSiteMap,
+    'ogeTask': OgeTaskSiteMap,
+    'ogeVar': OgeVarSiteMap,
+    'ogeRazbor': OgeVideoSiteMap,
+
+    'coursePython': CoursePythonSiteMap,
+    'allLast': AllLastSiteMap,
 }
 
 urlpatterns = [

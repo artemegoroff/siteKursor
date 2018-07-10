@@ -97,6 +97,6 @@ def oge_videotask_list(request):
     if len(numbers) != 1:
         numbers.insert(0,'Все видеоразборы')
 
-    context = {'videos': razbors, 'numbers':numbers}
+    context = {'videos': razbors, 'numbers':numbers,'exam':'oge'}
 
     return render(request, 'video_task_list.html', context)

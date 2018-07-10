@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 {% block seo_block %}
-    <title>{{ number_task.seo_title }}</title>
-    <meta name="description" content=" {{ number_task.seo_description }}">
-    <meta name="keywords" content="{{ number_task.seo_keywords }}">
+    <title>{{ videos.0.TITLE }}</title>
+    <meta name="description" content=" {{ videos.0.SEO_DESCRIP_ALL }}">
+    <meta name="keywords" content="{{ videos.0.SEO_KEYWORDS_ALL }}">
 {% endblock %}
 
 {% block extracss %}
@@ -45,11 +45,17 @@
                     </thead>
                     <tbody id="myTable">
                     {% for video in videos %}
-                        <tr class='clickable-row' data-href='{% url 'ege:ege_videotask_detail' video.id %}'>
+                        <tr class='clickable-row'
+                            {% if exam == 'ege' %}
+                                data-href='{% url 'ege:ege_videotask_detail' video.id %}'
+                            {% elif exam == 'oge' %}
+                                data-href='{% url 'oge:oge_videotask_detail' video.id %}'
+                            {% endif %}
+                        >
                             <td><img class="img-responsive img-rounded"
                                      src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg"></td>
                             <td>
-                                Разбор задачи № {{ video.number_of_task }}
+                                Разбор задачи № {{ video.number_of_task}}
                             </td>
                             <td>
                                 {{ video.data_add }}
