@@ -117,21 +117,21 @@
                         <div class="well well-sm {% if vopros.status %} {{ vopros.status }} {% endif %}"
                              data-categ="{{ vopros.category }}">
                             {#  here ref of redactor#}
-{#                            {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
-{#                                <div class="abs_spanRedact">#}
-{#                                    {% if exam == 'ege' %}#}
-{#                                        <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
-{#                                           target="_blank" class="btn btn-info"#}
-{#                                           role="button">Редактировать#}
-{#                                        </a>#}
-{#                                    {% elif exam == 'oge' %}#}
-{#                                        <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
-{#                                           target="_blank" class="btn btn-info"#}
-{#                                           role="button">Редактировать#}
-{#                                        </a>#}
-{#                                    {% endif %}#}
-{#                                </div>#}
-{#                            {% endif %}#}
+                            {% if '127.0.0.1' in request.META.HTTP_HOST %}
+                                <div class="abs_spanRedact">
+                                    {% if exam == 'ege' %}
+                                        <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
+                                           target="_blank" class="btn btn-info"
+                                           role="button">Редактировать
+                                        </a>
+                                    {% elif exam == 'oge' %}
+                                        <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
+                                           target="_blank" class="btn btn-info"
+                                           role="button">Редактировать
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
                             {#  here ref of redactor#}
                             {% if vopros.q_url_video %}
                                 <div class="abs_span">

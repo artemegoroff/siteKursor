@@ -1,19 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="11 july">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/forms.py" afterPath="" />
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="1 august">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/admin.py" afterPath="$PROJECT_DIR$/ege/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/views.py" afterPath="$PROJECT_DIR$/ege/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/views.py" afterPath="$PROJECT_DIR$/oge/views.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" afterPath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/urls.py" afterPath="$PROJECT_DIR$/videos/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/views.py" afterPath="$PROJECT_DIR$/videos/views.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,8 +43,18 @@
       <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="108" column="66" lean-forward="false" selection-start-line="108" selection-start-column="58" selection-end-line="108" selection-end-column="66" />
+            <state relative-caret-position="413">
+              <caret line="133" column="39" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="133" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -111,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
-              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+              <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -222,7 +225,6 @@
         <option value="$PROJECT_DIR$/base_static/css_base/task_list_all_less.less" />
         <option value="$PROJECT_DIR$/static/css_base/tasks_detail_less.less" />
         <option value="$PROJECT_DIR$/base_static/css_base/video_task_detail.less" />
-        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/ege/urls.py" />
         <option value="$PROJECT_DIR$/base_static/css_base/video_task_list.less" />
         <option value="$PROJECT_DIR$/post/models.py" />
@@ -255,12 +257,13 @@
         <option value="$PROJECT_DIR$/templates/navbar_menu.html" />
         <option value="$PROJECT_DIR$/Kursor/settings.py" />
         <option value="$PROJECT_DIR$/Kursor/urls.py" />
-        <option value="$PROJECT_DIR$/templates/task_detail.html" />
         <option value="$PROJECT_DIR$/oge/views.py" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/videos/views.py" />
         <option value="$PROJECT_DIR$/videos/urls.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
+        <option value="$PROJECT_DIR$/templates/task_detail.html" />
+        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
       </list>
     </option>
   </component>
@@ -801,7 +804,14 @@
       <option name="project" value="LOCAL" />
       <updated>1531266776155</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="11 july">
+      <created>1533130609391</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533130609391</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -996,14 +1006,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-22">
-          <caret line="32" column="136" lean-forward="false" selection-start-line="32" selection-start-column="88" selection-end-line="32" selection-end-column="136" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/videos/static/videos/css/pure-drawer.min.css" />
     <entry file="file://$PROJECT_DIR$/videos/static/videos/css/Mainstyle.less" />
     <entry file="file://$PROJECT_DIR$/videos/static/videos/css/newLess.less" />
@@ -1161,14 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="108" column="66" lean-forward="false" selection-start-line="108" selection-start-column="58" selection-end-line="108" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/home/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1222,7 +1216,23 @@
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
-          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="133" column="39" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="133" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="43" lean-forward="false" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
           <folding />
         </state>
       </provider>
