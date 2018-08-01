@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import Course
 # Create your views here.
 
@@ -10,7 +10,7 @@ def videos_python_all(request):
 
 
 def videos_python_theme(request,number):
-    Theme = Course.objects.filter(language=Course.PYTHON).get(number_theme=number)
+    Theme = get_object_or_404(Course,language=Course.PYTHON,number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYTHON)
     context={}
     context["Theme"]=Theme

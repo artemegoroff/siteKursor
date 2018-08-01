@@ -27,14 +27,15 @@ def ege_task_list(request):
 def ege_task_detail(request, number_task):
     exam = 'ege'
     tasks_prism = [8, 11, 14, 19, 20, 21, 24, 25]
-    questions = QuestionsEGE.objects.filter(number_of_task=number_task)
+    questions = QuestionsEGE.objects.filter(number_of_task=number_task)[::-1]
     category = list(CategoryEge.objects.filter(number_task=number_task))
     category.insert(0,'Все категории задания')
+    text_cat = 'Все'
     if request.method == "POST":
-        text_cat = request.GET.get("category_sel", 'Все')
-        if text_cat != 'Все':
-            id_cat = CategoryEge.objects.all().get(text=text_cat)
-            questions = questions.filter(number_of_task=number_task).filter(category=id_cat)
+        text_cat = request.POST.get("category_sel", 'Все')
+        # if text_cat != 'Все':
+        #     id_cat = CategoryEge.objects.get(text=text_cat)
+        #     questions = QuestionsEGE.objects.filter(number_of_task=number_task).filter(category=id_cat)[::-1]
         for dataPost in request.POST:
             if not ('input' in dataPost or 'radio' in dataPost):
                 continue
@@ -55,7 +56,7 @@ def ege_task_detail(request, number_task):
     tasks = NumberTaskEge.objects.all()
     context = {"questions": questions, 'tasks': tasks,
                'number_task': NumberTaskEge.objects.all().get(number=number_task), 'exam': exam,
-               'tasks_prism': tasks_prism, 'category': category}
+               'tasks_prism': tasks_prism, 'category': category, 'text_cat':text_cat}
 
     return render(request, 'task_detail.html', context)
 

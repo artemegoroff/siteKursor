@@ -29,11 +29,12 @@ def oge_task_detail(request, number_task):
     questions = QuestionsOge.objects.filter(number_of_task=number_task)
     category = list(CategoryOge.objects.filter(number_task=number_task))
     category.insert(0, 'Все категории задания')
+    text_cat = 'Все'
     if request.method == "POST":
-        text_cat = request.GET.get("category_sel", 'Все')
-        if text_cat != 'Все':
-            id_cat = CategoryOge.objects.all().get(text=text_cat)
-            questions = questions.filter(number_of_task=number_task).filter(category=id_cat)
+        text_cat = request.POST.get("category_sel", 'Все')
+        # if text_cat != 'Все':
+        #     id_cat = CategoryOge.objects.all().get(text=text_cat)
+        #     questions = questions.filter(number_of_task=number_task).filter(category=id_cat)
         for dataPost in request.POST:
             if not ('input' in dataPost or 'radio' in dataPost):
                 continue
@@ -50,7 +51,10 @@ def oge_task_detail(request, number_task):
                     break
     questions=list(questions)
     tasks = NumberTaskOge.objects.all()
-    context = {"questions": questions, 'tasks': tasks, 'number_task': NumberTaskOge.objects.all().get(number=number_task), 'exam': exam,'tasks_prism':tasks_prism, 'category':category}
+    context = {"questions": questions, 'tasks': tasks,
+               'number_task': NumberTaskOge.objects.all().get(number=number_task),
+               'exam': exam,'tasks_prism':tasks_prism,
+               'category':category,'text_cat':text_cat}
 
     return render(request, 'task_detail.html', context)
 

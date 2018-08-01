@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Review
-from .forms import ContactForm
+
 
 def get_home_page(request):
     rand_9_review = list(Review.objects.order_by('?')[:9])
@@ -13,3 +13,4 @@ def get_home_page(request):
                 row.append(rand_9_review.pop())
             reviews.append(row)
     return render(request, 'home/home_page.html', {'reviews':reviews})
+
