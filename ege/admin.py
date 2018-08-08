@@ -62,10 +62,12 @@ class AdminVariantEge(admin.ModelAdmin):
     list_display = ['number_var']
     ordering = ['number_var']
 
+
+
 class AdminVideoRazborEGE(admin.ModelAdmin):
     list_display = ['id','url_video','number_of_task']
     list_editable = ['url_video','number_of_task']
-
+    filter_horizontal = ['treoryKnowledge']
 
 
 admin.site.register(QuestionsEGE, AdminQuestionsEGE)

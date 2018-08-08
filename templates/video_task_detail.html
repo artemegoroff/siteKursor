@@ -23,17 +23,78 @@
     <div class="container-fluid block-video-detail">
 
         <div class="row">
-            <div class="col-sm-2 col-md-2 numberTask">
-{#               menu side#}
-            </div>
+            {#            <div class="col-sm-2 col-md-2 numberTask">#}
+            {#               menu side#}
+            {#            </div>#}
 
-            <div class="col-md-9">
+            <div class="col-md-offset-2 col-md-8">
+
+                {% if '127.0.0.1' in request.META.HTTP_HOST %}
+                    <div class="abs_spanRedact">
+                        {% if 'ege' in request.path %}
+                            <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/?_to_field=id&_popup=1 }}"
+                               target="_blank" class="btn btn-info"
+                               role="button">Редактировать
+                            </a>
+                        {% elif 'oge' in request.path %}
+                            <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ vopros.id }}/change/?_to_field=id&_popup=1 }}"
+                               target="_blank" class="btn btn-info"
+                               role="button">Редактировать
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+
+
                 <h2> Разбор задачи № {{ vopros.number_of_task }}</h2>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" width="854" height="480" src="https:/www.youtube.com/embed/{{video.url_video}}"
-                            frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
-                    </iframe>
+
+                <div class="videoContainer">
+                    <!-- THE YOUTUBE PLAYER -->
+                    {#                    <div class="vid-container">#}
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="vid_frame" class="embed-responsive-item"
+                                src="http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                    </div>
+
+                    <!-- THE PLAYLIST -->
+                    <!-- Идея взята -->
+                    <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
+                    <h3 style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Теория по задаче</h3>
+                    <div class="vid-list-container">
+                        <div class="vid-list">
+
+                            <div class="vid-item"
+                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                <div class="thumb"><img src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
+                                </div>
+                                <div class="desc">Разбор текущей задачи</div>
+                            </div>
+                            {% if video.treoryKnowledge %}
+                                {% for elem in video.treoryKnowledge.all %}
+                                    <div class="vid-item"
+                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                        <div class="thumb"><img
+                                                src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                        </div>
+                                        <div class="desc">{{ elem.name }}</div>
+                                    </div>
+                                {% endfor %}
+
+
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                    <!-- LEFT AND RIGHT ARROWS -->
+                    <div class="arrows">
+                        <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
+                        <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
+                    </div>
+
                 </div>
+
 
                 <script src="https://apis.google.com/js/platform.js"></script>
 
@@ -181,6 +242,23 @@
                 if (location.length == link.length && location.indexOf(link) == 0) {
                     $(this).addClass('active');
                 }
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".arrow-right").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "+=336"
+                }, 750);
+            });
+            $(".arrow-left").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "-=336"
+                }, 750);
             });
         });
     </script>

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'oge',
     'home',
     'videos',
+    'theory',
     'robots',
     'django_summernote',
 ]

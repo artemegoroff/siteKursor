@@ -55,7 +55,8 @@
                             <td><img class="img-responsive img-rounded"
                                      src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg"></td>
                             <td>
-                                Разбор задачи № {{ video.number_of_task}}
+                                <p>Разбор задачи № {{ video.number_of_task}}</p>
+                                <p>Категория: {{ video.get_category_of_question }}</p>
                             </td>
                             <td>
                                 {{ video.data_add }}

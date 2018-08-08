@@ -63,6 +63,7 @@ class AdminVariantOGE(admin.ModelAdmin):
 class AdminVideoRazborOGE(admin.ModelAdmin):
     list_display = ['url_video','number_of_task','seo_description','seo_keywords']
     ordering = ['number_of_task']
+    filter_horizontal = ['treoryKnowledge']
 
 admin.site.register(QuestionsOge, AdminQuestionsOGE)
 admin.site.register(NumberTaskOge, AdminNumberTaskOGE)

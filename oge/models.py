@@ -1,5 +1,5 @@
 from django.db import models
-
+from theory.models import TheoryVideo
 
 class VariantOge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер задания", unique=True)
@@ -73,6 +73,7 @@ class VideoRazborOGE(models.Model):
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
+    treoryKnowledge = models.ManyToManyField(TheoryVideo, verbose_name="Теория", blank=True)
 
     def __str__(self):
         return str(self.id) + ' ' + self.url_video

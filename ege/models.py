@@ -1,7 +1,5 @@
-from _sitebuiltins import _Printer
-
 from django.db import models
-
+from theory.models import TheoryVideo
 
 class VarEge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
@@ -76,6 +74,7 @@ class VideoRazborEGE(models.Model):
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
+    treoryKnowledge = models.ManyToManyField(TheoryVideo,verbose_name="Теория",blank=True)
 
     def __str__(self):
         return str(self.id) + ' ' + self.url_video
@@ -89,11 +88,9 @@ class VideoRazborEGE(models.Model):
     def SEO_KEYWORDS_ALL(self):
         return 'информатика,ЕГЭ информатика,решение егэ информатика,видеоразборы информатика егэ,видеоуроки информатика егэ,егэ фипи решение,поляков решение задач,егэ по информатике,ЕГЭ информатика и ИКТ,как решать егэ информатика,информатика как решать егэ'
 
-    def get_thumbnail_url(self):
-        return 'https://www.youtube.com/watch?v=' + self.url_video
+    def get_category_of_question(self):
+        return QuestionsEGE.objects.get(q_url_video=self).category
 
-    def get_text_of_question(self):
-        return QuestionsEGE.objects.get(q_url_video=self)
 
     class Meta:
         verbose_name = "Разбор задач ЕГЭ"

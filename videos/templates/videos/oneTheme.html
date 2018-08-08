@@ -34,32 +34,122 @@
                     {% endfor %}
                     <li><a href=""> Спасибо за внимание! </a></li>
 
-
                 </ul>
                 <!-- /#sidebar-wrapper -->
             </div>
             <!-- Page Content -->
             <div class="col-md-offset-2 col-md-8" id="page-content-wrapper">
                 <span id="menu-checker" style="font-size:30px;cursor:pointer">&#9776; Содержание</span>
-                {% if not Theme.url_video and not Theme.article %}
-                    <h2 class="text-center">Извините</h2>
-                    <h2 class="text-center">В данный момент контент по теме:</h2>
-                    <h2 class="text-center"> "{{ Theme.theme }}"</h2>
-                    <h2 class="text-center"> еще не опубликован</h2>
-                    <h2 class="text-center">В скором времени появиться содержимое раздела</h2>
-                    <h2 class="text-center">Спасибо </h2>
-                    <h2 class="text-center">за</h2>
-                    <h2 class="text-center">внимание</h2>
-                {% else %}
-                    <h1>{{ Theme.theme }}</h1>
-                    {% if Theme.url_video %}
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" width="854" height="480" src="https:/www.youtube.com/embed/{{Theme.url_video}}"
-                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                        </div>
-                    {% endif %}
-                    {{ Theme.article|safe }}
+
+                <h1>{{ Theme.theme }}</h1>
+                {% if Theme.url_video %}
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe class="embed-responsive-item" width="854" height="480"
+                                src="https:/www.youtube.com/embed/{{ Theme.url_video }}"
+                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    </div>
                 {% endif %}
+                {{ Theme.article|safe }}
+                {% if Theme.tasks.all %}
+                    <div class="bs-example">
+                        <h2 class="text-center">Задачи для самостоятельной работы</h2>
+                        <div class="panel-group" id="accordion">
+                            {% for task in Theme.tasks.all %}
+                                {% if task.url_ref %}
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-sm-9 col-md-8">
+                                                    <h4 class="panel-title">
+                                                        <a target="_blank" href="{{ task.url_ref }}">
+                                                            {{ forloop.counter }}. {{ task.name }}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-sm-3 col-md-4">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped active"
+                                                             role="progressbar"
+                                                             aria-valuenow="task.difficult" aria-valuemin="0"
+                                                             aria-valuemax="100"
+                                                             style="width:{{ task.difficult }}%">
+                                                            {{ task.difficult }}%
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <div class="row">
+                                                <div class="col-sm-9 col-md-8">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion"
+                                                           href="#collapse{{ forloop.counter }}">
+                                                            {{ forloop.counter }}. {{ task.name }}
+                                                        </a>
+                                                    </h4>
+                                                </div>
+                                                <div class="col-sm-3 col-md-4">
+                                                    <div class="progress">
+                                                        <div class="progress-bar progress-bar-striped active"
+                                                             role="progressbar"
+                                                             aria-valuenow="task.difficult" aria-valuemin="0"
+                                                             aria-valuemax="100"
+                                                             style="width:{{ task.difficult }}%">
+                                                            {{ task.difficult }}%
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                <h3 class="text-center">Условие задачи</h3>
+                                                <p> {{ task.condition }}</p>
+                                                {% if task.examples.all %}
+                                                    <div class="table-responsive table-bordered">
+                                                        <table class="table">
+                                                            <thead>
+                                                            <tr>
+                                                                <th>№</th>
+                                                                <th>Входные данные</th>
+                                                                <th>Выходные данные</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            {% for example in task.examples.all %}
+                                                                <tr>
+                                                                    <td>{{ forloop.counter }}</td>
+                                                                    <td>
+                                                                        {% for row in example.get_rowsInput %}
+                                                                            {{ row }} <br>
+                                                                        {% endfor %}
+                                                                    </td>
+                                                                    <td>
+                                                                        {% for row in example.get_rowsOutput %}
+                                                                            {{ row }} <br>
+                                                                        {% endfor %}
+                                                                    </td>
+                                                                </tr>
+                                                            {% endfor %}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+
 
             </div>
             <!-- /#page-content-wrapper -->
