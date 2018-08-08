@@ -52,6 +52,7 @@ class AdminNumberTaskOGE(admin.ModelAdmin):
     }
 
 
+
 class AdminCategoryOGE(admin.ModelAdmin):
     list_display = ['number_task', 'text']
 
