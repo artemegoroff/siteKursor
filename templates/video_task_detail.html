@@ -32,12 +32,12 @@
                 {% if '127.0.0.1' in request.META.HTTP_HOST %}
                     <div class="abs_spanRedact">
                         {% if 'ege' in request.path %}
-                            <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/?_to_field=id&_popup=1 }}"
+                            <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/"
                                target="_blank" class="btn btn-info"
                                role="button">Редактировать
                             </a>
                         {% elif 'oge' in request.path %}
-                            <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ vopros.id }}/change/?_to_field=id&_popup=1 }}"
+                            <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ video.id }}/change/"
                                target="_blank" class="btn btn-info"
                                role="button">Редактировать
                             </a>

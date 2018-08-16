@@ -51,8 +51,6 @@ class AdminNumberTaskOGE(admin.ModelAdmin):
         models.TextField: {'widget': Textarea(attrs={'rows': 10, 'cols': 45})},
     }
 
-
-
 class AdminCategoryOGE(admin.ModelAdmin):
     list_display = ['number_task', 'text']
 

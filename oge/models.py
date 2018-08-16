@@ -90,8 +90,8 @@ class VideoRazborOGE(models.Model):
     def get_thumbnail_url(self):
         return 'https://www.youtube.com/watch?v=' + self.url_video
 
-    def get_text_of_question(self):
-        return QuestionsOge.objects.get(q_url_video=self)
+    def get_category_of_question(self):
+        return QuestionsOge.objects.get(q_url_video=self).category
 
     class Meta:
         verbose_name = "Разбор задач ОГЭ"

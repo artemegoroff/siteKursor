@@ -94,7 +94,7 @@ def oge_videotask_detail(request, id_task):
 def oge_videotask_list(request):
 
     razbors = VideoRazborOGE.objects.all().order_by('-data_add')
-    number_values = list(razbors.values_list('number_of_task',flat=True).distinct())
+    number_values = set(razbors.values_list('number_of_task',flat=True).distinct())
     numbers=[]
     for cat in sorted(number_values):
         numbers.append(NumberTaskOge.objects.get(number = cat))

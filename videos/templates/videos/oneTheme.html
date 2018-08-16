@@ -11,6 +11,9 @@
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'videos/css/oneTheme.less' %}" type="text/less">
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
+    <script src="{% static 'js_base/prism.js' %}"></script>
+
 {% endblock %}
 
 
@@ -40,6 +43,17 @@
             <!-- Page Content -->
             <div class="col-md-offset-2 col-md-8" id="page-content-wrapper">
                 <span id="menu-checker" style="font-size:30px;cursor:pointer">&#9776; Содержание</span>
+
+                {% if '127.0.0.1' in request.META.HTTP_HOST %}
+                    <div class="abs_spanRedact">
+                        {% if 'python' in request.path %}
+                            <a href="http://127.0.0.1:8000/admin/videos/course/{{ Theme.id }}/change/"
+                               target="_blank" class="btn btn-info"
+                               role="button">Редактировать
+                            </a>
+                        {% endif %}
+                    </div>
+                {% endif %}
 
                 <h1>{{ Theme.theme }}</h1>
                 {% if Theme.url_video %}
@@ -108,7 +122,7 @@
                                         <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
                                             <div class="panel-body">
                                                 <h3 class="text-center">Условие задачи</h3>
-                                                <p> {{ task.condition }}</p>
+                                                <p> {{ task.condition|safe }}</p>
                                                 {% if task.examples.all %}
                                                     <div class="table-responsive table-bordered">
                                                         <table class="table">
