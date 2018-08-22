@@ -297,6 +297,7 @@
 
                 <!-- Put this div tag to the place, where the Comments block will be -->
                 <div id="vk_comments"></div>
+
                 <script type="text/javascript">
                     VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
                 </script>
@@ -395,15 +396,15 @@
     </script>
 
     <script>
-{#        $(document).ready(function () {#}
-{#            var value = $("#category_sel").val().toLowerCase();#}
-{#            if (value == "все категории задания") {#}
-{#                value = ' ';#}
-{#            }#}
-{#            $(".well").filter(function () {#}
-{#                $(this).toggle($(this).data('categ').toLowerCase().indexOf(value) > -1)#}
-{#            });#}
-{#        }#}
+        {#        $(document).ready(function () {#}
+        {#            var value = $("#category_sel").val().toLowerCase();#}
+        {#            if (value == "все категории задания") {#}
+        {#                value = ' ';#}
+        {#            }#}
+        {#            $(".well").filter(function () {#}
+        {#                $(this).toggle($(this).data('categ').toLowerCase().indexOf(value) > -1)#}
+        {#            });#}
+        {#        }#}
 
         {#фильтруем видео по номеру вопроса#}
         $(document).ready(function () {
