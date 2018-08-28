@@ -9,7 +9,7 @@
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'css_base/video_task_detail.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
-    {% if vopros.code_python %}
+    {% if vopros.code_python or 'language-' in vopros.text%}
         <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
         <script src="{% static 'js_base/prism.js' %}"></script>
     {% endif %}

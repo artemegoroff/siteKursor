@@ -4,6 +4,8 @@
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/footer.html" afterPath="$PROJECT_DIR$/templates/footer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,28 +39,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="122" column="34" lean-forward="false" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
-              <folding>
-                <marker date="1535318851588" expanded="true" signature="5423:5497" ph="                            {% if '127.0.0.1' in request.META.HTTP_HOST ... %}" />
-                <marker date="1535318851588" expanded="true" signature="5498:5558" ph="                                &lt;div class=&quot;abs_spanRedact... %}" />
-                <marker date="1535318851588" expanded="true" signature="5559:5617" ph="                                    {% if exam == 'ege' ... %}" />
-                <marker date="1535318851588" expanded="true" signature="5618:5823" ph="                                        &lt;a href=&quot;http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/ch... %}" />
-                <marker date="1535318851588" expanded="true" signature="5824:5903" ph="                                           target=&quot;_blank&quot; class=&quot;btn btn-inf... %}" />
-                <marker date="1535318851588" expanded="true" signature="5904:5974" ph="                                           role=&quot;button&quot;&gt;Редактирова... %}" />
-                <marker date="1535318851588" expanded="true" signature="5975:6019" ph="                                        &lt;/... %}" />
-                <marker date="1535318851588" expanded="true" signature="6020:6080" ph="                                    {% elif exam == 'oge' ... %}" />
-                <marker date="1535318851588" expanded="true" signature="6081:6286" ph="                                        &lt;a href=&quot;http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/ch... %}" />
-                <marker date="1535318851588" expanded="true" signature="6287:6366" ph="                                           target=&quot;_blank&quot; class=&quot;btn btn-inf... %}" />
-                <marker date="1535318851588" expanded="true" signature="6367:6437" ph="                                           role=&quot;button&quot;&gt;Редактирова... %}" />
-                <marker date="1535318851588" expanded="true" signature="6438:6482" ph="                                        &lt;/... %}" />
-                <marker date="1535318851588" expanded="true" signature="6483:6530" ph="                                    {% endif ... %}" />
-                <marker date="1535318851588" expanded="true" signature="6531:6569" ph="                                &lt;/di... %}" />
-                <marker date="1535318851588" expanded="true" signature="6570:6609" ph="                            {% endif ... %}" />
-              </folding>
+            <state relative-caret-position="110">
+              <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="29" selection-end-line="133" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -105,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="45" column="27" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="45" selection-end-column="27" />
+            <state relative-caret-position="308">
+              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -118,18 +104,8 @@
       <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1144">
+            <state relative-caret-position="-1364">
               <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oneTheme.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/videos/static/videos/css/oneTheme.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2310">
-              <caret line="105" column="1" lean-forward="false" selection-start-line="105" selection-start-column="1" selection-end-line="105" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -224,7 +200,6 @@
       <list>
         <option value="$PROJECT_DIR$/base_static/css_base/mediaTasksDetail.less" />
         <option value="$PROJECT_DIR$/videos/static/videos/css/allThemes.less" />
-        <option value="$PROJECT_DIR$/templates/footer.html" />
         <option value="$PROJECT_DIR$/templates/task_list_all.html" />
         <option value="$PROJECT_DIR$/base_static/css_base/task_list_all_less.less" />
         <option value="$PROJECT_DIR$/static/css_base/tasks_detail_less.less" />
@@ -268,11 +243,12 @@
         <option value="$PROJECT_DIR$/oge/models.py" />
         <option value="$PROJECT_DIR$/videos/static/videos/css/oneTheme.less" />
         <option value="$PROJECT_DIR$/templates/video_task_list.html" />
-        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/oge/views.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/base_static/css_base/tasks_detail_less.less" />
+        <option value="$PROJECT_DIR$/templates/footer.html" />
         <option value="$PROJECT_DIR$/templates/task_detail.html" />
+        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
       </list>
     </option>
   </component>
@@ -497,7 +473,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../djangoLiker" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
@@ -919,7 +895,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535197808581</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="26 august">
+      <created>1535319815467</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1535319815467</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView">
@@ -935,7 +918,7 @@
     <frame x="0" y="0" width="1600" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25844157" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26493508" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2696011" sideWeight="0.5064935" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32813516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -994,7 +977,8 @@
     <MESSAGE value="23 august" />
     <MESSAGE value="23.2 august" />
     <MESSAGE value="25 august" />
-    <option name="LAST_COMMIT_MESSAGE" value="25 august" />
+    <MESSAGE value="26 august" />
+    <option name="LAST_COMMIT_MESSAGE" value="26 august" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1079,13 +1063,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1240,7 +1217,7 @@
         <state relative-caret-position="2046">
           <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1257,22 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2046">
           <caret line="94" column="0" lean-forward="false" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="990">
-          <caret line="45" column="27" lean-forward="false" selection-start-line="31" selection-start-column="16" selection-end-line="45" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1144">
-          <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1319,27 +1280,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="27" column="65" lean-forward="false" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="122" column="34" lean-forward="false" selection-start-line="122" selection-start-column="34" selection-end-line="122" selection-end-column="34" />
-          <folding>
-            <marker date="1535318851588" expanded="true" signature="5423:5497" ph="                            {% if '127.0.0.1' in request.META.HTTP_HOST ... %}" />
-            <marker date="1535318851588" expanded="true" signature="5498:5558" ph="                                &lt;div class=&quot;abs_spanRedact... %}" />
-            <marker date="1535318851588" expanded="true" signature="5559:5617" ph="                                    {% if exam == 'ege' ... %}" />
-            <marker date="1535318851588" expanded="true" signature="5618:5823" ph="                                        &lt;a href=&quot;http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/ch... %}" />
-            <marker date="1535318851588" expanded="true" signature="5824:5903" ph="                                           target=&quot;_blank&quot; class=&quot;btn btn-inf... %}" />
-            <marker date="1535318851588" expanded="true" signature="5904:5974" ph="                                           role=&quot;button&quot;&gt;Редактирова... %}" />
-            <marker date="1535318851588" expanded="true" signature="5975:6019" ph="                                        &lt;/... %}" />
-            <marker date="1535318851588" expanded="true" signature="6020:6080" ph="                                    {% elif exam == 'oge' ... %}" />
-            <marker date="1535318851588" expanded="true" signature="6081:6286" ph="                                        &lt;a href=&quot;http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/ch... %}" />
-            <marker date="1535318851588" expanded="true" signature="6287:6366" ph="                                           target=&quot;_blank&quot; class=&quot;btn btn-inf... %}" />
-            <marker date="1535318851588" expanded="true" signature="6367:6437" ph="                                           role=&quot;button&quot;&gt;Редактирова... %}" />
-            <marker date="1535318851588" expanded="true" signature="6438:6482" ph="                                        &lt;/... %}" />
-            <marker date="1535318851588" expanded="true" signature="6483:6530" ph="                                    {% endif ... %}" />
-            <marker date="1535318851588" expanded="true" signature="6531:6569" ph="                                &lt;/di... %}" />
-            <marker date="1535318851588" expanded="true" signature="6570:6609" ph="                            {% endif ... %}" />
-          </folding>
+        <state relative-caret-position="110">
+          <caret line="119" column="29" lean-forward="false" selection-start-line="119" selection-start-column="29" selection-end-line="133" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1364">
+          <caret line="52" column="32" lean-forward="false" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
