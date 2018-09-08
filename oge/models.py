@@ -108,7 +108,6 @@ class QuestionsOge(models.Model):
     code_python = models.TextField("Python", blank=True, null=True)
     code_pascal = models.TextField("Paskal", blank=True, null=True)
     code_c_plus = models.TextField("C++", blank=True, null=True)
-    code_executor = models.TextField("Испольнитель", blank=True, null=True)
     var_of_choice_answer = models.TextField("Варианты ответа", blank=True, null=True)
     q_url_video = models.OneToOneField(VideoRazborOGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
                                        null=True)

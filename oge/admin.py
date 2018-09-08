@@ -8,6 +8,8 @@ from django.db import models
 class AdminQuestionsOGE(admin.ModelAdmin):
     list_display = ["number_of_task", 'text', "category", "answer"]
     list_filter = ['number_of_task']
+    save_as = True
+    save_on_top = True
     list_editable = ['text', 'category', 'answer']
 
     formfield_overrides = {
