@@ -27,7 +27,11 @@
             </div>
 
             <div class="col-md-9">
-                <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                {% if exam == 'ege' %}
+                    <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                {% elif exam == 'oge' %}
+                    <h2>Видеоразборы задач ОГЭ по информатике</h2>
+                {% endif %}
                 <select class="form-control" id="myInput" type="text">
                     {% for cat in numbers %}
                         <option {% if forloop.first %}
@@ -46,16 +50,16 @@
                     <tbody id="myTable">
                     {% for video in videos %}
                         <tr class='clickable-row'
-                            {% if exam == 'ege' %}
-                                data-href='{% url 'ege:ege_videotask_detail' video.id %}'
-                            {% elif exam == 'oge' %}
-                                data-href='{% url 'oge:oge_videotask_detail' video.id %}'
-                            {% endif %}
+                                {% if exam == 'ege' %}
+                            data-href='{% url 'ege:ege_videotask_detail' video.id %}'
+                                {% elif exam == 'oge' %}
+                            data-href='{% url 'oge:oge_videotask_detail' video.id %}'
+                                {% endif %}
                         >
                             <td><img class="img-responsive img-rounded"
                                      src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg"></td>
                             <td>
-                                <p>Разбор задачи № {{ video.number_of_task}}</p>
+                                <p>Разбор задачи № {{ video.number_of_task }}</p>
                                 <p>Категория: {{ video.get_category_of_question }}</p>
                             </td>
                             <td>
@@ -93,7 +97,7 @@
         });
         $(document).ready(function ($) {
             $(".clickable-row").click(function () {
-{#                window.location = $(this).data("href");#}
+                {#                window.location = $(this).data("href");#}
                 window.open($(this).data("href"));
             });
         });
@@ -103,8 +107,8 @@
             $("#myInput").on("click", function () {
                 var value = $(this).val().toLowerCase();
                 console.log(value);
-                if (value=="все видеоразборы"){
-                    value=' ';
+                if (value == "все видеоразборы") {
+                    value = ' ';
                 }
                 $("#myTable tr").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
