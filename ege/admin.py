@@ -8,7 +8,7 @@ from django.db import models
 class AdminQuestionsEGE(admin.ModelAdmin):
     list_display = ["number_of_task", "text", "answer"]
     # list_select_related = ('number_of_task',)
-    list_filter = ['number_of_task']
+    list_filter = ['number_of_task','answer']
     save_as = True
     save_on_top = True
     list_editable = ['text', 'answer']
