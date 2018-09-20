@@ -20,3 +20,8 @@ def videos_python_theme(request,number):
 def videos_home(request):
     context={}
     return render(request, 'videos/allThemes.html', context)
+
+
+def videos_test(request):
+    context = {}
+    return render(request, 'videos/test.html', context)
