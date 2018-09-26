@@ -43,7 +43,7 @@ class NumberTaskOge(models.Model):
         return str(self.number) + '. ' + self.title
 
     def seo_title(self):
-        return "ОГЭ Информатика" + "Тест задание " + str(self.number) + " " + self.title
+        return "ОГЭ Информатика " + "Тест задание " + str(self.number) + " " + self.title
 
     def count_questions(self):
         return len(QuestionsOge.objects.filter(number_of_task=self.number))

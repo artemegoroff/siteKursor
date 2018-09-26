@@ -66,18 +66,22 @@
         {% elif exam == 'oge_var' %}
             <h2>Вариант ОГЭ № {{ number_task }}</h2>
         {% elif exam == 'ege' %}
-            <h2>ЕГЭ. Задания на тему "{{ number_task.title }}".</h2>
+            <h1>Подготовка к ЕГЭ по Информатике</h1>
+            <h2>Задания на тему "{{ number_task.title }}".</h2>
         {% elif exam == 'oge' %}
-            <h2>ОГЭ. Задания на тему "{{ number_task.title }}".</h2>
+            <h1>Подготовка к ОГЭ по Информатике</h1>
+            <h2>Задания на тему "{{ number_task.title }}".</h2>
         {% endif %}
         <div class="row">
             <div class="col-sm-2 col-md-2 numberTask">
                 <div class="list-group">
                     {% if exam == 'ege' %}
+                        <h3>Задания</h3>
                         {% for task in tasks %}
                             <a href="{% url 'ege:ege_task_detail' task.number %}" class="list-group-item text-center">Задание {{ task.number }}</a>
                         {% endfor %}
                     {% elif exam == 'oge' %}
+                        <h3>Задания</h3>
                         {% for task in tasks %}
                             <a href="{% url 'oge:oge_task_detail' task.number %}" class="list-group-item text-center">Задание
                                 № {{ task.number }}</a>
