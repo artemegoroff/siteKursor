@@ -4,6 +4,7 @@
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/theory/admin.py" afterPath="$PROJECT_DIR$/theory/admin.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,11 +38,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
               <caret line="137" column="39" lean-forward="false" selection-start-line="123" selection-start-column="28" selection-end-line="137" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/theory/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/theory/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/oge/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1036">
+              <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -104,16 +137,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="572">
               <caret line="26" column="39" lean-forward="false" selection-start-line="26" selection-start-column="39" selection-end-line="26" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oneTheme.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/videos/static/videos/css/oneTheme.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2662">
-              <caret line="121" column="6" lean-forward="false" selection-start-line="121" selection-start-column="6" selection-end-line="121" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -214,7 +237,6 @@
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/Kursor/settings.py" />
         <option value="$PROJECT_DIR$/theory/models.py" />
-        <option value="$PROJECT_DIR$/theory/admin.py" />
         <option value="$PROJECT_DIR$/base_static/css_base/video_task_detail.less" />
         <option value="$PROJECT_DIR$/videos/admin.py" />
         <option value="$PROJECT_DIR$/videos/models.py" />
@@ -237,6 +259,7 @@
         <option value="$PROJECT_DIR$/ege/models.py" />
         <option value="$PROJECT_DIR$/base_static/css_base/tasks_detail_less.less" />
         <option value="$PROJECT_DIR$/templates/task_detail.html" />
+        <option value="$PROJECT_DIR$/theory/admin.py" />
       </list>
     </option>
   </component>
@@ -315,6 +338,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="videos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kursor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kursor" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="theory" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1030,7 +1067,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537989182481</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="27.1 september">
+      <created>1538067695036</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1538067695036</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1095,7 +1139,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="26 august" />
     <MESSAGE value="28 august" />
     <MESSAGE value="30 august" />
     <MESSAGE value="1 september" />
@@ -1120,7 +1163,8 @@
     <MESSAGE value="24 september" />
     <MESSAGE value="25 september" />
     <MESSAGE value="26 september" />
-    <option name="LAST_COMMIT_MESSAGE" value="26 september" />
+    <MESSAGE value="27.1 september" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.1 september" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1239,24 +1283,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/theory/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/navbar_menu.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/theory/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
         </state>
       </provider>
     </entry>
@@ -1307,6 +1337,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="4" column="88" lean-forward="false" selection-start-line="4" selection-start-column="88" selection-end-line="4" selection-end-column="88" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,6 +1345,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3938">
           <caret line="179" column="31" lean-forward="false" selection-start-line="179" selection-start-column="31" selection-end-line="179" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,6 +1353,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="21" lean-forward="false" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,6 +1361,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="770">
           <caret line="35" column="28" lean-forward="false" selection-start-line="35" selection-start-column="28" selection-end-line="35" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,6 +1369,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
           <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,13 +1388,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/oge/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="29" lean-forward="false" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/videos/css/allThemes.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="22">
@@ -1371,6 +1399,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1386,6 +1415,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="40" column="42" lean-forward="false" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1475,6 +1505,32 @@
         <state relative-caret-position="462">
           <caret line="137" column="39" lean-forward="false" selection-start-line="123" selection-start-column="28" selection-end-line="137" selection-end-column="39" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theory/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="12" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/oge/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1036">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/theory/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
