@@ -1,0 +1,79 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71737580-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-71737580-2');
+    </script>
+
+    <meta http-equiv="content-type" charset="UTF-8" content="text/html">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <meta name="yandex-verification" content="8653db1f1f70db74"/>
+    <meta name="google-site-verification" content="GpdpVby8w1414HOe6JdW7QMDQqjTRvNMM8HbxehHwpY"/>
+
+    {% block seo_block %}
+    {% endblock %}
+
+    <!-- Title -->
+    <title>Clever - Education &amp; Courses Template | Home</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/core-img/FAVIKON.png' %}">
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet/less" href="{% static 'css/base_temp.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/navbarBoot4.less' %}" type="text/less">
+
+
+    <link rel="stylesheet/less" href="{% static 'css/footerBoot4.less' %}" type="text/less">
+    {% block extracss %} {% endblock %}
+    <!-- Подключение LESS -->
+    <script src="{% static 'js/less.min.js' %}"></script>
+
+</head>
+<body>
+
+<!-- Preloader -->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
+{% include  'menuBS4.html' %}
+
+
+<!--КОНТЕНТ-->
+{% block content %}
+{% endblock %}
+
+<!--футер-->
+{% include 'footerBS4.html' %}
+
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+<!-- Popper js -->
+<script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+
+<!-- Bootstrap js -->
+<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+<!-- All Plugins js -->
+<script src="{% static 'js/plugins/plugins.js' %}"></script>
+<!-- Active js -->
+<script src="{% static 'js/active.js' %}"></script>
+
+{#additional js#}
+{% block extraJS %}
+{% endblock %}
+
+
+</body>
+</html>

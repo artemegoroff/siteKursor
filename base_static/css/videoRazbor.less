@@ -1,0 +1,269 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+  font-family: 'Open Sans';
+}
+
+
+.block-video-detail {
+  margin-top: 80px;
+  h2 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+.form-inline {
+  label {
+    font-size: 18px;
+    padding-right: 10px;
+  }
+}
+
+pre {
+  border: 0;
+  font-size: 14px;
+}
+
+.table-condensed > thead > tr > th, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > tbody > tr > td, .table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+.table > thead > tr > th {
+  white-space: nowrap;
+  background-color: #0390ff;
+  color: white;
+  border-width: 5px;
+  font-weight: bold;
+  text-align: center;
+  border-color: white;
+  text-align: center;
+}
+
+.table > tbody > tr > td {
+  white-space: nowrap;
+  background-color: #0390ff;
+  color: white;
+  font-weight: bold;
+  border-width: 5px;
+  border-color: #f5f5f5;
+  text-align: center;
+}
+
+.img-rounded {
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.img-rounded:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);;
+}
+
+.spicok {
+  line-height: 1.5;
+  list-style-type: none; /* Убираем исходные маркеры */
+  counter-reset: item; /* Обнуляем счетчик списка */
+  font-size: 16px;
+  padding-left: 5%;
+  padding-right: 3%;
+}
+
+.spicok > li:before {
+  content: counter(item) '. '; /* Добавляем к числам скобку */
+  counter-increment: item; /* Задаём имя счетчика */
+}
+
+.cyrilic {
+  list-style-type: none;
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 0;
+  font-size: 15px;
+}
+
+.cyrilic li:nth-child(1)::before {
+  content: 'а)';
+}
+.cyrilic li:nth-child(2)::before {
+  content: 'б)';
+}
+.cyrilic li:nth-child(3)::before {
+  content: 'в)';
+}
+.cyrilic li:nth-child(4)::before {
+  content: 'г)';
+}
+.cyrilic li:nth-child(5)::before {
+  content: 'д)';
+}
+.cyrilic li:nth-child(6)::before {
+  content: 'е)';
+}
+.cyrilic li:nth-child(7)::before {
+  content: 'ж)';
+}
+form {
+  padding-bottom: 30px;
+}
+
+/*стиль стены*/
+
+.well-sm {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
+  padding-bottom: 7px;
+  p {
+    font-size: 16px;
+    text-indent: 10px;
+  }
+  sub, sup {
+    color: red;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .abs_span{
+    position: absolute;
+    font-size: 16px;
+    bottom: 25px;
+    right: 15px;
+    a{
+      color: white;
+    }
+  }
+}
+
+
+
+
+
+.videoContainer {
+  //width: 100%;
+  min-width: 320px;
+  background: #fff;
+  margin: 0 auto;
+}
+
+/*  VIDEOS PLAYLIST
+ ############################### */
+.vid-list-container {
+  width: 92%;
+  height: 200px;
+  overflow: hidden;
+  margin-top: 15px;
+  margin-left: 4%;
+  padding-bottom: 20px;
+
+}
+
+.vid-list {
+  width: 1344px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.vid-item {
+  display: block;
+  width: 148px;
+  height: 200px;
+  float: left;
+  margin: 0 5px;
+  //padding: 1px;
+}
+
+.thumb {
+  /*position: relative;*/
+  overflow: hidden;
+  height: 84px;
+}
+
+.thumb img {
+  width: 100%;
+  position: relative;
+  top: -13px;
+}
+
+.vid-item .desc {
+  color: #21A1D2;
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.vid-item:hover {
+  background: #eee;
+  cursor: pointer;
+}
+
+.arrows {
+  position: relative;
+  width: 100%;
+}
+
+.arrow-left {
+  color: #fff;
+  position: absolute;
+  background: #777;
+  padding: 15px;
+  left: -25px;
+  top: -130px;
+  z-index: 99;
+  cursor: pointer;
+}
+
+.arrow-right {
+  color: #fff;
+  position: absolute;
+  background: #777;
+  padding: 15px;
+  right: -25px;
+  top: -130px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.arrow-left:hover {
+  background: #CC181E;
+}
+
+.arrow-right:hover {
+  background: #CC181E;
+}
+
+@media (max-width: 624px) {
+  body {
+    margin: 15px;
+  }
+
+  .caption {
+    margin-top: 40px;
+  }
+
+  .vid-list-container {
+    padding-bottom: 20px;
+  }
+
+  /* reposition left/right arrows */
+  .arrows {
+    position: relative;
+    margin: 0 auto;
+    width: 96px;
+  }
+
+  .arrow-left {
+    left: 0;
+    top: -17px;
+  }
+
+  .arrow-right {
+    right: 0;
+    top: -17px;
+  }
+}
+

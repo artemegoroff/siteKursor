@@ -1,99 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="29 september">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/Bs4 all/js/less.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/Bs4 all/js/prism.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/base_main_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/Flow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowBold/FlowBold.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowBold/FlowBold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowBold/FlowBold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowRegular/FlowRegular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowRegular/FlowRegular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/fonts/FlowRegular/FlowRegular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/footer_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/media.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/media.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/mediaNav.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/mediaTasksDetail.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/navbar_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/prism.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/task_list_all_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/tasks_detail_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/video_task_detail.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/css_base/video_task_list.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/img_base/404.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/img_base/button-up.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/base_static/img_base/logo-brand.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ege/static/ege/photo/fon-town.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ege/static/ege/photo/fon_var.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/oge/static/oge/photo/fon_var.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/oge/static/oge/photo/oge-home-fon-town.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/404error.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/base_main_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/Flow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowBold/FlowBold.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowBold/FlowBold.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowBold/FlowBold.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowRegular/FlowRegular.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowRegular/FlowRegular.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/fonts/FlowRegular/FlowRegular.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/footer_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/media.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/media.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/mediaNav.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/mediaTasksDetail.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/navbar_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/prism.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/task_list_all_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/tasks_detail_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/video_task_detail.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css_base/video_task_list.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/ege/css/home_ege_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/ege/photo/fon-town.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/ege/photo/fon-zabor.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/ege/photo/fon_var.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img_base/404.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img_base/button-up.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img_base/logo-brand.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js_base/less.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/js_base/prism.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/logo-brand.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/oge/css/oge_home_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/oge/photo/fon_var.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/oge/photo/oge-home-fon-town.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/base.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/navbar_menu.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/task_list_all.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/videos/static/videos/css/allThemes.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/videos/static/videos/css/oneTheme.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/videos/static/videos/js/pushy.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/videos/static/videos/photo/PythonBack.png" afterPath="" />
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="1 october">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/FontAwesome.otf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/classy.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/classy.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/classy.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/fontawesome-webfont.eot" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/fontawesome-webfont.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/fontawesome-webfont.woff" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/fontawesome-webfont.woff2" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bc1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bc2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bc3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bg1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bg2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bg3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/bg4.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/c1.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/c2.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/c3.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/ЕГЭ_big-min.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/ОГЭ_big-min.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/bg-img/ПРОГРАММИРОВАНИЕ_big-min.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/FAVIKON.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/LOGO.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/LOGO_bely.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/docs.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/earth.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/events.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/pin.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/texture.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/base_temp.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/animate.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/classy-nav.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/font-awesome.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/magnific-popup.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/owl.carousel.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/css/prism.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/classy.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/fonts/fontawesome-webfont.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/footerBoot4.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/navbarBoot4.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/sidebarMenu.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/taskCardStyle.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/css/videoRazbor.less" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/img/core-img/awards.svg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/js/active.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/js/bootstrap/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/js/bootstrap/popper.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/js/jquery/jquery-2.2.4.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/base_static/js/plugins/plugins.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/base_static/js_base/less.min.js" afterPath="$PROJECT_DIR$/base_static/js/less.min.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/base_static/js_base/prism.js" afterPath="$PROJECT_DIR$/base_static/js/prism.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/models.py" afterPath="$PROJECT_DIR$/ege/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less" afterPath="$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/templates/ege/ege_home.html" afterPath="$PROJECT_DIR$/ege/templates/ege/ege_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/urls.py" afterPath="$PROJECT_DIR$/ege/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/views.py" afterPath="$PROJECT_DIR$/ege/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/admin.py" afterPath="$PROJECT_DIR$/home/admin.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/models.py" afterPath="$PROJECT_DIR$/home/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home_page.html" afterPath="$PROJECT_DIR$/home/templates/home/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/models.py" afterPath="$PROJECT_DIR$/oge/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/static/oge/css/oge_home_less.less" afterPath="$PROJECT_DIR$/oge/static/oge/css/oge_home_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" afterPath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/urls.py" afterPath="$PROJECT_DIR$/oge/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/views.py" afterPath="$PROJECT_DIR$/oge/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/videos/css/oneTheme.less" afterPath="$PROJECT_DIR$/static/videos/css/oneTheme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_list.html" afterPath="$PROJECT_DIR$/templates/video_task_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" afterPath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -130,10 +94,10 @@
       <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+            <state relative-caret-position="81">
+              <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
-                <element signature="e#1506#1556#0#HTML" expanded="true" />
+                <element signature="e#1507#1557#0#HTML" expanded="true" />
                 <element signature="n#if#3;n#!!top" expanded="false" />
                 <element signature="n#for#4;n#!!top" expanded="false" />
               </folding>
@@ -328,13 +292,13 @@
         <option value="$PROJECT_DIR$/oge/templates/oge/oge_home.html" />
         <option value="$PROJECT_DIR$/oge/views.py" />
         <option value="$PROJECT_DIR$/templates/task_detail.html" />
-        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/templates/video_task_list.html" />
         <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/oge/static/oge/css/oge_home_less.less" />
+        <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
       </list>
     </option>
   </component>
@@ -425,20 +389,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1081,7 +1031,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538245944376</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="1 october">
+      <created>1538687926079</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1538687926079</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1106,7 +1063,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1911171" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28802153" sideWeight="0.4935065" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18831168" sideWeight="0.5119863" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1146,7 +1103,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1 september" />
     <MESSAGE value="2 september" />
     <MESSAGE value="3 september" />
     <MESSAGE value="4 september" />
@@ -1171,7 +1127,8 @@
     <MESSAGE value="27.1 september" />
     <MESSAGE value="28 september" />
     <MESSAGE value="29 september" />
-    <option name="LAST_COMMIT_MESSAGE" value="29 september" />
+    <MESSAGE value="1 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="1 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1432,7 +1389,7 @@
         <state relative-caret-position="330">
           <caret line="15" column="52" lean-forward="false" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="52" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1510,18 +1467,6 @@
           <folding>
             <element signature="n#for#5;n#!!top" expanded="false" />
             <element signature="n#if#29;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="31" column="42" lean-forward="false" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-          <folding>
-            <element signature="e#1506#1556#0#HTML" expanded="true" />
-            <element signature="n#if#3;n#!!top" expanded="false" />
-            <element signature="n#for#4;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1623,6 +1568,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#1507#1557#0#HTML" expanded="true" />
+            <element signature="n#if#3;n#!!top" expanded="false" />
+            <element signature="n#for#4;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
