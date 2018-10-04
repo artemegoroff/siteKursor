@@ -48,6 +48,9 @@ class NumberTaskOge(models.Model):
     def count_questions(self):
         return len(QuestionsOge.objects.filter(number_of_task=self.number))
 
+    def count_videoRazbors(self):
+        return len(VideoRazborOGE.objects.filter(number_of_task=self.number))
+
     class Meta:
         verbose_name = "Номер задания ОГЭ"
         verbose_name_plural = "Номера заданий ОГЭ"

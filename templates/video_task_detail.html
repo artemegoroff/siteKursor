@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 {% block seo_block %}
     <title>{{ number_task.seo_title }}</title>
@@ -7,11 +7,12 @@
 {% endblock %}
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'css_base/video_task_detail.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
-    {% if vopros.code_python or 'language-' in vopros.text%}
-        <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
-        <script src="{% static 'js_base/prism.js' %}"></script>
+    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/videoRazbor.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    {% if vopros.code_python or 'language-' in vopros.text %}
+        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+        <script src="{% static 'js/prism.js' %}"></script>
     {% endif %}
 {% endblock %}
 
@@ -20,205 +21,317 @@
 {% block content %}
 
 
-    <div class="container-fluid block-video-detail">
 
-        <div class="row">
-            {#            <div class="col-sm-2 col-md-2 numberTask">#}
-            {#               menu side#}
-            {#            </div>#}
-
-            <div class="col-md-offset-2 col-md-8">
-
-                {% if '127.0.0.1' in request.META.HTTP_HOST %}
-                    <div class="abs_spanRedact">
-                        {% if 'ege' in request.path %}
-                            <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/"
-                               target="_blank" class="btn btn-info"
-                               role="button">Редактировать
-                            </a>
-                        {% elif 'oge' in request.path %}
-                            <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ video.id }}/change/"
-                               target="_blank" class="btn btn-info"
-                               role="button">Редактировать
-                            </a>
-                        {% endif %}
-                    </div>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for task in tasks %}
+            <li>
+                {% if exam == 'ege' %}
+                    <a href="{% url 'ege:ege_videotask_ONEtheme' task.number %}">{{ task }}</a>
+                {% elif exam == 'oge' %}
+                    <a href="{% url 'oge:oge_videotask_ONEtheme' task.number %}">{{ task }}</a>
                 {% endif %}
+            </li>
+        {% endfor %}
+        <li><a href="#">Спасибо за внимание</a></li>
+    </div>
 
 
-                <h2> Разбор задачи № {{ vopros.number_of_task }}</h2>
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+         style="background-image: url(img/bg-img/bg2.jpg);">
+        {% if exam == 'ege' %}
+            <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+        {% elif exam == 'oge' %}
+            <h2>Видеоразборы задач ОГЭ по информатике</h2>
+        {% endif %}
+    </div>
 
-                <div class="videoContainer">
-                    <!-- THE YOUTUBE PLAYER -->
-                    {#                    <div class="vid-container">#}
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe id="vid_frame" class="embed-responsive-item"
-                                src="http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
-                                frameborder="0" width="854" height="480" allowfullscreen></iframe>
-                    </div>
+    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
+        Меню</i>
 
-                    <!-- THE PLAYLIST -->
-                    <!-- Идея взята -->
-                    <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
-                    <h3 style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Теория по задаче</h3>
-                    <div class="vid-list-container">
-                        <div class="vid-list">
 
-                            <div class="vid-item"
-                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
-                                <div class="thumb"><img src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
-                                </div>
-                                <div class="desc">Разбор текущей задачи</div>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="row">
+{#                        {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
+{#                            <div class="abs_spanRedact">#}
+{#                                {% if 'ege' in request.path %}#}
+{#                                    <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/"#}
+{#                                       target="_blank" class="btn btn-info"#}
+{#                                       role="button">Редактировать#}
+{#                                    </a>#}
+{#                                {% elif 'oge' in request.path %}#}
+{#                                    <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ video.id }}/change/"#}
+{#                                       target="_blank" class="btn btn-info"#}
+{#                                       role="button">Редактировать#}
+{#                                    </a>#}
+{#                                {% endif %}#}
+{#                            </div>#}
+{#                        {% endif %}#}
+
+
+                        <h2 class="text-center"> Разбор задачи № {{ vopros.number_of_task }}</h2>
+
+                        <div class="videoContainer">
+                            <!-- THE YOUTUBE PLAYER -->
+                            {#                    <div class="vid-container">#}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="vid_frame" class="embed-responsive-item"
+                                        src="http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                        frameborder="0" width="854" height="480" allowfullscreen></iframe>
                             </div>
-                            {% if video.treoryKnowledge %}
-                                {% for elem in video.treoryKnowledge.all %}
+
+                            <!-- THE PLAYLIST -->
+                            <!-- Идея взята -->
+                            <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
+                            <h3 style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Теория по
+                                задаче</h3>
+                            <div class="vid-list-container">
+                                <div class="vid-list">
+
                                     <div class="vid-item"
-                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                         <div class="thumb"><img
-                                                src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                                src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
                                         </div>
-                                        <div class="desc">{{ elem.name }}</div>
+                                        <div class="desc">Разбор текущей задачи</div>
                                     </div>
-                                {% endfor %}
-
-
-                            {% endif %}
-
-                        </div>
-                    </div>
-
-                    <!-- LEFT AND RIGHT ARROWS -->
-                    <div class="arrows">
-                        <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
-                        <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
-                    </div>
-
-                </div>
-
-
-                <script src="https://apis.google.com/js/platform.js"></script>
-
-                <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
-                     data-count="hidden"></div>
-
-                <h3>Условие задачи</h3>
-                <div class="well well-sm">
-
-                    {#    Проверка на наличие картинки     #}
-                    {% if vopros.picture %}
-                        <img src="{{ vopros.picture.url }}" class="img-rounded img-responsive"
-                             style="float: right">
-                    {% endif %}
-                    {#    Проверка на наличие картинки     #}
-
-                    {#начало вопроса#}
-                    {% for part in vopros.get_part_question_1 %}
-                        <p class="text-justify ">
-                            {% if forloop.first %}
-                                {{ vopros.id }})
-                            {% endif %}
-                            {{ part|safe }}
-                        </p>
-                    {% endfor %}
-
-                    {#    Проверка на наличие таблицы     #}
-                    {% if vopros.table_data %}
-                        <div class="row">
-                            {% for table in vopros.table_in_row %}
-                                <div class="col-md-offset-1 col-md-4">
-                                    <table class="table table-condensed table-bordered table-responsive table-striped">
-                                        {% for rows in table %}
-
-                                            {% if forloop.first %}
-                                                <thead>
-                                                <tr>
-                                                    {% for row in rows %}
-                                                        <th> {% if row == "x" %} &nbsp;&nbsp;
-                                                            &nbsp;{% else %}{{ row }}{% endif %}</th>
-                                                    {% endfor %}
-                                                </tr>
-                                                </thead>
-                                            {% else %}
-
-                                                {% if forloop.counter == 2 %}
-                                                    <tbody>
-                                                {% endif %}
-                                            <tr>
-                                                {% for row in rows %}
-                                                    {% if row %}
-                                                        <td> {% if row == "x" %} &nbsp;&nbsp;
-                                                            &nbsp;{% else %}{{ row }}{% endif %} </td>
-                                                    {% endif %}
-                                                {% endfor %}
-                                            </tr>
-                                            {% if forloop.last %}
-                                                </tbody>
-                                            {% endif %}
-                                            {% endif %}
-
+                                    {% if video.treoryKnowledge %}
+                                        {% for elem in video.treoryKnowledge.all %}
+                                            <div class="vid-item"
+                                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                <div class="thumb"><img
+                                                        src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                                </div>
+                                                <div class="desc">{{ elem.name }}</div>
+                                            </div>
                                         {% endfor %}
-                                    </table>
+
+
+                                    {% endif %}
+
                                 </div>
-                            {% endfor %}
-                        </div>
-                    {% endif %}
-                    {#    Проверка на наличие таблицы     #}
-
-                    {#    Проверка на наличие кода     #}
-                    {% if vopros.code_python %}
-                        <div class="row blockcode">
-                            <div class="col-md-4">
-                                <pre><code class="language-python">{{ vopros.code_python }}</code></pre>
                             </div>
-                            <div class="col-md-4">
-                                <pre><code class="language-pascal">{{ vopros.code_pascal }}</code></pre>
+
+                            <!-- LEFT AND RIGHT ARROWS -->
+                            <div class="arrows">
+                                <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
+                                <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
                             </div>
-                            <div class="col-md-4">
-                                <pre><code class="language-cpp">{{ vopros.code_c_plus }}</code></pre>
-                            </div>
+
                         </div>
-                    {% endif %}
-                    {#    Проверка на наличие кода     #}
 
-                    {#    Футер вопроса     #}
 
-                    {% for part in vopros.get_part_question_2 %}
-                        {% if vopros.picture %}
-                            <p class="text-justify" style="float: left"> {{ part|safe }}</p>
-                        {% else %}
-                            <p class="text-justify "> {{ part|safe }}</p>
-                        {% endif %}
-                    {% endfor %}
+                        <script src="https://apis.google.com/js/platform.js"></script>
 
-                    {#    Футер вопроса     #}
-                    {% if vopros.picture %}
-                        <div class="clearfix">
-                    {% endif %}
+                        <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
+                             data-count="hidden"></div>
 
-                    {#    Проверка на наличие картинки   Закрываем блок clearfix  #}
-                    {% if vopros.picture %}
-                        </div>
-                    {% endif %}
-                    {#    Проверка на наличие картинки     #}
+
+                    </div>
+
                 </div>
-
-
-                {#Комменты Вконтакте#}
-                <!-- Put this script tag to the <head> of your page -->
-                <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>
-
-                <script type="text/javascript">
-                    VK.init({apiId: 6204845, onlyWidgets: true});
-                </script>
-
-                <!-- Put this div tag to the place, where the Comments block will be -->
-                <div id="vk_comments"></div>
-                <script type="text/javascript">
-                    VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
-                </script>
-                {#Комменты Вконтакте#}
             </div>
         </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="text-center">Условие задачи</h3>
+
+                    <div class="card card-block bg-light {% if vopros.status %} {{ vopros.status }} {% endif %}"
+                         data-categ="{{ vopros.category }}">
+                        {#  here ref of redactor#}
+                        {#                                {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
+                        {#                                    <div class="abs_spanRedact">#}
+                        {#                                        {% if exam == 'ege' %}#}
+                        {#                                            <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
+                        {#                                               target="_blank" class="btn btn-info"#}
+                        {#                                               role="button">Редактировать#}
+                        {#                                            </a>#}
+                        {#                                        {% elif exam == 'oge' %}#}
+                        {#                                            <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
+                        {#                                               target="_blank" class="btn btn-info"#}
+                        {#                                               role="button">Редактировать#}
+                        {#                                            </a>#}
+                        {#                                        {% endif %}#}
+                        {#                                    </div>#}
+                        {#                                {% endif %}#}
+                        {#  here ref of redactor#}
+
+                        {#начало вопроса#}
+
+                        {% for part in vopros.get_part_question_1 %}
+                            <p class="text-justify ">
+                                {% if forloop.first %}
+                                    {{ vopros.id }})
+                                {% endif %}
+                                {{ part|safe }}
+                            </p>
+                        {% endfor %}
+
+                        {% if vopros.picture and vopros.table_data %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-5 tableImage">
+                                        <img src="{{ vopros.picture.url }}"
+                                             class="img-rounded img-responsive">
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-7 tableImage">
+                                        {% for table in vopros.table_in_row %}
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-bordered table-striped table-sm">
+                                                    {% for rows in table %}
+                                                        {% if forloop.first %}
+                                                            <thead>
+                                                            <tr>
+                                                                {% for row in rows %}
+                                                                    <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                        &nbsp;{% else %}
+                                                                        {{ row }}{% endif %}</th>
+                                                                {% endfor %}
+                                                            </tr>
+                                                            </thead>
+                                                        {% else %}
+                                                            {% if forloop.counter == 2 %}
+                                                                <tbody>
+                                                            {% endif %}
+                                                        <tr>
+                                                            {% for row in rows %}
+                                                                {% if row %}
+                                                                    <td> {% if row == "x" %}
+                                                                        &nbsp;
+                                                                        &nbsp;
+                                                                        &nbsp;{% else %}
+                                                                        {{ row }}{% endif %} </td>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </tr>
+                                                        {% if forloop.last %}
+                                                            </tbody>
+                                                        {% endif %}
+                                                        {% endif %}
+
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {#                                        Проверка на наличие картинки#}
+                        {% elif vopros.picture %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-offset-3 col-md-offset-3 col-6 col-md-4 col-lg-3">
+                                        <img src="{{ vopros.picture.url }}"
+                                             class="img-rounded img-responsive ">
+                                    </div>
+                                </div>
+                            </div>
+                            {#                                        Проверка на наличие картинки#}
+
+                            {#                                        Проверка на наличие таблицы#}
+                        {% elif vopros.table_data %}
+                            <div class="container">
+                                <div class="row">
+                                    {% for table in vopros.table_in_row %}
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <table class="table table-bordered table-responsive table-striped">
+                                                {% for rows in table %}
+
+                                                    {% if forloop.first %}
+                                                        <thead>
+                                                        <tr>
+                                                            {% for row in rows %}
+                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                    &nbsp;{% else %}
+                                                                    {{ row }}{% endif %}</th>
+                                                            {% endfor %}
+                                                        </tr>
+                                                        </thead>
+                                                    {% else %}
+
+                                                        {% if forloop.counter == 2 %}
+                                                            <tbody>
+                                                        {% endif %}
+                                                    <tr>
+                                                        {% for row in rows %}
+                                                            {% if row %}
+                                                                <td style="width: 30px"> {% if row == "x" %}
+                                                                    &nbsp;
+                                                                    &nbsp;
+                                                                    &nbsp;{% else %}
+                                                                    {{ row }}{% endif %} </td>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </tr>
+                                                    {% if forloop.last %}
+                                                        </tbody>
+                                                    {% endif %}
+                                                    {% endif %}
+
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        {#                                    Проверка на наличие таблицы#}
+
+                        {#                                    Проверка на наличие кода#}
+                        {% if vopros.code_python %}
+                            <div class="row blockcode">
+                                <div class="col-md-4">
+                                    <pre><code class="language-python">{{ vopros.code_python }}</code></pre>
+                                </div>
+                                <div class="col-md-4">
+                                    <pre><code class="language-pascal">{{ vopros.code_pascal }}</code></pre>
+                                </div>
+                                <div class="col-md-4">
+                                    <pre><code class="language-cpp">{{ vopros.code_c_plus }}</code></pre>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if vopros.code_executor %}
+                            <div class="row blockcode">
+                                <div class="col-md-offset-1 col-md-4">
+                                                <pre><code
+                                                        class="language-python">{{ vopros.code_executor }}</code></pre>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {#                                    Проверка на наличие кода#}
+
+                        {#                                    Футер вопроса#}
+
+                        {% for part in vopros.get_part_question_2 %}
+                            {% if vopros.picture %}
+                                <p> {{ part|safe }}</p>
+                            {% else %}
+                                <p class="text-justify "> {{ part|safe }}</p>
+                            {% endif %}
+                        {% endfor %}
+
+                        {#                                    Футер вопроса#}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="container-fluid block-video-detail">
+
+
     </div>
 
 
@@ -254,6 +367,14 @@
                 }, 750);
             });
         });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
 
 {% endblock %}

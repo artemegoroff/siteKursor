@@ -12,16 +12,18 @@ def ege_home_page(request):
         kol_elem_in_group = len(varsEGE) // 3 + 1
     groups = [i * kol_elem_in_group + 1 for i in range(3)]
     context = {}
-    context['tasksEge'] = tasksEge
-    context['varsEGE'] = varsEGE
+    context['tasks'] = tasksEge
+    context['vars'] = varsEGE
     context['groups'] = groups
+    context['numAllTask'] = len(QuestionsEGE.objects.all())
     context['kol'] = kol_elem_in_group
+    numbersVideoRazbor = set(VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct())
+    videos=[]
+    for i in numbersVideoRazbor:
+        videos.append(NumberTaskEge.objects.get(number=i))
+    context['videos'] = videos
     return render(request, 'ege/ege_home.html', context)
 
-
-def ege_task_list(request):
-    tasks = NumberTaskEge.objects.all()
-    return render(request, 'task_list_all.html', {'tasks': tasks})
 
 
 def ege_task_detail(request, number_task):
@@ -87,16 +89,31 @@ def ege_get_var(request, variant_number):
     return render(request, 'task_detail.html', context)
 
 
-def ege_videotask_detail(request, id_task):
+def ege_videotask_detail(request, id_theme, id_task):
+    number_values = VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct()
+    numbers = []
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskEge.objects.get(number=cat))
     razbor = get_object_or_404(VideoRazborEGE, id=int(id_task))
     task = QuestionsEGE.objects.get(q_url_video=razbor)
-    context = {'vopros': task, 'video': razbor}
+    context = {'vopros': task, 'video': razbor,'tasks': numbers,'exam':'ege'}
 
     return render(request, 'video_task_detail.html', context)
 
 
-def ege_videotask_list(request):
+def ege_videotask_ONEtheme(request, id_theme):
+    razbors = VideoRazborEGE.objects.filter(number_of_task=int(id_theme))
+    number_values = set(VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct())
+    numbers = []
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskEge.objects.get(number=cat))
 
+    context = {'videos': razbors, 'tasks': numbers, 'exam': 'ege'}
+
+    return render(request, 'video_task_list.html', context)
+
+
+def ege_videotask_AllTask(request):
     razbors = VideoRazborEGE.objects.all().order_by('-data_add')
     number_values = set(razbors.values_list('number_of_task',flat=True).distinct())
     numbers=[]
@@ -105,6 +122,6 @@ def ege_videotask_list(request):
     if len(numbers) != 1:
         numbers.insert(0,'Все видеоразборы')
 
-    context = {'videos': razbors, 'numbers':numbers,'exam':'ege'}
+    context = {'videos': razbors, 'tasks':numbers,'exam':'ege'}
 
     return render(request, 'video_task_list.html', context)

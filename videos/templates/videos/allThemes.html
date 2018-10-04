@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
 {% block seo_block %}
@@ -11,22 +11,50 @@
 
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'videos/css/allThemes.less' %}" type="text/less">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid block-allThemes">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8 col-sm-offset-1 col-sm-10">
-                <h2>Язык программирования "{{ allThemes.0.get_language_display }}" </h2>
-                <h2>Содержание курса: </h2>
-                <div class="list-group listThemes">
-                    {% for allTheme in allThemes %}
-                        <a href="{% url 'videos:videos_python_theme' allTheme.number_theme %}" class="list-group-item">{{ forloop.counter }}. {{ allTheme.theme }}</a>
-                    {% endfor %}
-                </div>
+
+
+    <!-- ##### Catagory ##### -->
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+         style="background-image: url(img/bg-img/bg2.jpg);">
+        <h3>Python</h3>
+    </div>
+
+
+    <!-- ##### Popular Course Area Start ##### -->
+    <section class="popular-courses-area section-padding-100">
+        <div class="container">
+            <div class="row">
+
+                {% for Theme in allThemes %}
+
+                    <!-- Single Popular Course -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-popular-course mb-70 wow fadeInUp" data-wow-delay="250ms">
+                            <img src="http://i3.ytimg.com/vi/{{ Theme.url_video }}/maxresdefault.jpg" alt="">
+                            <!-- Course Content -->
+                            <div class="course-content">
+                                <h6>{{forloop.counter}}. {{ Theme.theme }}</h6>
+                            </div>
+                            <!-- Seat Rating Fee -->
+                            <div class="seat-rating-fee d-flex justify-content-between">
+                                <div class="seat-rating h-100 d-flex align-items-center">
+
+                                </div>
+                                <div class="course-fee h-100">
+                                    <a href="{% url 'videos:videos_python_theme' Theme.number_theme %}" class="free">
+                                        Перейти
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ##### Popular Course Area End ##### -->
 {% endblock %}

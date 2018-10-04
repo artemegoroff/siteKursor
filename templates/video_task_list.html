@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 {% block seo_block %}
     <title>{{ videos.0.TITLE }}</title>
@@ -7,8 +7,9 @@
 {% endblock %}
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'css_base/video_task_list.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css_base/mediaTasksDetail.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+
+    {#    <link rel="stylesheet/less" href="{% static 'css_base/video_task_list.less' %}" type="text/less">#}
     {% if vopros.code_python %}
         <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
         <script src="{% static 'js_base/prism.js' %}"></script>
@@ -20,88 +21,88 @@
 {% block content %}
 
 
-    <div class="container-fluid block-video-list">
-        <div class="row">
-            <div class="col-sm-2 col-md-2 numberTask">
-                {#               menu side#}
-            </div>
-
-            <div class="col-md-9">
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for task in tasks %}
+            <li>
+                {#                {% if exam == 'ege_var' %}#}
+                {#                    <a href="{% url 'ege:ege_get_var' task.number_var %}">{{ task }}</a>#}
+                {#                {% elif exam == 'oge_var' %}#}
+                {#                    <a href="{% url 'oge:oge_get_var' task.number_var %}">{{ task }}</a>#}
                 {% if exam == 'ege' %}
-                    <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+                    <a href="{% url 'ege:ege_videotask_ONEtheme' task.number %}">{{ task }}</a>
                 {% elif exam == 'oge' %}
-                    <h2>Видеоразборы задач ОГЭ по информатике</h2>
+                    <a href="{% url 'oge:oge_videotask_ONEtheme' task.number %}">{{ task }}</a>
                 {% endif %}
-                <select class="form-control" id="myInput" type="text">
-                    {% for cat in numbers %}
-                        <option {% if forloop.first %}
-                            selected {% endif %}> {{ cat }}</option>
-                    {% endfor %}
-                </select>
-                <br>
-                <table class="table table-bordered table-responsive table-striped table-razbor">
-                    <thead>
-                    <tr>
-                        <th>Видео</th>
-                        <th>Задание</th>
-                        <th>Дата добавления</th>
-                    </tr>
-                    </thead>
-                    <tbody id="myTable">
-                    {% for video in videos %}
-                        <tr class='clickable-row'
-                                {% if exam == 'ege' %}
-                            data-href='{% url 'ege:ege_videotask_detail' video.id %}'
-                                {% elif exam == 'oge' %}
-                            data-href='{% url 'oge:oge_videotask_detail' video.id %}'
-                                {% endif %}
-                        >
-                            <td><img class="img-responsive img-rounded"
-                                     src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg"></td>
-                            <td>
-                                <p>Разбор задачи № {{ video.number_of_task }}</p>
-                                <p>Категория: {{ video.get_category_of_question }}</p>
-                            </td>
-                            <td>
-                                {{ video.data_add }}
-                            </td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-                <script src="https://apis.google.com/js/platform.js"></script>
+            </li>
+        {% endfor %}
+        <li><a href="#">Спасибо за внимание</a></li>
+    </div>
 
-                <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
-                     data-count="hidden">
-                </div>
+
+    <!-- ##### Catagory ##### -->
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+         style="background-image: url(img/bg-img/bg2.jpg);">
+        {% if exam == 'ege' %}
+            <h2>Видеоразборы задач ЕГЭ по информатике</h2>
+        {% elif exam == 'oge' %}
+            <h2>Видеоразборы задач ОГЭ по информатике</h2>
+        {% endif %}
+    </div>
+
+    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
+        Меню</i>
+
+
+    <!-- ##### Popular Course Area Start ##### -->
+    <section class="popular-courses-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                {% for video in videos %}
+
+                    <!-- Single Popular Course -->
+                    <div class="col-6 col-md-4 col-lg-3">
+                        <div class="single-popular-course mb-70 wow fadeInUp" data-wow-delay="250ms">
+                            <img src="http://i3.ytimg.com/vi/{{ video.url_video }}/maxresdefault.jpg" alt="">
+                            <!-- Course Content -->
+                            <div class="course-content">
+                                <h6>{{ video.number_of_task }}</h6>
+                                <div class="meta d-flex align-items-center">
+                                    <a href="#">{{ video.get_category_of_question }}</a>
+                                </div>
+                            </div>
+                            <!-- Seat Rating Fee -->
+                            <div class="seat-rating-fee d-flex justify-content-between">
+                                <div class="seat-rating h-100 d-flex align-items-center">
+                                </div>
+                                <div class="course-fee h-100">
+                                    {% if exam == 'ege' %}
+                                        <a href="{% url 'ege:ege_videotask_detail' id_theme=video.number_of_task.number id_task=video.id %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% elif exam == 'oge' %}
+                                        <a href="{% url 'oge:oge_videotask_detail' id_theme=video.number_of_task.number id_task=video.id %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-    </div>
+    </section>
+    <!-- ##### Popular Course Area End ##### -->
 
 
+{% endblock %}
+
+
+{% block extraJS %}
     <script type="text/javascript">
-        $(function () {
-            $('.list-group a').each(function () {
-                var location = window.location.href;
-                var link = this.href;
-                {#в случае get запроса нужно получить короткий путь#}
-                if (location.indexOf('category') >= 0) {
-                    var index = location.indexOf('category');
-                    location = location.substr(0, index - 1);
-                }
-                if (location.length == link.length && location.indexOf(link) == 0) {
-                    $(this).addClass('active');
-                }
-            });
-        });
-        $(document).ready(function ($) {
-            $(".clickable-row").click(function () {
-                {#                window.location = $(this).data("href");#}
-                window.open($(this).data("href"));
-            });
-        });
-
         {#фильтруем видео по номеру вопроса#}
         $(document).ready(function () {
             $("#myInput").on("click", function () {
@@ -110,12 +111,18 @@
                 if (value == "все видеоразборы") {
                     value = ' ';
                 }
-                $("#myTable tr").filter(function () {
+                $(".single-popular-course").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
         });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
-
-
 {% endblock %}

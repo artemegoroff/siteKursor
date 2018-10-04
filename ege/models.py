@@ -5,7 +5,7 @@ class VarEge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
 
     def __str__(self):
-        return str(self.number_var) + ' Вариант'
+        return str(self.number_var) + " Вариант ЕГЭ"
 
     def seo_title(self):
         return 'Тренировачный вариант ' + str(self.number_var) + ' ЕГЭ по информатике'
@@ -49,6 +49,9 @@ class NumberTaskEge(models.Model):
     def count_questions(self):
         return len(QuestionsEGE.objects.filter(number_of_task=self.number))
 
+    def count_videoRazbors(self):
+        return len(VideoRazborEGE.objects.filter(number_of_task=self.number))
+
     class Meta:
         verbose_name = "Номер задания ЕГЭ"
         verbose_name_plural = "Номера заданий ЕГЭ"
@@ -90,6 +93,8 @@ class VideoRazborEGE(models.Model):
 
     def get_category_of_question(self):
         return QuestionsEGE.objects.get(q_url_video=self).category
+
+
 
 
     class Meta:

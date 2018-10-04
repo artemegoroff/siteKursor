@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
 {% block seo_block %}
@@ -10,40 +10,37 @@
 
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'videos/css/oneTheme.less' %}" type="text/less">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
-    <script src="{% static 'js_base/prism.js' %}"></script>
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+    <script src="{% static 'js/prism.js' %}"></script>
 
 {% endblock %}
 
 
 {% block content %}
 
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for oneTheme in allThemes %}
+            <li>
+                <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
+            </li>
+        {% endfor %}
+    </div>
 
-    <div class="container-fluid" id="wrapper">
+
+
+
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+         style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">
+        <h3>Python</h3>
+    </div>
+
+    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true"> Меню</i>
+
+    <div class="container">
         <div class="row">
-            <div id="sidebar-wrapper">
-                <!-- Sidebar -->
-                <ul class="sidebar-nav">
-                    <li class="sidebar-brand">
-                        <a href="#"> Разделы: </a>
-                    </li>
-                    {% for oneTheme in allThemes %}
-                        <li>
-                            <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">
-                                {{ forloop.counter }}.{{ oneTheme.theme }}
-                            </a>
-                        </li>
-                    {% endfor %}
-                    <li><a href=""> Спасибо за внимание! </a></li>
-
-                </ul>
-                <!-- /#sidebar-wrapper -->
-            </div>
-            <!-- Page Content -->
-            <div class="col-md-offset-2 col-md-8" id="page-content-wrapper">
-                <span id="menu-checker" style="font-size:30px;cursor:pointer">&#9776; Содержание</span>
-
+            <div class="col-12 col-md-12 col-lg-12">
                 {% if '127.0.0.1' in request.META.HTTP_HOST %}
                     <div class="abs_spanRedact">
                         {% if 'python' in request.path %}
@@ -63,147 +60,214 @@
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
                 {% endif %}
-                {{ Theme.article|safe }}
-                {% if Theme.tasks.all %}
-                    <div class="bs-example">
-                        <h2 class="text-center">Задачи для самостоятельной работы</h2>
-                        <div class="panel-group" id="accordion">
-                            {% for task in Theme.tasks.all %}
-                                {% if task.url_ref %}
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-sm-9 col-md-8">
-                                                    <h4 class="panel-title">
-                                                        <a target="_blank" href="{{ task.url_ref }}">
-                                                            {{ forloop.counter }}. {{ task.name }}
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                                <div class="col-sm-3 col-md-4">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-striped active"
-                                                             role="progressbar"
-                                                             aria-valuenow="task.difficult" aria-valuemin="0"
-                                                             aria-valuemax="100"
-                                                             style="width:{{ task.difficult }}%">
-                                                            {{ task.difficult }}%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% else %}
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-sm-9 col-md-8">
-                                                    <h4 class="panel-title">
-                                                        <a data-toggle="collapse" data-parent="#accordion"
-                                                           href="#collapse{{ forloop.counter }}">
-                                                            {{ forloop.counter }}. {{ task.name }}
-                                                        </a>
-                                                    </h4>
-                                                </div>
-                                                <div class="col-sm-3 col-md-4">
-                                                    <div class="progress">
-                                                        <div class="progress-bar progress-bar-striped active"
-                                                             role="progressbar"
-                                                             aria-valuenow="task.difficult" aria-valuemin="0"
-                                                             aria-valuemax="100"
-                                                             style="width:{{ task.difficult }}%">
-                                                            {{ task.difficult }}%
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <h3 class="text-center">Условие задачи</h3>
-                                                <p> {{ task.condition|safe }}</p>
-                                                {% if task.examples.all %}
-                                                    <div class="table-responsive table-bordered">
-                                                        <table class="table">
-                                                            <thead>
-                                                            <tr>
-                                                                <th>№</th>
-                                                                <th>Входные данные</th>
-                                                                <th>Выходные данные</th>
-                                                            </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                            {% for example in task.examples.all %}
-                                                                <tr>
-                                                                    <td>{{ forloop.counter }}</td>
-                                                                    <td>
-                                                                        {% for row in example.get_rowsInput %}
-                                                                            {{ row }} <br>
-                                                                        {% endfor %}
-                                                                    </td>
-                                                                    <td>
-                                                                        {% for row in example.get_rowsOutput %}
-                                                                            {{ row }} <br>
-                                                                        {% endfor %}
-                                                                    </td>
-                                                                </tr>
-                                                            {% endfor %}
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                {% endif %}
-
-                            {% endfor %}
-                        </div>
-                    </div>
-                {% endif %}
-
-
             </div>
-            <!-- /#page-content-wrapper -->
         </div>
     </div>
 
+    {% if Theme.article or Theme.tasks.all %}
+        <div class="single-course-content section-padding-50">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="course--content">
+                            <div class="clever-tabs-content">
+                                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                    {% if Theme.article %}
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="tab--1" data-toggle="tab"
+                                               href="#tab1"
+                                               role="tab"
+                                               aria-controls="tab1" aria-selected="false">Примеры</a>
+                                        </li>
+                                    {% endif %}
 
+                                    {% if Theme.tasks.all %}
+                                        <li class="nav-item {% if not Theme.article %} active {% endif %}">
+                                            <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2"
+                                               role="tab"
+                                               aria-controls="tab2" aria-selected="true">Практика</a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+
+                                <div class="tab-content" id="myTabContent">
+                                    <!-- Tab Text -->
+                                    {% if Theme.article %}
+                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+                                             aria-labelledby="tab--1">
+                                            <div class="clever-description">
+                                                <!-- About Course -->
+                                                <div class="about-course mb-15">
+                                                    <p>{{ Theme.article|safe }} </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if Theme.tasks.all %}
+                                        <!-- Tab Text -->
+                                        <div class="tab-pane fade {% if not Theme.article %} show active {% endif %}"
+                                             id="tab2" role="tabpanel" aria-labelledby="tab--2">
+
+                                            <div class="clever-description">
+
+                                                <!-- FAQ -->
+                                                <div class="clever-faqs">
+                                                    <h4>Задачи</h4>
+
+                                                    <div class="accordions" id="accordion" role="tablist"
+                                                         aria-multiselectable="true">
+                                                        {% for oneTheme in Theme.tasks.all %}
+                                                            {% if oneTheme.url_ref %}
+                                                                <div class="panel single-accordion">
+                                                                    <h6>
+                                                                        <a target="_blank"
+                                                                           href="{{ oneTheme.url_ref }}">{{ forloop.counter }}. {{ oneTheme.name }} </a>
+                                                                    </h6>
+
+                                                                </div>
+                                                            {% else %}
+                                                                <!-- Single Accordian Area -->
+                                                                <div class="panel single-accordion">
+                                                                    <h6>
+                                                                        <a role="button" class="collapsed"
+                                                                           aria-expanded="true"
+                                                                           aria-controls="collapse{{ forloop.counter }}"
+                                                                           data-parent="#accordion"
+                                                                           data-toggle="collapse"
+                                                                           href="#collapse{{ forloop.counter }}">{{ forloop.counter }}. {{ oneTheme.name }}
+                                                                            <span class="accor-open"><i
+                                                                                    class="fa fa-plus"
+                                                                                    aria-hidden="true"></i></span>
+                                                                            <span class="accor-close"><i
+                                                                                    class="fa fa-minus"
+                                                                                    aria-hidden="true"></i></span>
+                                                                        </a>
+                                                                    </h6>
+                                                                    <div id="collapse{{ forloop.counter }}"
+                                                                         class="accordion-content collapse">
+                                                                        <h3 class="text-center">Условие
+                                                                            задачи</h3>
+                                                                        <p> {{ oneTheme.condition|safe }}</p>
+                                                                        {% if oneTheme.examples.all %}
+                                                                            <div class="table-responsive table-bordered">
+                                                                                <table class="table">
+                                                                                    <thead>
+                                                                                    <tr>
+                                                                                        <th>№</th>
+                                                                                        <th>Входные данные</th>
+                                                                                        <th>Выходные данные</th>
+                                                                                    </tr>
+                                                                                    </thead>
+                                                                                    <tbody>
+                                                                                    {% for example in oneTheme.examples.all %}
+                                                                                        <tr>
+                                                                                            <td>{{ forloop.counter }}</td>
+                                                                                            <td>
+                                                                                                {% for row in example.get_rowsInput %}
+                                                                                                    {{ row }}
+                                                                                                    <br>
+                                                                                                {% endfor %}
+                                                                                            </td>
+                                                                                            <td>
+                                                                                                {% for row in example.get_rowsOutput %}
+                                                                                                    {{ row }}
+                                                                                                    <br>
+                                                                                                {% endfor %}
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    {% endfor %}
+                                                                                    </tbody>
+                                                                                </table>
+                                                                            </div>
+
+                                                                        {% endif %}
+                                                                    </div>
+                                                                </div>
+
+                                                            {% endif %}
+
+                                                        {% endfor %}
+
+                                                        <!-- Single Accordian Area -->
+
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-lg-3">
+                        <div class="course-sidebar">
+                            <!-- Buy Course -->
+                            <a href="#" class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+
+                            <!-- Widget -->
+                            <div class="sidebar-widget">
+                                <h4 class="text-center">О видео</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <h6><i class="fa fa-clock-o" aria-hidden="true"></i> Длительность</h6>
+                                        <h6 id="#durationVideo">0</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-bell" aria-hidden="true"></i> Lectures</h6>
+                                        <h6>10</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-tasks" aria-hidden="true"></i> Задания</h6>
+                                        <h6>{{ Theme.tasks.all|length }}</h6>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                            <div class="sidebar-widget">
+                                <h4 class="text-center">Группа </h4>
+
+                                <script type="text/javascript"
+                                        src="https://vk.com/js/api/openapi.js?159"></script>
+
+                                <!-- VK Widget -->
+                                <div id="vk_groups" style="margin: 0 auto;"></div>
+                                <script type="text/javascript">
+                                    VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
+                                </script>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    {% endif %}
+
+
+
+{% endblock %}
+
+{% block extraJS %}
     <script type="text/javascript">
-        var openCloseMenu = function () {
-            var sect = $("#page-content-wrapper");
-            sect.toggleClass("col-md-offset-2");
-            if (sect.hasClass("col-md-8")) {
-                sect.removeClass("col-md-8");
-                sect.addClass("col-md-10");
-            }
-            else {
-                sect.removeClass("col-md-10");
-                sect.addClass("col-md-8");
-            }
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "300px";
         }
-        $(document).ready(function () {
-            $('#page-content-wrapper img').addClass('responseImg');
-            var a = localStorage.getItem("menu");
-            if (isNaN(a)) {
-                a = false;
-            }
-            ;
-            if (a == true) {
-                $("#wrapper").addClass("checked");
-                openCloseMenu();
-            }
-        });
 
-        $("#menu-checker").click(function (e) {
-            e.preventDefault();
-            var a = localStorage.getItem("menu");
-            localStorage.setItem("menu", a ^ true);
-            $("#wrapper").toggleClass("checked");
-            openCloseMenu();
-        });
-
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
 {% endblock %}

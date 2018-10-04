@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
 {% block seo_block %}
@@ -16,44 +16,237 @@
 
 
 {% block content %}
-    {#блок панель по ОГЭ информатике#}
-    <div class="container-fluid block-choice-razdel">
-        <div class="row text-center" style="padding-top: 40px">
-            <h2>ОГЭ по информатике</h2>
-            <h4>Выберите интересующий Вас раздел:</h4>
+
+    <div class="single-course-intro d-flex align-items-center justify-content-center"
+         style="background-image: url({% static 'img/bg-img/ОГЭ_big-min.jpg' %});">
+        <!-- Content -->
+        <div class="single-course-intro-content text-center">
+            <h3>ОГЭ по Информатике</h3>
+            <div class="meta d-flex align-items-center justify-content-center">
+                <a href="#">Задания</a>
+                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                <a href="#">Видеоразборы</a>
+                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                <a href="#">Варианты</a>
+            </div>
         </div>
-        <div class="text-center">
-            <div class="row block-panel">
-                <div class="col-md-offset-2 col-md-3 col-sm-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <h1>Задания</h1>
+    </div>
+
+
+    <!-- ##### Courses Content Start ##### -->
+    <div class="single-course-content section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-lg-8">
+                    <div class="course--content">
+
+                        <div class="clever-tabs-content">
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab"
+                                       aria-controls="tab1" aria-selected="false">Задания</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab"
+                                       aria-controls="tab2" aria-selected="true">Видеоразборы</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab"
+                                       aria-controls="tab4" aria-selected="true">Варианты</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="myTabContent">
+                                <!-- Tab Text -->
+                                <div class="tab-pane fade show active" id="tab1" role="tabpanel"
+                                     aria-labelledby="tab--1">
+                                    <div class="clever-description">
+
+                                        <!-- About Course -->
+                                        <div class="about-course mb-30">
+                                            <h4>Задания ОГЭ по информатике</h4>
+                                            <p>Любой экзамен – неплохая возможность проверить свои знания. Да, ОГЭ по
+                                                информатике – это не программирование в чистом виде, это просто база
+                                                знаний. Но именно она
+                                                может стать вашим первым рывком к получению желаемой работы.
+                                            </p>
+                                        </div>
+
+                                        <!-- All Instructors -->
+                                        <div class="all-instructors mb-30">
+                                            <h4>Попрактикуйтесь в решении задач</h4>
+                                            <div class="row">
+                                                {% for task in tasks %}
+                                                    <div class="col-lg-6">
+                                                        <div class="single-instructor d-flex align-items-center mb-30">
+
+                                                            <div class="instructor-thumb">
+                                                                <img src="{{ task.picture.url }}" alt="">
+                                                            </div>
+                                                            <a href="{% url 'oge:oge_task_detail' task.number %}">
+                                                                <div class="instructor-info">
+                                                                    <h6>{{ task }}</h6>
+                                                                    <span>{{ forloop.counter }} Задание</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Tab Text -->
+                                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                                    <div class="clever-curriculum">
+
+                                        <!-- About Curriculum -->
+                                        <div class="about-curriculum mb-30">
+                                            <h4>Видеоразборы</h4>
+                                            <p>В свое время я занимался самостоятельно, тогда не было огромного
+                                                количества репетиторов, как сейчас. Занятия такого рода были, скорее,
+                                                роскошью, чем нормой. И уж тем более, не было видеоуроков, по которым
+                                                намного проще готовиться к экзаменам.</p>
+
+                                            <p> Сейчас же у вас есть возможность выбора. В этом я вам даже завидую, и
+                                                готов поддержать. В студенческие годы я и не думал, что сам захочу
+                                                обучать кого-то своему делу. Это случилось, и я с удовольствием делюсь с
+                                                вами своими видеоразборами, я с вами на связи 24/7. Все для того, чтобы
+                                                помочь успешно пройти ваш путь к мечте! </p>
+                                        </div>
+
+                                        <!-- Curriculum Level -->
+                                        <div class="curriculum-level mb-30">
+                                            <h5>Номера заданий</h5>
+                                            <ul class="curriculum-list">
+                                                {% for video in videos %}
+                                                    <a href="{% url 'oge:oge_videotask_ONEtheme' video.number %}">
+                                                        <li class="d-flex justify-content-between">
+                                                            <span><i class="fa fa-video-camera"
+                                                                     aria-hidden="true"></i> {{ video }}</span>
+                                                            <span>{{ video.count_videoRazbors }} Видео </span>
+                                                        </li>
+                                                    </a>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                                <!-- Tab Text -->
+                                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                                    <div class="clever-members">
+
+                                        <!-- About Members -->
+                                        <div class="about-members mb-30">
+                                            <h4>Варианты ОГЭ</h4>
+
+                                            <p>Часть 1 содержит 6 заданий с кратким ответом. 12 заданий относятся к
+                                                базовому уровню, 10 - к повышенному, 1 задание – к высокому уровню
+                                                сложности.</p>
+
+                                            <p>Часть 2 содержит 4 задания, первое из которых повышенного уровня
+                                                сложности, остальные 3 задания высокого уровня сложности. Задания этой
+                                                части подразумевают запись развернутого ответа в произвольной форме.</p>
+
+                                            <p>На выполнение экзаменационной работы отводится 3 часа 55 минут (235
+                                                минут). На выполнение заданий части 1 рекомендуется отводить 1,5 часа
+                                                (90 минут).</p>
+
+                                            <p>Каждое задание части 1 - 1 балл. Задания части 2 оцениваются от 0 до 4
+                                                баллов.</p>
+                                        </div>
+
+                                        <!-- All Members -->
+                                        <div class="all-instructors mb-30">
+                                            <div class="row">
+                                                <!-- Single Members -->
+
+                                                {% for var in vars %}
+                                                    <div class="col-lg-6">
+                                                        <div class="single-instructor d-flex align-items-center mb-30">
+                                                            <div class="instructor-thumb">
+                                                                <img src="img/bg-img/t1.png" alt="">
+                                                            </div>
+                                                            <a href="{% url 'ege:ege_get_var' var.number_var %}">
+                                                                <div class="instructor-info">
+                                                                    <h5>{{ forloop.counter }} Вариант</h5>
+                                                                    <span>Пробный вариант ОГЭ</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
                         </div>
-                        <div class="panel-footer">
-                            <br>
-                            <a class="btn btn-default btn-lg" href="{% url 'oge:oge_list' %}">Перейти к заданиям</a>
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <h1>Видеоразборы</h1>
+
+                <div class="col-12 col-lg-4">
+                    <div class="course-sidebar">
+                        <!-- Buy Course -->
+                        <a target="_blank" href="https://vk.com/topic-116207750_37403077"
+                           class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+
+                        <!-- Widget -->
+                        <div class="sidebar-widget">
+                            <h4>Особенности</h4>
+                            <ul class="features-list">
+                                <li>
+                                    <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
+                                    <h6>{{ numAllTask }}</h6>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тест</h6>
+                                    <h6>{{ tasks|length }}</h6>
+                                </li>
+                                <li>
+                                    <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
+                                    <h6>{{ vars|length }}</h6>
+                                </li>
+
+                            </ul>
                         </div>
-                        <div class="panel-footer">
-                            <br>
-                            <a class="btn btn-default btn-lg" href="{% url 'oge:oge_videotask_list' %}">Перейти к списку видео</a>
+
+                        <!-- Widget -->
+                        <div class="sidebar-widget">
+                            <h4 class="text-center">Опрос</h4>
+                            <!-- Put this script tag to the <head> of your page -->
+                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
+
+                            <script type="text/javascript">
+                                VK.init({apiId: 6204845, onlyWidgets: true});
+                            </script>
+
+                            <!-- Put this div tag to the place, where the Poll block will be -->
+                            <div id="vk_poll"></div>
+                            <script type="text/javascript">
+                                VK.Widgets.Poll("vk_poll", {}, "306387710_df2484ea03403cef5a");
+                            </script>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="panel panel-default text-center">
-                        <div class="panel-heading">
-                            <h1>Варианты</h1>
-                        </div>
-                        <div class="panel-footer">
-                            <br>
-                            <a class="btn btn-default btn-lg" href="#block_var_oge" id="hrefVar">Перейти к вариантам</a>
+
+                        <!-- Widget -->
+                        <div class="sidebar-widget">
+                            <h4 class="text-center">Присоединяйтесь</h4>
+
+                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
+
+                            <!-- VK Widget -->
+                            <div id="vk_groups" style="margin: 0 auto;"></div>
+                            <script type="text/javascript">
+                                VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
+                            </script>
+
+
                         </div>
                     </div>
                 </div>
@@ -62,72 +255,76 @@
     </div>
 
 
-    {#  заголовок задания  #}
-    <div class="container-fluid block-header">
-        <div class="text-center">
-            <h2>Ниже представлены имеющиеся типы заданий по ЕГЭ информатике</h2>
-            <h4>Выберите интересующий Вас тип задания:</h4>
-        </div>
-    </div>
-    {#  заголовок задания  #}
 
-    {# Блок: типы задач #}
-    <div class="container-fluid block-tasks">
-        <div class="row">
-            <div class="col-md-offset-4 col-md-4">
-                <div class="list-group">
-                    {% for task in tasksOge %}
-                        <a href="{% url 'oge:oge_task_detail' task.number %}" class="list-group-item">
-                            {{ task }} <span class="badge">Заданий {{ task.count_questions }}</span>
-                        </a>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-    {# Блок: типы задач #}
-
-
-    {#  заголовок варианты  #}
-    <div class="container-fluid block-header">
-        <div class="text-center">
-            <h2>Ниже представлены имеющиеся варианты ОГЭ информатике</h2>
-            <h4>Выберите интересующий Вас вариант:</h4>
-        </div>
-    </div>
-    {#  заголовок варианты  #}
-    {#блок варианты ЕГЭ по информатике#}
-    <div class="container-fluid block-var" id="block_var_oge">
-        <div class="row">
-            {#   обходим цикл 3 раза (такого количество колонок#}
-            {% for foo in groups %}
-                <div class="col-md-4">
-                    <div class="list-group">
-                        {% for var in varsOge %}
-                            {#  проверяем какие элементы относятся к текущей колонке #}
-                            {% if forloop.counter >= foo and forloop.counter < foo|add:kol %}
-                                {#  TODO сделать ссылки на варианты          #}
-                                <a href="{% url 'oge:oge_get_var' var.number_var %}"
-                                   class="list-group-item text-center"> {{ var }} </a>
-                            {% endif %}
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function () {
-            $("#hrefVar").on("click", function (event) {
-                event.preventDefault();
-                var id = $(this).attr('href'),
-                    top = $(id).offset().top;
-                $('body,html').animate({scrollTop: top}, 1500);
-            });
-        });
-    </script>
 
 {% endblock %}
 
+{% block extraJS %}
+    <script>
+        var openCloseMenu = function (a) {
+            if (a == 1) {
+                $("#tab--1").addClass("active");
+                $("#tab1").addClass("active");
+                $("#tab1").addClass("show");
+                $("#tab--2").removeClass("active");
+                $("#tab2").removeClass("active");
+                $("#tab2").removeClass("show");
+                $("#tab--3").removeClass("active");
+                $("#tab3").removeClass("active");
+                $("#tab3").removeClass("show");
+            }
+            else if (a == 2) {
+                $("#tab--1").removeClass("active");
+                $("#tab1").removeClass("active");
+                $("#tab1").removeClass("show");
+                $("#tab--2").addClass("active");
+                $("#tab2").addClass("active");
+                $("#tab2").addClass("show");
+                $("#tab--3").removeClass("active");
+                $("#tab3").removeClass("active");
+                $("#tab3").removeClass("show");
+            }
+            else if (a == 3) {
+                $("#tab--1").removeClass("active");
+                $("#tab1").removeClass("active");
+                $("#tab1").removeClass("show");
+                $("#tab--2").removeClass("active");
+                $("#tab2").removeClass("active");
+                $("#tab2").removeClass("show");
+                $("#tab--3").addClass("active");
+                $("#tab3").addClass("active");
+                $("#tab3").addClass("show");
+            }
+        }
+
+
+        $(document).ready(function () {
+            var a = localStorage.getItem("menuOge");
+            if (isNaN(a)) {
+                a = 1;
+            }
+            ;
+            openCloseMenu(a);
+        });
+
+        $("#tab--1").click(function (e) {
+            e.preventDefault();
+            localStorage.setItem("menuOge", 1);
+            openCloseMenu(1);
+        });
+
+        $("#tab--2").click(function (e) {
+            e.preventDefault();
+            localStorage.setItem("menuOge", 2);
+            openCloseMenu(2);
+        });
+
+        $("#tab--3").click(function (e) {
+            e.preventDefault();
+            localStorage.setItem("menuOge", 3);
+            openCloseMenu(3);
+        });
+
+    </script>
+{% endblock %}
 
