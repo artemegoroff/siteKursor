@@ -23,12 +23,15 @@
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <li>
+            {% if exam == 'ege' %}
+                <a href="{% url 'ege:ege_videotask_AllTask' %}"> Все разборы </a>
+            {% elif exam == 'oge' %}
+                <a href="{% url 'oge:oge_videotask_AllTask' %}"> Все разборы </a>
+            {% endif %}
+        </li>
         {% for task in tasks %}
             <li>
-                {#                {% if exam == 'ege_var' %}#}
-                {#                    <a href="{% url 'ege:ege_get_var' task.number_var %}">{{ task }}</a>#}
-                {#                {% elif exam == 'oge_var' %}#}
-                {#                    <a href="{% url 'oge:oge_get_var' task.number_var %}">{{ task }}</a>#}
                 {% if exam == 'ege' %}
                     <a href="{% url 'ege:ege_videotask_ONEtheme' task.number %}">{{ task }}</a>
                 {% elif exam == 'oge' %}

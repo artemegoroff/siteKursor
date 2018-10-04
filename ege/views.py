@@ -115,12 +115,10 @@ def ege_videotask_ONEtheme(request, id_theme):
 
 def ege_videotask_AllTask(request):
     razbors = VideoRazborEGE.objects.all().order_by('-data_add')
-    number_values = set(razbors.values_list('number_of_task',flat=True).distinct())
-    numbers=[]
+    number_values = set(VideoRazborEGE.objects.values_list('number_of_task',flat=True).distinct())
+    numbers = []
     for cat in sorted(number_values):
-        numbers.append(NumberTaskEge.objects.get(number = cat))
-    if len(numbers) != 1:
-        numbers.insert(0,'Все видеоразборы')
+        numbers.append(NumberTaskEge.objects.get(number=cat))
 
     context = {'videos': razbors, 'tasks':numbers,'exam':'ege'}
 

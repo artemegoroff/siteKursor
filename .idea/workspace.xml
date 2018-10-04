@@ -3,8 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home_page.html" afterPath="$PROJECT_DIR$/home/templates/home/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/baseBoot4.html" afterPath="$PROJECT_DIR$/templates/baseBoot4.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/urls.py" afterPath="$PROJECT_DIR$/ege/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ege/views.py" afterPath="$PROJECT_DIR$/ege/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/views.py" afterPath="$PROJECT_DIR$/oge/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_list.html" afterPath="$PROJECT_DIR$/templates/video_task_list.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,30 +54,44 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="video_task_list.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/video_task_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="29" column="77" lean-forward="false" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/views.py">
+        <entry file="file://$PROJECT_DIR$/oge/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1271">
+              <caret line="107" column="25" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="25" />
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/admin.py">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ege/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="220">
+              <caret line="10" column="95" lean-forward="false" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="95" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="home_page.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="home_page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
+            <state relative-caret-position="705">
               <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
               <folding>
                 <marker date="1538689254747" expanded="false" signature="13360:13365" ph="&amp;" />
@@ -125,12 +141,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="video_task_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/video_task_list.html">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ege/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="84" column="62" lean-forward="false" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="369">
+              <caret line="124" column="59" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="124" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,12 +180,10 @@
       <find>kol_elem_in_group</find>
       <find>задать</find>
       <find>ege_task_list</find>
-      <find>video_task_list</find>
       <find>задать</find>
       <find>ege_videotask_list</find>
       <find>mySidenav</find>
       <find>редакти</find>
-      <find>ege:ege_videotask_ONEtheme</find>
       <find>ege_videotask_detail</find>
       <find>oge_videotask_list</find>
       <find>oge_home</find>
@@ -177,8 +193,10 @@
       <find>ege:ege_videotask_detail</find>
       <find>перей</find>
       <find>Review</find>
-      <find>oge:oge_videotask_detail</find>
       <find>информатике</find>
+      <find>oge:oge_videotask_detail</find>
+      <find>video_task_list</find>
+      <find>ege:ege_videotask_ONEtheme</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -238,17 +256,13 @@
         <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/ege/models.py" />
         <option value="$PROJECT_DIR$/ege/templates/ege/ege_home.html" />
-        <option value="$PROJECT_DIR$/ege/views.py" />
         <option value="$PROJECT_DIR$/templates/menuBS4.html" />
         <option value="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" />
         <option value="$PROJECT_DIR$/base_static/css/taskCardStyle.less" />
         <option value="$PROJECT_DIR$/templates/task_list_all.html" />
-        <option value="$PROJECT_DIR$/ege/urls.py" />
         <option value="$PROJECT_DIR$/oge/urls.py" />
         <option value="$PROJECT_DIR$/oge/templates/oge/oge_home.html" />
-        <option value="$PROJECT_DIR$/oge/views.py" />
         <option value="$PROJECT_DIR$/templates/task_detail.html" />
-        <option value="$PROJECT_DIR$/templates/video_task_list.html" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
@@ -256,6 +270,10 @@
         <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/templates/baseBoot4.html" />
         <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
+        <option value="$PROJECT_DIR$/ege/urls.py" />
+        <option value="$PROJECT_DIR$/ege/views.py" />
+        <option value="$PROJECT_DIR$/oge/views.py" />
+        <option value="$PROJECT_DIR$/templates/video_task_list.html" />
       </list>
     </option>
   </component>
@@ -359,7 +377,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="oge" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -373,15 +391,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="home" />
+              <option name="myItemId" value="ege" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1038,7 +1048,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538688191605</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="3 october">
+      <created>1538689307157</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1538689307157</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1063,7 +1080,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1911171" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28802153" sideWeight="0.4935065" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18831168" sideWeight="0.5119863" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3243607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1103,7 +1120,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="3 september" />
     <MESSAGE value="4 september" />
     <MESSAGE value="4.2 september" />
     <MESSAGE value="5 september" />
@@ -1128,7 +1144,8 @@
     <MESSAGE value="29 september" />
     <MESSAGE value="1 october" />
     <MESSAGE value="2 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 october" />
+    <MESSAGE value="3 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1367,16 +1384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="126" column="59" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="126" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oge/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1425,26 +1432,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="105" lean-forward="false" selection-start-line="10" selection-start-column="85" selection-end-line="10" selection-end-column="105" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/oge/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="116" column="61" lean-forward="false" selection-start-line="116" selection-start-column="61" selection-end-line="116" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base_static/css/tasks_detail_less.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="515">
@@ -1461,14 +1448,6 @@
             <element signature="n#for#5;n#!!top" expanded="false" />
             <element signature="n#if#29;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video_task_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="84" column="62" lean-forward="false" selection-start-line="84" selection-start-column="62" selection-end-line="84" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1511,14 +1490,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ege/static/ege/photo/fon-town.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1553,6 +1524,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/baseBoot4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="705">
+          <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
+          <folding>
+            <marker date="1538689254747" expanded="false" signature="13360:13365" ph="&amp;" />
+            <marker date="1538689254747" expanded="false" signature="14577:14582" ph="&amp;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -1565,22 +1563,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/baseBoot4.html">
+    <entry file="file://$PROJECT_DIR$/ege/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-          <folding />
+        <state relative-caret-position="369">
+          <caret line="124" column="59" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="124" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
+    <entry file="file://$PROJECT_DIR$/oge/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
+        <state relative-caret-position="1271">
+          <caret line="107" column="25" lean-forward="false" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="25" />
           <folding>
-            <marker date="1538689254747" expanded="false" signature="13360:13365" ph="&amp;" />
-            <marker date="1538689254747" expanded="false" signature="14577:14582" ph="&amp;" />
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="95" lean-forward="false" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="95" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video_task_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="29" column="77" lean-forward="false" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
+          <folding />
         </state>
       </provider>
     </entry>
