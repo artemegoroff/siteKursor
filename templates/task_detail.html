@@ -379,23 +379,6 @@
 {% endblock %}
 
 {% block extraJS %}
-    <script type="text/javascript">
-        $(function () {
-            $('.list-group a').each(function () {
-                var location = window.location.href;
-                var link = this.href;
-                {#в случае get запроса нужно получить короткий путь#}
-                if (location.indexOf('category') >= 0) {
-                    var index = location.indexOf('category');
-                    location = location.substr(0, index - 1);
-                }
-                if (location.length == link.length && location.indexOf(link) == 0) {
-                    $(this).addClass('active');
-                }
-            });
-        });
-    </script>
-
 
     <script>
         $(document).ready(function () {
