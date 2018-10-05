@@ -39,36 +39,73 @@
     <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
         Меню</i>
 
+
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
-                    {% if '127.0.0.1' in request.META.HTTP_HOST %}
-                        <div class="abs_spanRedact">
-                            {% if 'python' in request.path %}
-                                <a href="http://127.0.0.1:8000/admin/videos/course/{{ Theme.id }}/change/"
-                                   target="_blank" class="btn btn-info"
-                                   role="button">Редактировать
-                                </a>
-                            {% endif %}
+                    <div class="row">
+
+                        <h2 class="text-center"> {{ Theme.theme }}</h2>
+
+                        <div class="videoContainer">
+                            <!-- THE YOUTUBE PLAYER -->
+                            {#                    <div class="vid-container">#}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="vid_frame" class="embed-responsive-item"
+                                        src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                        frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                            </div>
+
+                            <!-- THE PLAYLIST -->
+                            <!-- Идея взята -->
+                            <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
+                            <h3 class="text-center" style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Следующие видео</h3>
+                            <div class="vid-list-container">
+                                <div class="vid-list">
+
+                                    <div class="vid-item"
+                                         onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                        <div class="thumb"><img
+                                                src="https://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
+                                        </div>
+                                        <div class="desc">{{ video.theme }}</div>
+                                    </div>
+                                    {% if nextThemes %}
+                                        {% for elem in nextThemes %}
+                                            <div class="vid-item"
+                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                <div class="thumb"><img
+                                                        src="https://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                                </div>
+                                                <div class="desc">{{ elem.theme }}</div>
+                                            </div>
+                                        {% endfor %}
+
+
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                            <!-- LEFT AND RIGHT ARROWS -->
+                            <div class="arrows">
+                                <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
+                                <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
+                            </div>
+
                         </div>
-                    {% endif %}
 
-                    <h1>{{ Theme.theme }}</h1>
 
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe id="vid_frame" class="embed-responsive-item"
-                                src="https://youtube.com/embed/{{ Theme.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
-                                frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                        <script src="https://apis.google.com/js/platform.js"></script>
+
+                        <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
+                             data-count="hidden"></div>
                     </div>
-
-
                 </div>
             </div>
         </div>
     </section>
-
-
 
     {% if Theme.article or Theme.tasks.all %}
         <div class="single-course-content section-padding-50">
@@ -268,6 +305,22 @@
 
 {% block extraJS %}
     <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".arrow-right").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "+=336"
+                }, 750);
+            });
+            $(".arrow-left").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "-=336"
+                }, 750);
+            });
+        });
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "300px";
         }

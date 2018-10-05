@@ -12,9 +12,10 @@ def videos_python_all(request):
 def videos_python_theme(request,number):
     Theme = get_object_or_404(Course,language=Course.PYTHON,number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYTHON)
-    nextThemes = Course.objects.filter(number_theme__gt=number)[:6]
+    nextThemes = Course.objects.filter(number_theme__gt=number)[:8]
     context={}
     context["Theme"]=Theme
+    context["video"] = Theme
     context["allThemes"] = allThemes
     context["nextThemes"] = nextThemes
     return  render(request,'videos/oneTheme.html',context)

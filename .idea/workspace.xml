@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/models.py" afterPath="$PROJECT_DIR$/videos/models.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/views.py" afterPath="$PROJECT_DIR$/videos/views.py" />
     </list>
@@ -51,10 +53,11 @@
       <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
+            <state relative-caret-position="142">
+              <caret line="62" column="50" lean-forward="false" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
               <folding>
                 <element signature="e#1162#1227#0#HTML" expanded="true" />
+                <element signature="n#if#1;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -63,8 +66,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="171">
+              <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -73,8 +76,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="385">
+              <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -83,7 +86,7 @@
       <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="553">
+            <state relative-caret-position="376">
               <caret line="339" column="11" lean-forward="true" selection-start-line="326" selection-start-column="8" selection-end-line="339" selection-end-column="11" />
               <folding>
                 <element signature="n#for#4;n#!!top" expanded="false" />
@@ -191,8 +194,8 @@
       <find>http:</find>
       <find>http://i4.ytimg.com</find>
       <find>block-video-detail</find>
-      <find>form-inline</find>
       <find>Theme</find>
+      <find>form-inline</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -221,7 +224,6 @@
       <list>
         <option value="$PROJECT_DIR$/base_static/css_base/video_task_detail.less" />
         <option value="$PROJECT_DIR$/videos/admin.py" />
-        <option value="$PROJECT_DIR$/videos/models.py" />
         <option value="$PROJECT_DIR$/templates/footer.html" />
         <option value="$PROJECT_DIR$/ege/admin.py" />
         <option value="$PROJECT_DIR$/oge/admin.py" />
@@ -267,6 +269,7 @@
         <option value="$PROJECT_DIR$/base_static/css/css/owl.carousel.min.css" />
         <option value="$PROJECT_DIR$/templates/video_task_list.html" />
         <option value="$PROJECT_DIR$/base_static/css/videoRazbor.less" />
+        <option value="$PROJECT_DIR$/videos/models.py" />
         <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/videos/views.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
@@ -852,13 +855,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00004" summary="11 july">
-      <created>1531266776155</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1531266776155</updated>
-    </task>
     <task id="LOCAL-00005" summary="11 july">
       <created>1533130609391</created>
       <option name="number" value="00005" />
@@ -1195,7 +1191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538734330691</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="5.6 october">
+      <created>1538735409725</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1538735409725</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1260,7 +1263,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="10 september" />
     <MESSAGE value="15 september" />
     <MESSAGE value="16 september" />
     <MESSAGE value="17 september" />
@@ -1285,7 +1287,8 @@
     <MESSAGE value="5.3 october" />
     <MESSAGE value="5.4 october" />
     <MESSAGE value="5.5 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.5 october" />
+    <MESSAGE value="5.6 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.6 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1689,9 +1692,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/videos/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="46" column="13" lean-forward="false" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="553">
+        <state relative-caret-position="376">
           <caret line="339" column="11" lean-forward="true" selection-start-line="326" selection-start-column="8" selection-end-line="339" selection-end-column="11" />
           <folding>
             <element signature="n#for#4;n#!!top" expanded="false" />
@@ -1699,28 +1710,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="43" column="9" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/videos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="16" column="18" lean-forward="false" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+        <state relative-caret-position="171">
+          <caret line="14" column="66" lean-forward="false" selection-start-line="14" selection-start-column="66" selection-end-line="14" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="60" column="71" lean-forward="false" selection-start-line="60" selection-start-column="71" selection-end-line="60" selection-end-column="71" />
+        <state relative-caret-position="142">
+          <caret line="62" column="50" lean-forward="false" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
           <folding>
             <element signature="e#1162#1227#0#HTML" expanded="true" />
+            <element signature="n#if#1;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
