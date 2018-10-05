@@ -46,7 +46,7 @@
                 <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
                     <div class="row">
 
-                        <h2 class="text-center"> {{ Theme.theme }}</h2>
+                        <h2 class="text-center"> {{ Theme.number_theme }}. {{ Theme.theme }}</h2>
 
                         <div class="videoContainer">
                             <!-- THE YOUTUBE PLAYER -->
@@ -69,7 +69,7 @@
                                         <div class="thumb"><img
                                                 src="https://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
                                         </div>
-                                        <div class="desc">{{ video.theme }}</div>
+                                        <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
                                     </div>
                                     {% if nextThemes %}
                                         {% for elem in nextThemes %}
@@ -78,7 +78,7 @@
                                                 <div class="thumb"><img
                                                         src="https://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
                                                 </div>
-                                                <div class="desc">{{ elem.theme }}</div>
+                                                <div class="desc">{{ elem.number_theme }}. {{ elem.theme }}</div>
                                             </div>
                                         {% endfor %}
 
