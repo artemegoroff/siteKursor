@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,9 +40,10 @@
       <file leaf-file-name="video_task_detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="41" column="71" lean-forward="false" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+            <state relative-caret-position="235">
+              <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
               <folding>
+                <element signature="e#1507#1572#0#HTML" expanded="true" />
                 <element signature="n#if#3;n#!!top" expanded="false" />
                 <element signature="n#for#4;n#!!top" expanded="false" />
               </folding>
@@ -1176,7 +1176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538730381783</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="5.1 october">
+      <created>1538730741549</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1538730741549</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1241,7 +1248,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="5 september" />
     <MESSAGE value="6 september" />
     <MESSAGE value="7 september" />
     <MESSAGE value="8 september" />
@@ -1266,7 +1272,8 @@
     <MESSAGE value="3 october" />
     <MESSAGE value="4 october" />
     <MESSAGE value="5 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 october" />
+    <MESSAGE value="5.1 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.1 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1696,9 +1703,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="41" column="71" lean-forward="false" selection-start-line="41" selection-start-column="71" selection-end-line="41" selection-end-column="71" />
+        <state relative-caret-position="235">
+          <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
           <folding>
+            <element signature="e#1507#1572#0#HTML" expanded="true" />
             <element signature="n#if#3;n#!!top" expanded="false" />
             <element signature="n#for#4;n#!!top" expanded="false" />
           </folding>
