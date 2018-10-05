@@ -55,23 +55,23 @@
     <section>
         <div class="container">
             <div class="row">
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
                     <div class="row">
-{#                        {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
-{#                            <div class="abs_spanRedact">#}
-{#                                {% if 'ege' in request.path %}#}
-{#                                    <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/"#}
-{#                                       target="_blank" class="btn btn-info"#}
-{#                                       role="button">Редактировать#}
-{#                                    </a>#}
-{#                                {% elif 'oge' in request.path %}#}
-{#                                    <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ video.id }}/change/"#}
-{#                                       target="_blank" class="btn btn-info"#}
-{#                                       role="button">Редактировать#}
-{#                                    </a>#}
-{#                                {% endif %}#}
-{#                            </div>#}
-{#                        {% endif %}#}
+                        {#                        {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
+                        {#                            <div class="abs_spanRedact">#}
+                        {#                                {% if 'ege' in request.path %}#}
+                        {#                                    <a href="http://127.0.0.1:8000/admin/ege/videorazborege/{{ video.id }}/change/"#}
+                        {#                                       target="_blank" class="btn btn-info"#}
+                        {#                                       role="button">Редактировать#}
+                        {#                                    </a>#}
+                        {#                                {% elif 'oge' in request.path %}#}
+                        {#                                    <a href="http://127.0.0.1:8000/admin/oge/videorazboroge/{{ video.id }}/change/"#}
+                        {#                                       target="_blank" class="btn btn-info"#}
+                        {#                                       role="button">Редактировать#}
+                        {#                                    </a>#}
+                        {#                                {% endif %}#}
+                        {#                            </div>#}
+                        {#                        {% endif %}#}
 
 
                         <h2 class="text-center"> Разбор задачи № {{ vopros.number_of_task }}</h2>
@@ -94,7 +94,7 @@
                                 <div class="vid-list">
 
                                     <div class="vid-item"
-                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                         onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                         <div class="thumb"><img
                                                 src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
                                         </div>
@@ -103,7 +103,7 @@
                                     {% if video.treoryKnowledge %}
                                         {% for elem in video.treoryKnowledge.all %}
                                             <div class="vid-item"
-                                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                                 <div class="thumb"><img
                                                         src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
                                                 </div>
@@ -327,32 +327,10 @@
             </div>
         </div>
     </section>
+{% endblock %}
 
 
-
-    <div class="container-fluid block-video-detail">
-
-
-    </div>
-
-
-    <script type="text/javascript">
-        $(function () {
-            $('.list-group a').each(function () {
-                var location = window.location.href;
-                var link = this.href;
-                {#в случае get запроса нужно получить короткий путь#}
-                if (location.indexOf('category') >= 0) {
-                    var index = location.indexOf('category');
-                    location = location.substr(0, index - 1);
-                }
-                if (location.length == link.length && location.indexOf(link) == 0) {
-                    $(this).addClass('active');
-                }
-            });
-        });
-    </script>
-
+{% block extraJS %}
     <script>
         $(document).ready(function () {
             $(".arrow-right").bind("click", function (event) {
@@ -377,5 +355,4 @@
             document.getElementById("mySidenav").style.width = "0";
         }
     </script>
-
 {% endblock %}
