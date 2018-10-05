@@ -9,7 +9,6 @@
 
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'videos/css/oneTheme.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
     <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
     <script src="{% static 'js/prism.js' %}"></script>
@@ -36,11 +35,12 @@
         <h3>Python</h3>
     </div>
 
-    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true"> Меню</i>
+    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
+        Меню</i>
 
     <div class="container">
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-12">
+            <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
                 {% if '127.0.0.1' in request.META.HTTP_HOST %}
                     <div class="abs_spanRedact">
                         {% if 'python' in request.path %}
@@ -54,11 +54,13 @@
 
                 <h1>{{ Theme.theme }}</h1>
                 {% if Theme.url_video %}
+
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" width="854" height="480"
                                 src="https:/www.youtube.com/embed/{{ Theme.url_video }}"
                                 frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                     </div>
+
                 {% endif %}
             </div>
         </div>

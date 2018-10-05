@@ -10,10 +10,6 @@
     <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
 
     {#    <link rel="stylesheet/less" href="{% static 'css_base/video_task_list.less' %}" type="text/less">#}
-    {% if vopros.code_python %}
-        <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
-        <script src="{% static 'js_base/prism.js' %}"></script>
-    {% endif %}
 {% endblock %}
 
 
@@ -45,7 +41,7 @@
 
     <!-- ##### Catagory ##### -->
     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
-         style="background-image: url(img/bg-img/bg2.jpg);">
+         style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">
         {% if exam == 'ege' %}
             <h2>Видеоразборы задач ЕГЭ по информатике</h2>
         {% elif exam == 'oge' %}
