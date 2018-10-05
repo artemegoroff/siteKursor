@@ -53,15 +53,14 @@
                 {% endif %}
 
                 <h1>{{ Theme.theme }}</h1>
-                {% if Theme.url_video %}
 
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" width="854" height="480"
-                                src="https:/www.youtube.com/embed/{{ Theme.url_video }}"
-                                frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="vid_frame" class="embed-responsive-item"
+                            src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                            frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                </div>
 
-                {% endif %}
+  
             </div>
         </div>
     </div>
