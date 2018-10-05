@@ -9,6 +9,7 @@
 
 
 {% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css/videoRazbor.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
     <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
     <script src="{% static 'js/prism.js' %}"></script>
@@ -38,32 +39,34 @@
     <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
         Меню</i>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
-                {% if '127.0.0.1' in request.META.HTTP_HOST %}
-                    <div class="abs_spanRedact">
-                        {% if 'python' in request.path %}
-                            <a href="http://127.0.0.1:8000/admin/videos/course/{{ Theme.id }}/change/"
-                               target="_blank" class="btn btn-info"
-                               role="button">Редактировать
-                            </a>
-                        {% endif %}
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+                    {% if '127.0.0.1' in request.META.HTTP_HOST %}
+                        <div class="abs_spanRedact">
+                            {% if 'python' in request.path %}
+                                <a href="http://127.0.0.1:8000/admin/videos/course/{{ video.id }}/change/"
+                                   target="_blank" class="btn btn-info"
+                                   role="button">Редактировать
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+
+                    <h1>{{ Theme.theme }}</h1>
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe id="vid_frame" class="embed-responsive-item"
+                                src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                frameborder="0" width="854" height="480" allowfullscreen></iframe>
                     </div>
-                {% endif %}
-
-                <h1>{{ Theme.theme }}</h1>
-
-                <div class="embed-responsive embed-responsive-16by9">
-                    <iframe id="vid_frame" class="embed-responsive-item"
-                            src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
-                            frameborder="0" width="854" height="480" allowfullscreen></iframe>
                 </div>
-
-  
             </div>
         </div>
-    </div>
+    </section>
+
+
 
     {% if Theme.article or Theme.tasks.all %}
         <div class="single-course-content section-padding-50">
@@ -263,6 +266,20 @@
 
 {% block extraJS %}
     <script type="text/javascript">
+        $(document).ready(function () {
+            $(".arrow-right").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "+=336"
+                }, 750);
+            });
+            $(".arrow-left").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "-=336"
+                }, 750);
+            });
+        });
         function openNav() {
             document.getElementById("mySidenav").style.width = "300px";
         }

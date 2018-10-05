@@ -13,7 +13,7 @@ def videos_python_theme(request,number):
     Theme = get_object_or_404(Course,language=Course.PYTHON,number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYTHON)
     context={}
-    context["Theme"]=Theme
+    context["video"]=Theme
     context["allThemes"] = allThemes
     return  render(request,'videos/oneTheme.html',context)
 
