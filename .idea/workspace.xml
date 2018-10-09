@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="9 october">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/taskCardStyle.less" afterPath="$PROJECT_DIR$/base_static/css/taskCardStyle.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" afterPath="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/js/bootstrap/popper.min.js" afterPath="$PROJECT_DIR$/base_static/js/bootstrap/popper.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home_page.html" afterPath="$PROJECT_DIR$/home/templates/home/home_page.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/video_task_detail.html" afterPath="$PROJECT_DIR$/templates/video_task_detail.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="342" column="64" lean-forward="true" selection-start-line="182" selection-start-column="28" selection-end-line="342" selection-end-column="64" />
+            <state relative-caret-position="164">
+              <caret line="430" column="105" lean-forward="false" selection-start-line="430" selection-start-column="105" selection-end-line="430" selection-end-column="105" />
               <folding>
                 <element signature="e#1282#1289#0#HTML" expanded="true" />
                 <element signature="n#for#3;n#!!top" expanded="false" />
@@ -65,7 +62,18 @@
                 <element signature="e#14492#17498#0#HTML" expanded="false" />
                 <element signature="n#for#13;n#!!top" expanded="false" />
                 <element signature="n#if#38;n#!!top" expanded="false" />
+                <element signature="e#26566#26592#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_page.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,7 +102,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="active.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="active.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/base_static/js/active.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -155,9 +163,9 @@
       <find>popper.min.js.map</find>
       <find>table</find>
       <find>tab</find>
-      <find>myModalBox</find>
-      <find>tableImage</find>
       <find>vertical-align</find>
+      <find>tableImage</find>
+      <find>myModalBox</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -214,7 +222,6 @@
         <option value="$PROJECT_DIR$/home/admin.py" />
         <option value="$PROJECT_DIR$/home/models.py" />
         <option value="$PROJECT_DIR$/oge/static/oge/css/oge_home_less.less" />
-        <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
         <option value="$PROJECT_DIR$/ege/urls.py" />
         <option value="$PROJECT_DIR$/ege/views.py" />
         <option value="$PROJECT_DIR$/oge/views.py" />
@@ -231,10 +238,11 @@
         <option value="$PROJECT_DIR$/templates/baseBoot4.html" />
         <option value="$PROJECT_DIR$/base_static/js/bootstrap/popper.min.js" />
         <option value="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" />
-        <option value="$PROJECT_DIR$/templates/task_detail.html" />
         <option value="$PROJECT_DIR$/templates/video_task_detail.html" />
         <option value="$PROJECT_DIR$/base_static/css/taskCardStyle.less" />
         <option value="$PROJECT_DIR$/base_static/js/active.js" />
+        <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
+        <option value="$PROJECT_DIR$/templates/task_detail.html" />
       </list>
     </option>
   </component>
@@ -245,10 +253,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1612" />
-    <option name="height" value="876" />
+    <option name="width" value="1600" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
@@ -427,11 +433,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -445,91 +447,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="jquery" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="New Design Kursor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -879,13 +805,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00009" summary="16 august">
-      <created>1534378276400</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1534378276400</updated>
-    </task>
     <task id="LOCAL-00010" summary="23 august">
       <created>1534975390042</created>
       <option name="number" value="00010" />
@@ -1222,7 +1141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539026100611</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="9 october">
+      <created>1539083560946</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1539083560946</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1235,16 +1161,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
+    <frame x="0" y="0" width="1600" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17139176" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17272727" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2696011" sideWeight="0.5064935" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32813516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.082099594" sideWeight="0.4974227" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1911171" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.057873487" sideWeight="0.4935065" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.05914718" sideWeight="0.4935065" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18831168" sideWeight="0.5119863" order="2" side_tool="true" content_ui="tabs" />
@@ -1287,7 +1213,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="19 september" />
     <MESSAGE value="20 september" />
     <MESSAGE value="20.1 september" />
     <MESSAGE value="22 september" />
@@ -1312,7 +1237,8 @@
     <MESSAGE value="5.8 october" />
     <MESSAGE value="8 october" />
     <MESSAGE value="8.1 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="8.1 october" />
+    <MESSAGE value="9 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="9 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1348,7 +1274,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/footer.html" />
     <entry file="file://$PROJECT_DIR$/static/css_base/video_task_list.less" />
     <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -1417,17 +1342,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/static/videos/photo/PythonBack.png" />
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="89" column="78" lean-forward="false" selection-start-line="89" selection-start-column="78" selection-end-line="89" selection-end-column="78" />
-          <folding>
-            <marker date="1538689254747" expanded="false" signature="13360:13365" ph="&amp;" />
-            <marker date="1538689254747" expanded="false" signature="14577:14582" ph="&amp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1655,22 +1569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="342" column="64" lean-forward="true" selection-start-line="182" selection-start-column="28" selection-end-line="342" selection-end-column="64" />
-          <folding>
-            <element signature="e#1282#1289#0#HTML" expanded="true" />
-            <element signature="n#for#3;n#!!top" expanded="false" />
-            <element signature="n#if#12;n#!!top" expanded="false" />
-            <element signature="n#for#5;n#!!top" expanded="false" />
-            <element signature="e#14492#17498#0#HTML" expanded="false" />
-            <element signature="n#for#13;n#!!top" expanded="false" />
-            <element signature="n#if#38;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-745">
@@ -1696,6 +1594,39 @@
         <state relative-caret-position="306">
           <caret line="84" column="23" lean-forward="false" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/css/css/classy-nav.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="88" column="1" lean-forward="false" selection-start-line="88" selection-start-column="1" selection-end-line="88" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="430" column="105" lean-forward="false" selection-start-line="430" selection-start-column="105" selection-end-line="430" selection-end-column="105" />
+          <folding>
+            <element signature="e#1282#1289#0#HTML" expanded="true" />
+            <element signature="n#for#3;n#!!top" expanded="false" />
+            <element signature="n#if#12;n#!!top" expanded="false" />
+            <element signature="n#for#5;n#!!top" expanded="false" />
+            <element signature="e#14492#17498#0#HTML" expanded="false" />
+            <element signature="n#for#13;n#!!top" expanded="false" />
+            <element signature="n#if#38;n#!!top" expanded="false" />
+            <element signature="e#26566#26592#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
