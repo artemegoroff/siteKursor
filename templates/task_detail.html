@@ -25,13 +25,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Заголовок модального окна -->
+                <!-- Modal Header -->
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Ваш результат:</h4>
+                    <h4 class="modal-title"></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
+
                 <!-- Основное содержимое модального окна -->
                 <div class="modal-body">
-                    <h3 class="text-center"><span class="allTaskNumber"></span></h3>
+                    <h4 class="text-center"><span class="allTaskNumber"></span></h4>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -49,9 +51,10 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- Футер модального окна -->
+
+                <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -127,7 +130,7 @@
                         {% for vopros in questions %}
                             <div class="card card-block bg-light {% if vopros.status %} {{ vopros.status }} {% endif %}"
                                  data-categ="{{ vopros.category }}">
-{#                                  here ref of redactor#}
+                                {#                                  here ref of redactor#}
                                 {% if '127.0.0.1' in request.META.HTTP_HOST %}
                                     <div class="abs_spanRedact">
                                         {% if exam == 'ege' %}
@@ -143,7 +146,7 @@
                                         {% endif %}
                                     </div>
                                 {% endif %}
-{#                                  here ref of redactor#}
+                                {#  here ref of redactor#}
                                 {% if vopros.q_url_video %}
                                     <div class="abs_span">
                                         {% if exam == 'ege' %}
@@ -180,14 +183,14 @@
                                 {% if vopros.picture and vopros.table_data %}
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-12 col-sm-4 col-md-4 col-lg-5 tableImage">
+                                            <div class="col-12 col-sm-4 col-md-4 col-lg-5">
                                                 <img src="{{ vopros.picture.url }}"
                                                      class="img-rounded img-responsive">
                                             </div>
-                                            <div class="col-12 col-sm-8 col-md-8 col-lg-7 tableImage">
+                                            <div class="col-12 col-sm-8 col-md-8 col-lg-7">
                                                 {% for table in vopros.table_in_row %}
                                                     <div class="table-responsive">
-                                                        <table class="table table-hover table-striped table-sm">
+                                                        <table class="table table-hover table-striped table-sm oneTable">
                                                             {% for rows in table %}
                                                                 {% if forloop.first %}
                                                                     <thead>
@@ -227,7 +230,7 @@
                                         </div>
                                     </div>
 
-                                    {#                                        Проверка на наличие картинки#}
+                                    {# Проверка на наличие картинки#}
                                 {% elif vopros.picture %}
                                     <div class="container">
                                         <div class="row">
@@ -237,60 +240,109 @@
                                             </div>
                                         </div>
                                     </div>
-                                    {#                                        Проверка на наличие картинки#}
+                                    {#  Проверка на наличие картинки#}
 
                                     {#                                        Проверка на наличие таблицы#}
                                 {% elif vopros.table_data %}
                                     <div class="container">
                                         <div class="row">
-                                            {% for table in vopros.table_in_row %}
-                                                <div class="col-12 col-md-6 col-lg-6">
-                                                    <div class="table-responsive">
-                                                        <table class="table table-responsive table-striped">
-                                                            {% for rows in table %}
+                                            {% if vopros.table_in_row|length > 1 %}
+                                                {% for table in vopros.table_in_row %}
+                                                    <div class="col-12 col-md-6 col-lg-6">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped twoTable">
+                                                                {% for rows in table %}
 
-                                                                {% if forloop.first %}
-                                                                    <thead>
+                                                                    {% if forloop.first %}
+                                                                        <thead>
+                                                                        <tr>
+                                                                            {% for row in rows %}
+                                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                                    &nbsp;{% else %}
+                                                                                    {{ row }}{% endif %}</th>
+                                                                            {% endfor %}
+                                                                        </tr>
+                                                                        </thead>
+                                                                    {% else %}
+
+                                                                        {% if forloop.counter == 2 %}
+                                                                            <tbody>
+                                                                        {% endif %}
                                                                     <tr>
                                                                         {% for row in rows %}
-                                                                            <th> {% if row == "x" %} &nbsp;&nbsp;
-                                                                                &nbsp;{% else %}
-                                                                                {{ row }}{% endif %}</th>
+                                                                            {% if row %}
+                                                                                <td style="width: 30px">
+                                                                                    {% if row == "x" %}
+                                                                                        &nbsp;
+                                                                                        &nbsp;
+                                                                                        &nbsp;{% else %}
+                                                                                        {{ row }}{% endif %} </td>
+                                                                            {% endif %}
                                                                         {% endfor %}
                                                                     </tr>
-                                                                    </thead>
-                                                                {% else %}
-
-                                                                    {% if forloop.counter == 2 %}
-                                                                        <tbody>
+                                                                    {% if forloop.last %}
+                                                                        </tbody>
                                                                     {% endif %}
-                                                                <tr>
-                                                                    {% for row in rows %}
-                                                                        {% if row %}
-                                                                            <td style="width: 30px"> {% if row == "x" %}
-                                                                                &nbsp;
-                                                                                &nbsp;
-                                                                                &nbsp;{% else %}
-                                                                                {{ row }}{% endif %} </td>
-                                                                        {% endif %}
-                                                                    {% endfor %}
-                                                                </tr>
-                                                                {% if forloop.last %}
-                                                                    </tbody>
-                                                                {% endif %}
-                                                                {% endif %}
+                                                                    {% endif %}
 
-                                                            {% endfor %}
-                                                        </table>
+                                                                {% endfor %}
+                                                            </table>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            {% endfor %}
+                                                {% endfor %}
+                                            {% else %}
+                                                {% for table in vopros.table_in_row %}
+                                                    <div class="col-12 col-md-10 col-lg-8">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-striped oneTable">
+                                                                {% for rows in table %}
+
+                                                                    {% if forloop.first %}
+                                                                        <thead>
+                                                                        <tr>
+                                                                            {% for row in rows %}
+                                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                                    &nbsp;{% else %}
+                                                                                    {{ row }}{% endif %}</th>
+                                                                            {% endfor %}
+                                                                        </tr>
+                                                                        </thead>
+                                                                    {% else %}
+
+                                                                        {% if forloop.counter == 2 %}
+                                                                            <tbody>
+                                                                        {% endif %}
+                                                                    <tr>
+                                                                        {% for row in rows %}
+                                                                            {% if row %}
+                                                                                <td style="width: 30px">
+                                                                                    {% if row == "x" %}
+                                                                                        &nbsp;
+                                                                                        &nbsp;
+                                                                                        &nbsp;{% else %}
+                                                                                        {{ row }}{% endif %} </td>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    </tr>
+                                                                    {% if forloop.last %}
+                                                                        </tbody>
+                                                                    {% endif %}
+                                                                    {% endif %}
+
+                                                                {% endfor %}
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
+
+
                                         </div>
                                     </div>
                                 {% endif %}
-                                {#                                    Проверка на наличие таблицы#}
+                                {# Проверка на наличие таблицы#}
 
-                                {#                                    Проверка на наличие кода#}
+                                {# Проверка на наличие кода#}
                                 {% if vopros.code_python %}
                                     <div class="row blockcode">
                                         <div class="col-md-4">
@@ -313,7 +365,7 @@
                                 {% endif %}
                                 {#                                    Проверка на наличие кода#}
 
-                                {#                                    Футер вопроса#}
+                                {#Футер вопроса#}
 
                                 {% for part in vopros.get_part_question_2 %}
                                     {% if vopros.picture %}
@@ -346,11 +398,6 @@
                                 {% elif vopros.number_of_task.type_of_answer == 'NoInp' %}
                                     <br> <br> <br>
                                 {% endif %}
-                                {#                                    Заполнение формы ответа#}
-
-                                {#                                    Проверка на наличие картинки   Закрываем блок clearfix#}
-
-                                {#                                Проверка на наличие картинки     #}
 
                             </div>
                         {% endfor %}
@@ -447,5 +494,10 @@
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
         }
+
+        $(".clever-main-menu").unstick();
+        $("#contents").sticky({topSpacing:20});
+
+
     </script>
 {% endblock %}
