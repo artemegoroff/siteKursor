@@ -30,6 +30,7 @@ class NumberTaskOge(models.Model):
     types = (
         ('Radio', 'RadioButton'),
         ('Input', 'Input'),
+        ('NoInp', 'NoInput'),
     )
     type_of_answer = models.CharField(
         max_length=5,
@@ -114,6 +115,7 @@ class QuestionsOge(models.Model):
     var_of_choice_answer = models.TextField("Варианты ответа", blank=True, null=True)
     q_url_video = models.OneToOneField(VideoRazborOGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
                                        null=True)
+    file = models.FileField("Файл",upload_to='uploads/',blank=True,null=True)
 
     answer = models.CharField(verbose_name="Ответ", max_length=30)
 

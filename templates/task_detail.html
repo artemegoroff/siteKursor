@@ -136,12 +136,12 @@
                                         {% if exam == 'ege' %}
                                             <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
                                                target="_blank" class="btn btn-info"
-                                               role="button">Редактировать
+                                               role="button">Редак {{ vopros.number_of_variant }}
                                             </a>
                                         {% elif exam == 'oge' %}
                                             <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
                                                target="_blank" class="btn btn-info"
-                                               role="button">Редактировать
+                                               role="button">Редак {{ vopros.number_of_variant }}
                                             </a>
                                         {% endif %}
                                     </div>
@@ -234,14 +234,24 @@
                                 {% elif vopros.picture %}
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-lg-offset-3 col-md-offset-3 col-6 col-md-4 col-lg-3">
+                                            <div class="offset-lg-2 offset-md-1 col-12 col-md-10 col-lg-8 col-sm-11 ">
                                                 <img src="{{ vopros.picture.url }}"
                                                      class="img-rounded img-responsive ">
                                             </div>
                                         </div>
                                     </div>
                                     {#  Проверка на наличие картинки#}
-
+                                    {% if exam == 'oge' and vopros.file %}
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="">
+                                                    <p class="text-center" style="text-decoration: underline"><a  href="{{ vopros.file.url }}"
+                                                          target="_blank">Скачать файл</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                     {#                                        Проверка на наличие таблицы#}
                                 {% elif vopros.table_data %}
                                     <div class="container">
@@ -259,7 +269,7 @@
                                                                             {% for row in rows %}
                                                                                 <th> {% if row == "x" %} &nbsp;&nbsp;
                                                                                     &nbsp;{% else %}
-                                                                                    {{ row }}{% endif %}</th>
+                                                                                    {{ row|safe }}{% endif %}</th>
                                                                             {% endfor %}
                                                                         </tr>
                                                                         </thead>
@@ -276,7 +286,7 @@
                                                                                         &nbsp;
                                                                                         &nbsp;
                                                                                         &nbsp;{% else %}
-                                                                                        {{ row }}{% endif %} </td>
+                                                                                        {{ row|safe }}{% endif %} </td>
                                                                             {% endif %}
                                                                         {% endfor %}
                                                                     </tr>
@@ -303,7 +313,7 @@
                                                                             {% for row in rows %}
                                                                                 <th> {% if row == "x" %} &nbsp;&nbsp;
                                                                                     &nbsp;{% else %}
-                                                                                    {{ row }}{% endif %}</th>
+                                                                                    {{ row|safe }}{% endif %}</th>
                                                                             {% endfor %}
                                                                         </tr>
                                                                         </thead>
@@ -320,7 +330,7 @@
                                                                                         &nbsp;
                                                                                         &nbsp;
                                                                                         &nbsp;{% else %}
-                                                                                        {{ row }}{% endif %} </td>
+                                                                                        {{ row|safe }}{% endif %} </td>
                                                                             {% endif %}
                                                                         {% endfor %}
                                                                     </tr>
@@ -429,7 +439,9 @@
                         <div class="col-12 col-lg-6">
                             <div class="post-a-comments mb-70">
                                 <h4>Задания взяты из базы данных ФИПИ, сайта <a style="font-size: inherit"
-                        href="http://kpolyakov.spb.ru/" target="_blank ">К.Полякова</a> или придуманы мною</h4>
+                                                                                href="http://kpolyakov.spb.ru/"
+                                                                                target="_blank ">К.Полякова</a> или
+                                    придуманы мною</h4>
                             </div>
                         </div>
                     </div>
