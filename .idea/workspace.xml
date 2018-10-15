@@ -2,13 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/sidebarMenu.less" afterPath="$PROJECT_DIR$/base_static/css/sidebarMenu.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/taskCardStyle.less" afterPath="$PROJECT_DIR$/base_static/css/taskCardStyle.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/models.py" afterPath="$PROJECT_DIR$/oge/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" afterPath="$PROJECT_DIR$/oge/templates/oge/oge_home.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/css/owl.carousel.min.css" afterPath="$PROJECT_DIR$/static/css/css/owl.carousel.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/sidebarMenu.less" afterPath="$PROJECT_DIR$/static/css/sidebarMenu.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/taskCardStyle.less" afterPath="$PROJECT_DIR$/static/css/taskCardStyle.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/tasks_detail_less.less" afterPath="$PROJECT_DIR$/static/css/tasks_detail_less.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/videoRazbor.less" afterPath="$PROJECT_DIR$/static/css/videoRazbor.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/js/bootstrap/popper.min.js" afterPath="$PROJECT_DIR$/static/js/bootstrap/popper.min.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -814,13 +814,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00014" summary="28 august">
-      <created>1535470032857</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1535470032857</updated>
-    </task>
     <task id="LOCAL-00015" summary="30 august">
       <created>1535624463646</created>
       <option name="number" value="00015" />
@@ -1157,7 +1150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539464592441</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="13 october">
+      <created>1539561497410</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1539561497410</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1181,7 +1181,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1911171" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18569463" sideWeight="0.4935065" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.20726784" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="41" y="587" width="1116" height="223" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18831168" sideWeight="0.5119863" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3232462" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1222,7 +1222,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="24 september" />
     <MESSAGE value="25 september" />
     <MESSAGE value="26 september" />
     <MESSAGE value="27.1 september" />
@@ -1247,7 +1246,8 @@
     <MESSAGE value="10 october" />
     <MESSAGE value="11 october" />
     <MESSAGE value="12&#10; october" />
-    <option name="LAST_COMMIT_MESSAGE" value="12&#10; october" />
+    <MESSAGE value="13 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="13 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
