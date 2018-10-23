@@ -104,8 +104,8 @@
         </div>
     </section>
 
-    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
-        Меню</i>
+    <i id="contents" class="fa fa-bars" onclick="openNav()" aria-hidden="true">
+    </i>
 
 
     <section>
@@ -245,8 +245,9 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="">
-                                                    <p class="text-center" style="text-decoration: underline"><a  href="{{ vopros.file.url }}"
-                                                          target="_blank">Скачать файл</a>
+                                                    <p class="text-center" style="text-decoration: underline"><a
+                                                            href="{{ vopros.file.url }}"
+                                                            target="_blank">Скачать файл</a>
                                                     </p>
                                                 </div>
                                             </div>
@@ -492,7 +493,6 @@
     </script>
 
     <script>
-
         {#фильтруем видео по номеру вопроса#}
         $(document).ready(function () {
             $("#category_sel").on("click", function () {

@@ -9,6 +9,7 @@
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 30px;
+
 }
 
 .sidenav a {
@@ -37,6 +38,20 @@
   margin-left: 50px;
 }
 
+#contents {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 80px;
+  left: 16px;
+  //z-index: 9999 !important;
+  font-size: 30px;
+  //display: none;
+  cursor: pointer;
+  color: #bababa;
+  //min-height: 2em;
+  //background: lightpink;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -45,14 +60,8 @@
   .sidenav a {
     font-size: 18px;
   }
-}
 
-#contents {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 80px;
-  left: 35px;
-  z-index: 1000;
-  //min-height: 2em;
-  //background: lightpink;
+  #contents {
+    left: 0;
+  }
 }
