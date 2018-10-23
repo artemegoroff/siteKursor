@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
 {% block seo_block %}
@@ -7,10 +7,10 @@
 
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'videos/css/allThemes.less' %}" type="text/less">
+{#    <link rel="stylesheet/less" href="{% static 'videos/css/allThemes.less' %}" type="text/less">#}
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css_base/prism.css' %}">
-    <script src="{% static 'js_base/prism.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+    <script src="{% static 'js/prism.js' %}"></script>
     <style>
         table td {
             vertical-align: middle !important;
@@ -21,8 +21,64 @@
 {% block content %}
 
     <div class="container" style="margin-top: 100px">
-        <p>Ниже в таблицы привидены все встроенные методы строк и примеры по их использованию.</p>
+        <p>Условный оператор if позволяет выполнить определенный набор инструкций в зависимости
+            от некоторого условия. Использовать этот оператор можно в нескольких вариантах. В этом видео разберем только
+        2 варианта.</p>
 
+        <h4>1 Конструкция if</h4>
+        <p>В простейшем варианте использование if выглядит так:</p>
+        <pre class="line-numbers"><code class=" language-python">if условие:
+    блок команд 1
+блок команд 2
+</code></pre>
+
+        <p>После условного оператора записывает условие. Если данное условие будет истинно, то
+            выполняется <b>блок команд 1</b>. После условия нужно поставить <b>двоеточие “:”</b>. <br>
+            Вне зависимости от условия <b>блок команд 2</b> будет выполняться в любом случае.
+        </p>
+
+        <h5>Примеры использования</h5>
+
+        <pre class="line-numbers"><code class=" language-python">if a==777:
+    print("Этот принт сработает, если а будет равно 777.")
+    print("И так же этот принт.")
+    print("И этот.")
+
+print("А это сообщение выведется в любом случае")
+</code></pre>
+        <p>Еще пример </p>
+
+        <pre class="line-numbers"><code class=" language-python">money = 100
+ticket = 90
+if money > ticket:
+    print("УРАААА!!!")
+    print("Я иду в кино!")
+print("Пора идти домой")
+</code></pre>
+
+        <p>Что касается отступов. <b>Внутри блока инструкции должны находиться на одинаковом уровне отступов.</b> 
+        В противном случае будет ошибка.</p>
+
+        <pre class="line-numbers"><code class=" language-python">if 5>1:
+  print("Тут оступ в 2 пробела.")
+    print("А здесь в четыре. Будет ошибка.")
+</code></pre>
+
+
+        <pre class="line-numbers"><code class=" language-python">a=int(input())
+b=int(input())
+if b>a:
+    a,b = b,a
+print(a,b)
+</code></pre>
+
+        <h4>2 Конструкция if-else</h4>
+        <pre class="line-numbers"><code class=" language-python">if условие:
+    блок команд 1
+else:
+    блок команд 2
+блок команд 3
+</code></pre>
 
         <p>Общая форма записи условного оператора if выглядит следующим образом:</p>
         <pre class="line-numbers"><code class=" language-python">if условие1:  # Инструкция if с условным выражением test1

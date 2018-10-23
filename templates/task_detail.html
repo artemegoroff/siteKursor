@@ -470,7 +470,7 @@
             elemsRadio = $(".radio");
             if (elemsRadio.length > 0 && (elemsWrongTotal > 0 || elemsGoodTotal > 0)) {
                 for (var i = 0; i < elemsRadio.length; i += 4) {
-                    var wall = $(elemsRadio[i].parentElement.parentElement.parentElement);
+                    var wall = $(elemsRadio[i].parentElement.parentElement);
                     if (!(wall.hasClass("wrong") || wall.hasClass("good"))) {
                         wall.addClass("empty");
                     }
