@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="22 october">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/task_detail.html" afterPath="$PROJECT_DIR$/templates/task_detail.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/test.html" afterPath="$PROJECT_DIR$/videos/templates/videos/test.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -710,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00023" summary="7 september">
-      <created>1536399931135</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1536399931135</updated>
-    </task>
     <task id="LOCAL-00024" summary="8 september">
       <created>1536446943495</created>
       <option name="number" value="00024" />
@@ -1053,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540210232885</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="23 october">
+      <created>1540296611580</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1540296611581</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1118,7 +1115,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="3 october" />
     <MESSAGE value="4 october" />
     <MESSAGE value="5 october" />
     <MESSAGE value="5.1 october" />
@@ -1143,7 +1139,8 @@
     <MESSAGE value="18 october" />
     <MESSAGE value="18.1 october" />
     <MESSAGE value="22 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="22 october" />
+    <MESSAGE value="23 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="23 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
