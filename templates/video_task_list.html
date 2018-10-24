@@ -8,8 +8,6 @@
 
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
-
-    {#    <link rel="stylesheet/less" href="{% static 'css_base/video_task_list.less' %}" type="text/less">#}
 {% endblock %}
 
 
@@ -49,7 +47,7 @@
         {% endif %}
     </div>
 
-    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
+    <i id="contents" class="fa fa-bars" onclick="openNav()" aria-hidden="true">
         Меню</i>
 
 

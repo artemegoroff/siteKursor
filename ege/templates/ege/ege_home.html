@@ -24,12 +24,12 @@
         <!-- Content -->
         <div class="single-course-intro-content text-center">
             <h3>ЕГЭ по Информатике</h3>
-            <div class="meta d-flex align-items-center justify-content-center">
-                <a href="#">Задания</a>
+            <div id="yakor" class="meta d-flex align-items-center justify-content-center">
+                <a href="#tab--1">Задания</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#">Видеоразборы</a>
+                <a href="#tab--2">Видеоразборы</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#">Варианты</a>
+                <a href="#tab--3">Варианты</a>
             </div>
         </div>
     </div>
@@ -321,6 +321,15 @@
             e.preventDefault();
             localStorage.setItem("menuEGE", 3);
             openCloseMenu(3);
+        });
+
+        $(document).ready(function () {
+            $("#yakor").on("click", "a", function (event) {
+                event.preventDefault();
+                var id = $(this).attr('href'), top = $(id).offset().top;
+                $(id).click();
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
         });
 
     </script>

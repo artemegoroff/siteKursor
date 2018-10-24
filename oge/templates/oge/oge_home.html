@@ -22,12 +22,12 @@
         <!-- Content -->
         <div class="single-course-intro-content text-center">
             <h3>ОГЭ по Информатике</h3>
-            <div class="meta d-flex align-items-center justify-content-center">
-                <a href="#">Задания</a>
+            <div id="yakor" class="meta d-flex align-items-center justify-content-center">
+                <a href="#tab--1">Задания</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#">Видеоразборы</a>
+                <a href="#tab--2">Видеоразборы</a>
                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#">Варианты</a>
+                <a href="#tab--3">Варианты</a>
             </div>
         </div>
     </div>
@@ -169,7 +169,7 @@
                                                     <div class="col-lg-6">
                                                         <div class="single-instructor d-flex align-items-center mb-30">
                                                             <div class="instructor-thumb">
-{#                                                                <img src="img/bg-img/t1.png" alt="">#}
+                                                                {#                                                                <img src="img/bg-img/t1.png" alt="">#}
                                                             </div>
                                                             <a href="{% url 'oge:oge_get_var' var.number_var %}">
                                                                 <div class="instructor-info">
@@ -323,6 +323,15 @@
             e.preventDefault();
             localStorage.setItem("menuOge", 3);
             openCloseMenu(3);
+        });
+
+        $(document).ready(function () {
+            $("#yakor").on("click", "a", function (event) {
+                event.preventDefault();
+                var id = $(this).attr('href'), top = $(id).offset().top;
+                $(id).click();
+                $('body,html').animate({scrollTop: top}, 1500);
+            });
         });
 
     </script>
