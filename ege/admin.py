@@ -6,12 +6,12 @@ from django.db import models
 
 # Register your models here.
 class AdminQuestionsEGE(admin.ModelAdmin):
-    list_display = ["number_of_task", "text", "answer"]
+    list_display = ["number_of_task", "text", "number_of_variant"]
     # list_select_related = ('number_of_task',)
-    list_filter = ['number_of_task','answer']
+    list_filter = ['number_of_task','number_of_variant']
     save_as = True
     save_on_top = True
-    list_editable = ['text', 'answer']
+    list_editable = ['text', 'number_of_variant']
 
     formfield_overrides = {
         models.CharField: {'widget': TextInput(attrs={'size': '50'})},
