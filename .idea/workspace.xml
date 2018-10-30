@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/css/about_me_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/css/contact_page_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/css/home_page_less.less" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/backGround_EGE.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/backGround_banner.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/backGround_review.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/backGround_services.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/background_body.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/gameDev.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/labu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/olimp.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/web_pages.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/ЕГЭ фото.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/home/static/home/img/ОГЭ.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/base_temp.less" afterPath="$PROJECT_DIR$/base_static/css/base_temp.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" afterPath="$PROJECT_DIR$/base_static/css/tasks_detail_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home_page.html" afterPath="$PROJECT_DIR$/home/templates/home/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/base_temp.less" afterPath="$PROJECT_DIR$/static/css/base_temp.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/footerBoot4.less" afterPath="$PROJECT_DIR$/static/css/footerBoot4.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/navbarBoot4.less" afterPath="$PROJECT_DIR$/static/css/navbarBoot4.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/sidebarMenu.less" afterPath="$PROJECT_DIR$/static/css/sidebarMenu.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/taskCardStyle.less" afterPath="$PROJECT_DIR$/static/css/taskCardStyle.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/tasks_detail_less.less" afterPath="$PROJECT_DIR$/static/css/tasks_detail_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/videoRazbor.less" afterPath="$PROJECT_DIR$/static/css/videoRazbor.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/admin.py" afterPath="$PROJECT_DIR$/videos/admin.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -690,13 +665,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00030" summary="18 september">
-      <created>1537294351327</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1537294351327</updated>
-    </task>
     <task id="LOCAL-00031" summary="19 september">
       <created>1537360817716</created>
       <option name="number" value="00031" />
@@ -1033,7 +1001,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540576615184</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="28 october">
+      <created>1540859099681</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1540859099681</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1098,7 +1073,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="5.4 october" />
     <MESSAGE value="5.5 october" />
     <MESSAGE value="5.6 october" />
     <MESSAGE value="5.7 october" />
@@ -1123,7 +1097,8 @@
     <MESSAGE value="24.1 october" />
     <MESSAGE value="25 october" />
     <MESSAGE value="26 october" />
-    <option name="LAST_COMMIT_MESSAGE" value="26 october" />
+    <MESSAGE value="28 october" />
+    <option name="LAST_COMMIT_MESSAGE" value="28 october" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
