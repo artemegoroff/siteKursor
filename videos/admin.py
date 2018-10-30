@@ -6,9 +6,11 @@ from .models import Course,ProgrammTask,InputOutputData
 class AdminCourseSummernote(SummernoteModelAdmin):
     summernote_fields = ('article',)
     filter_horizontal = ['tasks']
+    save_on_top = True
 
 class AdminProgrammTask(admin.ModelAdmin):
     filter_horizontal = ['examples']
+
 
 
 admin.site.register(InputOutputData)
