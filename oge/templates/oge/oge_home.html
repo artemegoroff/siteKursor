@@ -3,12 +3,12 @@
 
 {% block seo_block %}
     <title>Подготовка к ОГЭ по Информатике 2019. Репетитор Егоров Артем. egoroff_channel</title>
-    <meta name="description" content="Успешно подготовьтесь к сдаче ОГЭ по информатике.
-    Решайте только актуальные задачи. Выбирайте вариант тестирования: либо целый вариант,
-    либо выполните тест по конкретной теме. На сайте имеется более 10 пробных
-вариантов по ОГЭ информатике">
-    <meta name="keywords" content="ОГЭ информатика, Тесты по информатике, Онлайн тесты,
-          задания по информатике, Пробный вариант">
+    <meta name="description" content="Онлайн подготовка к ОГЭ по информатике с нуля.
+    Все типы заданий ОГЭ Информатика, разборы решений задач из ОГЭ Информатика, пробные варианты ОГЭ по
+    информатике, Программирование ОГЭ информатика, Онлайн тесты ОГЭ по информатике, Пробные тесты ОГЭ информатика">
+    <meta name="keywords" content="ОГЭ информатика, информатика ОГЭ,ОГЭ по информатике,ОГЭ по информатике с нуля,
+ОГЭ по информатике подготовка,ОГЭ по информатике варианты,ОГЭ по информатике задания,ОГЭ информатика алгоритмы,
+ОГЭ информатика подготовка,ОГЭ информатика разбор заданий,ОГЭ информатика решение,ОГЭ информатика онлайн">
 {% endblock %}
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'oge/css/oge_home_less.less' %}" type="text/less">
@@ -144,13 +144,9 @@
                                         <div class="about-members mb-30">
                                             <h4>Варианты ОГЭ</h4>
 
-                                            <p>Часть 1 содержит 6 заданий с кратким ответом. 12 заданий относятся к
-                                                базовому уровню, 10 - к повышенному, 1 задание – к высокому уровню
-                                                сложности.</p>
+                                            <p>Часть 1 содержит 6 заданий с четырьмя вариантами ответов. 12 заданий, на которые вам необходимо
+                                                дать краткий ответ, 2 задания требуют от вас полного и развернутого решения на компьютере.</p>
 
-                                            <p>Часть 2 содержит 4 задания, первое из которых повышенного уровня
-                                                сложности, остальные 3 задания высокого уровня сложности. Задания этой
-                                                части подразумевают запись развернутого ответа в произвольной форме.</p>
 
                                             <p>На выполнение экзаменационной работы отводится 3 часа 55 минут (235
                                                 минут). На выполнение заданий части 1 рекомендуется отводить 1,5 часа
@@ -191,65 +187,65 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-4">
-                    <div class="course-sidebar">
+
+                <div class="col-12 col-lg-3">
+                    <div class="course-sidebar ">
                         <!-- Buy Course -->
                         <a target="_blank" href="https://vk.com/topic-116207750_37403077"
                            class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                        <div class="row">
 
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4>Особенности</h4>
-                            <ul class="features-list">
-                                <li>
-                                    <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
-                                    <h6>{{ numAllTask }}</h6>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тест</h6>
-                                    <h6>{{ tasks|length }}</h6>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
-                                    <h6>{{ vars|length }}</h6>
-                                </li>
+                            <!-- Widget -->
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4>Особенности</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
+                                        <h6>{{ numAllTask }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тесты</h6>
+                                        <h6>{{ tasks|length }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
+                                        <h6>{{ vars|length }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-video-camera" aria-hidden="true"></i> Видеорешения</h6>
+                                        <h6>{{ videosOGE }}</h6>
+                                    </li>
+                                </ul>
+                            </div>
 
-                            </ul>
-                        </div>
+                            <!-- Widget -->
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4 class="text-center">Donate </h4>
 
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="text-center">Опрос</h4>
-                            <!-- Put this script tag to the <head> of your page -->
-                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
-
-                            <script type="text/javascript">
-                                VK.init({apiId: 6204845, onlyWidgets: true});
-                            </script>
-
-                            <!-- Put this div tag to the place, where the Poll block will be -->
-                            <div id="vk_poll"></div>
-                            <script type="text/javascript">
-                                VK.Widgets.Poll("vk_poll", {}, "306387710_df2484ea03403cef5a");
-                            </script>
-                        </div>
-
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="text-center">Присоединяйтесь</h4>
-
-                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
-
-                            <!-- VK Widget -->
-                            <div id="vk_groups" style="margin: 0 auto;"></div>
-                            <script type="text/javascript">
-                                VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
-                            </script>
+                                <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82&targets-hint=&default-sum=100&button-text=13&hint=&successURL=&quickpay=shop&account=410017907063167"
+                                        height="222" frameborder="0" allowtransparency="true" scrolling="no"
+                                        style="width: 95%; margin: 0 auto;"></iframe>
+                            </div>
 
 
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4 class="text-center">Группа </h4>
+
+                                <script type="text/javascript"
+                                        src="https://vk.com/js/api/openapi.js?159"></script>
+
+                                <!-- VK Widget -->
+                                <div id="vk_groups" style="  width:95%; margin: 0 auto;"></div>
+                                <script type="text/javascript">
+                                    VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
+                                </script>
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>

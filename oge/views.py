@@ -5,11 +5,12 @@ from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRaz
 def oge_home_page(request):
     tasksOge = NumberTaskOge.objects.all()
     varsOge = VariantOge.objects.all().order_by('number_var')
-
+    videosOGE = len(VideoRazborOGE.objects.all())
 
     context = {}
     context['tasks'] = tasksOge
     context['vars'] = varsOge
+    context['videosOGE'] = videosOGE
     context['numAllTask'] = len(QuestionsOge.objects.all())
 
     numbersVideoRazbor = set(VideoRazborOGE.objects.values_list('number_of_task', flat=True).distinct())

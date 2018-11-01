@@ -3,11 +3,12 @@
 
 {% block seo_block %}
     <title>Подготовка к ЕГЭ по Информатике 2019. Репетитор Егоров Артем. egoroff_channel</title>
-    <meta name="description" content="Успешно подготовьтесь к сдаче ЕГЭ по информатике.
-    Решайте только актуальные задачи.Выбирайте вариант тестирования: либо целый вариант,
-    либо выполните тест по конкретной теме. На сайте имеется более 10 пробных вариантов по ЕГЭ информатике">
-    <meta name="keywords" content="ЕГЭ информатика, Тесты по информатике, Онлайн тесты,
-    задания по информатике, Пробный вариант">
+    <meta name="description" content="Онлайн подготовка к ЕГЭ по информатике с нуля.
+    Все типы заданий ЕГЭ Информатика, разборы решений задач из ЕГЭ Информатика, пробные варианты егэ по
+    информатике, Программирование ЕГЭ информатика, Онлайн тесты егэ по информатике, Пробные тесты ЕГЭ информатика">
+    <meta name="keywords" content="ЕГЭ информатика, информатика ЕГЭ,егэ по информатике,егэ по информатике с нуля,
+егэ по информатике подготовка,егэ по информатике варианты,егэ по информатике задания,егэ информатика алгоритмы,
+егэ информатика подготовка,егэ информатика разбор заданий,егэ информатика решение,егэ информатика онлайн">
 {% endblock %}
 
 {% block extracss %}
@@ -68,7 +69,8 @@
                                         <div class="about-course mb-30">
                                             <h4>Задания ЕГЭ по информатике</h4>
                                             <p>Любой экзамен – неплохая возможность проверить свои знания. Да, ЕГЭ по
-                                                информатике – это не программирование в чистом виде, это просто база знаний. Но именно она
+                                                информатике – это не программирование в чистом виде, это просто база
+                                                знаний. Но именно она
                                                 может стать вашим первым рывком к получению желаемой работы.
 
                                             </p>
@@ -193,64 +195,65 @@
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-4">
-                    <div class="course-sidebar">
+
+                <div class="col-12 col-lg-3">
+                    <div class="course-sidebar ">
                         <!-- Buy Course -->
-                        <a target="_blank" href="https://vk.com/topic-116207750_37402901" class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                        <a target="_blank" href="https://vk.com/topic-116207750_37402901"
+                           class="btn clever-btn mb-30 w-100">Задать вопрос</a>
 
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4>Особенности</h4>
-                            <ul class="features-list">
-                                <li>
-                                    <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
-                                    <h6>{{ numAllTask }}</h6>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тест</h6>
-                                    <h6>{{ tasks|length }}</h6>
-                                </li>
-                                <li>
-                                    <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
-                                    <h6>{{ vars|length }}</h6>
-                                </li>
+                        <div class="row">
 
-                            </ul>
-                        </div>
+                            <!-- Widget -->
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4>Особенности</h4>
+                                <ul class="features-list">
+                                    <li>
+                                        <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
+                                        <h6>{{ numAllTask }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тесты</h6>
+                                        <h6>{{ tasks|length }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
+                                        <h6>{{ vars|length }}</h6>
+                                    </li>
+                                    <li>
+                                        <h6><i class="fa fa-video-camera" aria-hidden="true"></i> Видеорешения</h6>
+                                        <h6>{{ videosEGE }}</h6>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="text-center">Опрос</h4>
-                            <!-- Put this script tag to the <head> of your page -->
-                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
+                            <!-- Widget -->
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4 class="text-center">Donate </h4>
 
-                            <script type="text/javascript">
-                                VK.init({apiId: 6204845, onlyWidgets: true});
-                            </script>
-
-                            <!-- Put this div tag to the place, where the Poll block will be -->
-                            <div id="vk_poll"></div>
-                            <script type="text/javascript">
-                                VK.Widgets.Poll("vk_poll", {}, "306387710_df2484ea03403cef5a");
-                            </script>
-                        </div>
-
-                        <!-- Widget -->
-                        <div class="sidebar-widget">
-                            <h4 class="text-center">Присоединяйтесь</h4>
-
-                            <script type="text/javascript" src="https://vk.com/js/api/openapi.js?159"></script>
-
-                            <!-- VK Widget -->
-                            <div id="vk_groups" style="margin: 0 auto;"></div>
-                            <script type="text/javascript">
-                                VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
-                            </script>
+                                <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82&targets-hint=&default-sum=100&button-text=13&hint=&successURL=&quickpay=shop&account=410017907063167"
+                                        height="222" frameborder="0" allowtransparency="true" scrolling="no"
+                                        style="width: 95%; margin: 0 auto;"></iframe>
+                            </div>
 
 
+                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
+                                <h4 class="text-center">Группа </h4>
+
+                                <script type="text/javascript"
+                                        src="https://vk.com/js/api/openapi.js?159"></script>
+
+                                <!-- VK Widget -->
+                                <div id="vk_groups" style="  width:95%; margin: 0 auto;"></div>
+                                <script type="text/javascript">
+                                    VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
+                                </script>
+
+                            </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

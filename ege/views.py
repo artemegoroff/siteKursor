@@ -6,17 +6,13 @@ from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazbo
 def ege_home_page(request):
     tasksEge = NumberTaskEge.objects.all()
     varsEGE = VarEge.objects.all().order_by('number_var')
-    if len(varsEGE) % 3 == 0:
-        kol_elem_in_group = len(varsEGE) // 3
-    else:
-        kol_elem_in_group = len(varsEGE) // 3 + 1
-    groups = [i * kol_elem_in_group + 1 for i in range(3)]
+    videosEGE = len(VideoRazborEGE.objects.all())
+
     context = {}
+    context['videosEGE'] = videosEGE
     context['tasks'] = tasksEge
     context['vars'] = varsEGE
-    context['groups'] = groups
     context['numAllTask'] = len(QuestionsEGE.objects.all())
-    context['kol'] = kol_elem_in_group
     numbersVideoRazbor = set(VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct())
     videos=[]
     for i in numbersVideoRazbor:
