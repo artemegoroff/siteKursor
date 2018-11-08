@@ -4,7 +4,6 @@
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/test.html" afterPath="$PROJECT_DIR$/videos/templates/videos/test.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -52,7 +51,7 @@
       <file leaf-file-name="task_detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
+            <state relative-caret-position="5852">
               <caret line="308" column="92" lean-forward="false" selection-start-line="308" selection-start-column="92" selection-end-line="308" selection-end-column="92" />
               <folding>
                 <element signature="n#for#8;n#!!top" expanded="false" />
@@ -94,8 +93,8 @@
       <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="148" column="32" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="148" selection-end-column="32" />
+            <state relative-caret-position="3256">
+              <caret line="148" column="32" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="148" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -285,7 +284,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -408,7 +407,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -772,13 +771,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00036" summary="22 september">
-      <created>1537618460582</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1537618460582</updated>
-    </task>
     <task id="LOCAL-00037" summary="24 september">
       <created>1537799223779</created>
       <option name="number" value="00037" />
@@ -1115,7 +1107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541343070106</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="5 november">
+      <created>1541593328102</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1541593328103</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1129,9 +1128,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24935733" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2525707" sideWeight="0.48801368" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3278237" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2696011" sideWeight="0.5064935" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32813516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1180,7 +1179,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="8 october" />
     <MESSAGE value="8.1 october" />
     <MESSAGE value="9 october" />
     <MESSAGE value="10 october" />
@@ -1205,7 +1203,8 @@
     <MESSAGE value="30 october" />
     <MESSAGE value="1 november" />
     <MESSAGE value="2 november" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 november" />
+    <MESSAGE value="5 november" />
+    <option name="LAST_COMMIT_MESSAGE" value="5 november" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1518,7 +1517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="5852">
           <caret line="308" column="92" lean-forward="false" selection-start-line="308" selection-start-column="92" selection-end-line="308" selection-end-column="92" />
           <folding>
             <element signature="n#for#8;n#!!top" expanded="false" />
@@ -1528,8 +1527,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="148" column="32" lean-forward="true" selection-start-line="107" selection-start-column="8" selection-end-line="148" selection-end-column="32" />
+        <state relative-caret-position="3256">
+          <caret line="148" column="32" lean-forward="false" selection-start-line="107" selection-start-column="8" selection-end-line="148" selection-end-column="32" />
           <folding />
         </state>
       </provider>
