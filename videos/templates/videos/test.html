@@ -117,8 +117,7 @@ set()</code></pre>
         <p> Вы можете определить словарь, включив в фигурные скобки список пар "Ключ-значение",
             разделенных запятыми. Двоеточие (:) отделяет каждый ключ от связанного с ним значения:</p>
 
-        <pre class="line-numbers">
-            <code class=" language-python">d = {
+        <pre class="line-numbers"><code class=" language-python"> d = {
     ключ 1: значение,
     ключ 2: значение,
       ....
@@ -126,28 +125,189 @@ set()</code></pre>
 }</code></pre>
         <p> Пример: мы можем связать (ассоциировать) названия футбольной команды с городом, где она основана:</p>
 
-        <pre class="line-numbers">
-            <code class=" language-python">teams = {
+        <pre class="line-numbers"><code class=" language-python"> teams = {
     'Arsenal': 'London',
     'Bayern': 'Munich',
     'PSG': 'Paris',
 }</code></pre>
 
         <h5>Доступ к значениям словаря</h5>
-        <p> Для получения значения внутри пары вы должны обратиться по ключу словарь[ключ]</p>
-        <pre class="line-numbers">
-            <code class=" language-python">>>> teams['PSG']
+        <p> Для получения значения внутри пары вы должны обратиться по ключу dict[key]</p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams['PSG']
 'Paris'
 >>> teams['Arsenal']
 'London'</code></pre>
         <p> Если попытаетесь обратиться к ключу, которого нет, получится исключение типа KeyError</p>
-        <pre class="line-numbers">
-            <code class=" language-python">>>> teams['Chelsea']
+        <pre class="line-numbers"><code class=" language-python">>>> teams['Chelsea']
 Traceback (most recent call last):
   File "<pyshell#3>", line 1, in <module>
     teams['Chelsea']
 KeyError: 'Chelsea'</code></pre>
 
+        <h5>Добавление нового элемента</h5>
+        <p> Чтобы добавить новое значение в словарь, нужно обратиться по несуществующему ключу и присвоить в него значение</p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams['Sporting'] = 'Lisbon'
+>>> teams
+{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}</code></pre>
 
+        <h5>Изменение элемента</h5>
+        <p> Чтобы изменить значение существующего ключа, нужно обратиться по этому ключу и присвоить новое значение</p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}
+>>> teams['Arsenal']='Лондон'
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}</code></pre>
+        <h5>Удаление элемента</h5>
+        <p> Чтобы удалить элемент словаря, нужно воспользоваться командой <b>del</b></p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}
+>>> del teams['Sporting']
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}</code></pre>
+
+        <h4>Операции со словарем</h4>
+        <h6>Нахождение длины словаря</h6>
+        <p> Чтобы найти длину словаря(количество пар "ключ-значение"), нужно воспользоваться функцией <b>len()</b></p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> len(teams)
+3
+>>> len({})
+0
+>>> len({'a':[1,2,3]})
+1</code></pre>
+        <h6>Проверка вхождения ключа в словарь</h6>
+        <p> Для этого нужно воспользоваться командой <b>in</b>. Обратите внимание, что поиск происходит только
+        среди ключей словаря</p>
+        <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> 'Bayern' in teams
+True
+>>> 'Munich' in teams
+False</code></pre>
+
+    <h4>Методы словаря</h4>
+    <h6>Метод .clear()</h6>
+    <p> Полностью очищает словарь</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.clear()
+>>> teams
+{}</code></pre>
+
+    <h6>Метод .get(key [,default])</h6>
+    <p> Метод, который принимает обязательный параметр - значение ключа. В случае, если данный
+    ключ имеется в словаре, возвращается его значение. В противном случае вернется None, либо значение
+    default (если оно было передено)</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.get('PSG')
+'Paris'
+>>> teams.get('Porto')
+>>> print(teams.get('Porto'))
+None
+>>> teams.get('Porto','Not exist')
+'Not exist'
+>>> teams.get('Porto',999)
+999</code></pre>
+
+    <h6>Метод .setdefault(key [,default])</h6>
+    <p> Метод, который принимает обязательный параметр - значение ключа. Возвращает значение ключа,
+        но если его нет создает ключ с значением default (по умолчанию None).</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.setdefault('PSG')
+'Paris'
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.setdefault('Porto')
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None}
+>>> teams.setdefault('Benfika','Lisbon')
+'Lisbon'
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None, 'Benfika': 'Lisbon'}</code></pre>
+
+        <h6>Метод .pop(key [,default])</h6>
+    <p> Метод, который удаляет ключ и возвращает значение. Если ключа нет, возвращает
+        default (по умолчанию бросает исключение).</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None, 'Benfika': 'Lisbon'}
+>>> print(teams.pop('Porto'))
+None
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Benfika': 'Lisbon'}
+>>> teams.pop('Benfika','Hello')
+'Lisbon'
+>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.pop("Chelsea")
+Traceback (most recent call last):
+  File "<pyshell#48>", line 1, in <module>
+    teams.pop("Chelsea")
+KeyError: 'Chelsea'
+>>> teams.pop("Chelsea","Hello")
+'Hello'</code></pre>
+
+    <h6>Метод .keys()</h6>
+    <p> Метод, который возвращает коллекцию всех ключей в словаре</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.keys()
+dict_keys(['Arsenal', 'Bayern', 'PSG'])</code></pre>
+
+    <h6>Метод .values()</h6>
+    <p> Метод, который возвращает коллекцию всех значений в словаре</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.values()
+dict_values(['Лондон', 'Munich', 'Paris'])</code></pre>
+
+    <h6>Метод .items()</h6>
+    <p> Метод, который возвращает коллекцию всех пар "ключ-значение"</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> teams.items()
+dict_items([('Arsenal', 'Лондон'), ('Bayern', 'Munich'), ('PSG', 'Paris')])</code></pre>
+
+    <h4>Обход элементов словаря в цикле <b>for</b></h4>
+        <p> При обходе элементов в переменной <b>i</b> по умолчанию будут сохранятся значения ключей</p>
+    <pre class="line-numbers"><code class=" language-python">>>> teams
+{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
+>>> for i in teams:
+	print(i)
+Arsenal
+Bayern
+PSG</code></pre>
+
+     <p> Но, зная ключ, можно обратиться к значению этого ключа</p>
+    <pre class="line-numbers"><code class=" language-python">>>> for i in teams:
+	print(i, teams[i])
+Arsenal Лондон
+Bayern Munich
+PSG Paris</code></pre>
+
+    <p> Обойти только значения словаря можно при использовании метода <b>.values()</b></p>
+    <pre class="line-numbers"><code class=" language-python">>>> for i in teams.values():
+	print(i)
+Лондон
+Munich
+Paris</code></pre>
+
+    <p> При помощи метода <b>.items()</b> можно обходить элементы, получая сразу и ключ и значение</p>
+    <pre class="line-numbers"><code class=" language-python">>>> for item in teams.items():
+	key, value = item[0], item[1]
+	print(key, value)
+Arsenal Лондон
+Bayern Munich
+PSG Paris</code></pre>
+
+    <pre class="line-numbers"><code class=" language-python">>>> for key, value in teams.items():
+	print(key, value)
+Arsenal Лондон
+Bayern Munich
+PSG Paris</code></pre>
     </div>
 {% endblock %}
