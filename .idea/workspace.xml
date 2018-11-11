@@ -4,7 +4,6 @@
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/test.html" afterPath="$PROJECT_DIR$/videos/templates/videos/test.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
@@ -91,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="194" column="10" lean-forward="true" selection-start-line="194" selection-start-column="10" selection-end-line="194" selection-end-column="10" />
+            <state relative-caret-position="313">
+              <caret line="214" column="35" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="214" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -710,13 +709,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00039" summary="26 september">
-      <created>1537989182481</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1537989182481</updated>
-    </task>
     <task id="LOCAL-00040" summary="27.1 september">
       <created>1538067695036</created>
       <option name="number" value="00040" />
@@ -1053,7 +1045,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541774997864</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="10 november">
+      <created>1541895555541</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1541895555542</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1118,7 +1117,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="8.1 october" />
     <MESSAGE value="9 october" />
     <MESSAGE value="10 october" />
     <MESSAGE value="11 october" />
@@ -1143,7 +1141,8 @@
     <MESSAGE value="1 november" />
     <MESSAGE value="2 november" />
     <MESSAGE value="5 november" />
-    <option name="LAST_COMMIT_MESSAGE" value="5 november" />
+    <MESSAGE value="10 november" />
+    <option name="LAST_COMMIT_MESSAGE" value="10 november" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1465,18 +1464,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="194" column="10" lean-forward="true" selection-start-line="194" selection-start-column="10" selection-end-line="194" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/videos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="11" column="28" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="214" column="35" lean-forward="true" selection-start-line="23" selection-start-column="8" selection-end-line="214" selection-end-column="35" />
           <folding />
         </state>
       </provider>
