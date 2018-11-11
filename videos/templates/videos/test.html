@@ -30,11 +30,9 @@
 
         <h5>Создание множества</h5>
         <p>Множество создается перечислением через запятую всех элементов внутри фигурных скобках. </p>
-        <pre class="line-numbers">
-            <code class=" language-python"> >>> a = {1,2,3}
+        <pre class="line-numbers"><code class=" language-python"> >>> a = {1,2,3}
 >>> a
-{1, 2, 3}</code>
-        </pre>
+{1, 2, 3}</code></pre>
 
         <p>В случае, если имеются повторяющиеся элементы внутри фигурных скобок, дубли во множестве все
             равно исчезнут. Множество не терпит среди элементов повторения.
@@ -75,8 +73,7 @@ set()</code></pre>
 
         <p>Первый способ добавить элемент в множество это вызвать метод add(). При попытке добавить уже существующий
             элемент во множество никаких ошибок не возникнет</p>
-        <pre class="line-numbers">
-            <code class=" language-python"> >>> a = {0,1,2,2,3}
+        <pre class="line-numbers"><code class=" language-python"> >>> a = {0,1,2,2,3}
 >>> a
 {0, 1, 2, 3}
 >>> a.add(4)
@@ -84,14 +81,12 @@ set()</code></pre>
 {0, 1, 2, 3, 4}
 >>> a.add(3)
 >>> a
-{0, 1, 2, 3, 4}</code>
-        </pre>
+{0, 1, 2, 3, 4}</code></pre>
 
         <p>Второй способ добавить элемент в множество это вызвать метод update() и передать ему итерируемый
             объект: список, строку, range() или множество. Метод update() будет поочередно добавлять каждый
             элемент итерируемого объекта внутрь множества.</p>
-        <pre class="line-numbers">
-            <code class=" language-python"> >>> a
+        <pre class="line-numbers"><code class=" language-python"> >>> a
 {0, 1, 2}
 >>> a.update([1,2,3,4])
 >>> a
@@ -101,213 +96,125 @@ set()</code></pre>
 {0, 1, 2, 3, 4, 'i', 'h'}
 >>> a.update(range(0,6))
 >>> a
-{0, 1, 2, 3, 4, 5, 'i', 'h'}</code>
-        </pre>
+{0, 1, 2, 3, 4, 5, 'i', 'h'}</code></pre>
 
+        <h5>Удаление элемента из множество</h5>
+        <p>Первый способ удалить элемент из множества это вызвать метод <b>discard(value)</b> и передать ему значение,
+            которое хотите удалить. В случае, если в множестве нет значения, исключений не будет.</p>
 
-        <h4>Словари (dict)</h4>
-        <p> В Python имеется еще один составной тип данных, называемый словарем, который похож на список.
-            Словарь (dict) — неупорядоченная коллекция произвольных объектов с доступом по ключу. Словарь
-            более известен как ассоциативный массив. Словарь состоит из набора пар "Ключ-Значение". И в отличии от
-            списка, где к каждому элементу можно обратиться по его порядковому номеру(индексу), в словаре обращение
-            к элементу происходит по <b>ключу</b>.</p>
+        <pre class="line-numbers"><code class=" language-python">>>> a
+{1, 2, 3}
+>>> a.discard(3)
+>>> a
+{1, 2}
+>>> a.discard(4)
+>>> a
+{1, 2}</code></pre>
 
-        <h5>Создание словаря</h5>
+        <p>Второй способ удалить элемент - это вызвать метод <b>remove(value)</b>. В случае, если
+            указанного значения в множестве нет, возбуждается исключение <b>KeyError</b>. </p>
 
-        <p> Вы можете определить словарь, включив в фигурные скобки список пар "Ключ-значение",
-            разделенных запятыми. Двоеточие (:) отделяет каждый ключ от связанного с ним значения:</p>
-
-        <pre class="line-numbers"><code class=" language-python"> d = {
-    ключ 1: значение,
-    ключ 2: значение,
-      ....
-    ключ N: значение
-}</code></pre>
-        <p> Пример: мы можем связать (ассоциировать) названия футбольной команды с городом, где она основана:</p>
-
-        <pre class="line-numbers"><code class=" language-python"> teams = {
-    'Arsenal': 'London',
-    'Bayern': 'Munich',
-    'PSG': 'Paris',
-}</code></pre>
-
-        <h5>Доступ к значениям словаря</h5>
-        <p> Для получения значения внутри пары вы должны обратиться по ключу dict[key]</p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams['PSG']
-'Paris'
->>> teams['Arsenal']
-'London'</code></pre>
-        <p> Если попытаетесь обратиться к ключу, которого нет, получится исключение типа KeyError</p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams['Chelsea']
+        <pre class="line-numbers"><code class=" language-python">>>> a
+{1, 2, 3}
+>>> a.remove(2)
+>>> a
+{1, 3}
+>>> a.remove(5)
 Traceback (most recent call last):
-  File "<pyshell#3>", line 1, in <module>
-    teams['Chelsea']
-KeyError: 'Chelsea'</code></pre>
+  File "<pyshell#11>", line 1, in <module>
+    a.remove(5)
+KeyError: 5</code></pre>
 
-        <h5>Добавление нового элемента</h5>
-        <p> Чтобы добавить новое значение в словарь, нужно обратиться по несуществующему ключу и присвоить в него значение</p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams['Sporting'] = 'Lisbon'
->>> teams
-{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}</code></pre>
+        <p>Третий способ удалить элемент - вызвать метод <b>pop()</b>. Т.к. множество является неупорядоченной
+            коллекцией, данный метод удалит случайный элемент. При попытке удалить элемент из пустого множества
+            возникнет исключение <b>KeyError</b>. </p>
 
-        <h5>Изменение элемента</h5>
-        <p> Чтобы изменить значение существующего ключа, нужно обратиться по этому ключу и присвоить новое значение</p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'London', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}
->>> teams['Arsenal']='Лондон'
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}</code></pre>
-        <h5>Удаление элемента</h5>
-        <p> Чтобы удалить элемент словаря, нужно воспользоваться командой <b>del</b></p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Sporting': 'Lisbon'}
->>> del teams['Sporting']
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}</code></pre>
-
-        <h4>Операции со словарем</h4>
-        <h6>Нахождение длины словаря</h6>
-        <p> Чтобы найти длину словаря(количество пар "ключ-значение"), нужно воспользоваться функцией <b>len()</b></p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> len(teams)
+        <pre class="line-numbers"><code class=" language-python">>>> a
+{1, 2, 3}
+>>> a.pop()
+1
+>>> a.pop()
+2
+>>> a.pop()
 3
->>> len({})
-0
->>> len({'a':[1,2,3]})
-1</code></pre>
-        <h6>Проверка вхождения ключа в словарь</h6>
-        <p> Для этого нужно воспользоваться командой <b>in</b>. Обратите внимание, что поиск происходит только
-        среди ключей словаря</p>
-        <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> 'Bayern' in teams
-True
->>> 'Munich' in teams
-False</code></pre>
-
-    <h4>Методы словаря</h4>
-    <h6>Метод .clear()</h6>
-    <p> Полностью очищает словарь</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.clear()
->>> teams
-{}</code></pre>
-
-    <h6>Метод .get(key [,default])</h6>
-    <p> Метод, который принимает обязательный параметр - значение ключа. В случае, если данный
-    ключ имеется в словаре, возвращается его значение. В противном случае вернется None, либо значение
-    default (если оно было передено)</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.get('PSG')
-'Paris'
->>> teams.get('Porto')
->>> print(teams.get('Porto'))
-None
->>> teams.get('Porto','Not exist')
-'Not exist'
->>> teams.get('Porto',999)
-999</code></pre>
-
-    <h6>Метод .setdefault(key [,default])</h6>
-    <p> Метод, который принимает обязательный параметр - значение ключа. Возвращает значение ключа,
-        но если его нет создает ключ с значением default (по умолчанию None).</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.setdefault('PSG')
-'Paris'
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.setdefault('Porto')
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None}
->>> teams.setdefault('Benfika','Lisbon')
-'Lisbon'
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None, 'Benfika': 'Lisbon'}</code></pre>
-
-        <h6>Метод .pop(key [,default])</h6>
-    <p> Метод, который удаляет ключ и возвращает значение. Если ключа нет, возвращает
-        default (по умолчанию бросает исключение).</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Porto': None, 'Benfika': 'Lisbon'}
->>> print(teams.pop('Porto'))
-None
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris', 'Benfika': 'Lisbon'}
->>> teams.pop('Benfika','Hello')
-'Lisbon'
->>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.pop("Chelsea")
+>>> a.pop()
 Traceback (most recent call last):
-  File "<pyshell#48>", line 1, in <module>
-    teams.pop("Chelsea")
-KeyError: 'Chelsea'
->>> teams.pop("Chelsea","Hello")
-'Hello'</code></pre>
+  File "<pyshell#17>", line 1, in <module>
+    a.pop()
+KeyError: 'pop from an empty set'</code></pre>
 
-    <h6>Метод .keys()</h6>
-    <p> Метод, который возвращает коллекцию всех ключей в словаре</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.keys()
-dict_keys(['Arsenal', 'Bayern', 'PSG'])</code></pre>
+        <h5>Операции над множеством</h5>
 
-    <h6>Метод .values()</h6>
-    <p> Метод, который возвращает коллекцию всех значений в словаре</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.values()
-dict_values(['Лондон', 'Munich', 'Paris'])</code></pre>
+        <h6>Нахождение длины</h6>
 
-    <h6>Метод .items()</h6>
-    <p> Метод, который возвращает коллекцию всех пар "ключ-значение"</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> teams.items()
-dict_items([('Arsenal', 'Лондон'), ('Bayern', 'Munich'), ('PSG', 'Paris')])</code></pre>
+        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3}
+>>> len(a)
+3
+>>> len(set())
+0
+>>> len(set([1,2,2]))
+2</code></pre>
 
-    <h4>Обход элементов словаря в цикле <b>for</b></h4>
-        <p> При обходе элементов в переменной <b>i</b> по умолчанию будут сохранятся значения ключей</p>
-    <pre class="line-numbers"><code class=" language-python">>>> teams
-{'Arsenal': 'Лондон', 'Bayern': 'Munich', 'PSG': 'Paris'}
->>> for i in teams:
-	print(i)
-Arsenal
-Bayern
-PSG</code></pre>
+        <h6>Проверка вхождения элемента во множество</h6>
 
-     <p> Но, зная ключ, можно обратиться к значению этого ключа</p>
-    <pre class="line-numbers"><code class=" language-python">>>> for i in teams:
-	print(i, teams[i])
-Arsenal Лондон
-Bayern Munich
-PSG Paris</code></pre>
+        <pre class="line-numbers"><code class=" language-python">>>> a
+{1, 2, 3}
+>>> 2 in a
+True
+>>> 4 in a
+False
+>>> 5 not in a
+True</code></pre>
 
-    <p> Обойти только значения словаря можно при использовании метода <b>.values()</b></p>
-    <pre class="line-numbers"><code class=" language-python">>>> for i in teams.values():
-	print(i)
-Лондон
-Munich
-Paris</code></pre>
+        <h6>Пересечение множеств</h6>
 
-    <p> При помощи метода <b>.items()</b> можно обходить элементы, получая сразу и ключ и значение</p>
-    <pre class="line-numbers"><code class=" language-python">>>> for item in teams.items():
-	key, value = item[0], item[1]
-	print(key, value)
-Arsenal Лондон
-Bayern Munich
-PSG Paris</code></pre>
+        <p> При помощи оператора <b>&</b> можно выполнить пересечение множеств. В результат попадут
+        те элементы, которые одновременно принадлежат двум множествам. При этом сами множества не меняются.
+        Если нужно изменить само множество используйте эту операцию с присвоением <b>&=</b>. </p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
+>>> b = {3,4,5,6}
+>>> a & b
+{3, 4}
+>>> a,b
+({1, 2, 3, 4}, {3, 4, 5, 6})
+>>> a &= b
+>>> a,b
+({3, 4}, {3, 4, 5, 6})</code></pre>
 
-    <pre class="line-numbers"><code class=" language-python">>>> for key, value in teams.items():
-	print(key, value)
-Arsenal Лондон
-Bayern Munich
-PSG Paris</code></pre>
+    <h6>Объединение множеств</h6>
+
+        <p> При помощи оператора <b>|</b> можно выполнить объединение множеств. В результат попадут
+        те элементы, которые принадлежат хотя бы одному из множеств. При этом сами множества не меняются.
+        Если нужно изменить само множество используйте эту операцию с присвоением <b>|=</b>. </p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
+>>> b = {3,4,5,6}
+>>> a | b
+{1, 2, 3, 4, 5, 6}
+>>> a,b
+({1, 2, 3, 4}, {3, 4, 5, 6})
+>>> a |= b
+>>> a,b
+({1, 2, 3, 4, 5, 6}, {3, 4, 5, 6})</code></pre>
+
+    <h6>Вычитание множеств</h6>
+
+        <p> При помощи оператора <b> - </b> можно выполнить вычитание множеств. В результат попадут
+        только те элементы, которые принадлежат первому множеству за исключение тех,
+            которые входят во второе.
+        </p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
+>>> b = {3,4,5,6}
+>>> a - b
+{1, 2}
+>>> b - a
+{5, 6}
+>>> a,b
+({1, 2, 3, 4}, {3, 4, 5, 6})
+>>> a -= b
+>>> a,b
+({1, 2}, {3, 4, 5, 6})</code></pre>
+
+
+
     </div>
 {% endblock %}
