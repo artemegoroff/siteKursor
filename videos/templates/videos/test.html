@@ -21,199 +21,207 @@
 {% block content %}
 
     <div class="container" style="margin-top: 100px">
-        <h4>Множество (set)</h4>
-        <p>Множество (set) — неупорядоченная коллекция, хранящая набор уникальных значений и поддерживающая для них
-            операции добавления, удаления и определения вхождения. </p>
-        <p>Также объект множество в Python поддерживает операции, аналогичные операциям с математическими множествами:
-            объединение, пересечение, симметричная разность и вычитание множеств</p>
+
+        <h4>Кортежи (tuple)</h4>
+        <p>Кортеж (tuple) — упорядоченная коллекция элементов. </p>
+        <p>Кортежи очень похожи со спискама(list), за исключением следующих свойств: </p>
+
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Кортежи определяются путем включения элементов в
+                круглые скобки "()" в отличии от списков, где элементы заключаются внутри
+                квадратных скобок "[]";</li>
+            <li class="list-group-item">Кортежи <b>неизменяемы</b>.</li>
+        </ul>
 
 
-        <h5>Создание множества</h5>
-        <p>Множество создается перечислением через запятую всех элементов внутри фигурных скобках. </p>
-        <pre class="line-numbers"><code class=" language-python"> >>> a = {1,2,3}
+        <h5>Создание кортежа</h5>
+        <p>Первый способ - перечислить внутри круглых скобок элементы через запятую </p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, True, 'hello', 5)
 >>> a
-{1, 2, 3}</code></pre>
+(1, True, 'hello', 5)
+>>> type(a)
+<сlass 'tuple'> </code></pre>
 
-        <p>В случае, если имеются повторяющиеся элементы внутри фигурных скобок, дубли во множестве все
-            равно исчезнут. Множество не терпит среди элементов повторения.
+        <p>Второй способ создания это перечисление нескольких элементов через запятую без скобок. В таком
+            случае все равно создаться кортеж.
         </p>
 
+        <pre class="line-numbers"><code class=" language-python">>>> a = 1,True,'hello',5
+>>> a
+(1, True, 'hello', 5)</code></pre>
 
-        <pre class="line-numbers"><code class=" language-python">>>> b = {1,2,3,3,2,1,4}
->>> b
-{1, 2, 3, 4}</code></pre>
+        <p> Кортеж получится даже если вы укажите один элемент, но после него поставите запятую</p>
 
-        <p>Пустое множество создается при помощи функции set()
+        <pre class="line-numbers"><code class=" language-python">>>> a = 1,
+>>> a
+(1,)</code></pre>
+
+        <p>Но если вы поставите один элемент без запятой или внутри скобок, это уже будет не кортеж.
         </p>
 
-        <pre class="line-numbers"><code class=" language-python">>>> c = set()
->>> c
-set()</code></pre>
-
-        <p>Также при помощи функции set() можно создавать множества из других объектов. Если передать строку, то получим
-            множество из символов этой строки.
-        </p>
-
-        <pre class="line-numbers"><code class=" language-python">>>> d = set('abracadabra')
->>> d
-{'b', 'r', 'c', 'a', 'd'}</code></pre>
-
-
-        <p>Также можно передавать функции set() списки и функцию range().
-        </p>
-
-        <pre class="line-numbers"><code class=" language-python">>>> e = set([1,3,3,1,2,3,3,7])
->>> e
-{1, 2, 3, 7}
->>> f = set(range(1,4))
->>> f
-{1, 2, 3}</code></pre>
-
-        <h5>Добавление элемента в множество</h5>
-
-        <p>Первый способ добавить элемент в множество это вызвать метод add(). При попытке добавить уже существующий
-            элемент во множество никаких ошибок не возникнет</p>
-        <pre class="line-numbers"><code class=" language-python"> >>> a = {0,1,2,2,3}
+        <pre class="line-numbers"><code class=" language-python">>>> a = 1
 >>> a
-{0, 1, 2, 3}
->>> a.add(4)
->>> a
-{0, 1, 2, 3, 4}
->>> a.add(3)
->>> a
-{0, 1, 2, 3, 4}</code></pre>
-
-        <p>Второй способ добавить элемент в множество это вызвать метод update() и передать ему итерируемый
-            объект: список, строку, range() или множество. Метод update() будет поочередно добавлять каждый
-            элемент итерируемого объекта внутрь множества.</p>
-        <pre class="line-numbers"><code class=" language-python"> >>> a
-{0, 1, 2}
->>> a.update([1,2,3,4])
->>> a
-{0, 1, 2, 3, 4}
->>> a.update('hi')
->>> a
-{0, 1, 2, 3, 4, 'i', 'h'}
->>> a.update(range(0,6))
->>> a
-{0, 1, 2, 3, 4, 5, 'i', 'h'}</code></pre>
-
-        <h5>Удаление элемента из множество</h5>
-        <p>Первый способ удалить элемент из множества это вызвать метод <b>discard(value)</b> и передать ему значение,
-            которое хотите удалить. В случае, если в множестве нет значения, исключений не будет.</p>
-
-        <pre class="line-numbers"><code class=" language-python">>>> a
-{1, 2, 3}
->>> a.discard(3)
->>> a
-{1, 2}
->>> a.discard(4)
->>> a
-{1, 2}</code></pre>
-
-        <p>Второй способ удалить элемент - это вызвать метод <b>remove(value)</b>. В случае, если
-            указанного значения в множестве нет, возбуждается исключение <b>KeyError</b>. </p>
-
-        <pre class="line-numbers"><code class=" language-python">>>> a
-{1, 2, 3}
->>> a.remove(2)
->>> a
-{1, 3}
->>> a.remove(5)
-Traceback (most recent call last):
-  File "<pyshell#11>", line 1, in <module>
-    a.remove(5)
-KeyError: 5</code></pre>
-
-        <p>Третий способ удалить элемент - вызвать метод <b>pop()</b>. Т.к. множество является неупорядоченной
-            коллекцией, данный метод удалит случайный элемент. При попытке удалить элемент из пустого множества
-            возникнет исключение <b>KeyError</b>. </p>
-
-        <pre class="line-numbers"><code class=" language-python">>>> a
-{1, 2, 3}
->>> a.pop()
 1
->>> a.pop()
-2
->>> a.pop()
-3
->>> a.pop()
-Traceback (most recent call last):
-  File "<pyshell#17>", line 1, in <module>
-    a.pop()
-KeyError: 'pop from an empty set'</code></pre>
+>>> b = (5)
+>>> b
+5</code></pre>
 
-        <h5>Операции над множеством</h5>
+        <p>Также кортеж можно создать при помощи функции <b>tuple()</b> и передать ей итерируемый объект.
+        </p>
+
+        <pre class="line-numbers"><code class=" language-python">>>> a = tuple([1,2,3])
+>>> a
+(1, 2, 3)
+>>> b = tuple(range(4))
+>>> b
+(0, 1, 2, 3)
+>>> c = tuple('hello')
+>>> c
+('h', 'e', 'l', 'l', 'o')
+>>> d = tuple(1)
+Traceback (most recent call last):
+  File "<pyshell#19>", line 1, in <module>
+    d = tuple(1)
+TypeError: 'int' object is not iterable</code></pre>
+
+        <p>В последнем примере мы передавили в функцию <b>tuple()</b> целое числа, и из-за того что оно не являются
+            итерируемой последовательностью возникла ошибка.
+        </p>
+
+        <p>Для создания пустого кортежа нужно поставить пару пустых круглых скобок или вызвать
+            функцию <b>tuple()</b> без параметров:
+        </p>
+
+        <pre class="line-numbers"><code class=" language-python"> >>> a = ()
+>>> a
+()
+>>> b = tuple()
+>>> b
+()</code></pre>
+
+        <h5>Операции над кортежами</h5>
 
         <h6>Нахождение длины</h6>
 
-        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3}
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, 2, 3)
 >>> len(a)
 3
->>> len(set())
-0
->>> len(set([1,2,2]))
-2</code></pre>
+>>> len(())
+0</code></pre>
 
-        <h6>Проверка вхождения элемента во множество</h6>
+        <h6>Сложение (спецление) кортежей</h6>
 
-        <pre class="line-numbers"><code class=" language-python">>>> a
-{1, 2, 3}
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, 2, 3)
+>>> b = (4, 5)
+>>> a+b
+(1, 2, 3, 4, 5)
+>>> b+a
+(4, 5, 1, 2, 3)</code></pre>
+
+        <h6>Дублирование кортежа</h6>
+
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, 2, 3)
+>>> a*2
+(1, 2, 3, 1, 2, 3)</code></pre>
+
+        <h6>Нахождение <u>max()</u> и <u>min()</u></h6>
+        <p>Кортеж должен состоять из однотипных элементов</p>
+
+        <pre class="line-numbers"><code class=" language-python">>>> a = (21, 32, 9, 10, 30)
+>>> min(a)
+9
+>>> max(a)
+32</code></pre>
+
+         <h6>Применение функции <u>sum()</u></h6>
+
+        <pre class="line-numbers"><code class=" language-python">>>> a = (21, 32, 9, 10, 30)
+>>> sum(a)</code></pre>
+
+        <h6>Проверка вхождения элемента в кортеж</h6>
+
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, 2, 3)
 >>> 2 in a
 True
->>> 4 in a
+>>> 5 in a
 False
->>> 5 not in a
+>>> 4 not in a
 True</code></pre>
 
-        <h6>Пересечение множеств</h6>
+        <h6>Обращение по индексу кортежа</h6>
 
-        <p> При помощи оператора <b>&</b> можно выполнить пересечение множеств. В результат попадут
-        те элементы, которые одновременно принадлежат двум множествам. При этом сами множества не меняются.
-        Если нужно изменить само множество используйте эту операцию с присвоением <b>&=</b>. </p>
-        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
->>> b = {3,4,5,6}
->>> a & b
-{3, 4}
->>> a,b
-({1, 2, 3, 4}, {3, 4, 5, 6})
->>> a &= b
->>> a,b
-({3, 4}, {3, 4, 5, 6})</code></pre>
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, True, 'hello', 55)
+>>> a[1]
+True
+>>> a[3]
+55
+>>> a[-2]
+'hello'</code></pre>
 
-    <h6>Объединение множеств</h6>
+       <h6>Срезы индексов кортежа</h6>
 
-        <p> При помощи оператора <b>|</b> можно выполнить объединение множеств. В результат попадут
-        те элементы, которые принадлежат хотя бы одному из множеств. При этом сами множества не меняются.
-        Если нужно изменить само множество используйте эту операцию с присвоением <b>|=</b>. </p>
-        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
->>> b = {3,4,5,6}
->>> a | b
-{1, 2, 3, 4, 5, 6}
->>> a,b
-({1, 2, 3, 4}, {3, 4, 5, 6})
->>> a |= b
->>> a,b
-({1, 2, 3, 4, 5, 6}, {3, 4, 5, 6})</code></pre>
+        <pre class="line-numbers"><code class=" language-python">>>> a = (10, 20, 5, 8, 15, 35)
+>>> a[1:3]
+(20, 5)
+>>> a[2:5]
+(5, 8, 15)</code></pre>
 
-    <h6>Вычитание множеств</h6>
+    <h5>Кортеж - неизменяемый объект</h5>
+    <p>Элементы кортежа нельзя изменять. При попытке сделать такое изменение выскачит исключение TypeError.</p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, True, 'hello', 55)
+>>> a[3]=100
+Traceback (most recent call last):
+  File "<pyshell#53>", line 1, in <module>
+    a[3]=100
+TypeError: 'tuple' object does not support item assignment</code></pre>
 
-        <p> При помощи оператора <b> - </b> можно выполнить вычитание множеств. В результат попадут
-        только те элементы, которые принадлежат первому множеству за исключение тех,
-            которые входят во второе.
-        </p>
-        <pre class="line-numbers"><code class=" language-python">>>> a = {1,2,3,4}
->>> b = {3,4,5,6}
->>> a - b
-{1, 2}
->>> b - a
-{5, 6}
->>> a,b
-({1, 2, 3, 4}, {3, 4, 5, 6})
->>> a -= b
->>> a,b
-({1, 2}, {3, 4, 5, 6})</code></pre>
+     <h5>Методы кортежа</h5>
+        <h6>Метод .index(value[, start[,finish]])</h6>
+    <p>Данный метод принимает обязательный параметр <b>value</b> и возвращает индекс первого элемента слева
+    с таким значением. С помощью необязательных параметров start и finish можно ограничить индексы поиска.
+    В случае если в кортеже нет значения вызывается исключение ValueError.</p>
+        <pre class="line-numbers"><code class=" language-python">>>> a = (1, 2, 3, 1, 5)
+>>> a.index(1)
+0
+>>> a.index(1,2)
+3
+>>> a.index(4)
+Traceback (most recent call last):
+  File "<pyshell#59>", line 1, in <module>
+    a.index(4)
+ValueError: tuple.index(x): x not in tuple</code></pre>
 
+    <h6>Метод .count(value)</h6>
+    <p>Данный метод принимает обязательный параметр <b>value</b> и возвращает количество раз появления
+    значения value  в кортеже</p>
+        <pre class="line-numbers"><code class=" language-python">>>> a
+(1, 2, 3, 1, 5)
+>>> a.count(1)
+2
+>>> a.count(4)
+0</code></pre>
+
+    <h5>Обход элементов кортежа в цикле for</h5>
+
+    <p>Обход по значениям элементов</p>
+    <pre class="line-numbers"><code class=" language-python">>>> a = (1, True, 'hello', 55)
+>>> for i in a:
+	print(i)
+
+1
+True
+hello
+55</code></pre>
+
+    <p>Обход по индексам элементов кортежа</p>
+    <pre class="line-numbers"><code class=" language-python">>>> a = (1, True, 'hello', 55)
+>>> for i in range(len(a)):
+	print(a[i])
+
+1
+True
+hello
+55</code></pre>
 
 
     </div>
