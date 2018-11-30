@@ -691,13 +691,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00047" summary="5 october">
-      <created>1538730381783</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1538730381783</updated>
-    </task>
     <task id="LOCAL-00048" summary="5.1 october">
       <created>1538730741549</created>
       <option name="number" value="00048" />
@@ -1034,7 +1027,14 @@
       <option name="project" value="LOCAL" />
       <updated>1542918810479</updated>
     </task>
-    <option name="localTasksCounter" value="96" />
+    <task id="LOCAL-00096" summary="24 november">
+      <created>1543584434557</created>
+      <option name="number" value="00096" />
+      <option name="presentableId" value="LOCAL-00096" />
+      <option name="project" value="LOCAL" />
+      <updated>1543584434558</updated>
+    </task>
+    <option name="localTasksCounter" value="97" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1099,7 +1099,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="14 october" />
     <MESSAGE value="15 october" />
     <MESSAGE value="16 october" />
     <MESSAGE value="17 october" />
@@ -1124,7 +1123,8 @@
     <MESSAGE value="15 november" />
     <MESSAGE value="16 november" />
     <MESSAGE value="17 november" />
-    <option name="LAST_COMMIT_MESSAGE" value="17 november" />
+    <MESSAGE value="24 november" />
+    <option name="LAST_COMMIT_MESSAGE" value="24 november" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
