@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -733,13 +732,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00051" summary="5.4 october">
-      <created>1538732098393</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1538732098393</updated>
-    </task>
     <task id="LOCAL-00052" summary="5.5 october">
       <created>1538734330691</created>
       <option name="number" value="00052" />
@@ -1076,7 +1068,14 @@
       <option name="project" value="LOCAL" />
       <updated>1544109770118</updated>
     </task>
-    <option name="localTasksCounter" value="100" />
+    <task id="LOCAL-00100" summary="22 december">
+      <created>1545494552462</created>
+      <option name="number" value="00100" />
+      <option name="presentableId" value="LOCAL-00100" />
+      <option name="project" value="LOCAL" />
+      <updated>1545494552463</updated>
+    </task>
+    <option name="localTasksCounter" value="101" />
     <servers />
   </component>
   <component name="TodoView">
@@ -1141,7 +1140,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="18 october" />
     <MESSAGE value="18.1 october" />
     <MESSAGE value="22 october" />
     <MESSAGE value="23 october" />
@@ -1166,7 +1164,8 @@
     <MESSAGE value="25 november" />
     <MESSAGE value="1 december" />
     <MESSAGE value="3 december" />
-    <option name="LAST_COMMIT_MESSAGE" value="3 december" />
+    <MESSAGE value="22 december" />
+    <option name="LAST_COMMIT_MESSAGE" value="22 december" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
