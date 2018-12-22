@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/base_temp.less" afterPath="$PROJECT_DIR$/static/css/base_temp.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/tasks_detail_less.less" afterPath="$PROJECT_DIR$/static/css/tasks_detail_less.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/videoRazbor.less" afterPath="$PROJECT_DIR$/static/css/videoRazbor.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/ege/css/home_ege_less.less" afterPath="$PROJECT_DIR$/static/ege/css/home_ege_less.less" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -736,13 +732,6 @@
       <option name="presentableId" value="Default" />
       <updated>1490045411416</updated>
     </task>
-    <task id="LOCAL-00053" summary="5.6 october">
-      <created>1538735409725</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1538735409725</updated>
-    </task>
     <task id="LOCAL-00054" summary="5.7 october">
       <created>1538736128362</created>
       <option name="number" value="00054" />
@@ -1079,7 +1068,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545494624637</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="22 december">
+      <created>1545494697403</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1545494697403</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TodoView">
