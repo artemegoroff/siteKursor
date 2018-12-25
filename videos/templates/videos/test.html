@@ -22,6 +22,59 @@
 
     <div class="container" style="margin-top: 100px">
 
+        <h4>Рекурсия в Python (part 2)</h4>
+        <p> В данном уроке мы продолжим с вами знакомиться с рекурсией и разберем решение нескольких задач</p>
+        <h5>Задача 1</h5>
+        <p>Первая задача, которую мы рассмотрим, будет связана со строками.
+            По <u><a href="https://informatics.msk.ru/mod/statements/view3.php?id=26735&chapterid=113656">условию</a></u>
+        на вход программе подается строка, а наша программа должна добавить открывающиеся и закрывающиеся скобки между
+            символами по следующему примеру: <b>"example"</b> -> <b>"(e(x(a(m)p)l)e)"</b> </p>
+        <p>Решение задачи следующее:</p>
+
+        <pre class="line-numbers"><code class=" language-python">def f(s):
+    if len(s)==1 or len(s)==2:
+        return s
+    return s[0]+'('+f(s[1:-1])+')'+s[-1]
+
+s=input()
+print(f(s))</code></pre>
+        <p>Подробности о том, как работает данная программа, смотрите в видео.</p>
+
+        <h5>Задача 2. Возведение в степень</h5>
+        <p>При помощи рекурсии необходимо возвести число x в целую стпень n</p>
+
+        <pre class="line-numbers"><code class=" language-python">def power(x, n):
+    if n == 0:
+        return 1
+    if n < 0:
+        return 1 / power(x, -n)
+    if n % 2 == 0:
+        return power(x, n // 2) * power(x, n // 2)
+    else:
+        return power(x, n - 1) * x
+
+x = int(input())
+n = int(input())
+print(power(x, n))</code></pre>
+
+        <p>Подробности работы программы смотрите в видео.</p>
+
+        <h5>Задача 3. Рекурсивный обход списка</h5>
+
+        <p>Нужно обойти элементы многомерного списка с указанием уровня вложенности, на котором располагаются эти
+        элементы.</p>
+
+        <pre class="line-numbers"><code class=" language-python">a = [1, 2, [2, 3, 4, [3, 4, [2, 3], 5]]]
+
+def rec(spicok, level=1):
+    print(*spicok, 'level=', level)
+    for i in spicok:
+        if type(i) == list:
+            rec(i, level + 1)
+
+rec(a)</code></pre>
+
+
         <h4>Кортежи (tuple)</h4>
         <p>Кортеж (tuple) — упорядоченная коллекция элементов. </p>
         <p>Кортежи очень похожи со спискама(list), за исключением следующих свойств: </p>
