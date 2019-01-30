@@ -35,10 +35,12 @@ class Course(models.Model):
     PYTHON = 'PYT'
     PASCAL = 'PAS'
     CPLUSPLUS = 'CPP'
+    TURTLEPython = 'TUR'
     LANG_CHOICES = (
         (PYTHON, 'Python'),
         (PASCAL, 'Pascal'),
         (CPLUSPLUS, 'C++'),
+        (TURTLEPython, 'Turtle')
     )
     language = models.CharField(verbose_name="Язык",max_length=3,choices=LANG_CHOICES,default=PYTHON)
     theme = models.CharField(verbose_name="Тема",max_length=100)

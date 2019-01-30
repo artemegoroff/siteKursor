@@ -7,6 +7,7 @@ class AdminCourseSummernote(SummernoteModelAdmin):
     summernote_fields = ('article',)
     filter_horizontal = ['tasks']
     save_on_top = True
+    list_filter = ['language']
 
 class AdminProgrammTask(admin.ModelAdmin):
     filter_horizontal = ['examples']

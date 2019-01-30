@@ -22,9 +22,15 @@
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         {% for oneTheme in allThemes %}
-            <li>
-                <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
-            </li>
+            {% if 'turtle' in request.path %}
+                <li>
+                    <a href="{% url 'videos:videos_turtle_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
+                </li>
+            {% endif %}
         {% endfor %}
         <li><a href=""></a></li>
         <li><a href=""></a></li>
@@ -32,10 +38,10 @@
     </div>
 
 
-{#    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"#}
-{#         style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">#}
-{#        <h2>Python</h2>#}
-{#    </div>#}
+    {#    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"#}
+    {#         style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">#}
+    {#        <h2>Python</h2>#}
+    {#    </div>#}
 
     <i id="contents" class="fa fa-bars" onclick="openNav()" aria-hidden="true">
     </i>
