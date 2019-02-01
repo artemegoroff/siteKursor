@@ -18,7 +18,7 @@ def videos_turtle_all(request):
 def videos_python_theme(request,number):
     Theme = get_object_or_404(Course,language=Course.PYTHON,number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYTHON)
-    nextThemes = Course.objects.filter(number_theme__gt=number)[:8]
+    nextThemes = Course.objects.filter(language=Course.PYTHON, number_theme__gt=number)[:8]
     context={}
     context["Theme"]=Theme
     context["video"] = Theme

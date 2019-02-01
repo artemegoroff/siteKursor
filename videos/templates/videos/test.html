@@ -23,43 +23,68 @@
     <div class="container" style="margin-top: 100px">
 
 
-        <h4>Lambda функция</h4>
+        <h4>Функция filter Python</h4>
 
-        <p>В python функции, созданные при помощи иструкции def, привязываются к имени и их дальнейший вызов происходит
-            именно по имени. Но в python есть возвожность создавать функции, которые не имеют имени  - анонимные функии
-            lambda или lambda-выражения</p>
+        <p>Функция <b>filter</b> является встроенной функцией языка и имеет следующий синтаксис:</p>
 
-        <p>Формат lambda-выражения состоит из ключевого слова lambda, за которым следуют один или более аргументов
-            (точно так же, как список аргументов в круглых скобках в заголовке инструкции def), затем, вы ставите
-            двоеточиее и записываете выражение:
+        <pre class=" language-python"><code
+                class=" language-python">filter(func or None, *iterables) --&gt; filter object </code></pre>
+
+        <p>Функция <b>filter </b>принимает в качестве первого аргумента должна принимать функцию, возвращающую значение
+            логического типа (True или False). Вторым аргументом filter принимает итерируемый объект, к которым
+            относятся
+            списки, кортежи, словари и т.д. Результатом работы функции <b>filter</b> будет <b>filter object</b>, он
+            представляет собой итератор, в который войдут все элементы итерируемого объекта, для которых переданная
+            функция
+            вернула True. Давайте разберем на примере:
         </p>
 
-        <pre class=" language-python"><code class=" language-python">lambda аргумент1, аргумент2, ... : выражение</code></pre>
+        <iframe src="https://trinket.io/embed/python3/2d9e81a64c" width="100%" height="200" frameborder="0"
+                marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-        <p> В lambda функцию нельзя записать несколько инструкций, потому что оно должно является выражение - одной строчкой.
-        И внутри отсутствует слово return, но оно подразумевается. И значение выражения будет возвращаться за место фунции в неявном виде.</p>
+        <p> Наша функция f определяет больше ли переданное ей значение десяти или нет. Передавая эту функцию f и список
+            а внуть функции
+            filter, мы получим в результате только те элементы списка а, которые больше 10. Более короткая запись этого
+            кода
+            выглядит так:</p>
 
-        <p>В этом примере мы создаем анонимную функцию, которая принимает один аргумент и возвращает его квадрат.
-            При этом связываем эту функцию с именем r для дальнейшего вызова.</p>
-        <iframe src="https://trinket.io/embed/python3/1722c2cfb3" width="100%" height="200" frameborder="0"
+        <iframe src="https://trinket.io/embed/python3/30551f336a" width="100%" height="200" frameborder="0"
+                marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+        <p>В примере ниже мы отфильтруем список а по четным значениям.</p>
+        <iframe src="https://trinket.io/embed/python3/35edd24db4" width="100%" height="200" frameborder="0"
                 marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
-        <p>Здесь мы созадем фунцию lambda для нахождения периметра треугольника и ассоциируем ее с именем perimetr. Она
-            принимает три аргумента и
-            возвращает их сумму.</p>
-        <iframe src="https://trinket.io/embed/python3/07b3413a3b" width="100%" height="200" frameborder="0"
+        <p>Ниже пример показывает как использовать встроенный функции внутри filter, но подходят для этого примера
+            только такие встроенные функции, которые возвращают True или False. Сюда идельно подходит функция bool().
+            Она
+            возвращает True, если ей передать непустое значение, и возвращает False если значение пустое. К пустым
+            значениям
+            относятся 0, пустая строка, пустой список и т.д.</p>
+        <iframe src="https://trinket.io/embed/python3/d84a0d61ce" width="100%" height="180" frameborder="0"
                 marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
-        <p>Фунция lambda может вообще не принимать аргументов, как в примере ниже:</p>
-        <iframe src="https://trinket.io/embed/python3/54ad6367b3" width="100%" height="200" frameborder="0"
+
+        <p>Также в качестве функции вы можете передавать <b>lambda</b>-выражения. В примере ниже мы отберет только те
+            строки из списка, длина которых больше четырех.</p>
+        <iframe src="https://trinket.io/embed/python3/b1de55a3c8" width="100%" height="200" frameborder="0"
                 marginwidth="0" marginheight="0" allowfullscreen></iframe>
 
 
-        <p>Вы можете также использовать условный оператор внутри lambda функции. Но так как анонимная функция lambda
-            представляет выражение, то есть должно записываться в одну строчку, то формат условного оператора будем
-            немного
-            другим. </p>
+        <p>Также можно передавать внутрь функции filter встроенные методы классов. К примеру, у строк есть такие методы
+            как isdigit(), isalpha(), isupper(). Все они возвращают логический тип. Запустите программу ниже и вы
+            увидите как они работают.</p>
+        <iframe src="https://trinket.io/embed/python3/6a4d206198" width="100%" height="200" frameborder="0"
+                marginwidth="0" marginheight="0" allowfullscreen></iframe>
+
+
+
+        <p><br></p>
+        <p>И пример ниже показывает как можно ввести несколько значений через пробел в одной строке</p>
+        <iframe src="https://trinket.io/embed/python3/9e5427e6c9" width="100%" height="200" frameborder="0"
+                marginwidth="0" marginheight="0" allowfullscreen=""></iframe>
+
 
         <iframe src="https://trinket.io/embed/python3/12a97b508a" width="100%" height="200" frameborder="0"
                 marginwidth="0" marginheight="0" allowfullscreen></iframe>
@@ -75,8 +100,6 @@
 
         <iframe src="https://trinket.io/embed/python3/63020d380f" width="100%" height="200" frameborder="0"
                 marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
-
 
 
         <p> При заморозке Функции-генераторы автоматически сохраняют информацию о своем состоянии и в том числе все
