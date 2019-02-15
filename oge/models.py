@@ -145,6 +145,28 @@ class QuestionsOge(models.Model):
                 s[i][j] = s[i][j].split('\t')
         return s
 
+    def table_style(self):
+        if self.number_of_task_id == 12:
+            return 'twoTable'
+        elif self.number_of_task_id == 2:
+            return 'oneTable oneTableLastChild'
+        elif self.number_of_task_id == 4:
+            return 'oneTable oneTableWithout'
+        elif self.number_of_task_id in [7, 10, 12, 18]:
+            return 'oneTable oneTableHeader'
+        elif len(self.table_in_row()) == 1:
+            return 'oneTable oneTableFirstChild'
+        return ''
+
+    def table_setka(self):
+        if len(self.table_in_row()) > 1:
+            return 'col-md-6 col-lg-6'
+        elif len(self.table_in_row()) == 1 and self.picture:
+            return 'col-12 col-sm-8 col-md-8 col-lg-7'
+        elif len(self.table_in_row()) == 1:
+            return 'col-md-10 col-lg-8'
+        return ''
+
     def get_vars(self):
         variants_list = self.number_of_variant.get_queryset()
         variants_str = ''

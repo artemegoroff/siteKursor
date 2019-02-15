@@ -88,7 +88,6 @@
                     <!-- Hero Content -->
                     <div class="hero-content text-center">
                         {% if exam == 'ege_var' %}
-
                             <h2>Вариант ЕГЭ по информатике № {{ number_task.number_var }}</h2>
                         {% elif exam == 'oge_var' %}
                             <h2>Вариант ОГЭ по информатике № {{ number_task.number_var }}</h2>
@@ -131,7 +130,7 @@
                         {% for vopros in questions %}
                             <div class="card card-block bg-light {% if vopros.status %} {{ vopros.status }} {% endif %}"
                                  data-categ="{{ vopros.category }}">
-                                {#                                  here ref of redactor#}
+                                {#  here ref of redactor #}
                                 {% if '127.0.0.1' in request.META.HTTP_HOST %}
                                     <div class="abs_spanRedact">
                                         {% if exam == 'ege' %}
@@ -188,10 +187,10 @@
                                                 <img src="{{ vopros.picture.url }}"
                                                      class="img-rounded img-responsive">
                                             </div>
-                                            <div class="col-12 col-sm-8 col-md-8 col-lg-7">
+                                            <div class="{{ vopros.table_setka }}">
                                                 {% for table in vopros.table_in_row %}
                                                     <div class="table-responsive">
-                                                        <table class="table table-hover table-striped table-sm oneTable">
+                                                        <table class="table table-hover table-striped table-sm {{ vopros.table_style }}">
                                                             {% for rows in table %}
                                                                 {% if forloop.first %}
                                                                     <thead>
@@ -254,100 +253,54 @@
                                             </div>
                                         </div>
                                     {% endif %}
-                                    {#                                        Проверка на наличие таблицы#}
+                                    {#  Проверка на наличие таблицы#}
                                 {% elif vopros.table_data %}
                                     <div class="container">
                                         <div class="row">
-                                            {% if vopros.table_in_row|length > 1 %}
-                                                {% for table in vopros.table_in_row %}
-                                                    <div class="col-12 col-md-6 col-lg-6">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-striped twoTable">
-                                                                {% for rows in table %}
 
-                                                                    {% if forloop.first %}
-                                                                        <thead>
-                                                                        <tr>
-                                                                            {% for row in rows %}
-                                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
-                                                                                    &nbsp;{% else %}
-                                                                                    {{ row|safe }}{% endif %}</th>
-                                                                            {% endfor %}
-                                                                        </tr>
-                                                                        </thead>
-                                                                    {% else %}
+                                            {% for table in vopros.table_in_row %}
+                                                <div class="col-12 {{ vopros.table_setka }}">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-striped {{ vopros.table_style }}">
+                                                            {% for rows in table %}
 
-                                                                        {% if forloop.counter == 2 %}
-                                                                            <tbody>
-                                                                        {% endif %}
+                                                                {% if forloop.first %}
+                                                                    <thead>
                                                                     <tr>
                                                                         {% for row in rows %}
-                                                                            {% if row %}
-                                                                                <td style="width: 30px">
-                                                                                    {% if row == "x" %}
-                                                                                        &nbsp;
-                                                                                        &nbsp;
-                                                                                        &nbsp;{% else %}
-                                                                                        {{ row|safe }}{% endif %} </td>
-                                                                            {% endif %}
+                                                                            <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                                &nbsp;{% else %}
+                                                                                {{ row|safe }}{% endif %}</th>
                                                                         {% endfor %}
                                                                     </tr>
-                                                                    {% if forloop.last %}
-                                                                        </tbody>
-                                                                    {% endif %}
-                                                                    {% endif %}
+                                                                    </thead>
+                                                                {% else %}
 
-                                                                {% endfor %}
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            {% else %}
-                                                {% for table in vopros.table_in_row %}
-                                                    <div class="col-12 col-md-10 col-lg-8">
-                                                        <div class="table-responsive">
-                                                            <table class="table table-striped oneTable">
-                                                                {% for rows in table %}
-
-                                                                    {% if forloop.first %}
-                                                                        <thead>
-                                                                        <tr>
-                                                                            {% for row in rows %}
-                                                                                <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                    {% if forloop.counter == 2 %}
+                                                                        <tbody>
+                                                                    {% endif %}
+                                                                <tr>
+                                                                    {% for row in rows %}
+                                                                        {% if row %}
+                                                                            <td style="width: 30px">
+                                                                                {% if row == "x" %}
+                                                                                    &nbsp;
+                                                                                    &nbsp;
                                                                                     &nbsp;{% else %}
-                                                                                    {{ row|safe }}{% endif %}</th>
-                                                                            {% endfor %}
-                                                                        </tr>
-                                                                        </thead>
-                                                                    {% else %}
-
-                                                                        {% if forloop.counter == 2 %}
-                                                                            <tbody>
+                                                                                    {{ row|safe }}{% endif %} </td>
                                                                         {% endif %}
-                                                                    <tr>
-                                                                        {% for row in rows %}
-                                                                            {% if row %}
-                                                                                <td style="width: 30px">
-                                                                                    {% if row == "x" %}
-                                                                                        &nbsp;
-                                                                                        &nbsp;
-                                                                                        &nbsp;{% else %}
-                                                                                        {{ row|safe }}{% endif %} </td>
-                                                                            {% endif %}
-                                                                        {% endfor %}
-                                                                    </tr>
-                                                                    {% if forloop.last %}
-                                                                        </tbody>
-                                                                    {% endif %}
-                                                                    {% endif %}
+                                                                    {% endfor %}
+                                                                </tr>
+                                                                {% if forloop.last %}
+                                                                    </tbody>
+                                                                {% endif %}
+                                                                {% endif %}
 
-                                                                {% endfor %}
-                                                            </table>
-                                                        </div>
+                                                            {% endfor %}
+                                                        </table>
                                                     </div>
-                                                {% endfor %}
-                                            {% endif %}
-
+                                                </div>
+                                            {% endfor %}
 
                                         </div>
                                     </div>
@@ -375,7 +328,7 @@
                                         </div>
                                     </div>
                                 {% endif %}
-                                {#                                    Проверка на наличие кода#}
+                                {# Проверка на наличие кода#}
 
                                 {#Футер вопроса#}
 
@@ -419,21 +372,6 @@
 
                     </form>
                 </div>
-                {#Комменты Вконтакте#}
-                {#                <!-- Put this script tag to the <head> of your page -->#}
-                {#                <script type="text/javascript" src="//vk.com/js/api/openapi.js?152"></script>#}
-                {##}
-                {#                <script type="text/javascript">#}
-                {#                    VK.init({apiId: 6204845, onlyWidgets: true});#}
-                {#                </script>#}
-                {##}
-                {#                <!-- Put this div tag to the place, where the Comments block will be -->#}
-                {#                <div id="vk_comments"></div>#}
-                {##}
-                {#                <script type="text/javascript">#}
-                {#                    VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});#}
-                {#                </script>#}
-                {#Комменты Вконтакте#}
 
 
                 <div class="container">

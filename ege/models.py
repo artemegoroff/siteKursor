@@ -1,6 +1,7 @@
 from django.db import models
 from theory.models import TheoryVideo
 
+
 class VarEge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
 
@@ -77,7 +78,7 @@ class VideoRazborEGE(models.Model):
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
-    treoryKnowledge = models.ManyToManyField(TheoryVideo,verbose_name="Теория",blank=True)
+    treoryKnowledge = models.ManyToManyField(TheoryVideo, verbose_name="Теория", blank=True)
 
     def __str__(self):
         return str(self.id) + ' ' + self.url_video
@@ -93,9 +94,6 @@ class VideoRazborEGE(models.Model):
 
     def get_category_of_question(self):
         return QuestionsEGE.objects.get(q_url_video=self).category
-
-
-
 
     class Meta:
         verbose_name = "Разбор задач ЕГЭ"
@@ -141,6 +139,28 @@ class QuestionsEGE(models.Model):
             for j in range(len(s[i])):
                 s[i][j] = s[i][j].split('\t')
         return s
+
+    def table_style(self):
+        if len(self.table_in_row()) > 1:
+            return 'twoTable'
+        elif self.number_of_task_id == 2:
+            return 'oneTable oneTableLastChild'
+        elif self.number_of_task_id == 4:
+            return 'oneTable oneTableWithout'
+        elif self.number_of_task_id in [17, 19]:
+            return 'oneTable oneTableHeader'
+        elif len(self.table_in_row()) == 1:
+            return 'oneTable oneTableFirstChild'
+        return ''
+
+    def table_setka(self):
+        if len(self.table_in_row()) > 1:
+            return 'col-md-6 col-lg-6'
+        elif len(self.table_in_row()) == 1 and self.picture:
+            return 'col-12 col-sm-8 col-md-8 col-lg-7'
+        elif len(self.table_in_row()) == 1:
+            return 'col-md-10 col-lg-8'
+        return ''
 
     class Meta:
         verbose_name = "Вопрос ЕГЭ"
