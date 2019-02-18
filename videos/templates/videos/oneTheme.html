@@ -274,8 +274,18 @@
                     <div class="col-12 col-lg-3">
                         <div class="course-sidebar ">
                             <!-- Buy Course -->
-                            <a target="_blank" href="https://vk.com/topic-116207750_37403417"
-                               class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                            {% if 'python' in request.path %}
+                                <a target="_blank" href="https://vk.com/topic-177962775_39843736"
+                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                            {% elif 'turtle' in request.path %}
+                                <a target="_blank" href="https://vk.com/topic-177962775_39843737"
+                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                            {% else %}
+                                <a target="_blank" href="https://vk.com/topic-116207750_37403417"
+                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
+                            {% endif %}
+
+
                             <div class="row">
                                 <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
                                     <h4 class="text-center">Donate </h4>
@@ -289,13 +299,12 @@
                                 <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
                                     <h4 class="text-center">Группа </h4>
 
-                                    <script type="text/javascript"
-                                            src="https://vk.com/js/api/openapi.js?159"></script>
+                                    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
 
                                     <!-- VK Widget -->
-                                    <div id="vk_groups" style="  width:95%; margin: 0 auto;"></div>
+                                    <div id="vk_groups"></div>
                                     <script type="text/javascript">
-                                        VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
+                                        VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 177962775);
                                     </script>
 
                                 </div>
