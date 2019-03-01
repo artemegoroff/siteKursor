@@ -11,6 +11,7 @@ class AdminCourseSummernote(SummernoteModelAdmin):
 
 class AdminProgrammTask(admin.ModelAdmin):
     filter_horizontal = ['examples']
+    search_fields = ('name',)
 
 
 

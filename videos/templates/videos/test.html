@@ -10,12 +10,22 @@
     {#    <link rel="stylesheet/less" href="{% static 'videos/css/allThemes.less' %}" type="text/less">#}
     <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
-    <script src="{% static 'js/prism.js' %}"></script>
+{#    <script src="{% static 'js/prism.js' %}"></script>#}
     <style>
         table td {
             vertical-align: middle !important;
         }
     </style>
+
+    <script src="http://cdn.jupyter.org/thebe/notebook4.1.0/ipywidgets4.0.3/static/main-built.js" type="text/javascript"
+            charset="utf-8"></script>
+
+    <script>
+        $(function () {
+            new Thebe({url: "http://some.tmpnb.server.com:8000"});
+        });
+    </script>
+
 {% endblock %}
 
 {% block content %}
@@ -23,34 +33,54 @@
     <div class="container" style="margin-top: 100px">
 
 
-        <h4>Как задать случайный цвет в turtle</h4>
+        <h4>Прыгающий мячик Bounce ball</h4>
 
-        <p>Случайный цвет мы может получать из заранее созданного списка, в котором хранятся названия цветов. При
-        помощи функции choice из модуля random мы можем получить один элемент этого списка случайный образом.</p>
 
-        <p>Ниже представлен код, который каждую секунду меняет цвет экрана, а выбор цвета осуществляется случайным
-        образом из списка colors</p>
+        <p>Текст реализованной программы (подробности смотрите в видео)</p>
 
-        <pre><code class=" language-python">import turtle, random, time
-
-colors = ['red', 'green', 'yellow', 'purple', 'orange']
+        <pre><code class=" language-python">import turtle, random
 
 window = turtle.Screen()
+border = turtle.Turtle()
+border.speed(0)
+border.up()
+border.hideturtle()
+border.pensize(5)
+border.color('red')
+border.goto(300,300)
+border.down()
+border.goto(300,-300)
+border.goto(-300,-300)
+border.goto(-300,300)
+border.goto(300,300)
+
+ball = turtle.Turtle()
+ball.hideturtle()
+ball.shape('circle')
+ball.up()
+randx = random.randint(-290,290)
+randy = random.randint(-290,290)
+ball.goto(randx,randy)
+ball.showturtle()
+dx = 3
+dy = 2
 
 while True:
-    window.bgcolor(random.choice(colors))
-    time.sleep(1)
+    x,y = ball.position()
+    if x+dx >=300 or x+dx <= -300:
+        dx = -dx
+    if y+dy >=300 or y+dy <= -300:
+        dy = -dy
+    ball.goto(x+dx, y+dy)
 
-window.mainloop()
-</code></pre>
+window.mainloop()</code></pre>
 
 
         <p> Но при такой реализации наш выбор цветов ограничен количеством элементов списка colors.</p>
 
         <p> Другой способ задать случайный цвет, это передавать 3 величины в пределах от 0 до 1 в функцию bgcolor.
-        Первая величина обозначает красный цвет, вторая - зеленый и третья - синий. Таким образом мы пользуемся
-        моделью RGB(red green blue). Ниже программа, которая случайным образом задает цвет фона экрана.</p>
-
+            Первая величина обозначает красный цвет, вторая - зеленый и третья - синий. Таким образом мы пользуемся
+            моделью RGB(red green blue). Ниже программа, которая случайным образом задает цвет фона экрана.</p>
 
 
         <pre><code class=" language-python">import turtle, random, time
