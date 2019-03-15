@@ -71,7 +71,7 @@
                             {#                    <div class="vid-container">#}
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe id="vid_frame" class="embed-responsive-item"
-                                        src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                        src="http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
                                         frameborder="0" width="854" height="480" allowfullscreen></iframe>
                             </div>
 
@@ -85,18 +85,18 @@
                                 <div class="vid-list">
 
                                     <div class="vid-item"
-                                         onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                         <div class="thumb"><img
-                                                src="https://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
+                                                src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
                                         </div>
                                         <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
                                     </div>
                                     {% if nextThemes %}
                                         {% for elem in nextThemes %}
                                             <div class="vid-item"
-                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                                 <div class="thumb"><img
-                                                        src="https://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                                        src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
                                                 </div>
                                                 <div class="desc">{{ elem.number_theme }}. {{ elem.theme }}</div>
                                             </div>
