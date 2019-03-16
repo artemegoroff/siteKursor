@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils.html import mark_safe
 # Create your models here.
 
 class InputOutputData(models.Model):
@@ -53,8 +53,8 @@ class Course(models.Model):
     def __str__(self):
         return self.get_language_display() + " " + str(self.number_theme) + " " + self.theme
 
-    def seo_description(self):
-        return 'Язык программирования "%s". %s'%(self.get_language_display(),self.theme)
+    def seo_title(self):
+        return 'Язык программирования "%s". %s' % (self.get_language_display(), self.theme)
 
     class Meta:
         verbose_name = "Тема курса"

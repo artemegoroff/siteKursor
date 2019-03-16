@@ -10,6 +10,16 @@
     <meta name="keywords" content="{{ video.seo_keywords }}">
 {% endblock %}
 
+{% block adsense %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9687185544108832",
+            enable_page_level_ads: true
+        });
+    </script>
+{% endblock %}
+
 {% block extracss %}
     <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'css/videoRazbor.less' %}" type="text/less">

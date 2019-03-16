@@ -1,9 +1,19 @@
 {% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
+{% block adsense %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9687185544108832",
+            enable_page_level_ads: true
+        });
+    </script>
+{% endblock %}
+
 {% block seo_block %}
-    <title>Программирование на языке Python. EGOROFF_CHANNEL. Репетитор Егоров Артем</title>
-    <meta name="description" content="{{ Theme.seo_description }}">
+    <title>{{ Theme.seo_title }}</title>
+    <meta name="description" content="{{ Theme.seo_title }}">
     <meta name="keywords" content="{{ Theme.seo_keywords }}">
 {% endblock %}
 
