@@ -81,7 +81,7 @@
                             {#                    <div class="vid-container">#}
                             <div class="embed-responsive embed-responsive-16by9">
                                 <iframe id="vid_frame" class="embed-responsive-item"
-                                        src="http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                        src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
                                         frameborder="0" width="854" height="480" allowfullscreen></iframe>
                             </div>
 
@@ -104,7 +104,7 @@
                                     {% if nextThemes %}
                                         {% for elem in nextThemes %}
                                             <div class="vid-item"
-                                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
                                                 <div class="thumb"><img
                                                         src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
                                                 </div>
