@@ -63,8 +63,8 @@
                                 <li><a href="{% url 'videos:videos_python_all' %}">Программирование</a></li>
                                 <!-- Register / Login -->
                                 <div class="register-login-area">
-                                    <a href="#" class="btn">Register</a>
-                                    <a href="index-login.html" class="btn active">Login</a>
+                                    <a href="{% url 'login' %}" class="btn">Регистрация</a>
+                                    <a href="{% url 'sign_up' %}" class="btn active">Войти</a>
                                 </div>
                             </ul>
                         </div>
