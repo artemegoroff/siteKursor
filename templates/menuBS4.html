@@ -11,17 +11,20 @@
             <!-- Follow Us -->
             <div class="follow-us">
                 <span>Следите за новостями</span>
-                <a href="https://www.facebook.com/groups/egoroffchannel/learning_content/" target="_blank"><i class="fa fa-facebook"
-                                                                                       aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/groups/egoroffchannel/learning_content/" target="_blank"><i
+                        class="fa fa-facebook"
+                        aria-hidden="true"></i></a>
                 <a href="https://www.youtube.com/c/egoroffchannel" target="_blank"><i class="fa fa-youtube-square"
                                                                                       aria-hidden="true"></i></a>
 
                 {% if 'oge' in request.path %}
-                    <a href="https://vk.com/egoroff_channel_oge" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a href="https://vk.com/egoroff_channel_oge" target="_blank"><i class="fa fa-vk"
+                                                                                    aria-hidden="true"></i></a>
                 {% elif 'ege' in request.path %}
                     <a href="https://vk.com/egoroff_channel" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
                 {% else %}
-                    <a href="https://vk.com/python.study" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
+                    <a href="https://vk.com/python.study" target="_blank"><i class="fa fa-vk"
+                                                                             aria-hidden="true"></i></a>
                 {% endif %}
             </div>
         </div>
@@ -51,9 +54,18 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="{% url 'home:main_page' %}">Главная</a></li>
-                                <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
-                                <li><a href="{% url 'oge:base_oge' %}">ОГЭ Информатика</a></li>
+                                <li><a href="#">Экзамены</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
+                                        <li><a href="{% url 'oge:base_oge' %}">ОГЭ Информатика</a></li>
+                                    </ul>
+                                </li>
                                 <li><a href="{% url 'videos:videos_python_all' %}">Программирование</a></li>
+                                <!-- Register / Login -->
+                                <div class="register-login-area">
+                                    <a href="#" class="btn">Register</a>
+                                    <a href="index-login.html" class="btn active">Login</a>
+                                </div>
                             </ul>
                         </div>
                     </div>

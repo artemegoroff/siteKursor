@@ -13,12 +13,10 @@ sitemaps = {
     'egeTask': EgeTaskSiteMap,
     'egeVar': EgeVarSiteMap,
     'egeRazbor': EgeVideoSiteMap,
-
     'ogeStatic': OgeStaticSiteMap,
     'ogeTask': OgeTaskSiteMap,
     'ogeVar': OgeVarSiteMap,
     'ogeRazbor': OgeVideoSiteMap,
-
     'coursePython': CoursePythonSiteMap,
     'allLast': AllLastSiteMap,
 }
@@ -26,6 +24,7 @@ sitemaps = {
 urlpatterns = [
     url(r'^$', include('home.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'accounts/', include('django.contrib.auth.urls')),
     url(r'^ege/', include('ege.urls')),
     url(r'^oge/', include('oge.urls')),
     url(r'^course/', include('videos.urls')),
