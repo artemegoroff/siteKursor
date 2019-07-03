@@ -62,10 +62,23 @@
                                 </li>
                                 <li><a href="{% url 'videos:videos_python_all' %}">Программирование</a></li>
                                 <!-- Register / Login -->
-                                <div class="register-login-area">
-                                    <a href="{% url 'login' %}" class="btn">Регистрация</a>
-                                    <a href="{% url 'sign_up' %}" class="btn active">Войти</a>
-                                </div>
+                                {% if user.is_authenticated %}
+                                        <li><a href="#">{{ request.user.username }}</a>
+                                            <ul class="dropdown">
+                                                <li><a href="{% url 'ege:base_ege' %}">Профиль</a></li>
+                                                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="userthumb">
+                                            <img src="{% static 'img/bg-img/t1.png' %}" alt="" height="100px"
+                                                 width="165px">
+                                        </li>
+                                {% else %}
+                                    <div class="register-login-area">
+                                        <a href="{% url 'sign_up' %}" class="btn">Регистрация</a>
+                                        <a href="{% url 'login' %}" class="btn active">Войти</a>
+                                    </div>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>

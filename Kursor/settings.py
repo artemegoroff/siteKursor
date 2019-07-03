@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'theory',
     'robots',
     'django_summernote',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "base_static"),
 )
+
+# Авторизация
+LOGOUT_REDIRECT_URL = '/'
