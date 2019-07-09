@@ -1,21 +1,20 @@
 from django.shortcuts import render,get_object_or_404
 from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE
 
+TASK_PRISM_JS = (6, 8, 9, 10)
 
 def oge_home_page(request):
-    tasksOge = NumberTaskOge.objects.all()
-    varsOge = VariantOge.objects.all().order_by('number_var')
-    videosOGE = len(VideoRazborOGE.objects.all())
 
-    context = {}
-    context['tasks'] = tasksOge
-    context['vars'] = varsOge
-    context['videosOGE'] = videosOGE
-    context['numAllTask'] = len(QuestionsOge.objects.all())
+    context = {
+        'tasks': NumberTaskOge.objects.all(),
+        'vars': VariantOge.objects.all().order_by('number_var'),
+        'videosOGE': len(VideoRazborOGE.objects.all()),
+        'numAllTask': len(QuestionsOge.objects.all())
+    }
 
-    numbersVideoRazbor = set(VideoRazborOGE.objects.values_list('number_of_task', flat=True).distinct())
+    count_video_parse = set(VideoRazborOGE.objects.values_list('number_of_task', flat=True).distinct())
     videos = []
-    for i in numbersVideoRazbor:
+    for i in count_video_parse:
         videos.append(NumberTaskOge.objects.get(number=i))
     context['videos'] = videos
 
@@ -24,7 +23,6 @@ def oge_home_page(request):
 
 def oge_task_detail(request, number_task):
     exam = 'oge'
-    tasks_prism = [6, 8, 9, 10]
     questions = QuestionsOge.objects.filter(number_of_task=number_task)
     category = list(CategoryOge.objects.filter(number_task=number_task))
     category.insert(0, 'Все категории задания')
@@ -50,16 +48,18 @@ def oge_task_detail(request, number_task):
                     break
     questions=list(questions)
     tasks = NumberTaskOge.objects.all()
-    context = {"questions": questions, 'tasks': tasks,
+    context = {"questions": questions,
+               'tasks': tasks,
                'number_task': NumberTaskOge.objects.all().get(number=number_task),
-               'exam': exam,'tasks_prism':tasks_prism,
-               'category':category,'text_cat':text_cat}
+               'exam': exam,
+               'tasks_prism':TASK_PRISM_JS,
+               'category':category,
+               'text_cat':text_cat}
 
     return render(request, 'task_detail.html', context)
 
 def oge_get_var(request,variant_number):
     exam = 'oge_var'
-    tasks_prism = ['6', '8', '9', '10']
     var = VariantOge.objects.get(number_var=int(variant_number))
     questions = list(QuestionsOge.objects.filter(number_of_variant=var).order_by('number_of_task'))
     if request.method == "POST":
@@ -76,8 +76,11 @@ def oge_get_var(request,variant_number):
                     questions[i].old_answer = request.POST[dataPost]
                     break
     tasks = VariantOge.objects.all().order_by('number_var')
-    context = {"questions": questions, 'tasks': tasks, 'number_task': var, 'exam': exam,
-               'tasks_prism': tasks_prism}
+    context = {"questions": questions,
+               'tasks': tasks,
+               'number_task': var,
+               'exam': exam,
+               'tasks_prism': TASK_PRISM_JS}
 
     return render(request, 'task_detail.html', context)
 
