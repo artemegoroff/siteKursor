@@ -24,14 +24,10 @@ def get_home_page(request):
 
 
 def e_handler404(request):
-    context = RequestContext(request)
-    response = render_to_response('error404.html', context)
-    response.status_code = 404
-    return response
+    context = {}
+    return render(request, 'error404.html', context)
 
 
 def e_handler500(request):
-    context = RequestContext(request)
-    response = render_to_response('error500.html', context)
-    response.status_code = 500
-    return response
+    context = {}
+    return render(request, 'error500.html', context)
