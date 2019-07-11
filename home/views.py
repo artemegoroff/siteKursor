@@ -1,5 +1,5 @@
-from django.shortcuts import render
-
+from django.shortcuts import render_to_response, render
+from django.template import RequestContext
 from ege.models import VideoRazborEGE, NumberTaskEge
 from oge.models import VideoRazborOGE, NumberTaskOge
 from videos.models import Course
@@ -22,3 +22,16 @@ def get_home_page(request):
 
     return render(request, 'home/home_page.html', context)
 
+
+def e_handler404(request):
+    context = RequestContext(request)
+    response = render_to_response('error404.html', context)
+    response.status_code = 404
+    return response
+
+
+def e_handler500(request):
+    context = RequestContext(request)
+    response = render_to_response('error500.html', context)
+    response.status_code = 500
+    return response
