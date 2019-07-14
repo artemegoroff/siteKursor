@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE
 
 
-
 def ege_home_page(request):
     tasksEge = NumberTaskEge.objects.all()
     varsEGE = VarEge.objects.all().order_by('number_var')
@@ -30,6 +29,8 @@ def ege_task_detail(request, number_task):
     category.insert(0,'Все категории задания')
     text_cat = 'Все'
     if request.method == "POST":
+        user = request.user
+
         text_cat = request.POST.get("category_sel", 'Все')
         # if text_cat != 'Все':
         #     id_cat = CategoryEge.objects.get(text=text_cat)
@@ -45,8 +46,12 @@ def ege_task_detail(request, number_task):
                         questions[i].status = 'empty'
                     elif request.POST[dataPost].lower() != questions[i].answer.lower():
                         questions[i].status = 'wrong'
+                        request.user.profile.fail_ege_tasks.add(questions[i].id)
+                        request.user.profile.done_ege_tasks.remove(questions[i].id)
                     else:
                         questions[i].status = 'good'
+                        request.user.profile.done_ege_tasks.add(questions[i].id)
+                        request.user.profile.fail_ege_tasks.remove(questions[i].id)
                     questions[i].old_answer = request.POST[dataPost]
                     break
 
@@ -91,7 +96,7 @@ def ege_videotask_detail(request, id_theme, id_task):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     razbor = get_object_or_404(VideoRazborEGE, id=int(id_task))
-    task = QuestionsEGE.objects.get(q_url_video=razbor)
+    task = get_object_or_404(QuestionsEGE,q_url_video=razbor)
     context = {'vopros': task, 'video': razbor,'tasks': numbers,'exam':'ege'}
 
     return render(request, 'video_task_detail.html', context)
@@ -119,3 +124,14 @@ def ege_videotask_AllTask(request):
     context = {'videos': razbors, 'tasks':numbers,'exam':'ege'}
 
     return render(request, 'video_task_list.html', context)
+
+
+def ege_get_exercise(request, id_exercise):
+    number_values = VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct()
+    numbers = []
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskEge.objects.get(number=cat))
+    task = get_object_or_404(QuestionsEGE,id=int(id_exercise))
+    context = {'vopros': task, 'tasks': numbers, 'exam': 'ege'}
+
+    return render(request, 'exercise.html', context)

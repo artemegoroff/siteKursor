@@ -408,12 +408,12 @@
             var elemsWrong = $(".wrong");
             var elemsWrongTotal = elemsWrong.length;
             for (var i = 0; i < elemsWrongTotal; ++i) {
-                $(elemsWrong[i]).css({'border': "3px red solid"});
+                $(elemsWrong[i]).css({'border': "3px solid rgba(255, 0, 0, .5)"});
             }
             elemsGood = $(".good");
             var elemsGoodTotal = elemsGood.length;
             for (var i = 0; i < elemsGoodTotal; ++i) {
-                $(elemsGood[i]).css({'border': "3px green solid"});
+                $(elemsGood[i]).css({'border': "3px solid rgba(0, 255, 0, .5)"});
             }
             elemsRadio = $(".radio");
             if (elemsRadio.length > 0 && (elemsWrongTotal > 0 || elemsGoodTotal > 0)) {
@@ -427,7 +427,7 @@
             elemsEmpty = $(".empty");
             var elemsEmptyTotal = elemsEmpty.length;
             for (var i = 0; i < elemsEmptyTotal; ++i) {
-                $(elemsEmpty[i]).css({'border': "3px blue solid"});
+                $(elemsEmpty[i]).css({'border': "3px solid rgba(0, 0, 255, .5)"});
             }
             if (elemsEmptyTotal > 0 || elemsGoodTotal > 0 || elemsWrongTotal > 0) {
                 $(".allTaskNumber").html("Всего заданий: " + String(elemsEmptyTotal + elemsGoodTotal + elemsWrongTotal));

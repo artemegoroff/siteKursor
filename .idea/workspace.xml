@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="добавил шаблоны для входа и регистрации">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="регистрация пользователей и сообщения о входе/выходе/регистрации">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kursor/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kursor/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Kursor/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Kursor/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ege/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/ege/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ege/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/menuBS4.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/menuBS4.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,55 +40,92 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Kursor/settings.py">
+        <entry file="file://$PROJECT_DIR$/accounts/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="134" column="30" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="30" />
+            <state relative-caret-position="144">
+              <caret line="11" column="18" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/sign_up.html">
+        <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state relative-caret-position="223">
+              <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
+              <folding>
+                <element signature="e#3473#5386#0#HTML" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/registration/login.html">
+        <entry file="file://$PROJECT_DIR$/base_static/css/tasks_detail_less.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
+            <state relative-caret-position="25">
+              <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base_static/css/taskCardStyle.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base_static/css/videoRazbor.less">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/accounts/models.py">
+        <entry file="file://$PROJECT_DIR$/base_static/css/base_temp.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+            <state relative-caret-position="2245">
+              <caret line="2403" column="19" lean-forward="true" selection-start-line="2403" selection-start-column="19" selection-end-line="2403" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ege/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="10" column="107" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="107" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ege/models.py">
+        <entry file="file://$PROJECT_DIR$/ege/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="80" column="44" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="44" />
+            <state relative-caret-position="159">
+              <caret line="129" selection-start-line="129" selection-end-line="129" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#0#54#0" expanded="true" />
+                <element signature="e#4161#4576#0" />
+                <element signature="e#4619#5021#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/exercise.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="6">
+              <caret line="52" selection-start-line="52" selection-end-line="52" />
             </state>
           </provider>
         </entry>
@@ -96,32 +133,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/accounts/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
+            <state relative-caret-position="248">
+              <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
+                <element signature="e#1446#2138#0" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="6" column="46" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="46" />
-              <folding>
-                <element signature="e#1#33#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/partitions/_messages.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -140,13 +157,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>table</find>
-      <find>подгото</find>
-      <find>form-inline</find>
-      <find>numberTask</find>
-      <find>zagolovokBlock</find>
-      <find>zastavka</find>
-      <find>block-exam-tasks</find>
       <find>file</find>
       <find>видеора</find>
       <find>exa</find>
@@ -170,6 +180,13 @@
       <find>‘</find>
       <find>’</find>
       <find>many</find>
+      <find>add</find>
+      <find>examples</find>
+      <find>urk</find>
+      <find>Upload a different photo</find>
+      <find>wrong</find>
+      <find>wro</find>
+      <find>3px solid red</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -181,6 +198,9 @@
       <replace>video</replace>
       <replace>'</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>C:\Python36\Django projects\New Design Kursor</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
@@ -201,9 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/videos/static/videos/css/allThemes.less" />
-        <option value="$PROJECT_DIR$/base_static/css/css/owl.carousel.min.css" />
-        <option value="$PROJECT_DIR$/base_static/js/bootstrap/popper.min.js" />
         <option value="$PROJECT_DIR$/base_static/js/active.js" />
         <option value="$PROJECT_DIR$/base_static/css/sidebarMenu.less" />
         <option value="$PROJECT_DIR$/base_static/css/footerBoot4.less" />
@@ -211,7 +228,6 @@
         <option value="$PROJECT_DIR$/base_static/js/111.js" />
         <option value="$PROJECT_DIR$/home/static/home/css/home_page_less.less" />
         <option value="$PROJECT_DIR$/oge/views.py" />
-        <option value="$PROJECT_DIR$/ege/views.py" />
         <option value="$PROJECT_DIR$/base_static/css/videoRazbor.less" />
         <option value="$PROJECT_DIR$/templates/video_task_list.html" />
         <option value="$PROJECT_DIR$/ege/static/ege/css/home_ege_less.less" />
@@ -244,14 +260,18 @@
         <option value="$PROJECT_DIR$/Kursor/email_info.py" />
         <option value="$PROJECT_DIR$/Kursor/urls.py" />
         <option value="$PROJECT_DIR$/base_static/css/registration.less" />
-        <option value="$PROJECT_DIR$/templates/menuBS4.html" />
-        <option value="$PROJECT_DIR$/accounts/urls.py" />
         <option value="$PROJECT_DIR$/Kursor/settings.py" />
         <option value="$PROJECT_DIR$/templates/registration/login.html" />
         <option value="$PROJECT_DIR$/templates/partitions/_messages.html" />
-        <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/templates/registration/sign_up.html" />
+        <option value="$PROJECT_DIR$/accounts/urls.py" />
+        <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/ege/urls.py" />
+        <option value="$PROJECT_DIR$/templates/exercise.html" />
+        <option value="$PROJECT_DIR$/ege/views.py" />
+        <option value="$PROJECT_DIR$/templates/profile_page.html" />
+        <option value="$PROJECT_DIR$/templates/menuBS4.html" />
       </list>
     </option>
   </component>
@@ -282,69 +302,58 @@
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
-              <item name="Kursor" type="462c0819:PsiDirectoryNode" />
+              <item name="base_static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="base_static" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python36" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python36" type="462c0819:PsiDirectoryNode" />
-              <item name="Django projects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python36" type="462c0819:PsiDirectoryNode" />
-              <item name="Django projects" type="462c0819:PsiDirectoryNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
+              <item name="ege" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python36" type="462c0819:PsiDirectoryNode" />
-              <item name="Django projects" type="462c0819:PsiDirectoryNode" />
-              <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="Python36" type="462c0819:PsiDirectoryNode" />
-              <item name="Django projects" type="462c0819:PsiDirectoryNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
               <item name="Kursor" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Python36" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="Python36" type="462c0819:PsiDirectoryNode" />
+              <item name="Django projects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="&lt; Python 3.6.0 (C:\Python36\python.exe) &gt;" type="70bed36:NamedLibraryElementNode" />
               <item name="Python36" type="462c0819:PsiDirectoryNode" />
               <item name="Django projects" type="462c0819:PsiDirectoryNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="New Design Kursor" type="b2602c69:ProjectViewProjectNode" />
@@ -354,7 +363,6 @@
               <item name="Django projects" type="462c0819:PsiDirectoryNode" />
               <item name="New Design Kursor" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="registration" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -541,14 +549,7 @@
       <workItem from="1561881294026" duration="4653000" />
       <workItem from="1561993614583" duration="1381000" />
       <workItem from="1562080316753" duration="2706000" />
-      <workItem from="1563086445289" duration="7475000" />
-    </task>
-    <task id="LOCAL-00090" summary="13&#10; november">
-      <created>1542210859011</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1542210859012</updated>
+      <workItem from="1563086445289" duration="17398000" />
     </task>
     <task id="LOCAL-00091" summary="13&#10; november">
       <created>1542210876531</created>
@@ -886,11 +887,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561848027801</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="регистрация пользователей и сообщения о входе/выходе/регистрации">
+      <created>1563096875758</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1563096875760</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34002000" />
+    <option name="totallyTimeSpent" value="43925000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -903,7 +911,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="860" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48801368" visible="true" weight="0.16883117" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -911,7 +918,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32737276" />
       <window_info anchor="bottom" content_ui="combo" id="Run" order="2" sideWeight="0.4935065" weight="0.24091521" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.26685005" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.22971115" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3278237" />
@@ -954,7 +961,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1 december" />
     <MESSAGE value="3 december" />
     <MESSAGE value="22 december" />
     <MESSAGE value="23 december" />
@@ -979,7 +985,8 @@
     <MESSAGE value="16  mart" />
     <MESSAGE value="добавил кнопки регистрации в меню" />
     <MESSAGE value="добавил шаблоны для входа и регистрации" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил шаблоны для входа и регистрации" />
+    <MESSAGE value="регистрация пользователей и сообщения о входе/выходе/регистрации" />
+    <option name="LAST_COMMIT_MESSAGE" value="регистрация пользователей и сообщения о входе/выходе/регистрации" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1015,6 +1022,31 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>request.user.profile.done_ege_tasks.add()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.user.profile.done_ege_tasks</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.user.profile</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.user</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>request.user.profile.avatar()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>user</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1034,13 +1066,6 @@
           <folding>
             <marker date="1555431806513" expanded="false" signature="1828:1885" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="925">
-          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1095,23 +1120,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3375">
-          <caret line="135" column="20" selection-end-line="473" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/oge/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="57" column="55" selection-start-line="57" selection-start-column="3" selection-end-line="57" selection-end-column="55" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/base_static/css/base_temp.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/baseBoot4.html">
@@ -1182,16 +1195,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Kursor/email_info.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1216,33 +1219,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="68" column="114" selection-start-line="68" selection-start-column="114" selection-end-line="68" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Kursor/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="134" column="30" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ege/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="80" column="44" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base_static/css/registration.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
@@ -1264,13 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/partitions/_messages.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -1278,12 +1247,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
+    <entry file="file://$PROJECT_DIR$/Kursor/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="6" column="46" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="46" />
+        <state relative-caret-position="487">
+          <caret line="134" column="30" selection-start-line="134" selection-start-column="23" selection-end-line="134" selection-end-column="30" />
           <folding>
-            <element signature="e#1#33#0" expanded="true" />
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1295,23 +1264,135 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ege/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="80" column="44" selection-start-line="80" selection-start-column="29" selection-end-line="80" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/partitions/_messages.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="14" selection-start-column="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="69" column="115" selection-start-line="69" selection-start-column="115" selection-end-line="69" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="70" column="4" lean-forward="true" selection-start-line="70" selection-start-column="4" selection-end-line="87" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="57" selection-start-line="8" selection-start-column="57" selection-end-line="8" selection-end-column="57" />
+          <folding>
+            <element signature="e#1#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/video_task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="39" column="79" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="10" column="107" selection-start-line="10" selection-start-column="91" selection-end-line="10" selection-end-column="107" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/exercise.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        <state relative-caret-position="248">
+          <caret line="57" column="30" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#1446#2138#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+            <element signature="e#4161#4576#0" />
+            <element signature="e#4619#5021#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="35" lean-forward="true" selection-start-line="5" selection-start-column="35" selection-end-line="5" selection-end-column="35" />
+        <state relative-caret-position="144">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="18" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
+          <folding>
+            <element signature="e#3473#5386#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/css/tasks_detail_less.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/css/taskCardStyle.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="112" column="12" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/css/videoRazbor.less">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/css/base_temp.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2245">
+          <caret line="2403" column="19" lean-forward="true" selection-start-line="2403" selection-start-column="19" selection-end-line="2403" selection-end-column="19" />
         </state>
       </provider>
     </entry>
