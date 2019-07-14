@@ -6,9 +6,11 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71737580-3"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
+
         function gtag() {
             dataLayer.push(arguments);
         }
+
         gtag('js', new Date());
 
         gtag('config', 'UA-71737580-3');
@@ -24,7 +26,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-    <meta name="yandex-verification" content="98a22a96a76e27a1"/>
+{#    <meta name="yandex-verification" content="98a22a96a76e27a1"/>#}
     <meta name="google-site-verification" content="GpdpVby8w1414HOe6JdW7QMDQqjTRvNMM8HbxehHwpY"/>
 
     {% block seo_block %}
@@ -50,15 +52,20 @@
 {#<div id="preloader">#}
 {#    <div class="spinner"></div>#}
 {#</div>#}
+
 {% include  'menuBS4.html' %}
 
 
 <!--КОНТЕНТ-->
+
 {% block content %}
 {% endblock %}
 
+
 <!--футер-->
-{% include 'footerBS4.html' %}
+<div id="footer123">
+    {% include 'footerBS4.html' %}
+</div>
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
@@ -77,6 +84,17 @@
 {% block extraJS %}
 {% endblock %}
 
+<script>
+    function autoHeight() {
+        var h = $(document).height() - $('body').height();
+        if (h > 0) {
+            $('#footer123').css({
+                marginTop: h
+            });
+        }
+    }
+    $(window).on('load', autoHeight);
+</script>
 
 </body>
 </html>

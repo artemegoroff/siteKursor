@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE
+from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE, CommentEge
+from .forms import CommentForm
 
 
 def ege_home_page(request):
@@ -13,12 +14,11 @@ def ege_home_page(request):
     context['vars'] = varsEGE
     context['numAllTask'] = len(QuestionsEGE.objects.all())
     numbersVideoRazbor = set(VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct())
-    videos=[]
+    videos = []
     for i in numbersVideoRazbor:
         videos.append(NumberTaskEge.objects.get(number=i))
     context['videos'] = videos
     return render(request, 'ege/ege_home.html', context)
-
 
 
 def ege_task_detail(request, number_task):
@@ -26,7 +26,7 @@ def ege_task_detail(request, number_task):
     tasks_prism = [8, 11, 14, 19, 20, 21, 24, 25]
     questions = QuestionsEGE.objects.filter(number_of_task=number_task)[::-1]
     category = list(CategoryEge.objects.filter(number_task=number_task))
-    category.insert(0,'Все категории задания')
+    category.insert(0, 'Все категории задания')
     text_cat = 'Все'
     if request.method == "POST":
         user = request.user
@@ -59,7 +59,7 @@ def ege_task_detail(request, number_task):
     tasks = NumberTaskEge.objects.all()
     context = {"questions": questions, 'tasks': tasks,
                'number_task': NumberTaskEge.objects.all().get(number=number_task), 'exam': exam,
-               'tasks_prism': tasks_prism, 'category': category, 'text_cat':text_cat}
+               'tasks_prism': tasks_prism, 'category': category, 'text_cat': text_cat}
 
     return render(request, 'task_detail.html', context)
 
@@ -96,8 +96,8 @@ def ege_videotask_detail(request, id_theme, id_task):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     razbor = get_object_or_404(VideoRazborEGE, id=int(id_task))
-    task = get_object_or_404(QuestionsEGE,q_url_video=razbor)
-    context = {'vopros': task, 'video': razbor,'tasks': numbers,'exam':'ege'}
+    task = get_object_or_404(QuestionsEGE, q_url_video=razbor)
+    context = {'vopros': task, 'video': razbor, 'tasks': numbers, 'exam': 'ege'}
 
     return render(request, 'video_task_detail.html', context)
 
@@ -116,12 +116,12 @@ def ege_videotask_ONEtheme(request, id_theme):
 
 def ege_videotask_AllTask(request):
     razbors = VideoRazborEGE.objects.all().order_by('-data_add')
-    number_values = set(VideoRazborEGE.objects.values_list('number_of_task',flat=True).distinct())
+    number_values = set(VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct())
     numbers = []
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
 
-    context = {'videos': razbors, 'tasks':numbers,'exam':'ege'}
+    context = {'videos': razbors, 'tasks': numbers, 'exam': 'ege'}
 
     return render(request, 'video_task_list.html', context)
 
@@ -131,7 +131,26 @@ def ege_get_exercise(request, id_exercise):
     numbers = []
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
-    task = get_object_or_404(QuestionsEGE,id=int(id_exercise))
-    context = {'vopros': task, 'tasks': numbers, 'exam': 'ege'}
+    task = get_object_or_404(QuestionsEGE, id=int(id_exercise))
+    comments = CommentEge.objects.filter(task_ege=task.id)
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        user_answer = request.POST.get('user_answer').lower()
+        if user_answer != task.answer:
+            task.status = 'wrong'
+            request.user.profile.fail_ege_tasks.add(task.id)
+            request.user.profile.done_ege_tasks.remove(task.id)
+        else:
+            task.status = 'good'
+            request.user.profile.done_ege_tasks.add(task.id)
+            request.user.profile.fail_ege_tasks.remove(task.id)
+        task.old_answer = user_answer
+    context = {
+        'vopros': task,
+        'tasks': numbers,
+        'exam': 'ege',
+        'comments': comments,
+        'comment_form': comment_form
+    }
 
     return render(request, 'exercise.html', context)
