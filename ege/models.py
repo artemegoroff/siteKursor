@@ -170,6 +170,7 @@ class QuestionsEGE(models.Model):
 class CommentEge(models.Model):
     task_ege = models.ForeignKey(QuestionsEGE,verbose_name='Задание')
     user = models.ForeignKey(User)
+    reply = models.ForeignKey('self',null=True,related_name='replies')
     content = models.TextField(max_length=200)
     timestamp = models.DateTimeField(auto_now_add=True)
 

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="добавил страницу для одного задания">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="коментарии">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ege/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/ege/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ege/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/ege/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/ege/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/baseBoot4.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/baseBoot4.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,7 +41,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="1850">
               <caret line="74" column="84" selection-start-line="74" selection-start-column="84" selection-end-line="74" selection-end-column="84" />
             </state>
           </provider>
@@ -52,24 +50,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="50">
+            <state relative-caret-position="4175">
               <caret line="405" column="4" selection-start-line="405" selection-start-column="4" selection-end-line="439" selection-end-column="13" />
               <folding>
                 <element signature="e#5852#5881#0#DjangoTemplate" />
-                <element signature="e#25393#25843#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/exercise.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="331" column="27" selection-start-line="331" selection-start-column="27" selection-end-line="331" selection-end-column="27" />
-              <folding>
-                <element signature="e#2609#18832#0#HTML" />
-              </folding>
+            <state relative-caret-position="-277">
+              <caret line="324" column="29" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -77,8 +71,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ege/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            <state relative-caret-position="250">
+              <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -87,28 +81,12 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/accounts/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="55">
-              <caret line="36" column="42" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ege/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="137" column="46" selection-start-line="137" selection-start-column="46" selection-end-line="137" selection-end-column="46" />
+            <state relative-caret-position="253">
+              <caret line="151" column="26" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
-                <element signature="e#174#796#0" />
-                <element signature="e#3997#4471#0" />
-                <element signature="e#4525#4940#0" />
-                <element signature="e#4983#5385#0" />
               </folding>
             </state>
           </provider>
@@ -117,7 +95,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ege/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
+            <state relative-caret-position="1850">
               <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
@@ -129,8 +107,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ege/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4057">
-              <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
+            <state relative-caret-position="229">
+              <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -262,11 +240,11 @@
         <option value="$PROJECT_DIR$/accounts/views.py" />
         <option value="$PROJECT_DIR$/accounts/forms.py" />
         <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/ege/admin.py" />
+        <option value="$PROJECT_DIR$/ege/views.py" />
         <option value="$PROJECT_DIR$/ege/models.py" />
         <option value="$PROJECT_DIR$/ege/forms.py" />
-        <option value="$PROJECT_DIR$/ege/admin.py" />
         <option value="$PROJECT_DIR$/templates/exercise.html" />
-        <option value="$PROJECT_DIR$/ege/views.py" />
       </list>
     </option>
   </component>
@@ -542,14 +520,8 @@
       <workItem from="1561881294026" duration="4653000" />
       <workItem from="1561993614583" duration="1381000" />
       <workItem from="1562080316753" duration="2706000" />
-      <workItem from="1563086445289" duration="26415000" />
-    </task>
-    <task id="LOCAL-00092" summary="14 november">
-      <created>1542304349753</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1542304349754</updated>
+      <workItem from="1563086445289" duration="27028000" />
+      <workItem from="1563210945010" duration="4562000" />
     </task>
     <task id="LOCAL-00093" summary="15 november">
       <created>1542471276148</created>
@@ -887,11 +859,18 @@
       <option name="project" value="LOCAL" />
       <updated>1563111515111</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="коментарии">
+      <created>1563140168397</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1563140168397</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52942000" />
+    <option name="totallyTimeSpent" value="58117000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -904,15 +883,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1600" height="860" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48801368" visible="true" weight="0.16883117" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48801368" visible="true" weight="0.17077923" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.5119863" side_tool="true" weight="0.18831168" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32737276" />
       <window_info anchor="bottom" content_ui="combo" id="Run" order="2" sideWeight="0.4935065" weight="0.24091521" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.2861073" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.21458046" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3278237" />
@@ -955,7 +933,6 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="22 december" />
     <MESSAGE value="23 december" />
     <MESSAGE value="24 december" />
     <MESSAGE value="25 december" />
@@ -980,7 +957,8 @@
     <MESSAGE value="добавил шаблоны для входа и регистрации" />
     <MESSAGE value="регистрация пользователей и сообщения о входе/выходе/регистрации" />
     <MESSAGE value="добавил страницу для одного задания" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил страницу для одного задания" />
+    <MESSAGE value="коментарии" />
+    <option name="LAST_COMMIT_MESSAGE" value="коментарии" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1331,24 +1309,6 @@
     <entry file="file://$PROJECT_DIR$/templates/video_task_list.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="50">
-          <caret line="405" column="4" selection-start-line="405" selection-start-column="4" selection-end-line="439" selection-end-column="13" />
-          <folding>
-            <element signature="e#5852#5881#0#DjangoTemplate" />
-            <element signature="e#25393#25843#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="74" column="84" selection-start-line="74" selection-start-column="84" selection-end-line="74" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/accounts/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1362,16 +1322,6 @@
     <entry file="file://$PROJECT_DIR$/accounts/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ege/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4057">
-          <caret line="2" column="43" selection-start-line="2" selection-start-column="43" selection-end-line="2" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../Lib/site-packages/django/core/handlers/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -1379,9 +1329,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1850">
+          <caret line="74" column="84" selection-start-line="74" selection-start-column="84" selection-end-line="74" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/task_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4175">
+          <caret line="405" column="4" selection-start-line="405" selection-start-column="4" selection-end-line="439" selection-end-column="13" />
+          <folding>
+            <element signature="e#5852#5881#0#DjangoTemplate" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ege/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
+        <state relative-caret-position="1850">
           <caret line="77" column="30" selection-start-line="77" selection-start-column="30" selection-end-line="77" selection-end-column="30" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
@@ -1391,18 +1358,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/accounts/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="36" column="42" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="42" />
+        <state relative-caret-position="268">
+          <caret line="35" column="32" selection-start-line="35" selection-start-column="32" selection-end-line="35" selection-end-column="32" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ege/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="229">
+          <caret line="171" column="34" selection-start-line="171" selection-start-column="34" selection-end-line="171" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ege/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="151" column="26" selection-start-line="151" selection-start-column="26" selection-end-line="151" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ege/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="250">
+          <caret line="10" column="29" lean-forward="true" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -1411,25 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/exercise.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="331" column="27" selection-start-line="331" selection-start-column="27" selection-end-line="331" selection-end-column="27" />
-          <folding>
-            <element signature="e#2609#18832#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ege/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="137" column="46" selection-start-line="137" selection-start-column="46" selection-end-line="137" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-            <element signature="e#174#796#0" />
-            <element signature="e#3997#4471#0" />
-            <element signature="e#4525#4940#0" />
-            <element signature="e#4983#5385#0" />
-          </folding>
+        <state relative-caret-position="-277">
+          <caret line="324" column="29" selection-start-line="324" selection-start-column="29" selection-end-line="324" selection-end-column="29" />
         </state>
       </provider>
     </entry>
