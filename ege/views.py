@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse, redirect
 from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE, CommentEge
 from .forms import CommentForm
 
@@ -132,7 +132,7 @@ def ege_get_exercise(request, id_exercise):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     task = get_object_or_404(QuestionsEGE, id=int(id_exercise))
-    comments = CommentEge.objects.filter(task_ege=task.id)
+    comments = CommentEge.objects.filter(task_ege=task.id).order_by('-id')
     comment_form = CommentForm()
     if request.method == 'POST':
         user_answer = request.POST.get('user_answer')
@@ -148,8 +148,16 @@ def ege_get_exercise(request, id_exercise):
         comment_form = CommentForm(request.POST or None)
         if comment_form.is_valid():
             content = request.POST.get('content')
-            comment = CommentEge.objects.create(task_ege=task,user=request.user,content=content)
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = CommentEge.objects.get(id=reply_id)
+            comment = CommentEge.objects.create(task_ege=task,
+                                                user=request.user,
+                                                content=content,
+                                                reply=comment_qs)
             comment.save()
+            return redirect('ege:ege_get_exercise',id_exercise=task.id)
 
     context = {
         'vopros': task,
