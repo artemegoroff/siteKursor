@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404, HttpResponseRedirect, reverse, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE, CommentEge
 from .forms import CommentForm
-
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 def ege_home_page(request):
     tasksEge = NumberTaskEge.objects.all()
@@ -132,7 +133,7 @@ def ege_get_exercise(request, id_exercise):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     task = get_object_or_404(QuestionsEGE, id=int(id_exercise))
-    comments = CommentEge.objects.filter(task_ege=task.id).order_by('-id')
+    comments = CommentEge.objects.filter(task_ege=task.id, reply=None).order_by('-id')
     comment_form = CommentForm()
     if request.method == 'POST':
         user_answer = request.POST.get('user_answer')
@@ -152,12 +153,9 @@ def ege_get_exercise(request, id_exercise):
             comment_qs = None
             if reply_id:
                 comment_qs = CommentEge.objects.get(id=reply_id)
-            comment = CommentEge.objects.create(task_ege=task,
-                                                user=request.user,
-                                                content=content,
-                                                reply=comment_qs)
+            comment = CommentEge.objects.create(task_ege=task, user=request.user, content=content, reply=comment_qs)
             comment.save()
-            return redirect('ege:ege_get_exercise',id_exercise=task.id)
+            return redirect('ege:ege_get_exercise', id_exercise=task.id)
 
     context = {
         'vopros': task,
@@ -166,5 +164,10 @@ def ege_get_exercise(request, id_exercise):
         'comments': comments,
         'comment_form': comment_form
     }
+
+    if request.is_ajax():
+        html = render_to_string('partitions/_comments.html', context=context, request=request)
+        return JsonResponse({'form':html})
+
 
     return render(request, 'exercise.html', context)
