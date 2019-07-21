@@ -1,5 +1,8 @@
-from django.shortcuts import render,get_object_or_404
-from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE
+from django.shortcuts import render,get_object_or_404,redirect
+from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE, CommentOge
+from .forms import CommentForm
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 
 TASK_PRISM_JS = (6, 8, 9, 10)
 
@@ -42,8 +45,12 @@ def oge_task_detail(request, number_task):
                         questions[i].status = 'empty'
                     elif request.POST[dataPost].lower() != questions[i].answer.lower():
                         questions[i].status = 'wrong'
+                        request.user.profile.fail_oge_tasks.add(questions[i].id)
+                        request.user.profile.done_oge_tasks.remove(questions[i].id)
                     else:
                         questions[i].status = 'good'
+                        request.user.profile.done_oge_tasks.add(questions[i].id)
+                        request.user.profile.fail_oge_tasks.remove(questions[i].id)
                     questions[i].old_answer = request.POST[dataPost]
                     break
     questions=list(questions)
@@ -119,3 +126,48 @@ def oge_videotask_AllTask(request):
     context = {'videos': razbors, 'tasks': numbers, 'exam': 'ege'}
 
     return render(request, 'video_task_list.html', context)
+
+
+def oge_get_exercise(request, id_exercise):
+    number_values = VideoRazborOGE.objects.values_list('number_of_task', flat=True).distinct()
+    numbers = []
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskOge.objects.get(number=cat))
+    task = get_object_or_404(QuestionsOge, id=int(id_exercise))
+    comments = CommentOge.objects.filter(task_ege=task.id, reply=None).order_by('-id')
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        user_answer = request.POST.get('user_answer')
+        if user_answer and user_answer.lower() != task.answer.lower():
+            task.status = 'wrong'
+            request.user.profile.fail_oge_tasks.add(task.id)
+            request.user.profile.done_oge_tasks.remove(task.id)
+        else:
+            task.status = 'good'
+            request.user.profile.done_oge_tasks.add(task.id)
+            request.user.profile.fail_oge_tasks.remove(task.id)
+        task.old_answer = user_answer
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            content = request.POST.get('content')
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = CommentOge.objects.get(id=reply_id)
+            comment = CommentOge.objects.create(task_ege=task, user=request.user, content=content, reply=comment_qs)
+            comment.save()
+            return redirect('oge:oge_get_exercise', id_exercise=task.id)
+
+    context = {
+        'vopros': task,
+        'tasks': numbers,
+        'exam': 'ege',
+        'comments': comments,
+        'comment_form': comment_form
+    }
+
+    if request.is_ajax():
+        html = render_to_string('partitions/_comments.html', context=context, request=request)
+        return JsonResponse({'form':html})
+
+    return render(request, 'exercise.html', context)

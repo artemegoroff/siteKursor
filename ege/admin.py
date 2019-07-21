@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import QuestionsEGE, NumberTaskEge, CategoryEge, VarEge,VideoRazborEGE
+from .models import QuestionsEGE, NumberTaskEge, CategoryEge, VarEge,VideoRazborEGE, CommentEge
 from django.forms import TextInput, Textarea, Select
 from django.db import models
 
@@ -75,3 +75,4 @@ admin.site.register(NumberTaskEge, AdminNumberTaskEge)
 admin.site.register(CategoryEge, AdminCategoryEge)
 admin.site.register(VarEge, AdminVariantEge)
 admin.site.register(VideoRazborEGE, AdminVideoRazborEGE)
+admin.site.register(CommentEge)

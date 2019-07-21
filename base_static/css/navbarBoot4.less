@@ -95,7 +95,8 @@
 @media only screen and (max-width: 767px) {
   .top-header-area .follow-us {
     margin-left: auto;
-    a{
+
+    a {
       font-size: 12px;
       padding: 0 15px;
     }
@@ -146,4 +147,106 @@
   z-index: 1500 !important;
   background-color: #ffffff;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+// кнопки регистрации
+.register-login-area {
+  position: relative;
+  z-index: 1;
+  display: inline;
+
+  a {
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    height: 40px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #3762f0;
+    line-height: 40px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .register-login-area {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .register-login-area {
+    text-align: center;
+  }
+}
+
+.register-login-area a.active, .register-login-area a:hover, .register-login-area a:focus {
+  background-color: #d7e0fc;
+  font-weight: 600;
+  color: #3762f0;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .register-login-area a {
+    padding: 0 15px;
+  }
+}
+
+// login state
+.login-state {
+  position: relative;
+  z-index: 1;
+  display: inline;
+}
+
+ .user-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+ .user-name {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  border: none;
+  padding: 15px 0;
+}
+
+ .user-name {
+  padding: 5px 30px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.login-state .user-name .dropdown-menu .dropdown-item:hover, .login-state .user-name .dropdown-menu .dropdown-item:focus {
+  color: #3762f0;
+}
+
+.userthumb {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 40px;
+  flex: 0 0 40px;
+  max-width: 40px;
+  width: 40px;
+  border-radius: 6px;
+}
+
+.login-state .userthumb img {
+  border-radius: 6px;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .login-state {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .login-state {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
 }

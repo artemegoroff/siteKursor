@@ -1,6 +1,6 @@
 from django.db import models
 from theory.models import TheoryVideo
-
+from django.contrib.auth.models import User
 
 class VarEge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
@@ -165,3 +165,14 @@ class QuestionsEGE(models.Model):
     class Meta:
         verbose_name = "Вопрос ЕГЭ"
         verbose_name_plural = "Вопросы ЕГЭ"
+
+
+class CommentEge(models.Model):
+    task_ege = models.ForeignKey(QuestionsEGE,verbose_name='Задание')
+    user = models.ForeignKey(User)
+    reply = models.ForeignKey('self',null=True,related_name='replies')
+    content = models.TextField(max_length=200)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '{}-{}'.format(self.task_ege.number_of_task,self.user)

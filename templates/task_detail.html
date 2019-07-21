@@ -144,34 +144,43 @@
                                         {% if exam == 'ege' %}
                                             <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
                                                target="_blank" class="btn btn-info"
-                                               role="button">Редак {{ vopros.number_of_variant }}
+                                               role="button"><i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
                                         {% elif exam == 'oge' %}
                                             <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"
                                                target="_blank" class="btn btn-info"
-                                               role="button">Редак {{ vopros.number_of_variant }}
+                                               role="button"><i class="fa fa-pencil" aria-hidden="true"></i>
                                             </a>
                                         {% endif %}
                                     </div>
                                 {% endif %}
                                 {#  here ref of redactor#}
-                                {% if vopros.q_url_video %}
-                                    <div class="abs_span">
-                                        {% if exam == 'ege' %}
-                                            <a
-                                                    href="{% url 'ege:ege_videotask_detail' id_theme=vopros.number_of_task.number id_task=vopros.q_url_video.id %}"
-                                                    class="btn btn-info" role="button">
-                                                ВИДЕОРАЗБОР
-                                            </a>
-                                        {% elif exam == 'oge' %}
-                                            <a
-                                                    href="{% url 'oge:oge_videotask_detail' id_theme=vopros.number_of_task.number id_task=vopros.q_url_video.id %}"
-                                                    class="btn btn-info" role="button">
-                                                ВИДЕОРАЗБОР
+
+                                <div class="abs_span">
+                                    {% if exam == 'ege' %}
+                                        {% if vopros.q_url_video %}
+                                            <a href="{% url 'ege:ege_videotask_detail' id_theme=vopros.number_of_task.number id_task=vopros.q_url_video.id %}"
+                                               class="btn" role="button">
+                                                <i class="fa fa-video-camera" style="font-size:24px;color:red"></i>
                                             </a>
                                         {% endif %}
-                                    </div>
-                                {% endif %}
+                                        <a href="{% url 'ege:ege_get_exercise' id_exercise=vopros.id %}"
+                                           class="btn" role="button">
+                                            <i class="fa fa-question" style="font-size:24px;color:mediumblue"></i>
+                                        </a>
+                                    {% elif exam == 'oge' %}
+                                        {% if vopros.q_url_video %}
+                                            <a href="{% url 'oge:oge_videotask_detail' id_theme=vopros.number_of_task.number id_task=vopros.q_url_video.id %}"
+                                               class="btn btn-dark" role="button">
+                                                <i class="fa fa-video-camera" aria-hidden="true"></i>
+                                            </a>
+                                        {% endif %}
+                                        <a href="{% url 'oge:oge_get_exercise' id_exercise=vopros.id %}"
+                                           class="btn btn-info" role="button">
+                                            <i class="fa fa-question" aria-hidden="true"></i>
+                                        </a>
+                                    {% endif %}
+                                </div>
 
                                 {#начало вопроса#}
 
@@ -408,12 +417,12 @@
             var elemsWrong = $(".wrong");
             var elemsWrongTotal = elemsWrong.length;
             for (var i = 0; i < elemsWrongTotal; ++i) {
-                $(elemsWrong[i]).css({'border': "3px red solid"});
+                $(elemsWrong[i]).css({'border': "3px solid rgba(255, 0, 0, .5)"});
             }
             elemsGood = $(".good");
             var elemsGoodTotal = elemsGood.length;
             for (var i = 0; i < elemsGoodTotal; ++i) {
-                $(elemsGood[i]).css({'border': "3px green solid"});
+                $(elemsGood[i]).css({'border': "3px solid rgba(0, 255, 0, .5)"});
             }
             elemsRadio = $(".radio");
             if (elemsRadio.length > 0 && (elemsWrongTotal > 0 || elemsGoodTotal > 0)) {
@@ -427,7 +436,7 @@
             elemsEmpty = $(".empty");
             var elemsEmptyTotal = elemsEmpty.length;
             for (var i = 0; i < elemsEmptyTotal; ++i) {
-                $(elemsEmpty[i]).css({'border': "3px blue solid"});
+                $(elemsEmpty[i]).css({'border': "3px solid rgba(0, 0, 255, .5)"});
             }
             if (elemsEmptyTotal > 0 || elemsGoodTotal > 0 || elemsWrongTotal > 0) {
                 $(".allTaskNumber").html("Всего заданий: " + String(elemsEmptyTotal + elemsGoodTotal + elemsWrongTotal));

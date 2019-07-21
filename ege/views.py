@@ -1,3 +1,8 @@
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE, CommentEge
+from .forms import CommentForm
+from django.template.loader import render_to_string
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE
 
@@ -42,8 +47,12 @@ def ege_task_detail(request, number_task):
                         questions[i].status = 'empty'
                     elif request.POST[dataPost].lower() != questions[i].answer.lower():
                         questions[i].status = 'wrong'
+                        request.user.profile.fail_ege_tasks.add(questions[i].id)
+                        request.user.profile.done_ege_tasks.remove(questions[i].id)
                     else:
                         questions[i].status = 'good'
+                        request.user.profile.done_ege_tasks.add(questions[i].id)
+                        request.user.profile.fail_ege_tasks.remove(questions[i].id)
                     questions[i].old_answer = request.POST[dataPost]
                     break
 
@@ -94,6 +103,8 @@ def ege_videotask_detail(request, id_theme, id_task):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     razbor = get_object_or_404(VideoRazborEGE, id=int(id_task))
+    task = get_object_or_404(QuestionsEGE, q_url_video=razbor)
+    context = {'vopros': task, 'video': razbor, 'tasks': numbers, 'exam': 'ege'}
     task = QuestionsEGE.objects.get(q_url_video=razbor)
     context = {'vopros': task,
                'video': razbor,
@@ -125,3 +136,49 @@ def ege_videotask_AllTask(request):
     context = {'videos': razbors, 'tasks':numbers,'exam':'ege'}
 
     return render(request, 'video_task_list.html', context)
+
+
+def ege_get_exercise(request, id_exercise):
+    number_values = VideoRazborEGE.objects.values_list('number_of_task', flat=True).distinct()
+    numbers = []
+    for cat in sorted(number_values):
+        numbers.append(NumberTaskEge.objects.get(number=cat))
+    task = get_object_or_404(QuestionsEGE, id=int(id_exercise))
+    comments = CommentEge.objects.filter(task_ege=task.id, reply=None).order_by('-id')
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        user_answer = request.POST.get('user_answer')
+        if user_answer and user_answer.lower() != task.answer.lower():
+            task.status = 'wrong'
+            request.user.profile.fail_ege_tasks.add(task.id)
+            request.user.profile.done_ege_tasks.remove(task.id)
+        else:
+            task.status = 'good'
+            request.user.profile.done_ege_tasks.add(task.id)
+            request.user.profile.fail_ege_tasks.remove(task.id)
+        task.old_answer = user_answer
+        comment_form = CommentForm(request.POST or None)
+        if comment_form.is_valid():
+            content = request.POST.get('content')
+            reply_id = request.POST.get('comment_id')
+            comment_qs = None
+            if reply_id:
+                comment_qs = CommentEge.objects.get(id=reply_id)
+            comment = CommentEge.objects.create(task_ege=task, user=request.user, content=content, reply=comment_qs)
+            comment.save()
+            return redirect('ege:ege_get_exercise', id_exercise=task.id)
+
+    context = {
+        'vopros': task,
+        'tasks': numbers,
+        'exam': 'ege',
+        'comments': comments,
+        'comment_form': comment_form
+    }
+
+    if request.is_ajax():
+        html = render_to_string('partitions/_comments.html', context=context, request=request)
+        return JsonResponse({'form':html})
+
+
+    return render(request, 'exercise.html', context)
