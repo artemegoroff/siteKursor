@@ -1,0 +1,227 @@
+{% extends "baseBoot4.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+{% endblock %}
+
+{% block adsense %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9687185544108832",
+            enable_page_level_ads: true
+        });
+    </script>
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/videoRazbor.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    {% if vopros.code_python or 'language-' in vopros.text %}
+        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+        <script src="{% static 'js/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <section>
+        <div class="container">
+            <div class="row my-1">
+                <div class="col-lg-10 order-lg-2">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Комментарии</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Редактировать</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content py-4">
+                        <div class="tab-pane active" id="profile">
+                            <h5 class="mb-3">{{ request.user }}</h5>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6>Имя</h6>
+                                    <p>
+                                        {{ request.user.first_name }}
+                                    </p>
+                                </div>
+
+                                <div class="col-md-6">
+                                     {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
+                                         <a href="{% url 'ege:base_ege' %}" class="btn btn-success" role="button">Подготовится к ЕГЭ</a>
+                                     {% endif %}
+                                     {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
+                                         <a href="#" class="btn btn-success" role="button">Подготовится к ОГЭ</a>
+                                     {% endif %}
+                                </div>
+
+                                {% if request.user.profile.fail_ege_tasks.all|length > 0 %}
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <hr>
+                                        <h2> ЕГЭ </h2>
+                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы не
+                                            справились со
+                                            следующими задачами: </h4>
+                                        <div class="d-flex flex-wrap">
+                                            {% for id_task in request.user.profile.fail_ege_tasks.all %}
+                                                <a type="button" class="btn btn-danger"
+                                                   href="{% url 'ege:ege_get_exercise' id_task.id %}">
+                                                    {{ id_task.id }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы
+                                            справились со
+                                            следующими задачами: </h4>
+                                        <div class="btn-group">
+                                            {% for id_task in request.user.profile.done_ege_tasks.all %}
+                                                <a type="button" class="btn btn-success"
+                                                   href="{% url 'ege:ege_get_exercise' id_task.id %}">
+                                                    {{ id_task.id }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                                {% if request.user.profile.fail_oge_tasks.all|length > 0 %}
+                                    <hr>
+                                    <div class="col-md-12">
+                                        <hr>
+                                        <h2> ОГЭ </h2>
+                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы не
+                                            справились со
+                                            следующими задачами: </h4>
+                                        <div class="d-flex flex-wrap">
+                                            {% for id_task in request.user.profile.fail_oge_tasks.all %}
+                                                <a type="button" class="btn btn-danger"
+                                                   href="{% url 'oge:oge_get_exercise' id_task.id %}">
+                                                    {{ id_task.id }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы
+                                            справились со
+                                            следующими задачами: </h4>
+                                        <div class="btn-group">
+                                            {% for id_task in request.user.profile.done_oge_tasks.all %}
+                                                <a type="button" class="btn btn-success"
+                                                   href="{% url 'oge:oge_get_exercise' id_task.id %}">
+                                                    {{ id_task.id }}
+                                                </a>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <div class="alert alert-info alert-dismissable">
+                                <a class="panel-close close" data-dismiss="alert">×</a> This is an
+                                <strong>.alert</strong>. Use this to show important messages to the user.
+                            </div>
+                            <table class="table table-hover table-striped">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link
+                                        to the latest summary report from the..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a
+                                        request on your account since that was..
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices
+                                        quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt
+                                        ullamcorper eros eget luctus.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix
+                                        for tibulum tincidunt ullamcorper eros.
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="edit">
+                            <form role="form">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">First name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="Jane">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Last name</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="Bishop">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="email" value="email@gmail.com">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Username</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="janeuser">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Password</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password" value="11111122333">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="password" value="11111122333">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancel">
+                                        <input type="button" class="btn btn-primary" value="Save Changes">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 order-lg-1 text-center">
+                    <img src="{{ request.user.profile.avatar }}" class="mx-auto img-fluid img-circle d-block"
+                         alt="avatar">
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+
+{% block extraJS %}
+    <script>
+
+    </script>
+{% endblock %}

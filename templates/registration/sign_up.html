@@ -1,0 +1,55 @@
+{% extends "baseBoot4.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+    <title>Регистрация пользователя</title>
+    <meta name="description" content="Страница для регистрации пользователей на сайте www.egoroffartem.ru">
+    {#    <meta name="keywords" content="{{ number_task.seo_keywords }}">#}
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css/registration.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    {% if number_task.number in tasks_prism or exam == 'ege_var' or exam == 'oge_var' %}
+        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+        <script src="{% static 'js/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="registration-form" name="regist-form">
+        <form method="post">
+            {% csrf_token %}
+            <div class="container">
+                <h1>Регистрация пользователя</h1>
+                <p>Заполните форму для создания пользователя</p>
+                <hr>
+
+                {% include 'partitions/_messages.html' %}
+
+                <label for="email"><b>Логин</b></label>
+                <input type="text" placeholder="Введите логин" name="username" required>
+
+
+                <label for="email"><b>Email</b></label>
+                <input type="text" placeholder="Введите Email" name="email" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Введите пароль" name="password" required>
+
+                <label for="psw-repeat"><b>Repeat Password</b></label>
+                <input type="password" placeholder="Повторите пароль" name="password_repeat" required>
+
+                <label>
+                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                </label>
+
+                <div class="clearfix">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                    <button type="submit" class="signupbtn">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,425 @@
+{% extends "baseBoot4.html" %}
+{% load staticfiles %}
+{% block seo_block %}
+    {% if exam == 'oge' %}
+        <title>Разбор ОГЭ Информатика
+            Задание {{ vopros.number_of_task.number }} {{ vopros.number_of_task.title }}</title>
+    {% elif exam == 'ege' %}
+        <title>Разбор ЕГЭ Информатика
+            Задание {{ vopros.number_of_task.number }} {{ vopros.number_of_task.title }}</title>
+    {% endif %}
+    <meta name="description" content=" {{ video.seo_description }}">
+    <meta name="keywords" content="{{ video.seo_keywords }}">
+{% endblock %}
+
+{% block adsense %}
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-9687185544108832",
+            enable_page_level_ads: true
+        });
+    </script>
+{% endblock %}
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    {% if vopros.code_python or 'language-' in vopros.text %}
+        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
+        <script src="{% static 'js/prism.js' %}"></script>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for task in tasks %}
+            <li>
+                {% if exam == 'ege_var' %}
+                    <a href="{% url 'ege:ege_get_var' task.number_var %}">{{ task }}</a>
+                {% elif exam == 'oge_var' %}
+                    <a href="{% url 'oge:oge_get_var' task.number_var %}">{{ task }}</a>
+                {% elif exam == 'ege' %}
+                    <a href="{% url 'ege:ege_task_detail' task.number %}">{{ task }}</a>
+                {% elif exam == 'oge' %}
+                    <a href="{% url 'oge:oge_task_detail' task.number %}">{{ task }}</a>
+                {% endif %}
+
+            </li>
+        {% endfor %}
+        <li><a href="#">Спасибо за внимание</a></li>
+    </div>
+
+    <i id="contents" class="fa fa-bars" style="font-size:30px;cursor:pointer" onclick="openNav()" aria-hidden="true">
+        Меню</i>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="text-center">Условие задачи</h3>
+
+                    <div class="card card-block bg-light {% if vopros.status %} {{ vopros.status }} {% endif %}"
+                         data-categ="{{ vopros.category }}">
+                        {#  here ref of redactor#}
+                        {#                        {% if '127.0.0.1' in request.META.HTTP_HOST %}#}
+                        {#                            <div class="abs_spanRedact">#}
+                        {#                                {% if exam == 'ege' %}#}
+                        {#                                    <a href="http://127.0.0.1:8000/admin/ege/questionsege/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
+                        {#                                       target="_blank" class="btn btn-info"#}
+                        {#                                       role="button">Редактировать#}
+                        {#                                    </a>#}
+                        {#                                {% elif exam == 'oge' %}#}
+                        {#                                    <a href="http://127.0.0.1:8000/admin/oge/questionsoge/{{ vopros.id }}/change/?_changelist_filters=number_of_task__number__exact%3D{{ vopros.number_of_task.number }}"#}
+                        {#                                       target="_blank" class="btn btn-info"#}
+                        {#                                       role="button">Редактировать#}
+                        {#                                    </a>#}
+                        {#                                {% endif %}#}
+                        {#                            </div>#}
+                        {#                        {% endif %}#}
+                        {#  here ref of redactor#}
+
+                        {#начало вопроса#}
+
+                        {% for part in vopros.get_part_question_1 %}
+                            <p class="text-justify ">
+                                {% if forloop.first %}
+                                    {{ vopros.id }})
+                                {% endif %}
+                                {{ part|safe }}
+                            </p>
+                        {% endfor %}
+
+                        {% if vopros.picture and vopros.table_data %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-12 col-sm-4 col-md-4 col-lg-5">
+                                        <img src="{{ vopros.picture.url }}"
+                                             class="img-rounded img-responsive">
+                                    </div>
+                                    <div class="col-12 col-sm-8 col-md-8 col-lg-7">
+                                        {% for table in vopros.table_in_row %}
+                                            <div class="table-responsive">
+                                                <table class="table table-hover table-striped table-sm oneTable">
+                                                    {% for rows in table %}
+                                                        {% if forloop.first %}
+                                                            <thead>
+                                                            <tr>
+                                                                {% for row in rows %}
+                                                                    <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                        &nbsp;{% else %}
+                                                                        {{ row }}{% endif %}</th>
+                                                                {% endfor %}
+                                                            </tr>
+                                                            </thead>
+                                                        {% else %}
+                                                            {% if forloop.counter == 2 %}
+                                                                <tbody>
+                                                            {% endif %}
+                                                        <tr>
+                                                            {% for row in rows %}
+                                                                {% if row %}
+                                                                    <td> {% if row == "x" %}
+                                                                        &nbsp;
+                                                                        &nbsp;
+                                                                        &nbsp;{% else %}
+                                                                        {{ row }}{% endif %} </td>
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        </tr>
+                                                        {% if forloop.last %}
+                                                            </tbody>
+                                                        {% endif %}
+                                                        {% endif %}
+
+                                                    {% endfor %}
+                                                </table>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {# Проверка на наличие картинки#}
+                        {% elif vopros.picture %}
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-offset-3 col-md-offset-3 col-6 col-md-4 col-lg-3">
+                                        <img src="{{ vopros.picture.url }}"
+                                             class="img-rounded img-responsive ">
+                                    </div>
+                                </div>
+                            </div>
+                            {#  Проверка на наличие картинки#}
+
+                            {#                                        Проверка на наличие таблицы#}
+                        {% elif vopros.table_data %}
+                            <div class="container">
+                                <div class="row">
+                                    {% if vopros.table_in_row|length > 1 %}
+                                        {% for table in vopros.table_in_row %}
+                                            <div class="col-12 col-md-6 col-lg-6">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped twoTable">
+                                                        {% for rows in table %}
+
+                                                            {% if forloop.first %}
+                                                                <thead>
+                                                                <tr>
+                                                                    {% for row in rows %}
+                                                                        <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                            &nbsp;{% else %}
+                                                                            {{ row }}{% endif %}</th>
+                                                                    {% endfor %}
+                                                                </tr>
+                                                                </thead>
+                                                            {% else %}
+
+                                                                {% if forloop.counter == 2 %}
+                                                                    <tbody>
+                                                                {% endif %}
+                                                            <tr>
+                                                                {% for row in rows %}
+                                                                    {% if row %}
+                                                                        <td style="width: 30px">
+                                                                            {% if row == "x" %}
+                                                                                &nbsp;
+                                                                                &nbsp;
+                                                                                &nbsp;{% else %}
+                                                                                {{ row }}{% endif %} </td>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </tr>
+                                                            {% if forloop.last %}
+                                                                </tbody>
+                                                            {% endif %}
+                                                            {% endif %}
+
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% else %}
+                                        {% for table in vopros.table_in_row %}
+                                            <div class="col-12 col-md-10 col-lg-8">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped oneTable">
+                                                        {% for rows in table %}
+
+                                                            {% if forloop.first %}
+                                                                <thead>
+                                                                <tr>
+                                                                    {% for row in rows %}
+                                                                        <th> {% if row == "x" %} &nbsp;&nbsp;
+                                                                            &nbsp;{% else %}
+                                                                            {{ row }}{% endif %}</th>
+                                                                    {% endfor %}
+                                                                </tr>
+                                                                </thead>
+                                                            {% else %}
+
+                                                                {% if forloop.counter == 2 %}
+                                                                    <tbody>
+                                                                {% endif %}
+                                                            <tr>
+                                                                {% for row in rows %}
+                                                                    {% if row %}
+                                                                        <td style="width: 30px">
+                                                                            {% if row == "x" %}
+                                                                                &nbsp;
+                                                                                &nbsp;
+                                                                                &nbsp;{% else %}
+                                                                                {{ row }}{% endif %} </td>
+                                                                    {% endif %}
+                                                                {% endfor %}
+                                                            </tr>
+                                                            {% if forloop.last %}
+                                                                </tbody>
+                                                            {% endif %}
+                                                            {% endif %}
+
+                                                        {% endfor %}
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+
+
+                                </div>
+                            </div>
+                        {% endif %}
+                        {# Проверка на наличие таблицы#}
+                        {#                                    Проверка на наличие кода#}
+                        {% if vopros.code_python %}
+                            <div class="row blockcode">
+                                <div class="col-md-4">
+                                    <pre><code class="language-python">{{ vopros.code_python }}</code></pre>
+                                </div>
+                                <div class="col-md-4">
+                                    <pre><code class="language-pascal">{{ vopros.code_pascal }}</code></pre>
+                                </div>
+                                <div class="col-md-4">
+                                    <pre><code class="language-cpp">{{ vopros.code_c_plus }}</code></pre>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if vopros.code_executor %}
+                            <div class="row blockcode">
+                                <div class="col-md-offset-1 col-md-4">
+                                                <pre><code
+                                                        class="language-python">{{ vopros.code_executor }}</code></pre>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {#                                    Проверка на наличие кода#}
+
+                        {#                                    Футер вопроса#}
+
+                        {% for part in vopros.get_part_question_2 %}
+                            {% if vopros.picture %}
+                                <p> {{ part|safe }}</p>
+                            {% else %}
+                                <p class="text-justify "> {{ part|safe }}</p>
+                            {% endif %}
+                        {% endfor %}
+
+                        {#                                    Футер вопроса#}
+                    </div>
+
+                    <form action='' method="post">
+                        {% csrf_token %}
+                        {% if vopros.number_of_task.type_of_answer == 'Input' %}
+                            <div class="form-group form-inline">
+                                <label for="user_answer">Ваш ответ:</label>
+                                <input type="text" name="user_answer"
+                                       value="{% if vopros.old_answer %}{{ vopros.old_answer }}{% endif %}">
+                            </div>
+                        {% elif vopros.number_of_task.type_of_answer == 'Radio' %}
+                            <div class="form-group">
+                                {% for variant_ans in vopros.get_var_answers %}
+                                    <div class="radio">
+                                        <label><input type="radio"
+                                                      {% if forloop.counter|slugify == vopros.old_answer %}checked{% endif %}
+                                                      name="radio{{ vopros.id }}"
+                                                      value="{{ forloop.counter }}"> {{ variant_ans }} </label>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% elif vopros.number_of_task.type_of_answer == 'NoInp' %}
+                            <br> <br> <br>
+                        {% endif %}
+                        <input type="submit" class="btn-success btn-lg " value="Проверить ответ" id="check_ans">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section>
+        <div class="main-comment-section {% if not user.is_authenticated %} disabledClass {% endif %}">
+            {% if not user.is_authenticated %}
+                <div class="regist-link">
+                    <h4>Нужно залогонится, чтобы оставлять комментарии</h4>
+                    <div class="text-center">
+                        <a href="{% url 'sign_up' %}" class="btn btn-primary">Регистрация</a>
+                        <a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
+                    </div>
+                </div>
+            {% endif %}
+            {% include 'partitions/_comments.html' %}
+        </div>
+    </section>
+
+
+
+{% endblock %}
+
+
+{% block extraJS %}
+    <script>
+        $(document).on('submit', '.comment-form', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function (response) {
+                    $('.main-comment-section').html(response['form']);
+                    $('.reply-btn').click(function () {
+                        $(this).parent().next('.replied-comments').fadeToggle();
+                    });
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText)
+                }
+            })
+        })
+
+        $(document).on('submit', '.reply-form', function (event) {
+            event.preventDefault();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                data: $(this).serialize(),
+                dataType: 'json',
+                success: function (response) {
+                    $('.main-comment-section').html(response['form']);
+                    $('.reply-btn').click(function () {
+                        $(this).parent().next('.replied-comments').fadeToggle();
+                    });
+                },
+                error: function (rs, e) {
+                    console.log(rs.responseText)
+                }
+            })
+        })
+
+        $(document).ready(function () {
+            var elemsWrong = $(".wrong");
+            var elemsWrongTotal = elemsWrong.length;
+            for (var i = 0; i < elemsWrongTotal; ++i) {
+                $(elemsWrong[i]).css({'border': "3px solid rgba(255, 0, 0, .5)"});
+            }
+            elemsGood = $(".good");
+            var elemsGoodTotal = elemsGood.length;
+            for (var i = 0; i < elemsGoodTotal; ++i) {
+                $(elemsGood[i]).css({'border': "3px solid rgba(0, 255, 0, .5)"});
+            }
+
+            elemsEmpty = $(".empty");
+            var elemsEmptyTotal = elemsEmpty.length;
+            for (var i = 0; i < elemsEmptyTotal; ++i) {
+                $(elemsEmpty[i]).css({'border': "3px solid rgba(0, 0, 255, .5)"});
+            }
+            if (elemsEmptyTotal > 0 || elemsGoodTotal > 0 || elemsWrongTotal > 0) {
+                $(".allTaskNumber").html("Всего заданий: " + String(elemsEmptyTotal + elemsGoodTotal + elemsWrongTotal));
+                $(".wrongNumber").html(elemsWrongTotal);
+                $(".goodNumber").html(elemsGoodTotal);
+                $(".emptyNumber").html(elemsEmptyTotal);
+                $("#myModalBox").modal('show');
+            }
+        });
+
+        $(document).ready(function () {
+            $('.reply-btn').click(function () {
+                $(this).parent().next('.replied-comments').fadeToggle();
+            });
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "300px";
+        }
+
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+{% endblock %}

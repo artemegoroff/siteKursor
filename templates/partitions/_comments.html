@@ -1,0 +1,108 @@
+<div class="container mt-2">
+<hr>
+<h3 class="text-center">Комментарии</h3>
+
+    {% for comment in comments %}
+        <blockquote class="blockquote">
+            <p class="mb-0"> {{ comment.content }}</p>
+            <footer class="blockquote-footer"> by <cite
+                    title="Source Title"> {{ comment.user|capfirst }}</cite></footer>
+            <button type="button" name="button" class="reply-btn btn btn-outline-dank btn-sm">Ответить
+            </button>
+        </blockquote>
+
+        <div class="replied-comments container mt-3" style="display: none">
+            {% for reply in comment.replies.all %}
+                <blockquote class="blockquote">
+                    <p class="mb-0">
+                        <small>{{ reply.content }}</small>
+                    </p>
+                    <footer class="blockquote-footer">
+                        <small>by <cite title="Source Title"> {{ reply.user|capfirst }}</cite></small>
+                    </footer>
+                </blockquote>
+            {% endfor %}
+
+            <div class="form-group row">
+                <form action="" method="post" class="reply-form">
+                    {% csrf_token %}
+                    <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                    {{ comment_form.as_p }}
+                    {% if request.user.is_authenticated %}
+                        <input type="submit" value="Оставить комментарий"
+                               class="btn btn-outline-success">
+                    {% else %}
+                        <input type="submit" value="Оставить комментарий" disabled
+                               class="btn btn-outline-success">
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="form-group row">
+        <form action="" method="post" class="comment-form">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            {% if request.user.is_authenticated %}
+                <input type="submit" value="Оставить комментарий" class="btn btn-outline-success">
+            {% else %}
+                <input type="submit" value="Оставить комментарий" class="btn btn-outline-success"
+                       disabled>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+{#<div class="container">#}
+{#    <h2 class="text-center">Bootstrap 4 User Rating Form / Comment Form</h2>#}
+{##}
+{#    <div class="card">#}
+{#        {% for comment in comments %}#}
+{##}
+{#        <div class="card-body">#}
+{#            <div class="row">#}
+{#                <div class="col-md-3">#}
+{#                    <img src="{{ request.user.profile.avatar }}" class="img img-rounded img-fluid"/>#}
+{#                    <p class="text-secondary text-left"> {{ comment.timestamp }}</p>#}
+{#                </div>#}
+{#                <div class="col-md-9">#}
+{#                    <p>#}
+{#                        <a class="float-left" href="profile"><strong>{{ request.user }}</strong></a>#}
+{#                    </p>#}
+{#                    <div class="clearfix"></div>#}
+{#                    <p> {{ comment.content }}</p>#}
+{#                    <p>#}
+{#                        <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Reply</a>#}
+{#                        <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>#}
+{#                    </p>#}
+{#                </div>#}
+{#            </div>#}
+{#            <div class="card card-inner" style="margin-left: 4rem">#}
+{#                {% for reply in comment.replies.all %}#}
+{##}
+{#                <div class="card-body">#}
+{#                    <div class="row">#}
+{#                        <div class="col-md-3">#}
+{#                            <img src="{{ request.user.profile.avatar }}" class="img img-rounded img-fluid"/>#}
+{#                            <p class="text-secondary text-left"> {{ comment.timestamp }}</p>#}
+{#                        </div>#}
+{#                        <div class="col-md-9">#}
+{#                            <p><a href="profile"><strong> Имя пользователя</strong></a></p>#}
+{#                            <p> {{ reply.content }}</p>#}
+{#                            <p>#}
+{#                                <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i>#}
+{#                                    Reply</a>#}
+{#                                <a class="float-right btn text-white btn-danger"> <i class="fa fa-heart"></i> Like</a>#}
+{#                            </p>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        {% endfor %}#}
+{#    </div>#}
+{#</div>#}
