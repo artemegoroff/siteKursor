@@ -16,16 +16,6 @@
     {% endif %}
 {% endblock %}
 
-{% block adsense %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-9687185544108832",
-            enable_page_level_ads: true
-        });
-    </script>
-{% endblock %}
-
 {% block content %}
 
     <!-- HTML-код модального окна -->
@@ -87,6 +77,9 @@
         <li><a href="#">Спасибо за внимание</a></li>
     </div>
 
+    {% if not user.is_authenticated %}
+        {% include 'partitions/_unregistration_modal.html' %}
+    {% endif %}
 
     <section class="hero-area-tasks bg-img bg-overlay-2by5"
              style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
@@ -117,7 +110,7 @@
 
 
     <section>
-        <div class="container">
+        <div class="container {% if not user.is_authenticated %} disabledClass {% endif %}">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
 
@@ -175,6 +168,16 @@
                                                 <i class="fa fa-video-camera" aria-hidden="true"></i>
                                             </a>
                                         {% endif %}
+                                        <a href="{% url 'oge:oge_get_exercise' id_exercise=vopros.id %}"
+                                           class="btn btn-info" role="button">
+                                            <i class="fa fa-question" aria-hidden="true"></i>
+                                        </a>
+                                    {% elif exam == 'ege_var' %}
+                                        <a href="{% url 'ege:ege_get_exercise' id_exercise=vopros.id %}"
+                                           class="btn" role="button">
+                                            <i class="fa fa-question" style="font-size:24px;color:mediumblue"></i>
+                                        </a>
+                                    {% elif exam == 'oge_var' %}
                                         <a href="{% url 'oge:oge_get_exercise' id_exercise=vopros.id %}"
                                            class="btn btn-info" role="button">
                                             <i class="fa fa-question" aria-hidden="true"></i>
@@ -466,6 +469,12 @@
         $(document).ready(function () {
             $('#category_sel').trigger('click');
         });
+
+        {% if not user.is_authenticated %}
+            $(document).ready(function () {
+                $("#myModalUnLoginUser").modal('show');
+            });
+        {% endif %}
 
         function openNav() {
             document.getElementById("mySidenav").style.width = "300px";

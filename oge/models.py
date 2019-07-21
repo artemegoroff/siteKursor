@@ -117,7 +117,8 @@ class QuestionsOge(models.Model):
     q_url_video = models.OneToOneField(VideoRazborOGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
                                        null=True)
     file = models.FileField("Файл",upload_to='uploads/',blank=True,null=True)
-
+    failed = models.IntegerField("Неверные попытки", default=0)
+    passed = models.IntegerField("Правильные попытки", default=0)
     answer = models.CharField(verbose_name="Ответ", max_length=30)
 
     def __str__(self):

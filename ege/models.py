@@ -112,6 +112,8 @@ class QuestionsEGE(models.Model):
     code_c_plus = models.TextField("C++", blank=True, null=True)
     q_url_video = models.OneToOneField(VideoRazborEGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
                                        null=True)
+    failed = models.IntegerField("Неверные попытки",default=0)
+    passed = models.IntegerField("Правильные попытки", default=0)
     answer = models.CharField(verbose_name="Ответ", max_length=30)
 
     def __str__(self):

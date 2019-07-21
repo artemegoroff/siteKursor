@@ -13,13 +13,6 @@
 {% endblock %}
 
 {% block adsense %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-9687185544108832",
-            enable_page_level_ads: true
-        });
-    </script>
 {% endblock %}
 
 {% block extracss %}
@@ -57,7 +50,7 @@
 
 
     <section>
-        <div class="container">
+        <div class="container {% if not user.is_authenticated %} disabledClass {% endif %}">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h3 class="text-center">Условие задачи</h3>
@@ -321,8 +314,13 @@
     </section>
 
 
+    {% if not user.is_authenticated %}
+        {% include 'partitions/_unregistration_modal.html' %}
+    {% endif %}
+
     <section>
         <div class="main-comment-section {% if not user.is_authenticated %} disabledClass {% endif %}">
+            {% include 'partitions/_comments.html' %}
             {% if not user.is_authenticated %}
                 <div class="regist-link">
                     <h4>Нужно залогонится, чтобы оставлять комментарии</h4>
@@ -332,7 +330,6 @@
                     </div>
                 </div>
             {% endif %}
-            {% include 'partitions/_comments.html' %}
         </div>
     </section>
 
@@ -417,6 +414,11 @@
             document.getElementById("mySidenav").style.width = "300px";
         }
 
+        {% if not user.is_authenticated %}
+            $(document).ready(function () {
+                $("#myModalUnLoginUser").modal('show');
+            });
+        {% endif %}
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";

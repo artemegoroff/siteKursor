@@ -7,8 +7,11 @@ from django.contrib.auth.models import User
 from accounts.models import Profile
 from django.contrib.auth.decorators import login_required
 
+HTTP_REFERER = '/'
+
 # Create your views here.
 def signup(request):
+    global HTTP_REFERER
     if request.method == 'POST':
         username = request.POST.get('username')
         email = request.POST.get('email')
@@ -28,10 +31,10 @@ def signup(request):
         else:
             messages.error(request, 'Пароли в полях не совпали')
             return redirect('sign_up')
+    path_http_referer = request.META.get('HTTP_REFERER', '/')
+    if 'ege' in path_http_referer or 'oge' in path_http_referer or 'course' in path_http_referer:
+        HTTP_REFERER = path_http_referer
     return render(request, 'registration/sign_up.html')
-
-
-HTTP_REFERER = '/'
 
 
 def login_user(request):
@@ -46,15 +49,14 @@ def login_user(request):
                     Profile.objects.create(user=user)
                 login(request, user)
                 path_http_referer,HTTP_REFERER = HTTP_REFERER, '/'
-                if 'ege' in path_http_referer or 'oge' in path_http_referer:
-                    return HttpResponseRedirect(path_http_referer)
-                else:
-                    return HttpResponseRedirect('/')
+                return HttpResponseRedirect(path_http_referer)
             return HttpResponse("Your account was inactive.")
         else:
             messages.error(request, 'Такого пользователя не существует или неверный пароль')
             return redirect('login')
-    HTTP_REFERER = request.META.get('HTTP_REFERER','/')
+    path_http_referer = request.META.get('HTTP_REFERER','/')
+    if 'ege' in path_http_referer or 'oge' in path_http_referer or 'course' in path_http_referer:
+        HTTP_REFERER = path_http_referer
     return render(request, 'registration/login.html')
 
 

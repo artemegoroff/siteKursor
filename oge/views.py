@@ -78,8 +78,14 @@ def oge_get_var(request,variant_number):
                 if questions[i].id == num:
                     if request.POST[dataPost] != questions[i].answer:
                         questions[i].status = 'wrong'
+                        request.user.profile.fail_oge_tasks.add(questions[i].id)
+                        request.user.profile.done_oge_tasks.remove(questions[i].id)
+                        questions[i].failed += 1
                     else:
                         questions[i].status = 'good'
+                        request.user.profile.done_oge_tasks.add(questions[i].id)
+                        request.user.profile.fail_oge_tasks.remove(questions[i].id)
+                        questions[i].passed += 1
                     questions[i].old_answer = request.POST[dataPost]
                     break
     tasks = VariantOge.objects.all().order_by('number_var')
@@ -142,10 +148,12 @@ def oge_get_exercise(request, id_exercise):
             task.status = 'wrong'
             request.user.profile.fail_oge_tasks.add(task.id)
             request.user.profile.done_oge_tasks.remove(task.id)
+            task.failed += 1
         else:
             task.status = 'good'
             request.user.profile.done_oge_tasks.add(task.id)
             request.user.profile.fail_oge_tasks.remove(task.id)
+            task.passed += 1
         task.old_answer = user_answer
         comment_form = CommentForm(request.POST or None)
         if comment_form.is_valid():

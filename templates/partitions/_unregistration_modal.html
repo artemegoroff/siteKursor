@@ -1,0 +1,25 @@
+<!-- HTML-код модального окна для незарегистрированных-->
+    <div class="modal fade" id="myModalUnLoginUser">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Вы не зарегистрированы!</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <p>Нужно зарегистироваться, чтобы следить за своими успехами в решении задач.</p>
+                    <p>После регистрации вы сможете отправлять решения на проверку и получите доступ к личному
+                        кабинету, где будет храниться статистика ваших достижений</p>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a href="{% url 'sign_up' %}" class="btn btn-primary">Регистрация</a>
+                    <a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
+                </div>
+            </div>
+        </div>
+    </div>

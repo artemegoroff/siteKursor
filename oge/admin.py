@@ -1,12 +1,12 @@
 from django.contrib import admin
-from .models import QuestionsOge, NumberTaskOge, CategoryOge, VariantOge, VideoRazborOGE
-from django.forms import TextInput, Textarea, Select
+from .models import QuestionsOge, NumberTaskOge, CategoryOge, VariantOge, VideoRazborOGE, CommentOge
+from django.forms import TextInput, Textarea
 from django.db import models
 
 
 # Register your models here.
 class AdminQuestionsOGE(admin.ModelAdmin):
-    list_display = ["number_of_task", 'text', "answer"]
+    list_display = ["number_of_task", 'text', "answer", "passed"]
     list_filter = ['number_of_task','answer']
     save_as = True
     save_on_top = True
@@ -71,3 +71,4 @@ admin.site.register(NumberTaskOge, AdminNumberTaskOGE)
 admin.site.register(CategoryOge, AdminCategoryOGE)
 admin.site.register(VariantOge, AdminVariantOGE)
 admin.site.register(VideoRazborOGE, AdminVideoRazborOGE)
+admin.site.register(CommentOge)

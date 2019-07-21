@@ -8,12 +8,13 @@
   }
 
   /* Full-width input fields */
-  form{
+
+  form {
     width: 60%;
     border: 1px solid black;
     margin: 20px auto;
-
   }
+
   input[type=text], input[type=password] {
     width: 100%;
     padding: 15px;
@@ -78,6 +79,14 @@
     display: table;
   }
 
+  @media screen and (max-width: 600px) {
+    form {
+      width: 80%;
+      h2{
+        font-size: 20px;
+      }
+    }
+  }
   /* Change styles for cancel button and signup button on extra small screens */
   @media screen and (max-width: 300px) {
     .cancelbtn, .signupbtn {
