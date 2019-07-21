@@ -472,6 +472,7 @@ textarea:focus {
   @media only screen and (max-width: 767px) {
     height: 250px;
   }
+
   h2 {
     font-size: 40px;
     margin-bottom: 30px;
@@ -484,6 +485,7 @@ textarea:focus {
       font-size: 20px;
     }
   }
+
   h1 {
     font-size: 50px;
     margin-bottom: 30px;
@@ -2402,6 +2404,26 @@ textarea:focus {
 
 .page-content p:last-of-type {
   margin-bottom: 0;
+}
+
+
+.main-comment-section.disabledClass {
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+.main-comment-section {
+  position: relative;
+
+  .regist-link {
+    pointer-events: auto;
+    position: absolute;
+    opacity: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
