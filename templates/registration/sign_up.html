@@ -17,39 +17,41 @@
 {% endblock %}
 
 {% block content %}
-    <div class="registration-form" name="regist-form">
-        <form method="post">
-            {% csrf_token %}
-            <div class="container">
-                <h1>Регистрация пользователя</h1>
-                <p>Заполните форму для создания пользователя</p>
-                <hr>
+    <div class="container">
+        <div class="registration-form" name="regist-form">
+            <form method="post">
+                {% csrf_token %}
+                <div class="container">
+                    <h2>Регистрация пользователя</h2>
+                    <p>Заполните форму для создания пользователя</p>
+                    <hr>
 
-                {% include 'partitions/_messages.html' %}
+                    {% include 'partitions/_messages.html' %}
 
-                <label for="email"><b>Логин</b></label>
-                <input type="text" placeholder="Введите логин" name="username" required>
+                    <label for="email"><b>Логин</b></label>
+                    <input type="text" placeholder="Введите логин" name="username" required>
 
 
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Введите Email" name="email" required>
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Введите Email" name="email" required>
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Введите пароль" name="password" required>
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Введите пароль" name="password" required>
 
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Повторите пароль" name="password_repeat" required>
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Повторите пароль" name="password_repeat" required>
 
-                <label>
-                    <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                </label>
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+                    </label>
 
-                <div class="clearfix">
-                    <button type="button" class="cancelbtn">Cancel</button>
-                    <button type="submit" class="signupbtn">Sign Up</button>
+                    <div class="clearfix">
+                        <button type="button" class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 {% endblock %}
 

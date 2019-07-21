@@ -33,10 +33,11 @@ def signup(request):
 
 HTTP_REFERER = '/'
 
+
 def login_user(request):
     global HTTP_REFERER
     if request.method == 'POST':
-        username = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('psw')
         user = authenticate(username=username, password=password)
         if user:
@@ -45,7 +46,10 @@ def login_user(request):
                     Profile.objects.create(user=user)
                 login(request, user)
                 path_http_referer,HTTP_REFERER = HTTP_REFERER, '/'
-                return HttpResponseRedirect(path_http_referer)
+                if 'ege' in path_http_referer or 'oge' in path_http_referer:
+                    return HttpResponseRedirect(path_http_referer)
+                else:
+                    return HttpResponseRedirect('/')
             return HttpResponse("Your account was inactive.")
         else:
             messages.error(request, 'Такого пользователя не существует или неверный пароль')

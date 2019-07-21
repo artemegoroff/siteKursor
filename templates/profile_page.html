@@ -32,9 +32,9 @@
                         <li class="nav-item">
                             <a href="" data-target="#profile" data-toggle="tab" class="nav-link active">Профиль</a>
                         </li>
-{#                        <li class="nav-item">#}
-{#                            <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Комментарии</a>#}
-{#                        </li>#}
+                        {#                        <li class="nav-item">#}
+                        {#                            <a href="" data-target="#messages" data-toggle="tab" class="nav-link">Комментарии</a>#}
+                        {#                        </li>#}
                         <li class="nav-item">
                             <a href="" data-target="#edit" data-toggle="tab" class="nav-link">Редактировать</a>
                         </li>
@@ -51,116 +51,116 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                     {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
-                                         <a href="{% url 'ege:base_ege' %}" class="btn btn-success" role="button">Подготовится к ЕГЭ</a>
-                                     {% endif %}
-                                     {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
-                                         <a href="#" class="btn btn-success" role="button">Подготовится к ОГЭ</a>
-                                     {% endif %}
+                                    {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
+                                        <a href="{% url 'ege:base_ege' %}" class="btn btn-success" role="button">Подготовится
+                                            к ЕГЭ</a>
+                                    {% endif %}
+                                    {% if request.user.profile.fail_ege_tasks.all|length == 0 %}
+                                        <a href="#" class="btn btn-success" role="button">Подготовится к ОГЭ</a>
+                                    {% endif %}
                                 </div>
 
-                                {% if request.user.profile.fail_ege_tasks.all|length > 0 %}
+                                {% if request.user.profile.fail_ege_tasks.all|length > 0 or request.user.profile.done_ege_tasks.all|length > 0 %}
                                     <hr>
                                     <div class="col-md-12">
                                         <hr>
                                         <h2> ЕГЭ </h2>
-                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы не
-                                            справились со
-                                            следующими задачами: </h4>
-                                        <div class="d-flex flex-wrap">
-                                            {% for id_task in request.user.profile.fail_ege_tasks.all %}
-                                                <a type="button" class="btn btn-danger"
-                                                   href="{% url 'ege:ege_get_exercise' id_task.id %}">
-                                                    {{ id_task.id }}
-                                                </a>
-                                            {% endfor %}
-                                        </div>
-                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы
-                                            справились со
-                                            следующими задачами: </h4>
-                                        <div class="btn-group">
-                                            {% for id_task in request.user.profile.done_ege_tasks.all %}
-                                                <a type="button" class="btn btn-success"
-                                                   href="{% url 'ege:ege_get_exercise' id_task.id %}">
-                                                    {{ id_task.id }}
-                                                </a>
-                                            {% endfor %}
-                                        </div>
+                                        {% if request.user.profile.fail_ege_tasks.all|length > 0 %}
+                                            <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>
+                                                Вы не
+                                                справились со
+                                                следующими задачами: </h4>
+                                            <div class="d-flex flex-wrap">
+                                                {% for id_task in request.user.profile.fail_ege_tasks.all %}
+                                                    <a type="button" class="btn btn-danger"
+                                                       href="{% url 'ege:ege_get_exercise' id_task.id %}">
+                                                        {{ id_task.id }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        {% if request.user.profile.done_ege_tasks.all|length > 0 %}
+                                            <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>
+                                                Вы
+                                                справились со
+                                                следующими задачами: </h4>
+                                            <div class="btn-group">
+                                                {% for id_task in request.user.profile.done_ege_tasks.all %}
+                                                    <a type="button" class="btn btn-success"
+                                                       href="{% url 'ege:ege_get_exercise' id_task.id %}">
+                                                        {{ id_task.id }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
 
-                                {% if request.user.profile.fail_oge_tasks.all|length > 0 %}
+                                {% if request.user.profile.fail_oge_tasks.all|length > 0  or  request.user.profile.done_oge_tasks.all|length > 0 %}
                                     <hr>
                                     <div class="col-md-12">
-                                        <hr>
-                                        <h2> ОГЭ </h2>
-                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы не
-                                            справились со
-                                            следующими задачами: </h4>
-                                        <div class="d-flex flex-wrap">
-                                            {% for id_task in request.user.profile.fail_oge_tasks.all %}
-                                                <a type="button" class="btn btn-danger"
-                                                   href="{% url 'oge:oge_get_exercise' id_task.id %}">
-                                                    {{ id_task.id }}
-                                                </a>
-                                            {% endfor %}
-                                        </div>
-                                        <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span> Вы
-                                            справились со
-                                            следующими задачами: </h4>
-                                        <div class="btn-group">
-                                            {% for id_task in request.user.profile.done_oge_tasks.all %}
-                                                <a type="button" class="btn btn-success"
-                                                   href="{% url 'oge:oge_get_exercise' id_task.id %}">
-                                                    {{ id_task.id }}
-                                                </a>
-                                            {% endfor %}
-                                        </div>
+                                        {% if request.user.profile.fail_oge_tasks.all|length > 0 %}
+                                            <hr>
+                                            <h2> ОГЭ </h2>
+                                            <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>
+                                                Вы не
+                                                справились со
+                                                следующими задачами: </h4>
+                                            <div class="d-flex flex-wrap">
+                                                {% for id_task in request.user.profile.fail_oge_tasks.all %}
+                                                    <a type="button" class="btn btn-danger"
+                                                       href="{% url 'oge:oge_get_exercise' id_task.id %}">
+                                                        {{ id_task.id }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                        {% if request.user.profile.done_oge_tasks.all|length > 0 %}
+                                            <h4 class="mt-2"><span class="fa fa-clock-o ion-clock float-right"></span>
+                                                Вы
+                                                справились со
+                                                следующими задачами: </h4>
+                                            <div class="btn-group">
+                                                {% for id_task in request.user.profile.done_oge_tasks.all %}
+                                                    <a type="button" class="btn btn-success"
+                                                       href="{% url 'oge:oge_get_exercise' id_task.id %}">
+                                                        {{ id_task.id }}
+                                                    </a>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
                                     </div>
                                 {% endif %}
-
                             </div>
                         </div>
-{#                        <div class="tab-pane" id="messages">#}
-{#                            <div class="alert alert-info alert-dismissable">#}
-{#                                <a class="panel-close close" data-dismiss="alert">×</a> This is an#}
-{#                                <strong>.alert</strong>. Use this to show important messages to the user.#}
-{#                            </div>#}
-{#                            <table class="table table-hover table-striped">#}
-{#                                <tbody>#}
-{#                                <tr>#}
-{#                                    <td>#}
-{#                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link#}
-{#                                        to the latest summary report from the..#}
-{#                                    </td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <td>#}
-{#                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a#}
-{#                                        request on your account since that was..#}
-{#                                    </td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <td>#}
-{#                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices#}
-{#                                        quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.#}
-{#                                    </td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <td>#}
-{#                                        <span class="float-right font-weight-bold">9/4</span> Vestibulum tincidunt#}
-{#                                        ullamcorper eros eget luctus.#}
-{#                                    </td>#}
-{#                                </tr>#}
-{#                                <tr>#}
-{#                                    <td>#}
-{#                                        <span class="float-right font-weight-bold">9/4</span> Maxamillion ais the fix#}
-{#                                        for tibulum tincidunt ullamcorper eros.#}
-{#                                    </td>#}
-{#                                </tr>#}
-{#                                </tbody>#}
-{#                            </table>#}
-{#                        </div>#}
+                        {#                        <div class="tab-pane" id="messages">#}
+                        {#                            <div class="alert alert-info alert-dismissable">#}
+                        {#                                <a class="panel-close close" data-dismiss="alert">×</a> This is an#}
+                        {#                                <strong>.alert</strong>. Use this to show important messages to the user.#}
+                        {#                            </div>#}
+                        {#                            <table class="table table-hover table-striped">#}
+                        {#                                <tbody>#}
+                        {#                                <tr>#}
+                        {#                                    <td>#}
+                        {#                                        <span class="float-right font-weight-bold">3 hrs ago</span> Here is your a link#}
+                        {#                                        to the latest summary report from the..#}
+                        {#                                    </td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <td>#}
+                        {#                                        <span class="float-right font-weight-bold">Yesterday</span> There has been a#}
+                        {#                                        request on your account since that was..#}
+                        {#                                    </td>#}
+                        {#                                </tr>#}
+                        {#                                <tr>#}
+                        {#                                    <td>#}
+                        {#                                        <span class="float-right font-weight-bold">9/10</span> Porttitor vitae ultrices#}
+                        {#                                        quis, dapibus id dolor. Morbi venenatis lacinia rhoncus.#}
+                        {#                                    </td>#}
+                        {#                                </tr>#}
+                        {#                                </tbody>#}
+                        {#                            </table>#}
+                        {#                        </div>#}
                         <div class="tab-pane" id="edit">
                             <form role="form">
                                 <div class="form-group row">
@@ -185,13 +185,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Новый пароль</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="password" >
+                                        <input class="form-control" type="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Подтвердите</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="password" >
+                                        <input class="form-control" type="password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
