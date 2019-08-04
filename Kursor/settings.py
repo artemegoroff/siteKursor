@@ -17,7 +17,7 @@ SECRET_KEY = '857jw)9!hrhnt7=61z@(@@=08*w4^*s!xpjekpaf#j*jrlff%i'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'egoroffartem.pythonanywhere.com','www.egoroffartem.ru']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'egoroffartem.pythonanywhere.com']
 
 # Application definition
 

@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE, CommentEge
-from .forms import CommentForm
+from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
@@ -152,8 +151,6 @@ def ege_get_exercise(request, id_exercise):
     for cat in sorted(number_values):
         numbers.append(NumberTaskEge.objects.get(number=cat))
     task = get_object_or_404(QuestionsEGE, id=int(id_exercise))
-    comments = CommentEge.objects.filter(task_ege=task.id, reply=None).order_by('-id')
-    comment_form = CommentForm()
     if request.method == 'POST':
         user_answer = request.POST.get('user_answer')
         if user_answer and user_answer.lower() != task.answer.lower():
@@ -165,28 +162,11 @@ def ege_get_exercise(request, id_exercise):
             request.user.profile.done_ege_tasks.add(task.id)
             request.user.profile.fail_ege_tasks.remove(task.id)
         task.old_answer = user_answer
-        comment_form = CommentForm(request.POST or None)
-        if comment_form.is_valid():
-            content = request.POST.get('content')
-            reply_id = request.POST.get('comment_id')
-            comment_qs = None
-            if reply_id:
-                comment_qs = CommentEge.objects.get(id=reply_id)
-            comment = CommentEge.objects.create(task_ege=task, user=request.user, content=content, reply=comment_qs)
-            comment.save()
-            return redirect('ege:ege_get_exercise', id_exercise=task.id)
 
     context = {
         'vopros': task,
         'tasks': numbers,
         'exam': 'ege',
-        'comments': comments,
-        'comment_form': comment_form
     }
-
-    if request.is_ajax():
-        html = render_to_string('partitions/_comments.html', context=context, request=request)
-        return JsonResponse({'form':html})
-
 
     return render(request, 'exercise.html', context)

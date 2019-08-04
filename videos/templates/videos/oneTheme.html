@@ -1,16 +1,6 @@
 {% extends "baseBoot4.html" %}
 {% load staticfiles %}
 
-{% block adsense %}
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-9687185544108832",
-            enable_page_level_ads: true
-        });
-    </script>
-{% endblock %}
-
 {% block seo_block %}
     <title>{{ Theme.seo_title }}</title>
     <meta name="description" content="{{ Theme.seo_title }}">
@@ -328,6 +318,27 @@
     {% endif %}
 
 
+     <div class="container">
+        <hr>
+        <h3 class="text-center">Комментарии</h3>
+        <div id="disqus_thread"></div>
+        <script>
+
+            var disqus_config = function () {
+                {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
+                this.page.identifier = 'course{{ Theme.id }}';
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </div>
 
 {% endblock %}
 

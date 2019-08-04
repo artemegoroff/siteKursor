@@ -1,6 +1,5 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE, CommentOge
-from .forms import CommentForm
+from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE
 from django.template.loader import render_to_string
 from django.http import JsonResponse
 
@@ -140,8 +139,6 @@ def oge_get_exercise(request, id_exercise):
     for cat in sorted(number_values):
         numbers.append(NumberTaskOge.objects.get(number=cat))
     task = get_object_or_404(QuestionsOge, id=int(id_exercise))
-    comments = CommentOge.objects.filter(task_ege=task.id, reply=None).order_by('-id')
-    comment_form = CommentForm()
     if request.method == 'POST':
         user_answer = request.POST.get('user_answer')
         if user_answer and user_answer.lower() != task.answer.lower():
@@ -155,27 +152,11 @@ def oge_get_exercise(request, id_exercise):
             request.user.profile.fail_oge_tasks.remove(task.id)
             task.passed += 1
         task.old_answer = user_answer
-        comment_form = CommentForm(request.POST or None)
-        if comment_form.is_valid():
-            content = request.POST.get('content')
-            reply_id = request.POST.get('comment_id')
-            comment_qs = None
-            if reply_id:
-                comment_qs = CommentOge.objects.get(id=reply_id)
-            comment = CommentOge.objects.create(task_ege=task, user=request.user, content=content, reply=comment_qs)
-            comment.save()
-            return redirect('oge:oge_get_exercise', id_exercise=task.id)
 
     context = {
         'vopros': task,
         'tasks': numbers,
         'exam': 'ege',
-        'comments': comments,
-        'comment_form': comment_form
     }
-
-    if request.is_ajax():
-        html = render_to_string('partitions/_comments.html', context=context, request=request)
-        return JsonResponse({'form':html})
 
     return render(request, 'exercise.html', context)

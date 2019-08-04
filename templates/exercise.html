@@ -318,21 +318,32 @@
         {% include 'partitions/_unregistration_modal.html' %}
     {% endif %}
 
-    <section>
-        <div class="main-comment-section {% if not user.is_authenticated %} disabledClass {% endif %}">
-            {% include 'partitions/_comments.html' %}
-            {% if not user.is_authenticated %}
-                <div class="regist-link">
-                    <h4>Нужно залогонится, чтобы оставлять комментарии</h4>
-                    <div class="text-center">
-                        <a href="{% url 'sign_up' %}" class="btn btn-primary">Регистрация</a>
-                        <a href="{% url 'login' %}" class="btn btn-primary">Войти</a>
-                    </div>
-                </div>
-            {% endif %}
-        </div>
-    </section>
 
+    <div class="container">
+        <hr>
+        <h3 class="text-center">Комментарии</h3>
+        <div id="disqus_thread"></div>
+        <script>
+
+            var disqus_config = function () {
+                {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
+                {% if 'ege' in request.path %}
+                    this.page.identifier = 'ege{{ vopros.id }}';
+                {% elif 'oge' in request.path %}
+                    this.page.identifier = 'oge{{ vopros.id }}';
+                {% endif %}
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </div>
 
 
 {% endblock %}
@@ -340,43 +351,6 @@
 
 {% block extraJS %}
     <script>
-        $(document).on('submit', '.comment-form', function (event) {
-            event.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function (response) {
-                    $('.main-comment-section').html(response['form']);
-                    $('.reply-btn').click(function () {
-                        $(this).parent().next('.replied-comments').fadeToggle();
-                    });
-                },
-                error: function (rs, e) {
-                    console.log(rs.responseText)
-                }
-            })
-        })
-
-        $(document).on('submit', '.reply-form', function (event) {
-            event.preventDefault();
-            $.ajax({
-                type: 'POST',
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: 'json',
-                success: function (response) {
-                    $('.main-comment-section').html(response['form']);
-                    $('.reply-btn').click(function () {
-                        $(this).parent().next('.replied-comments').fadeToggle();
-                    });
-                },
-                error: function (rs, e) {
-                    console.log(rs.responseText)
-                }
-            })
-        })
 
         $(document).ready(function () {
             var elemsWrong = $(".wrong");

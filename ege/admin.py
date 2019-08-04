@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import QuestionsEGE, NumberTaskEge, CategoryEge, VarEge,VideoRazborEGE, CommentEge
+from .models import QuestionsEGE, NumberTaskEge, CategoryEge, VarEge, VideoRazborEGE
 from django.forms import TextInput, Textarea, Select
 from django.db import models
 
@@ -8,7 +8,7 @@ from django.db import models
 class AdminQuestionsEGE(admin.ModelAdmin):
     list_display = ["number_of_task", "text", "number_of_variant", "passed"]
     # list_select_related = ('number_of_task',)
-    list_filter = ['number_of_task','number_of_variant']
+    list_filter = ['number_of_task', 'number_of_variant']
     save_as = True
     save_on_top = True
     list_editable = ['text', 'number_of_variant']
@@ -54,19 +54,18 @@ class AdminNumberTaskEge(admin.ModelAdmin):
         models.TextField: {'widget': Textarea(attrs={'rows': 10, 'cols': 45})},
     }
 
-
 class AdminCategoryEge(admin.ModelAdmin):
     list_display = ['number_task', 'text']
+
 
 class AdminVariantEge(admin.ModelAdmin):
     list_display = ['number_var']
     ordering = ['number_var']
 
 
-
 class AdminVideoRazborEGE(admin.ModelAdmin):
-    list_display = ['id','url_video','number_of_task']
-    list_editable = ['url_video','number_of_task']
+    list_display = ['id', 'url_video', 'number_of_task']
+    list_editable = ['url_video', 'number_of_task']
     filter_horizontal = ['treoryKnowledge']
 
 
@@ -75,4 +74,3 @@ admin.site.register(NumberTaskEge, AdminNumberTaskEge)
 admin.site.register(CategoryEge, AdminCategoryEge)
 admin.site.register(VarEge, AdminVariantEge)
 admin.site.register(VideoRazborEGE, AdminVideoRazborEGE)
-admin.site.register(CommentEge)
