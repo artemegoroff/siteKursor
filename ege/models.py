@@ -119,6 +119,12 @@ class QuestionsEGE(models.Model):
     def __str__(self):
         return "%s %s" % (self.number_of_task, self.text)
 
+    def increase_failed(self):
+        self.failed += 1
+
+    def increase_passed(self):
+        self.passed += 1
+
     def get_part_question_1(self):
         return self.text.split('---')[0].split('===')
 

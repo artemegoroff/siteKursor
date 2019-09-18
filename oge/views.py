@@ -46,10 +46,14 @@ def oge_task_detail(request, number_task):
                         questions[i].status = 'wrong'
                         request.user.profile.fail_oge_tasks.add(questions[i].id)
                         request.user.profile.done_oge_tasks.remove(questions[i].id)
+                        questions[i].increase_failed()
+                        questions[i].save()
                     else:
                         questions[i].status = 'good'
                         request.user.profile.done_oge_tasks.add(questions[i].id)
                         request.user.profile.fail_oge_tasks.remove(questions[i].id)
+                        questions[i].increase_passed()
+                        questions[i].save()
                     questions[i].old_answer = request.POST[dataPost]
                     break
     questions=list(questions)
