@@ -23,7 +23,7 @@
                 {% csrf_token %}
                 <div class="container">
                     <h2>Авторизация пользователя</h2>
-                    <p>Заполните форму для создания пользователя</p>
+                    <p>Заполните форму для входа пользователя</p>
                     <hr>
 
                     {% include 'partitions/_messages.html' %}
@@ -37,6 +37,8 @@
                     <label>
                         <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
                     </label>
+
+                    <span class="psw float-right "><a href="{% url 'password_reset' %}">Забыли пароль?</a></span>
 
                     <div class="clearfix">
                         <button type="button" class="cancelbtn">Отмена</button>
