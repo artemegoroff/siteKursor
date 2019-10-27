@@ -7,12 +7,12 @@
 {% endblock %}
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'css/tasks_detail_less.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/tasks_detail_less.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/taskCardStyle.less' %}" type="text/less">
     {% if number_task.number in tasks_prism or exam == 'ege_var' or exam == 'oge_var' %}
-        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
-        <script src="{% static 'js/prism.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+        <script src="{% static 'base_static/js/prism.js' %}"></script>
     {% endif %}
 {% endblock %}
 
@@ -82,7 +82,7 @@
     {% endif %}
 
     <section class="hero-area-tasks bg-img bg-overlay-2by5"
-             style="background-image: url({% static 'img/bg-img/bg1.jpg' %});">
+             style="background-image: url({% static 'base_static/img/bg-img/bg1.jpg' %});">
         <div class="container h-75">
             <div class="row h-75 align-items-center">
                 <div class="col-12">

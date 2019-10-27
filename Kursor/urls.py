@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'accounts/', include('accounts.urls')),
     url(r'^ege/', include('ege.urls')),
     url(r'^oge/', include('oge.urls')),
+    url(r'^services/', include('services.urls')),
     url(r'^course/', include('videos.urls')),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps},
         name='django.contrib.sitemaps.views.sitemap'),

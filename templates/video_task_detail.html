@@ -21,9 +21,9 @@
 {% endblock %}
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/videoRazbor.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/videoRazbor.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
     {% if vopros.code_python or 'language-' in vopros.text %}
         <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
         <script src="{% static 'js/prism.js' %}"></script>

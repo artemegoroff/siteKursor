@@ -33,17 +33,17 @@
     {% endblock %}
 
     <!-- Favicon -->
-    <link rel="icon" href="{% static 'img/core-img/FAVIKON.png' %}">
+    <link rel="icon" href="{% static 'base_static/img/core-img/FAVIKON.png' %}">
 
     <!-- Stylesheet -->
-    <link rel="stylesheet/less" href="{% static 'css/base_temp.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/navbarBoot4.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/base_temp.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/navbarBoot4.less' %}" type="text/less">
 
 
-    <link rel="stylesheet/less" href="{% static 'css/footerBoot4.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/footerBoot4.less' %}" type="text/less">
     {% block extracss %} {% endblock %}
     <!-- Подключение LESS -->
-    <script src="{% static 'js/less.min.js' %}"></script>
+    <script src="{% static 'base_static/js/less.min.js' %}"></script>
 
 </head>
 <body>
@@ -69,16 +69,16 @@
 
 <!-- ##### All Javascript Script ##### -->
 <!-- jQuery-2.2.4 js -->
-<script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'base_static/js/jquery/jquery-2.2.4.min.js' %}"></script>
 <!-- Popper js -->
-<script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+<script src="{% static 'base_static/js/bootstrap/popper.min.js' %}"></script>
 
 <!-- Bootstrap js -->
-<script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+<script src="{% static 'base_static/js/bootstrap/bootstrap.min.js' %}"></script>
 <!-- All Plugins js -->
-<script src="{% static 'js/plugins/plugins.js' %}"></script>
+<script src="{% static 'base_static/js/plugins/plugins.js' %}"></script>
 <!-- Active js -->
-<script src="{% static 'js/active.js' %}"></script>
+<script src="{% static 'base_static/js/active.js' %}"></script>
 
 {#additional js#}
 {% block extraJS %}

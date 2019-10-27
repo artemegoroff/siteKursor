@@ -7,252 +7,138 @@
     <meta name="keywords" content="Онлайн занятия по программирования, Онлайн подготовка ЕГЭ по информатике,">
 {% endblock %}
 
-{% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'ege/css/home_ege_less.less' %}" type="text/less">
-    <link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
-{% endblock %}
-
-
 {% block content %}
+    <!-- ##### Hero Area Start ##### -->
+{#    <section class="hero-area bg-img bg-overlay-2by5"#}
+{#             style="background-image: url('{% static 'base_static/img/bg-img/bg1.jpg' %}');">#}
+{#        <div class="container h-100">#}
+{#            <div class="row h-100 align-items-center">#}
+{#                <div class="col-12">#}
+{#                    <!-- Hero Content -->#}
+{#                    <div class="hero-content text-center">#}
+{#                        <h1>Услуги</h1>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+    <!-- ##### Hero Area End ##### -->
 
-
-    <div class="single-course-intro d-flex align-items-center justify-content-center"
-         style="background-image: url({% static 'img/bg-img/ЕГЭ_big-min.jpg' %});">
-        <!-- Content -->
-        <div class="single-course-intro-content text-center">
-            <h3>ЕГЭ по Информатике</h3>
-            <div id="yakor" class="meta d-flex align-items-center justify-content-center">
-                <a href="#tab--1">Задания</a>
-                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#tab--2">Видеоразборы</a>
-                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                <a href="#tab--3">Варианты</a>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- ##### Courses Content Start ##### -->
-    <div class="single-course-content section-padding-100">
+    <!-- ##### Popular Courses Start ##### -->
+    <section class="popular-courses-area section-padding-100-0"
+             style="background-image: url('{% static 'base_static/img/core-img/texture.png' %}');">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-8">
-                    <div class="course--content">
-
-                        <div class="clever-tabs-content">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="tab--1" data-toggle="tab" href="#tab1" role="tab"
-                                       aria-controls="tab1" aria-selected="false">Задания</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab"
-                                       aria-controls="tab2" aria-selected="true">Видеоразборы</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="tab--3" data-toggle="tab" href="#tab3" role="tab"
-                                       aria-controls="tab4" aria-selected="true">Варианты</a>
-                                </li>
-                            </ul>
-
-                            <div class="tab-content" id="myTabContent">
-                                <!-- Tab Text -->
-                                <div class="tab-pane fade show active" id="tab1" role="tabpanel"
-                                     aria-labelledby="tab--1">
-                                    <div class="clever-description">
-
-                                        <!-- About Course -->
-                                        <div class="about-course mb-30">
-                                            <h4>Задания ЕГЭ по информатике</h4>
-                                            <p>Любой экзамен – неплохая возможность проверить свои знания. Да, ЕГЭ по
-                                                информатике – это не программирование в чистом виде, это просто база
-                                                знаний. Но именно она
-                                                может стать вашим первым рывком к получению желаемой работы.
-
-                                            </p>
-                                        </div>
-
-                                        <!-- All Instructors -->
-                                        <div class="all-instructors mb-30">
-                                            <h4>Попрактикуйтесь в решении задач</h4>
-                                            <div class="row">
-                                                {% for task in tasks %}
-                                                    <div class="col-lg-6">
-                                                        <div class="single-instructor d-flex align-items-center mb-30">
-
-                                                            <div class="instructor-thumb">
-                                                                <img src="{{ task.picture.url }}" alt="">
-                                                            </div>
-                                                            <a href="{% url 'service:ege_task_detail' task.number %}">
-                                                                <div class="instructor-info">
-                                                                    <h6>{{ task }}</h6>
-                                                                    <span>{{ forloop.counter }} Задание</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Tab Text -->
-                                <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
-                                    <div class="clever-curriculum">
-
-                                        <!-- About Curriculum -->
-                                        <div class="about-curriculum mb-15">
-                                            <h4>Видеоразборы</h4>
-                                            <p>В свое время я занимался самостоятельно, тогда не было огромного
-                                                количества репетиторов, как сейчас. Занятия такого рода были, скорее,
-                                                роскошью, чем нормой. И уж тем более, не было видеоуроков, по которым
-                                                намного проще готовиться к экзаменам.</p>
-
-                                            <p> Сейчас же у вас есть возможность выбора. В этом я вам даже завидую, и
-                                                готов поддержать. В студенческие годы я и не думал, что сам захочу
-                                                обучать кого-то своему делу. Это случилось, и я с удовольствием делюсь с
-                                                вами своими видеоразборами, я с вами на связи 24/7. Все для того, чтобы
-                                                помочь успешно пройти ваш путь к мечте! </p>
-                                        </div>
-
-                                        <!-- Curriculum Level -->
-                                        <div class="curriculum-level mb-30">
-                                            <h5>Номера заданий</h5>
-                                            <ul class="curriculum-list">
-                                                {% for video in videos %}
-                                                    <a href="{% url 'service:ege_videotask_ONEtheme' video.number %}">
-                                                        <li class="d-flex justify-content-between">
-                                                            <span><i class="fa fa-video-camera"
-                                                                     aria-hidden="true"></i> {{ video }}</span>
-                                                            <span>{{ video.count_videoRazbors }} Видео </span>
-                                                        </li>
-                                                    </a>
-                                                {% endfor %}
-                                            </ul>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-                                <!-- Tab Text -->
-                                <div class="tab-pane fade" id="tab3" role="tabpanel" aria-labelledby="tab--3">
-                                    <div class="clever-members">
-
-                                        <!-- About Members -->
-                                        <div class="about-members mb-30">
-                                            <h4>Варианты ЕГЭ</h4>
-
-                                            <p>Часть 1 содержит 23 задания с кратким ответом. 12 заданий относятся к
-                                                базовому уровню, 10 - к повышенному, 1 задание – к высокому уровню
-                                                сложности.</p>
-
-                                            <p>Часть 2 содержит 4 задания, первое из которых повышенного уровня
-                                                сложности, остальные 3 задания высокого уровня сложности. Задания этой
-                                                части подразумевают запись развернутого ответа в произвольной форме.</p>
-
-                                            <p>На выполнение экзаменационной работы отводится 3 часа 55 минут (235
-                                                минут). На выполнение заданий части 1 рекомендуется отводить 1,5 часа
-                                                (90 минут).</p>
-
-                                            <p>Каждое задание части 1 - 1 балл. Задания части 2 оцениваются от 0 до 4
-                                                баллов.</p>
-                                        </div>
-
-                                        <!-- All Members -->
-                                        <div class="all-instructors mb-30">
-                                            <div class="row">
-                                                <!-- Single Members -->
-
-                                                {% for var in vars %}
-                                                    <div class="col-lg-6">
-                                                        <div class="single-instructor d-flex align-items-center mb-30">
-                                                            <div class="instructor-thumb">
-
-                                                            </div>
-                                                            <a href="{% url 'service:ege_get_var' var.number_var %}">
-                                                                <div class="instructor-info">
-                                                                    <h5>{{ forloop.counter }} Вариант</h5>
-                                                                    <span>Пробный вариант ЕГЭ</span>
-                                                                </div>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                {% endfor %}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Услуги</h3>
                     </div>
                 </div>
+            </div>
 
+            <div class="row">
 
-                <div class="col-12 col-lg-3">
-                    <div class="course-sidebar ">
-                        <!-- Buy Course -->
-                        <a target="_blank" href="https://vk.com/topic-116207750_37402901"
-                           class="btn clever-btn mb-30 w-100">Задать вопрос</a>
-
-                        <div class="row">
-
-                            <!-- Widget -->
-                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
-                                <h4>Особенности</h4>
-                                <ul class="features-list">
-                                    <li>
-                                        <h6><i class="fa fa-bell" aria-hidden="true"></i> Заданий</h6>
-                                        <h6>{{ numAllTask }}</h6>
-                                    </li>
-                                    <li>
-                                        <h6><i class="fa fa-file" aria-hidden="true"></i> Онлайн-тесты</h6>
-                                        <h6>{{ tasks|length }}</h6>
-                                    </li>
-                                    <li>
-                                        <h6><i class="fa fa-thumbs-up" aria-hidden="true"></i> Пробные варианты</h6>
-                                        <h6>{{ vars|length }}</h6>
-                                    </li>
-                                    <li>
-                                        <h6><i class="fa fa-video-camera" aria-hidden="true"></i> Видеорешения</h6>
-                                        <h6>{{ videosEGE }}</h6>
-                                    </li>
-                                </ul>
+                 <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/c2.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Индивидуальные занятия</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">60 минут</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">700р</a>
                             </div>
+                            <p>Мечтаешь научиться программировать? Мой курс, состоящий из видеоуроков и заданий для
+                            самостоятельного решения, может тебе в этом помочь</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
 
-                            <!-- Widget -->
-                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
-                                <h4 class="text-center">Donate </h4>
-
-                                <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82&targets-hint=&default-sum=100&button-text=13&hint=&successURL=&quickpay=shop&account=410017907063167"
-                                        height="222" frameborder="0" allowtransparency="true" scrolling="no"
-                                        style="width: 95%; margin: 0 auto;"></iframe>
+{#                                <div class="videos">#}
+{#                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countPythonVideos }}#}
+{#                                </div>#}
                             </div>
-
-
-                            <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
-                                <h4 class="text-center">Группа </h4>
-
-                                <script type="text/javascript"
-                                        src="https://vk.com/js/api/openapi.js?159"></script>
-
-                                <!-- VK Widget -->
-                                <div id="vk_groups" style="  width:95%; margin: 0 auto;"></div>
-                                <script type="text/javascript">
-                                    VK.Widgets.Group("vk_groups", {mode: 3}, 116207750);
-                                </script>
-
+                            <div class="course-fee h-100">
+                                <a href="#" class="free">Подробнее</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+
+                 <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/c4.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Недельная консультация</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Видеоуроки</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Практические задания</a>
+                            </div>
+                            <p>Посмотрим на практике как можно применить циклы, условия, переменные, функции и все остальное,
+                            что мы изучали в основном курсе. Масса интересных примеров и разработка графических игр ждет вас
+                            этом курсе.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+
+{#                                <div class="videos">#}
+{#                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countTURTLEVideos }}#}
+{#                                </div>#}
+                            </div>
+                            <div class="course-fee h-100">
+                                <a href="#" class="free">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="750ms">
+                        <img src="{% static 'base_static/img/bg-img/c3.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Подготовка к ЕГЭ/ОГЭ</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Задания</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Видеоразборы</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Варианты</a>
+                            </div>
+                            <p>Планируешь сдавать ЕГЭ или ОГЭ по информатике и тебе нужен опытный и молодой
+                                преподаватель для помощи в подготовке? Обращайся ко мне </p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+{#                                <div class="tasks">#}
+{#                                    <i class="fa fa-tasks" aria-hidden="true"></i> {{ CountTaskOge }}#}
+{#                                </div>#}
+{#                                <div class="videos">#}
+{#                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOGERazbor }}#}
+{#                                </div>#}
+                            </div>
+                            <div class="course-fee h-100">
+                                <a href="#" class="free">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+    <!-- ##### Popular Courses End ##### -->
+
 
 {% endblock %}
 

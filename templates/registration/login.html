@@ -7,9 +7,9 @@
 {% endblock %}
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'css/registration.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/sidebarMenu.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'css/taskCardStyle.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/registration.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/taskCardStyle.less' %}" type="text/less">
     {% if number_task.number in tasks_prism or exam == 'ege_var' or exam == 'oge_var' %}
         <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
         <script src="{% static 'js/prism.js' %}"></script>

@@ -37,7 +37,7 @@
 
                     <!-- Logo -->
                     <a class="nav-brand" href="{% url 'home:main_page' %}"><img
-                            src="{% static 'img/core-img/LOGO.jpg' %}" alt="" width="200px" height="15px"></a>
+                            src="{% static 'base_static/img/core-img/LOGO.jpg' %}" alt="" width="200px" height="15px"></a>
                     <!-- Navbar Toggler -->
                     <div class="classy-navbar-toggler">
                         <span class="navbarToggler"><span></span><span></span><span></span></span>
@@ -61,6 +61,7 @@
                                     </ul>
                                 </li>
                                 <li><a href="{% url 'videos:videos_python_all' %}">Программирование</a></li>
+                                <li><a href="{% url 'services:services_home' %}">Услуги</a></li>
                                 <!-- Register / Login -->
                                 {% if user.is_authenticated %}
                                         <li><a href="#">{{ request.user.username }}</a>

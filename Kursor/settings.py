@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'robots',
     'django_summernote',
     'accounts',
+    'services'
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,7 @@ MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "base_static"),
+    ('base_static', os.path.join(BASE_DIR, "base_static")),
 )
 
 # Авторизация
