@@ -50,7 +50,7 @@
 
 
     <section>
-        <div class="container {% if not user.is_authenticated %} disabledClass {% endif %}">
+        <div class="container">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                     <h3 class="text-center">Условие задачи</h3>
@@ -314,9 +314,9 @@
     </section>
 
 
-    {% if not user.is_authenticated %}
-        {% include 'partitions/_unregistration_modal.html' %}
-    {% endif %}
+{#    {% if not user.is_authenticated %}#}
+{#        {% include 'partitions/_unregistration_modal.html' %}#}
+{#    {% endif %}#}
 
 
     <div class="container">
@@ -388,11 +388,11 @@
             document.getElementById("mySidenav").style.width = "300px";
         }
 
-        {% if not user.is_authenticated %}
-            $(document).ready(function () {
-                $("#myModalUnLoginUser").modal('show');
-            });
-        {% endif %}
+{#        {% if not user.is_authenticated %}#}
+{#            $(document).ready(function () {#}
+{#                $("#myModalUnLoginUser").modal('show');#}
+{#            });#}
+{#        {% endif %}#}
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";

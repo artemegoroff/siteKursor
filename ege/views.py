@@ -46,16 +46,21 @@ def ege_task_detail(request, number_task):
                         questions[i].status = 'empty'
                     elif request.POST[dataPost].lower() != questions[i].answer.lower():
                         questions[i].status = 'wrong'
-                        request.user.profile.fail_ege_tasks.add(questions[i].id)
-                        request.user.profile.done_ege_tasks.remove(questions[i].id)
                         questions[i].increase_failed()
                         questions[i].save()
+                        if request.user.is_anonymous():
+                            continue
+                        request.user.profile.fail_ege_tasks.add(questions[i].id)
+                        request.user.profile.done_ege_tasks.remove(questions[i].id)
+
                     else:
                         questions[i].status = 'good'
-                        request.user.profile.done_ege_tasks.add(questions[i].id)
-                        request.user.profile.fail_ege_tasks.remove(questions[i].id)
                         questions[i].increase_passed()
                         questions[i].save()
+                        if request.user.is_anonymous():
+                            continue
+                        request.user.profile.done_ege_tasks.add(questions[i].id)
+                        request.user.profile.fail_ege_tasks.remove(questions[i].id)
                     questions[i].old_answer = request.POST[dataPost]
                     break
 
@@ -157,12 +162,19 @@ def ege_get_exercise(request, id_exercise):
         user_answer = request.POST.get('user_answer')
         if user_answer and user_answer.lower() != task.answer.lower():
             task.status = 'wrong'
-            request.user.profile.fail_ege_tasks.add(task.id)
-            request.user.profile.done_ege_tasks.remove(task.id)
+            task.increase_failed()
+            task.save()
+            if not request.user.is_anonymous():
+                request.user.profile.fail_ege_tasks.add(task.id)
+                request.user.profile.done_ege_tasks.remove(task.id)
+
         else:
             task.status = 'good'
-            request.user.profile.done_ege_tasks.add(task.id)
-            request.user.profile.fail_ege_tasks.remove(task.id)
+            task.increase_passed()
+            task.save()
+            if not request.user.is_anonymous():
+                request.user.profile.done_ege_tasks.add(task.id)
+                request.user.profile.fail_ege_tasks.remove(task.id)
         task.old_answer = user_answer
 
     context = {
