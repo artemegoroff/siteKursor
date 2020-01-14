@@ -24,11 +24,11 @@
         {% for oneTheme in allThemes %}
             {% if 'turtle' in request.path %}
                 <li>
-                    <a href="{% url 'videos:videos_turtle_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
+                    <a href="{% url 'videos:videos_turtle_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
                 </li>
             {% else %}
                 <li>
-                    <a href="{% url 'videos:videos_python_theme' oneTheme.number_theme %}">{{ forloop.counter }}. {{ oneTheme.theme }}</a>
+                    <a href="{% url 'videos:videos_python_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
                 </li>
             {% endif %}
         {% endfor %}
