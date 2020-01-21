@@ -13,8 +13,14 @@ urlpatterns = [
                   url(r'^python/$', views.videos_python_all, name='videos_python_all'),
 
                   url(r'^turtle/(?P<number>[0-9]+)$', views.videos_turtle_theme, name='videos_turtle_theme'),
-                  url(r'^turtle/(?P<slug>[\w-]+)$', views.videos_turtle_theme_by_slug, name='videos_turtle_theme_by_slug'),
+                  url(r'^turtle/(?P<slug>[\w-]+)$', views.videos_turtle_theme_by_slug,
+                      name='videos_turtle_theme_by_slug'),
                   url(r'^turtle/$', views.videos_turtle_all, name='videos_turtle_all'),
+
+                  url(r'^pygame/(?P<number>[0-9]+)$', views.videos_pygame_theme, name='videos_pygame_theme'),
+                  url(r'^pygame/(?P<slug>[\w-]+)$', views.videos_pygame_theme_by_slug,
+                      name='videos_pygame_theme_by_slug'),
+                  url(r'^pygame/$', views.videos_pygame_all, name='videos_pygame_all'),
                   url(r'^test/$', views.videos_test, name='videos_test'),
                   url(r'^$', views.videos_home, name='videos_home'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,6 +10,7 @@ def get_home_page(request):
     countOGERazbor = len(VideoRazborOGE.objects.all())
     countPythonVideos = len(Course.objects.filter(language=Course.PYTHON))
     countTURTLEVideos = len(Course.objects.filter(language=Course.TURTLEPython))
+    countPYGAMEVideos = len(Course.objects.filter(language=Course.PYGAMEPython))
     CountTaskEGE = len(NumberTaskEge.objects.all())
     CountTaskOge = len(NumberTaskOge.objects.all())
     context = {}
@@ -19,7 +20,7 @@ def get_home_page(request):
     context['CountTaskEGE'] = CountTaskEGE
     context['CountTaskOge'] = CountTaskOge
     context['countTURTLEVideos'] = countTURTLEVideos
-
+    context['countPYGAMEVideos'] = countPYGAMEVideos
     return render(request, 'home/home_page.html', context)
 
 
