@@ -1,0 +1,121 @@
+{% extends "baseBoot4.html" %}
+{% load staticfiles %}
+
+{% block seo_block %}
+    <title>Проект по подготовке к экзаменам по информатике и программированию egoroff_channel</title>
+    <meta name="description" content="Сайт содержит материалы по подготовке: к ЕГЭ по информатике;
+к ОГЭ по информатике; к экзаменам по программированию. Содержатся задания, тесты и видеоразборы
+по ЕГЭ Информатика, ОГЭ Информатика. Курсы по языку программирования Python.">
+    <meta name="keywords" content="egorov channel python,egoroff channel,Информатика,ЕГЭ информатика,Егэ по информатике,егэ информатика подготовка,огэ информатика,
+огэ по информатике,огэ по информатике подготовка,программирование python,python уроки">
+{% endblock %}
+
+{% block content %}
+
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Popular Courses Start ##### -->
+    <section class="popular-courses-area section-padding-50"
+             style="background-image: url('{% static "base_static/img/core-img/texture.png" %}');">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Поддержать проект</h3>
+                    </div>
+                    <div class="section-heading" style="line-height: 1.5">
+                        <h5>Если Вам понравился данный проект, Вы можете пожертвовать любую удобную для Вас сумму
+                        на его поддержку. Данные средства помогут мне с оплатой повседных расходов, высвободив тем
+                        самым больше времени для создания новых видео. <br><br>Ниже представлены варианты спонсорской помощи.</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                 <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/YouSp.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Стать спонсором на Youtube</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Поддержать</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Проект</a>
+                            </div>
+                            <p>Оформляю спонсорство на Youtube Вы не только помогаете развивать проект, но
+                            и получаете доступ к видео, где разбирается решение практических задач.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+
+                            </div>
+                            <div class="course-fee h-100">
+                                <a style="width: 160px" href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join" target="_blank" class="free">Стать спонсором</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                 <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/PatreonSp.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Подписка на Patreon</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Поддержать</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Проект</a>
+                            </div>
+                            <p>Становясь моим патроном, Вы получите доступ к эксклюзимным видео и фото с процесса
+                                съемок, и, главное, поспособствуете развитию этого проекта.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+
+                            </div>
+                            <div class="course-fee h-100">
+                                <a style="width: 160px" href="https://www.patreon.com/bePatron?u=29533394" class="free" target="_blank">Стать спонсором</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/JandekSp.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Яндекс Деньги</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Поддержать</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Проект</a>
+                            </div>
+                            <p>Вы можете помочь проекта, сделав единоразовый перевод удобной для Вас суммы.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+
+                            </div>
+                            <div class="course-fee h-100">
+                                <a style="width: 150px" href="https://money.yandex.ru/to/410017907063167" class="free" target="_blank">Перевести</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

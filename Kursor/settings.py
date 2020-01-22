@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'robots',
     'django_summernote',
     'accounts',
-    'services'
+    'services',
+    'sponsorship'
 ]
 
 MIDDLEWARE = [

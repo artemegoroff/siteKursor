@@ -29,6 +29,7 @@ handler500 = home_view.e_handler500
 urlpatterns = [
     url(r'^$', include('home.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'sponsorship/', include('sponsorship.urls')),
     url(r'accounts/', include('accounts.urls')),
     url(r'^ege/', include('ege.urls')),
     url(r'^oge/', include('oge.urls')),
@@ -38,8 +39,8 @@ urlpatterns = [
         name='django.contrib.sitemaps.views.sitemap'),
     url(r'^robots.txt$', include('robots.urls')),
     url(r'^summernote/', include('django_summernote.urls')),
-    url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}),
-    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve, {'document_root': settings.STATIC_ROOT}),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

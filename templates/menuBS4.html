@@ -62,6 +62,7 @@
                                 </li>
                                 <li><a href="{% url 'videos:videos_python_all' %}">Python</a></li>
                                 <li><a href="{% url 'services:services_home' %}">Услуги</a></li>
+                                <li><a href="{% url 'sponsorship:sponsorship_page' %}">Спонсорство</a></li>
                                 <!-- Register / Login -->
                                 {% if user.is_authenticated %}
                                         <li><a href="#">{{ request.user.username }}</a>
