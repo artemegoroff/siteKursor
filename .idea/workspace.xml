@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kursor/settings.py" afterPath="$PROJECT_DIR$/Kursor/settings.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kursor/sitemaps.py" afterPath="$PROJECT_DIR$/Kursor/sitemaps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Kursor/urls.py" afterPath="$PROJECT_DIR$/Kursor/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menuBS4.html" afterPath="$PROJECT_DIR$/templates/menuBS4.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html" afterPath="$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -67,8 +64,8 @@
       <file leaf-file-name="sponsorship_page.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="115" column="16" lean-forward="false" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+            <state relative-caret-position="88">
+              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
               <folding>
                 <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
@@ -846,13 +843,6 @@
       <workItem from="1569181467113" duration="852000" />
       <workItem from="1569265117902" duration="4185000" />
     </task>
-    <task id="LOCAL-00115" summary="11 january">
-      <created>1547494652432</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1547494652433</updated>
-    </task>
     <task id="LOCAL-00116" summary="20 january">
       <created>1548077041796</created>
       <option name="number" value="00116" />
@@ -1189,7 +1179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1579708010574</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="sponsorship">
+      <created>1579732031626</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1579732031626</updated>
+    </task>
+    <option name="localTasksCounter" value="165" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1235,7 +1232,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="28  january" />
     <MESSAGE value="29  january" />
     <MESSAGE value="20  february" />
     <MESSAGE value="3  february" />
@@ -1260,7 +1256,8 @@
     <MESSAGE value="убрал обязательную регистрации при решении" />
     <MESSAGE value="завозим Pygame и степик" />
     <MESSAGE value="adsense" />
-    <option name="LAST_COMMIT_MESSAGE" value="adsense" />
+    <MESSAGE value="sponsorship" />
+    <option name="LAST_COMMIT_MESSAGE" value="sponsorship" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1717,8 +1714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="115" column="16" lean-forward="false" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+        <state relative-caret-position="88">
+          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
           <folding>
             <element signature="n#style#0;n#section#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
