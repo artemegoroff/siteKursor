@@ -27,7 +27,7 @@ def videos_pygame_all(request):
 def videos_python_theme(request, number):
     Theme = get_object_or_404(Course, language=Course.PYTHON, number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYTHON)
-    nextThemes = Course.objects.filter(language=Course.PYTHON, number_theme__gt=number)[:8]
+    nextThemes = allThemes.filter(number_theme__gt=number)[:8]
     context = {}
     context["Theme"] = Theme
     context["video"] = Theme
@@ -39,7 +39,7 @@ def videos_python_theme(request, number):
 def videos_python_theme_by_slug(request, slug):
     Theme = get_object_or_404(Course, language=Course.PYTHON, slug=slug)
     allThemes = Course.objects.filter(language=Course.PYTHON)
-    nextThemes = Course.objects.filter(language=Course.PYTHON, number_theme__gt=Theme.number_theme)[:8]
+    nextThemes = allThemes.filter(language=Course.PYTHON, number_theme__gt=Theme.number_theme)[:8]
     context = {}
     context["Theme"] = Theme
     context["video"] = Theme
@@ -51,7 +51,7 @@ def videos_python_theme_by_slug(request, slug):
 def videos_turtle_theme(request, number):
     Theme = get_object_or_404(Course, language=Course.TURTLEPython, number_theme=number)
     allThemes = Course.objects.filter(language=Course.TURTLEPython)
-    nextThemes = Course.objects.filter(number_theme__gt=number)[:8]
+    nextThemes = allThemes.filter(number_theme__gt=number)[:8]
     context = {}
     context["Theme"] = Theme
     context["video"] = Theme
@@ -63,7 +63,7 @@ def videos_turtle_theme(request, number):
 def videos_turtle_theme_by_slug(request, slug):
     Theme = get_object_or_404(Course, language=Course.TURTLEPython, slug=slug)
     allThemes = Course.objects.filter(language=Course.TURTLEPython)
-    nextThemes = Course.objects.filter(number_theme__gt=Theme.number_theme)[:8]
+    nextThemes = allThemes.filter(number_theme__gt=Theme.number_theme)[:8]
     context = {}
     context["Theme"] = Theme
     context["video"] = Theme
@@ -75,7 +75,7 @@ def videos_turtle_theme_by_slug(request, slug):
 def videos_pygame_theme(request, number):
     Theme = get_object_or_404(Course, language=Course.PYGAMEPython, number_theme=number)
     allThemes = Course.objects.filter(language=Course.PYGAMEPython)
-    nextThemes = Course.objects.filter(number_theme__gt=number)[:8]
+    nextThemes = allThemes.filter(number_theme__gt=number)[:8]
     context = {}
     context["Theme"] = Theme
     context["video"] = Theme
