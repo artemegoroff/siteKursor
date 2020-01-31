@@ -151,6 +151,14 @@
                                                aria-controls="tab2" aria-selected="true">Практика</a>
                                         </li>
                                     {% endif %}
+
+                                    {% if Theme.stepic %}
+                                        <li class="nav-item">
+                                            <a class="nav-link" style="background-color: #717171;
+                                            color:whitesmoke;"
+                                               href="{{ Theme.stepic }}" target="_blank">Stepic.org</a>
+                                        </li>
+                                    {% endif %}
                                 </ul>
 
                                 <div class="tab-content" id="myTabContent">
