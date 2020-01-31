@@ -66,6 +66,7 @@ class Course(models.Model):
     number_theme = models.IntegerField(verbose_name="Номер темы", null=True)
     article = models.TextField("Описание темы", blank=True, null=True)
     url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
+    stepic = models.CharField("Stepic", max_length=100, blank=True, null=True)
     seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
     tasks = models.ManyToManyField(ProgrammTask, verbose_name='Задачи', blank=True)
 
