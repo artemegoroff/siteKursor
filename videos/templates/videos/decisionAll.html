@@ -20,7 +20,7 @@
     <!-- ##### Catagory ##### -->
     <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
          style="background-image: url({% static 'base_static/img/bg-img/bg2.jpg' %});">
-        <h2>Python</h2>
+        <h2>Разборы решения задач</h2>
     </div>
 
 
@@ -34,10 +34,10 @@
                     <!-- Single Popular Course -->
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="single-popular-course mb-70 wow fadeInUp" data-wow-delay="250ms">
-                            <img src="http://i3.ytimg.com/vi/{{ Theme.url_video }}/maxresdefault.jpg" alt="">
+                            <img src="http://i3.ytimg.com/vi/{{ Theme.decision }}/maxresdefault.jpg" alt="">
                             <!-- Course Content -->
                             <div class="course-content">
-                                <h6>{{ Theme.number_theme }}. {{ Theme.theme }}</h6>
+                                <h6>Разбор задачи "{{ Theme.name }}"</h6>
                             </div>
                             <!-- Seat Rating Fee -->
                             <div class="seat-rating-fee d-flex justify-content-between">
@@ -45,23 +45,10 @@
 
                                 </div>
                                 <div class="course-fee h-100">
-                                    {% if 'turtle' in request.path %}
-                                        <a href="{% url 'videos:videos_turtle_theme_by_slug' Theme.slug %}"
-                                           class="free">
-                                            Перейти
-                                        </a>
-                                    {% elif 'pygame' in request.path %}
-                                        <a href="{% url 'videos:videos_pygame_theme_by_slug' Theme.slug %}"
-                                           class="free">
-                                            Перейти
-                                        </a>
-                                    {% else %}
-                                        <a href="{% url 'videos:videos_python_theme_by_slug' Theme.slug %}"
-                                           class="free">
-                                            Перейти
-                                        </a>
-                                    {% endif %}
-
+                                    <a href="{% url 'videos:videos_decision_one' Theme.decision %}"
+                                       class="free">
+                                        Перейти
+                                    </a>
                                 </div>
                             </div>
                         </div>

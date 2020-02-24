@@ -1,0 +1,164 @@
+{% extends "baseBoot4.html" %}
+{% load staticfiles %}
+
+{% block seo_block %}
+    <title>{{ Theme.seo_title }}</title>
+    <meta name="description" content="{{ Theme.seo_title }}">
+    <meta name="keywords" content="{{ Theme.seo_keywords }}">
+{% endblock %}
+
+
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'base_static/css/videoRazbor.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+    <script src="{% static 'base_static/js/prism.js' %}"></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        {% for oneTheme in allThemes %}
+            {% if 'turtle' in request.path %}
+                <li>
+                    <a href="{% url 'videos:videos_turtle_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'videos:videos_python_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </div>
+
+
+    <i id="contents" class="fa fa-bars" onclick="openNav()" aria-hidden="true">
+    </i>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+                    <div class="row">
+
+                        <h2 class="text-center"> Разбор задачи "{{ Decision.name }}"</h2>
+
+                        <div class="videoContainer">
+                            <!-- THE YOUTUBE PLAYER -->
+                            {#                    <div class="vid-container">#}
+                            <div class="embed-responsive embed-responsive-16by9">
+                                <iframe id="vid_frame" class="embed-responsive-item"
+                                        src="https://youtube.com/embed/{{ video.decision }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                        frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                            </div>
+
+                            <!-- THE PLAYLIST -->
+                            <!-- Идея взята -->
+                            <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
+                            <h3 class="text-center"
+                                style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Следующие
+                                видео</h3>
+                            <div class="vid-list-container">
+                                <div class="vid-list">
+
+                                    <div class="vid-item"
+                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.decision }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                        <div class="thumb"><img
+                                                src="http://i4.ytimg.com/vi/{{ video.decision }}/default.jpg">
+                                        </div>
+                                        <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
+                                    </div>
+                                    {% if nextThemes %}
+                                        {% for elem in nextThemes %}
+                                            <div class="vid-item"
+                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.decision }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
+                                                <div class="thumb"><img
+                                                        src="http://img.youtube.com/vi/{{ elem.decision }}/0.jpg">
+                                                </div>
+                                                <div class="desc">Разбор задачи {{ elem.name }}</div>
+                                            </div>
+                                        {% endfor %}
+
+
+                                    {% endif %}
+
+                                </div>
+                            </div>
+
+                            <!-- LEFT AND RIGHT ARROWS -->
+                            <div class="arrows">
+                                <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
+                                <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
+                            </div>
+
+                        </div>
+
+
+                        <script src="https://apis.google.com/js/platform.js"></script>
+
+                        <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
+                             data-count="hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <div class="container">
+        <hr>
+        <h3 class="text-center">Комментарии</h3>
+        <div id="disqus_thread"></div>
+        <script>
+
+            var disqus_config = function () {
+                {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
+                this.page.identifier = 'decision{{ Decision.id }}';
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+                var d = document, s = d.createElement('script');
+                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+    </div>
+
+{% endblock %}
+
+{% block extraJS %}
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".arrow-right").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "+=336"
+                }, 750);
+            });
+            $(".arrow-left").bind("click", function (event) {
+                event.preventDefault();
+                $(".vid-list-container").stop().animate({
+                    scrollLeft: "-=336"
+                }, 750);
+            });
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "300px";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
+{% endblock %}

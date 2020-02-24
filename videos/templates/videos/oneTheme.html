@@ -192,16 +192,28 @@
                                                         {% for oneTheme in Theme.tasks.all %}
                                                             {% if oneTheme.url_ref %}
                                                                 <div class="panel single-accordion">
-                                                                    <h6>
+                                                                    {% if oneTheme.decision %}
+                                                                        <div class="d-flex justify-content-between">
+                                                                    {% endif %}
+                                                                    <h6 class="flex-fill">
                                                                         <a target="_blank"
                                                                            href="{{ oneTheme.url_ref }}">{{ forloop.counter }}. {{ oneTheme.name }} </a>
                                                                     </h6>
+                                                                    {% if oneTheme.decision %}
+                                                                         <div class="p-1 bg-primary">
+                                                                         <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}" class="btn btn-primary" role="button">Разбор</a>
 
+                                                                         </div>
+                                                                        </div>
+                                                                    {% endif %}
                                                                 </div>
                                                             {% else %}
                                                                 <!-- Single Accordian Area -->
                                                                 <div class="panel single-accordion">
-                                                                    <h6>
+                                                                    {% if oneTheme.decision %}
+                                                                        <div class="d-flex justify-content-between">
+                                                                    {% endif %}
+                                                                    <h6 class="flex-fill">
                                                                         <a role="button" class="collapsed"
                                                                            aria-expanded="true"
                                                                            aria-controls="collapse{{ forloop.counter }}"
@@ -216,6 +228,12 @@
                                                                                     aria-hidden="true"></i></span>
                                                                         </a>
                                                                     </h6>
+                                                                    {% if oneTheme.decision %}
+                                                                         <div class="p-1 bg-primary">
+                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}" class="btn btn-primary" role="button">Разбор</a>
+                                                                         </div>
+                                                                        </div>
+                                                                    {% endif %}
                                                                     <div id="collapse{{ forloop.counter }}"
                                                                          class="accordion-content collapse">
                                                                         <h3 class="text-center">Условие

@@ -34,6 +34,7 @@ class InputOutputData(models.Model):
 class ProgrammTask(models.Model):
     name = models.CharField(verbose_name="Название", max_length=50)
     url_ref = models.URLField('Ссылка', blank=True)
+    decision = models.CharField("Url-видеорешение", max_length=50, blank=True, null=True)
     condition = models.TextField(verbose_name="Условие задачи", blank=True)
     difficult = models.IntegerField(verbose_name='Сложность')
     examples = models.ManyToManyField(InputOutputData, blank=True, verbose_name='Примеры')

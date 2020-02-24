@@ -7,6 +7,8 @@ from django.conf.urls.static import static
 app_name = 'videos'
 
 urlpatterns = [
+                  url(r'^decision/$', views.videos_decision_all, name='decision_all'),
+                  url(r'^decision/(?P<ref_decision>[\w-]+)$', views.videos_decision_one, name='videos_decision_one'),
                   url(r'^python/(?P<number>[0-9]+)$', views.videos_python_theme, name='videos_python_theme'),
                   url(r'^python/(?P<slug>[\w-]+)$', views.videos_python_theme_by_slug,
                       name='videos_python_theme_by_slug'),
