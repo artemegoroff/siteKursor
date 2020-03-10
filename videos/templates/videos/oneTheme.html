@@ -26,6 +26,10 @@
                 <li>
                     <a href="{% url 'videos:videos_turtle_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
                 </li>
+            {% elif 'pygame' in request.path %}
+                <li>
+                    <a href="{% url 'videos:videos_pygame_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+                </li>
             {% else %}
                 <li>
                     <a href="{% url 'videos:videos_python_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
