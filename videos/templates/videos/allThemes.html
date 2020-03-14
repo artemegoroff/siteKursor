@@ -55,6 +55,11 @@
                                            class="free">
                                             Перейти
                                         </a>
+                                    {% elif 'oop-python' in request.path %}
+                                        <a href="{% url 'videos:videos_oop_python_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
                                     {% else %}
                                         <a href="{% url 'videos:videos_python_theme_by_slug' Theme.slug %}"
                                            class="free">

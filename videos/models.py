@@ -54,12 +54,14 @@ class Course(models.Model):
     CPLUSPLUS = 'CPP'
     TURTLEPython = 'TUR'
     PYGAMEPython = 'PGA'
+    OOP = 'OOP'
     LANG_CHOICES = (
         (PYTHON, 'Python'),
         (PASCAL, 'Pascal'),
         (CPLUSPLUS, 'C++'),
         (TURTLEPython, 'Turtle'),
         (PYGAMEPython, 'Pygame'),
+        (OOP, 'OOP Python'),
     )
     language = models.CharField(verbose_name="Язык", max_length=3, choices=LANG_CHOICES, default=PYTHON)
     slug = models.SlugField(null=True, unique=True)

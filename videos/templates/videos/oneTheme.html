@@ -30,6 +30,11 @@
                 <li>
                     <a href="{% url 'videos:videos_pygame_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
                 </li>
+            {% elif 'oop-python' in request.path %}
+                <a href="{% url 'videos:videos_oop_python_theme_by_slug' Theme.slug %}"
+                   class="free">
+                    Перейти
+                </a>
             {% else %}
                 <li>
                     <a href="{% url 'videos:videos_python_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
@@ -204,10 +209,11 @@
                                                                            href="{{ oneTheme.url_ref }}">{{ forloop.counter }}. {{ oneTheme.name }} </a>
                                                                     </h6>
                                                                     {% if oneTheme.decision %}
-                                                                         <div class="p-1 bg-primary">
-                                                                         <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}" class="btn btn-primary" role="button">Разбор</a>
+                                                                        <div class="p-1 bg-primary">
+                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                                                               class="btn btn-primary" role="button">Разбор</a>
 
-                                                                         </div>
+                                                                        </div>
                                                                         </div>
                                                                     {% endif %}
                                                                 </div>
@@ -233,9 +239,10 @@
                                                                         </a>
                                                                     </h6>
                                                                     {% if oneTheme.decision %}
-                                                                         <div class="p-1 bg-primary">
-                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}" class="btn btn-primary" role="button">Разбор</a>
-                                                                         </div>
+                                                                        <div class="p-1 bg-primary">
+                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                                                               class="btn btn-primary" role="button">Разбор</a>
+                                                                        </div>
                                                                         </div>
                                                                     {% endif %}
                                                                     <div id="collapse{{ forloop.counter }}"
@@ -348,7 +355,7 @@
     {% endif %}
 
 
-     <div class="container">
+    <div class="container">
         <hr>
         <h3 class="text-center">Комментарии</h3>
         <div id="disqus_thread"></div>
