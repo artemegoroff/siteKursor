@@ -35,6 +35,7 @@ class ProgrammTask(models.Model):
     name = models.CharField(verbose_name="Название", max_length=50)
     url_ref = models.URLField('Ссылка', blank=True)
     decision = models.CharField("Url-видеорешение", max_length=50, blank=True, null=True)
+    patreon = models.URLField('Patreon', blank=True, default='')
     condition = models.TextField(verbose_name="Условие задачи", blank=True)
     difficult = models.IntegerField(verbose_name='Сложность')
     examples = models.ManyToManyField(InputOutputData, blank=True, verbose_name='Примеры')
@@ -71,6 +72,8 @@ class Course(models.Model):
     url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
     stepic = models.CharField("Stepic", max_length=100, blank=True, null=True)
     seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
+    is_closed_video = models.BooleanField(verbose_name="Для спонсоров", default=False)
+    patreon = models.URLField('Patreon', blank=True, default='')
     tasks = models.ManyToManyField(ProgrammTask, verbose_name='Задачи', blank=True)
 
     def save(self, *args, **kwargs):

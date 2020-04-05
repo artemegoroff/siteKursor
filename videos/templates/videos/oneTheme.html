@@ -136,6 +136,34 @@
         </div>
     </section>
 
+    {% if Theme.is_closed_video %}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+                        <div class="row">
+                            <div class="videoContainer">
+                                <h4>Видео доступно только для спонсоров проекта</h4>
+                                <h5>Оформить спонсорскую подписку можно на
+                                    <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
+                                       class="btn btn-danger" role="button">Youtube</a>
+                                    или <a href="https://www.patreon.com/artem_egorov"
+                                           class="btn btn-danger" role="button">Patreon</a></h5>
+                                {% if Theme.patreon %}
+                                    <h5>Посмотреть <a href="{{ Theme.patreon }}"
+                                                      class="btn btn-dark" role="button">данное видео на patreon</a>
+
+                                    </h5>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+
     {% if Theme.article or Theme.tasks.all %}
         <div class="single-course-content section-padding-50">
             <div class="container">
@@ -208,8 +236,14 @@
                                                                         <a target="_blank"
                                                                            href="{{ oneTheme.url_ref }}">{{ forloop.counter }}. {{ oneTheme.name }} </a>
                                                                     </h6>
+
                                                                     {% if oneTheme.decision %}
-                                                                        <div class="p-1 bg-primary">
+
+                                                                        <div class="p-1 bg-light">
+                                                                            {% if oneTheme.patreon %}
+                                                                                <a href="{{ oneTheme.patreon }}"
+                                                                                   class="btn btn-danger" role="button">Patreon</a>
+                                                                            {% endif %}
                                                                             <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
                                                                                class="btn btn-primary" role="button">Разбор</a>
 
@@ -238,8 +272,16 @@
                                                                                     aria-hidden="true"></i></span>
                                                                         </a>
                                                                     </h6>
+
+
+
+
                                                                     {% if oneTheme.decision %}
-                                                                        <div class="p-1 bg-primary">
+                                                                        <div class="p-1 bg-light">
+                                                                            {% if oneTheme.patreon %}
+                                                                                <a href="{{ oneTheme.patreon }}"
+                                                                                   class="btn btn-danger" role="button">Patreon</a>
+                                                                            {% endif %}
                                                                             <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
                                                                                class="btn btn-primary" role="button">Разбор</a>
                                                                         </div>
