@@ -54,6 +54,7 @@
                         <div class="classynav">
                             <ul>
                                 <li><a href="{% url 'home:main_page' %}">Главная</a></li>
+                                <li><a href="{% url 'sponsorship:sponsorship_page' %}">Подписка</a></li>
                                 <li><a href="#">Экзамены</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
@@ -71,7 +72,7 @@
                                 </li>
 
                                 <li><a href="{% url 'services:services_home' %}">Услуги</a></li>
-                                <li><a href="{% url 'sponsorship:sponsorship_page' %}">Спонсорство</a></li>
+
                                 <!-- Register / Login -->
                                 {% if user.is_authenticated %}
                                         <li><a href="#">{{ request.user.username }}</a>

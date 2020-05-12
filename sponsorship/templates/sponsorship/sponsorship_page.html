@@ -2,10 +2,9 @@
 {% load staticfiles %}
 
 {% block seo_block %}
-    <title>Поддержать проект egoroff_channel</title>
-    <meta name="description" content="Сайт содержит материалы по подготовке: к ЕГЭ по информатике;
-к ОГЭ по информатике; к экзаменам по программированию. Содержатся задания, тесты и видеоразборы
-по ЕГЭ Информатика, ОГЭ Информатика. Курсы по языку программирования Python.">
+    <title>Подписка на образовательный проект egoroff_channel</title>
+    <meta name="description" content="Оформление подписки на проект egoroff_channel. Подписка дает доступ к
+дополнительным эксклюзивным видео на канале и также оперативные ответы на ваши вопросы в комментариях">
     <meta name="keywords" content="egorov channel python,egoroff channel,Информатика,ЕГЭ информатика,Егэ по информатике,егэ информатика подготовка,огэ информатика,
 огэ по информатике,огэ по информатике подготовка,программирование python,python уроки">
 {% endblock %}
@@ -15,53 +14,77 @@
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Popular Courses Start ##### -->
-    <section class="popular-courses-area section-padding-50"
+    <section class="popular-courses-area section-padding-50-0"
              style="background-image: url('{% static "base_static/img/core-img/texture.png" %}');">
         <div class="container">
-            <div class="row">
+            <div class="row h-100">
                 <div class="col-12">
-                    <div class="section-heading">
+                    <div class="section-heading ">
                         <h3>Поддержать проект</h3>
                     </div>
-                    <div class="section-heading" style="line-height: 1.5">
-                        <h5>Если Вам понравился данный проект, Вы можете пожертвовать любую удобную для Вас сумму
-                        на его поддержку. Данные средства помогут мне с оплатой повседных расходов, высвободив тем
-                        самым больше времени для создания новых видео. <br><br>Ниже представлены варианты спонсорской помощи.</h5>
+                    <div class="section-heading" style="line-height: 1.5;">
+                        <p class="text-justify" style=" font-size: 18px">Если мой проект полезен для вас, вы можете оформить подписку на Patreon
+                            или Youtube.
+                        </p>
+
+                        <p class="text-justify" style=" font-size: 18px">Вы получите доступ к закрытым видео и разборам задач, быстрые ответы на
+                            вопросы в
+                            комментариях и возможность лично пообщаться со мной. </p>
+
+                        <p class="text-justify" style=" font-size: 18px">Чтобы оформить подписку, вам необходимо выбрать один из вариантов,
+                            представленных ниже:</p>
+
                     </div>
                 </div>
             </div>
 
             <div class="row">
 
-                 <!-- Single Popular Course -->
+                <!-- Single Popular Course -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
                         <img src="{% static 'base_static/img/bg-img/YouSp.jpg' %}" alt="">
                         <!-- Course Content -->
                         <div class="course-content">
-                            <h4>Стать спонсором на Youtube</h4>
+                            <h4>Подписка на Youtube</h4>
                             <div class="meta d-flex align-items-center">
-                                <a href="#">Поддержать</a>
+                                <a href="#">Стоимость</a>
                                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Проект</a>
+                                <a href="#">149р/месяц</a>
                             </div>
-                            <p>Оформляю спонсорство на Youtube Вы не только помогаете развивать проект, но
-                            и получаете доступ к видео, где разбирается решение практических задач.</p>
+                            <p class="meta">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Доступ к закрытым видео по
+                                Python
+                                <br>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Доступ к видеоразборам
+                                задач
+                                <br>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Оперативные ответы на ваши
+                                комментарии на канале
+                                <br>
+                            </p>
                         </div>
                         <!-- Seat Rating Fee -->
                         <div class="seat-rating-fee d-flex justify-content-between">
                             <div class="seat-rating h-100 d-flex align-items-center">
-
+                                <div class="tasks">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i> 27
+                                </div>
+                                <div class="videos">
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> 43
+                                </div>
                             </div>
                             <div class="course-fee h-100">
-                                <a style="width: 160px" href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join" target="_blank" class="free">Стать спонсором</a>
+                                <a style="width: 160px"
+                                   href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join" target="_blank"
+                                   class="free">Стать спонсором</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                 <!-- Single Popular Course -->
+                <!-- Single Popular Course -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
                         <img src="{% static 'base_static/img/bg-img/PatreonSp.jpg' %}" alt="">
@@ -69,26 +92,41 @@
                         <div class="course-content">
                             <h4>Подписка на Patreon</h4>
                             <div class="meta d-flex align-items-center">
-                                <a href="#">Поддержать</a>
+                                <a href="#">Стоимость</a>
                                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Проект</a>
+                                <a href="#">4$/месяц</a>
                             </div>
-                            <p>Становясь моим патроном, Вы получите доступ к эксклюзимным видео и фото с процесса
-                                съемок, и, главное, поспособствуете развитию этого проекта.</p>
+                            <p class="meta">
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Доступ к закрытым видео по
+                                Python
+                                <br>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Доступ к видеоразборам
+                                задач
+                                <br>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span> Оперативные ответы на ваши
+                                комментарии на канале
+                                <br>
+                            </p>
                         </div>
                         <!-- Seat Rating Fee -->
                         <div class="seat-rating-fee d-flex justify-content-between">
                             <div class="seat-rating h-100 d-flex align-items-center">
-
+                                <div class="tasks">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i> 27
+                                </div>
+                                <div class="videos">
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> 43
+                                </div>
                             </div>
                             <div class="course-fee h-100">
-                                <a style="width: 160px" href="https://www.patreon.com/bePatron?u=29533394" class="free" target="_blank">Стать спонсором</a>
+                                <a style="width: 160px" href="https://www.patreon.com/bePatron?u=29533394" class="free"
+                                   target="_blank">Стать спонсором</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                 <!-- Single Popular Course -->
+                <!-- Single Popular Course -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
                         <img src="{% static 'base_static/img/bg-img/JandekSp.jpg' %}" alt="">
@@ -100,7 +138,7 @@
                                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
                                 <a href="#">Проект</a>
                             </div>
-                            <p>Вы можете помочь проекта, сделав единоразовый перевод удобной для Вас суммы.</p>
+                            <p>Вы можете помочь проекту, сделав единоразовый перевод удобной для Вас суммы.</p>
                         </div>
                         <!-- Seat Rating Fee -->
                         <div class="seat-rating-fee d-flex justify-content-between">
@@ -108,12 +146,23 @@
 
                             </div>
                             <div class="course-fee h-100">
-                                <a style="width: 150px" href="https://money.yandex.ru/to/410017907063167" class="free" target="_blank">Перевести</a>
+                                <a style="width: 150px" href="https://money.yandex.ru/to/410017907063167" class="free"
+                                   target="_blank">Перевести</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
+            </div>
+
+            <div class="row h-100">
+                <div class="section-heading" style="line-height: 1.5">
+                    <p class="text-justify" style=" font-size: 18px"><b>Спонсорство на Youtube</b>. Если вы находитесь не в РФ, кнопка подписки может
+                        быть не доступна.
+                        В этом случае вам нужно оформить подписку на Patreon.</p>
+                      <p class="text-justify" style=" font-size: 18px">  <b>Подписка на Patreon</b> (доступно для всех стран мира). Деньги списываются в момент оплаты
+                        подписки и далее каждое 1-е число.</p>
+                </div>
             </div>
         </div>
     </section>
