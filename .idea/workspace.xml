@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="С мариной заташили спонсорство">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menuBS4.html" afterPath="$PROJECT_DIR$/templates/menuBS4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
     </list>
     <list id="a2dfb706-b5c0-4807-976a-a65a43e1b9c2" name="Revert: добавил новые шаблоны" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,8 +75,8 @@
       <file leaf-file-name="menuBS4.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+            <state relative-caret-position="374">
+              <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -931,13 +929,6 @@
       <workItem from="1569265117902" duration="4185000" />
       <workItem from="1584190718712" duration="2455000" />
     </task>
-    <task id="LOCAL-00124" summary="27  january">
-      <created>1548889191207</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1548889191207</updated>
-    </task>
     <task id="LOCAL-00125" summary="28  january">
       <created>1548926386405</created>
       <option name="number" value="00125" />
@@ -1274,7 +1265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589315109246</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="поправил меню">
+      <created>1589491048063</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1589491048064</updated>
+    </task>
+    <option name="localTasksCounter" value="174" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1338,7 +1336,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="добавил кнопки регистрации в меню" />
     <MESSAGE value="добавил шаблоны для входа и регистрации" />
     <MESSAGE value="регистрация пользователей и сообщения о входе/выходе/регистрации" />
     <MESSAGE value="добавил страницу для одного задания" />
@@ -1363,7 +1360,8 @@
     <MESSAGE value="фиксики" />
     <MESSAGE value="завез патреон" />
     <MESSAGE value="С мариной заташили спонсорство" />
-    <option name="LAST_COMMIT_MESSAGE" value="С мариной заташили спонсорство" />
+    <MESSAGE value="поправил меню" />
+    <option name="LAST_COMMIT_MESSAGE" value="поправил меню" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1825,8 +1823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="66" column="0" lean-forward="true" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="61" column="30" lean-forward="false" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
           <folding />
         </state>
       </provider>

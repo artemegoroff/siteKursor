@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {% for oneTheme in allThemes %}
+        {% if 'turtle' in request.path %}
+            <li>
+                <a href="{% url 'videos:videos_turtle_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+            </li>
+        {% elif 'pygame' in request.path %}
+            <li>
+                <a href="{% url 'videos:videos_pygame_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+            </li>
+        {% elif 'oop-python' in request.path %}
+            <a href="{% url 'videos:videos_oop_python_theme_by_slug' oneTheme.slug %}">
+                {{ oneTheme.number_theme }}. {{ oneTheme.theme }}
+            </a>
+        {% else %}
+            <li>
+                <a href="{% url 'videos:videos_python_theme_by_slug' oneTheme.slug %}">{{ oneTheme.number_theme }}. {{ oneTheme.theme }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+    <li><a href=""></a></li>
+</div>
+
+
+<i id="contents" class="fa fa-bars" onclick="openNav()" aria-hidden="true">
+</i>
