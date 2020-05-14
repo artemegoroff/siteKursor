@@ -55,19 +55,20 @@
                             <ul>
                                 <li><a href="{% url 'home:main_page' %}">Главная</a></li>
                                 <li><a href="{% url 'sponsorship:sponsorship_page' %}">Подписка</a></li>
-                                <li><a href="#">Экзамены</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
-                                        <li><a href="{% url 'oge:base_oge' %}">ОГЭ Информатика</a></li>
-                                    </ul>
-                                </li>
 
                                 <li><a href="#">Python</a>
                                     <ul class="dropdown">
                                         <li><a href="{% url 'videos:videos_python_all' %}">Основы Python</a></li>
-                                        <li><a href="{% url 'videos:videos_oop_python_all' %}">ООП Python</a></li>
+                                        <li><a href="{% url 'videos:videos_oop_python_all' %}">ООП в Python</a></li>
                                         <li><a href="{% url 'videos:videos_pygame_all' %}">Модуль pygame</a></li>
                                         <li><a href="{% url 'videos:videos_turtle_all' %}">Модуль turtle</a></li>
+                                    </ul>
+                                </li>
+
+                                <li><a href="#">Экзамены</a>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
+                                        <li><a href="{% url 'oge:base_oge' %}">ОГЭ Информатика</a></li>
                                     </ul>
                                 </li>
 
