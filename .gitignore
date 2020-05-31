@@ -1,7 +1,15 @@
-*.pyc
-*~
-__pycache__
 myvenv
-db.sqlite3
 /static
 .DS_Store
+media
+*.log
+*.pot
+*.py[cod]
+*$py.class
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# User-specific stuff
+.idea/workspace.xml
+
