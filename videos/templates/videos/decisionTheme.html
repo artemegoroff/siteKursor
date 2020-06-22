@@ -111,7 +111,35 @@
         </div>
     </section>
 
-     <div class="container">
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+                    <div class="row">
+                        <div class="videoContainer">
+                            <h4>Видео доступно только для спонсоров проекта</h4>
+                            <h5>Оформить спонсорскую подписку можно на
+                                <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
+                                   class="btn btn-danger" role="button">Youtube</a>
+                                или <a href="https://www.patreon.com/artem_egorov"
+                                       class="btn btn-danger" role="button">Patreon</a></h5>
+                            {% if Decision.patreon %}
+                                <h5>Посмотреть <a href="{{ Decision.patreon }}"
+                                                  class="btn btn-dark" role="button">данное видео на patreon</a>
+
+                                </h5>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="container">
         <hr>
         <h3 class="text-center">Комментарии</h3>
         <div id="disqus_thread"></div>

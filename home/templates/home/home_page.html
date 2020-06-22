@@ -71,6 +71,37 @@
                 </div>
 
 
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>ООП на Python</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Видеоуроки</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Практические задания</a>
+                            </div>
+                            <p>Уже знаешь основы программирования и хочешь пойти дальше? Самое время изучить
+                            объектно-ориентированное программирование!
+                            Специально для вас я снял это подробный курс по ООП в python</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+
+                                <div class="videos">
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOOPVideos }}
+                                </div>
+                            </div>
+                            <div class="course-fee h-100">
+                                <a href="{% url 'videos:videos_oop_python_all' %}" class="free">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
                  <!-- Single Popular Course -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
@@ -128,6 +159,39 @@
                             </div>
                             <div class="course-fee h-100">
                                 <a href="{% url 'videos:videos_pygame_all' %}" class="free">Подробнее</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                            <!-- Single Popular Course -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
+                        <img src="{% static 'base_static/img/bg-img/c5.jpg' %}" alt="">
+                        <!-- Course Content -->
+                        <div class="course-content">
+                            <h4>Курс "ООП на языке Python" на Stepic</h4>
+                            <div class="meta d-flex align-items-center">
+                                <a href="#">Видеоуроки</a>
+                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
+                                <a href="#">Практические задания</a>
+                            </div>
+                            <p> Курс по объектно-ориентированному программированию в сочетании с практическими заданиями - вот
+                            что вы найдете, записавшись на этот курс.</p>
+                        </div>
+                        <!-- Seat Rating Fee -->
+                        <div class="seat-rating-fee d-flex justify-content-between">
+                            <div class="seat-rating h-100 d-flex align-items-center">
+                                <div class="tasks">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i> 54
+                                </div>
+                                <div class="videos">
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOOPVideos }}
+                                </div>
+                            </div>
+                            <div class="course-fee h-100">
+                                <a href="https://stepik.org/course/72969/promo" class="free" target="_blank">Подробнее</a>
                             </div>
                         </div>
                     </div>
