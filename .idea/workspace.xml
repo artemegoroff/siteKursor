@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="раздел решения задач">
+    <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/templates/home/home_page.html" afterPath="$PROJECT_DIR$/home/templates/home/home_page.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/home/views.py" afterPath="$PROJECT_DIR$/home/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
     </list>
     <list id="a2dfb706-b5c0-4807-976a-a65a43e1b9c2" name="Revert: добавил новые шаблоны" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,18 +44,28 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+            <state relative-caret-position="1100">
+              <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="decisionTheme.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="decisionTheme.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/decisionTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
+            <state relative-caret-position="2618">
+              <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="service_home.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/templates/service/service_home.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="902">
+              <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -67,42 +75,39 @@
         <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="308">
-              <caret line="193" column="78" lean-forward="false" selection-start-line="193" selection-start-column="78" selection-end-line="193" selection-end-column="78" />
+              <caret line="193" column="41" lean-forward="true" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="78" />
               <folding />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="c5.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/c5.jpg">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
+            <state relative-caret-position="770">
               <caret line="37" column="11" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="127" column="18" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="127" selection-end-column="18" />
+            <state relative-caret-position="299">
+              <caret line="156" column="57" lean-forward="true" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
               <folding>
                 <element signature="n#if#0;n#!!top" expanded="false" />
-                <element signature="e#5079#6376#0#HTML" expanded="false" />
-                <element signature="n#if#4;n#!!top" expanded="false" />
+                <element signature="e#9712#19966#0#HTML" expanded="false" />
+                <element signature="e#20798#20825#0#HTML" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menuBS4.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1408">
-              <caret line="64" column="80" lean-forward="false" selection-start-line="64" selection-start-column="80" selection-end-line="64" selection-end-column="80" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -120,8 +125,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="83">
-              <caret line="10" column="81" lean-forward="true" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
+            <state relative-caret-position="132">
+              <caret line="10" column="81" lean-forward="false" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
               <folding />
             </state>
           </provider>
@@ -141,8 +146,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myModalBox</find>
-      <find>wrong</find>
       <find>show</find>
       <find>comm</find>
       <find>войти</find>
@@ -171,6 +174,8 @@
       <find>иде</find>
       <find>идел</find>
       <find>section-padding-100</find>
+      <find>80</find>
+      <find>ste</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -239,7 +244,6 @@
         <option value="$PROJECT_DIR$/videos/templates/videos/decisionAll.html" />
         <option value="$PROJECT_DIR$/static/base_static/css/sidebarMenu.less" />
         <option value="$PROJECT_DIR$/base_static/css/sidebarMenu.less" />
-        <option value="$PROJECT_DIR$/services/templates/service/service_home.html" />
         <option value="$PROJECT_DIR$/videos/urls.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
         <option value="$PROJECT_DIR$/videos/utils.py" />
@@ -251,12 +255,13 @@
         <option value="$PROJECT_DIR$/base_static/css/base_temp.less" />
         <option value="$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/hamburger_menu.html" />
-        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/templates/menuBS4.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
+        <option value="$PROJECT_DIR$/services/templates/service/service_home.html" />
+        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
       </list>
     </option>
   </component>
@@ -290,8 +295,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -364,6 +367,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siteKursorBest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siteKursorBest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="home" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -422,8 +439,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siteKursorBest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="siteKursorBest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base_static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bg-img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -448,19 +489,19 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Python36\Django projects\siteKursorBest\base_static\img\bg-img" />
-      <recent name="C:\Python36\Django projects\siteKursorBest" />
-      <recent name="C:\Python36\Django projects\New Design Kursor" />
-      <recent name="C:\Python36\Django projects\New Design Kursor\base_static\img\bg-img" />
-      <recent name="C:\Python36\Django projects\New Design Kursor\sponsorship" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python36\Django projects\New Design Kursor\templates\partitions" />
       <recent name="C:\Python36\Django projects\New Design Kursor\ege" />
       <recent name="C:\Python36\Django projects\New Design Kursor\templates\registration" />
       <recent name="C:\Python36\Django projects\New Design Kursor\base_static\Bs4 all\css\css" />
       <recent name="C:\Python36\Django projects\New Design Kursor\base_static\Bs4 all\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Python36\Django projects\siteKursorBest\base_static\img\bg-img" />
+      <recent name="C:\Python36\Django projects\siteKursorBest" />
+      <recent name="C:\Python36\Django projects\New Design Kursor" />
+      <recent name="C:\Python36\Django projects\New Design Kursor\base_static\img\bg-img" />
+      <recent name="C:\Python36\Django projects\New Design Kursor\sponsorship" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -842,27 +883,6 @@
       <workItem from="1569265117902" duration="4185000" />
       <workItem from="1584190718712" duration="2455000" />
     </task>
-    <task id="LOCAL-00128" summary="3  february">
-      <created>1549646469060</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1549646469061</updated>
-    </task>
-    <task id="LOCAL-00129" summary="3  february">
-      <created>1549972207016</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1549972207016</updated>
-    </task>
-    <task id="LOCAL-00130" summary="10  february">
-      <created>1550269852796</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1550269852796</updated>
-    </task>
     <task id="LOCAL-00131" summary="10  february">
       <created>1550495375212</created>
       <option name="number" value="00131" />
@@ -1185,7 +1205,28 @@
       <option name="project" value="LOCAL" />
       <updated>1590965753154</updated>
     </task>
-    <option name="localTasksCounter" value="177" />
+    <task id="LOCAL-00177" summary="Добавил ссылки на ООп и патреон">
+      <created>1592835682380</created>
+      <option name="number" value="00177" />
+      <option name="presentableId" value="LOCAL-00177" />
+      <option name="project" value="LOCAL" />
+      <updated>1592835682382</updated>
+    </task>
+    <task id="LOCAL-00178" summary="Цена услуг">
+      <created>1592836830077</created>
+      <option name="number" value="00178" />
+      <option name="presentableId" value="LOCAL-00178" />
+      <option name="project" value="LOCAL" />
+      <updated>1592836830077</updated>
+    </task>
+    <task id="LOCAL-00179" summary="степик">
+      <created>1595887885850</created>
+      <option name="number" value="00179" />
+      <option name="presentableId" value="LOCAL-00179" />
+      <option name="project" value="LOCAL" />
+      <updated>1595887885853</updated>
+    </task>
+    <option name="localTasksCounter" value="180" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1204,14 +1245,14 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2583763" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18041237" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43172413" sideWeight="0.5052016" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2987887" sideWeight="0.49609882" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30148047" sideWeight="0.49609882" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4306864" sideWeight="0.49479845" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1249,9 +1290,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="регистрация пользователей и сообщения о входе/выходе/регистрации" />
-    <MESSAGE value="добавил страницу для одного задания" />
-    <MESSAGE value="поправил форму" />
     <MESSAGE value="коментарии" />
     <MESSAGE value="завез дискус" />
     <MESSAGE value="фикс инкремента правильных и неправильных ответов" />
@@ -1274,7 +1312,10 @@
     <MESSAGE value="С мариной заташили спонсорство" />
     <MESSAGE value="поправил меню" />
     <MESSAGE value="раздел решения задач" />
-    <option name="LAST_COMMIT_MESSAGE" value="раздел решения задач" />
+    <MESSAGE value="Добавил ссылки на ООп и патреон" />
+    <MESSAGE value="Цена услуг" />
+    <MESSAGE value="степик" />
+    <option name="LAST_COMMIT_MESSAGE" value="степик" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1362,56 +1403,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/videos/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="50" column="4" lean-forward="false" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#if#0;n#!!top" expanded="false" />
-            <element signature="e#5079#6376#0#HTML" expanded="false" />
-            <element signature="n#if#4;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="66" column="89" lean-forward="false" selection-start-line="66" selection-start-column="68" selection-end-line="66" selection-end-column="89" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/profile_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="77" lean-forward="true" selection-start-line="10" selection-start-column="77" selection-end-line="10" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/allThemes.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
@@ -1440,8 +1431,8 @@
           <caret line="36" column="20" lean-forward="false" selection-start-line="36" selection-start-column="20" selection-end-line="36" selection-end-column="20" />
           <folding>
             <element signature="n#if#0;n#!!top" expanded="false" />
-            <element signature="e#5079#6376#0#HTML" expanded="false" />
-            <element signature="n#if#4;n#!!top" expanded="false" />
+            <element signature="e#9712#19966#0#HTML" expanded="false" />
+            <element signature="e#20798#20825#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1596,13 +1587,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/services/templates/service/service_home.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="31" lean-forward="false" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../New Design Kursor/base_static/css/base_temp.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -1629,7 +1613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1645,7 +1628,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1681,7 +1663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="164">
           <caret line="533" column="1" lean-forward="false" selection-start-line="533" selection-start-column="1" selection-end-line="533" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1695,35 +1676,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="10" column="81" lean-forward="true" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="127" column="18" lean-forward="true" selection-start-line="104" selection-start-column="8" selection-end-line="127" selection-end-column="18" />
-          <folding>
-            <element signature="n#if#0;n#!!top" expanded="false" />
-            <element signature="e#5079#6376#0#HTML" expanded="false" />
-            <element signature="n#if#4;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="193" column="78" lean-forward="false" selection-start-line="193" selection-start-column="78" selection-end-line="193" selection-end-column="78" />
+        <state relative-caret-position="132">
+          <caret line="10" column="81" lean-forward="false" selection-start-line="10" selection-start-column="81" selection-end-line="10" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
+        <state relative-caret-position="770">
           <caret line="37" column="11" lean-forward="false" selection-start-line="37" selection-start-column="4" selection-end-line="37" selection-end-column="11" />
           <folding />
         </state>
@@ -1731,17 +1692,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="51" column="39" lean-forward="true" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
+        <state relative-caret-position="1100">
+          <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/decisionTheme.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="122" column="42" lean-forward="false" selection-start-line="122" selection-start-column="42" selection-end-line="122" selection-end-column="42" />
+        <state relative-caret-position="2618">
+          <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/stepik_python_oop.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/stepik_python_base.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/ПРОГРАММИРОВАНИЕ_big-min.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/t1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/PatreonSp.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/c5.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/templates/service/service_home.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="902">
+          <caret line="41" column="46" lean-forward="true" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="193" column="41" lean-forward="true" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="156" column="57" lean-forward="true" selection-start-line="156" selection-start-column="57" selection-end-line="156" selection-end-column="57" />
+          <folding>
+            <element signature="n#if#0;n#!!top" expanded="false" />
+            <element signature="e#9712#19966#0#HTML" expanded="false" />
+            <element signature="e#20798#20825#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

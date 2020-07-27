@@ -155,7 +155,7 @@
                                     {% endif %}
 
                                     {% if Theme.stepic %}
-                                        <li class="nav-item {% if not Theme.article and not Theme.tasks %} active {% endif %}">
+                                        <li class="nav-item {% if not Theme.article and not Theme.tasks.all %} active {% endif %}">
                                             <a class="nav-link" id="tab--3" data-toggle="tab"
                                                href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Stepic.org</a>
                                         </li>
@@ -309,7 +309,7 @@
                                     {% endif %}
 
                                     {% if Theme.stepic %}
-                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks %} show active {% endif %}" id="tab3" role="tabpanel"
+                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks.all %} show active {% endif %}" id="tab3" role="tabpanel"
                                              aria-labelledby="tab--3">
                                             <div class="clever-description">
                                                 <div class="about-course mb-15">
