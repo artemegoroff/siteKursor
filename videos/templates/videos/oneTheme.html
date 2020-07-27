@@ -129,7 +129,7 @@
     {% endif %}
 
 
-    {% if Theme.article or Theme.tasks.all %}
+    {% if Theme.article or Theme.tasks.all or Theme.stepic %}
         <div class="single-course-content section-padding-50">
             <div class="container">
                 <div class="row">
@@ -155,10 +155,9 @@
                                     {% endif %}
 
                                     {% if Theme.stepic %}
-                                        <li class="nav-item">
-                                            <a class="nav-link" style="background-color: #717171;
-                                            color:whitesmoke;"
-                                               href="{{ Theme.stepic }}" target="_blank">Stepic.org</a>
+                                        <li class="nav-item {% if not Theme.article and not Theme.tasks %} active {% endif %}">
+                                            <a class="nav-link" id="tab--3" data-toggle="tab"
+                                               href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Stepic.org</a>
                                         </li>
                                     {% endif %}
                                 </ul>
@@ -305,11 +304,64 @@
                                                 </div>
                                             </div>
 
-
                                         </div>
 
                                     {% endif %}
+
+                                    {% if Theme.stepic %}
+                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks %} show active {% endif %}" id="tab3" role="tabpanel"
+                                             aria-labelledby="tab--3">
+                                            <div class="clever-description">
+                                                <div class="about-course mb-15">
+
+
+                                                    <h4 class="text-center"> Попрактиковаться на stepik <a href="{{ Theme.stepic }}" class="btn btn-info" role="button">Перейти</a></h4>
+
+                                                    <h3 class="text-center text-primary " style='margin-bottom: 30px'> Записывайтесь на курсы по Python </h3>
+
+                                                    <div class="row">
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="single-popular-course mb-100">
+                                                                <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}"
+                                                                     alt="">
+                                                                <div class="course-content">
+                                                                    <h4>ООП на Python</h4>
+                                                                </div>
+                                                                <div class="seat-rating-fee d-flex justify-content-between">
+                                                                    <div class="seat-rating h-100 d-flex align-items-center">
+                                                                    </div>
+                                                                    <div class="course-fee h-100">
+                                                                        <a href="https://stepik.org/course/72969/promo"
+                                                                           class="free">Подробнее</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="single-popular-course mb-100 ">
+                                                                <img src="{% static 'base_static/img/bg-img/c5.jpg' %}"
+                                                                     alt="">
+                                                                <div class="course-content">
+                                                                    <h4>Основы Python</h4>
+                                                                </div>
+                                                                <div class="seat-rating-fee d-flex justify-content-between">
+                                                                    <div class="seat-rating h-100 d-flex align-items-center">
+                                                                    </div>
+                                                                    <div class="course-fee h-100">
+                                                                        <a href="https://stepik.org/course/63085/promo"
+                                                                           class="free" target="_blank">Подробнее</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 </div>
+
                             </div>
                         </div>
                     </div>
