@@ -8,9 +8,9 @@ class AdminCourseSummernote(SummernoteModelAdmin):
     filter_horizontal = ['tasks']
     save_on_top = True
     list_filter = ['language']
-    list_display = ['theme','number_theme','language','patreon','is_closed_video']
+    list_display = ['theme','number_theme','boosty','patreon','is_closed_video']
     prepopulated_fields = {"slug": ("theme",)}
-    list_editable = ['number_theme','patreon','is_closed_video']
+    list_editable = ['number_theme','boosty','patreon','is_closed_video']
 
 class AdminProgrammTask(admin.ModelAdmin):
     filter_horizontal = ['examples']

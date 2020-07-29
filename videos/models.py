@@ -74,6 +74,7 @@ class Course(models.Model):
     seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
     is_closed_video = models.BooleanField(verbose_name="Для спонсоров", default=False)
     patreon = models.URLField('Patreon', blank=True, default='')
+    boosty = models.URLField('Boosty', blank=True, default='')
     tasks = models.ManyToManyField(ProgrammTask, verbose_name='Задачи', blank=True)
 
     def save(self, *args, **kwargs):

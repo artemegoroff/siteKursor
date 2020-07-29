@@ -112,12 +112,20 @@
                                 <h5>Оформить спонсорскую подписку можно на
                                     <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
                                        class="btn btn-danger" role="button">Youtube</a>
-                                    или <a href="https://www.patreon.com/artem_egorov"
+                                    <a href="https://boosty.to/egoroff_channel"
+                                       class="btn btn-danger" role="button">Boosty</a>
+                                    <a href="https://www.patreon.com/artem_egorov"
                                            class="btn btn-danger" role="button">Patreon</a></h5>
-                                {% if Theme.patreon %}
-                                    <h5>Посмотреть <a href="{{ Theme.patreon }}"
-                                                      class="btn btn-dark" role="button">данное видео на patreon</a>
-
+                                {% if Theme.patreon or Theme.boosty %}
+                                    <h5>Посмотреть
+                                        {% if Theme.boosty %}
+                                            <a href="{{ Theme.boosty }}"
+                                               class="btn btn-dark" role="button">данное видео на Boosty</a>
+                                        {% endif %}
+                                        {% if Theme.patreon %}
+                                            <a href="{{ Theme.patreon }}"
+                                               class="btn btn-dark" role="button">данное видео на Patreon</a>
+                                        {% endif %}
                                     </h5>
                                 {% endif %}
                             </div>
@@ -309,15 +317,19 @@
                                     {% endif %}
 
                                     {% if Theme.stepic %}
-                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks.all %} show active {% endif %}" id="tab3" role="tabpanel"
+                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks.all %} show active {% endif %}"
+                                             id="tab3" role="tabpanel"
                                              aria-labelledby="tab--3">
                                             <div class="clever-description">
                                                 <div class="about-course mb-15">
 
 
-                                                    <h4 class="text-center"> Попрактиковаться на stepik <a href="{{ Theme.stepic }}" class="btn btn-info" role="button">Перейти</a></h4>
+                                                    <h4 class="text-center"> Попрактиковаться на stepik <a
+                                                            href="{{ Theme.stepic }}" class="btn btn-info"
+                                                            role="button">Перейти</a></h4>
 
-                                                    <h3 class="text-center text-primary " style='margin-bottom: 30px'> Записывайтесь на курсы по Python </h3>
+                                                    <h3 class="text-center text-primary " style='margin-bottom: 30px'>
+                                                        Записывайтесь на курсы по Python </h3>
 
                                                     <div class="row">
                                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
