@@ -15,6 +15,8 @@ class AdminCourseSummernote(SummernoteModelAdmin):
 class AdminProgrammTask(admin.ModelAdmin):
     filter_horizontal = ['examples']
     search_fields = ('name',)
+    list_display = ['name', 'url_ref','decision', 'boosty', 'patreon']
+    list_editable = ['url_ref','decision', 'boosty', 'patreon']
 
 
 
