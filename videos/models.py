@@ -36,6 +36,7 @@ class ProgrammTask(models.Model):
     url_ref = models.URLField('Ссылка', blank=True)
     decision = models.CharField("Url-видеорешение", max_length=50, blank=True, null=True)
     patreon = models.URLField('Patreon', blank=True, default='')
+    boosty = models.URLField('Boosty', blank=True, default='')
     condition = models.TextField(verbose_name="Условие задачи", blank=True)
     difficult = models.IntegerField(verbose_name='Сложность')
     examples = models.ManyToManyField(InputOutputData, blank=True, verbose_name='Примеры')
