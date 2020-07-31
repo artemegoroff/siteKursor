@@ -115,7 +115,7 @@
                                     <a href="https://boosty.to/egoroff_channel"
                                        class="btn btn-danger" role="button">Boosty</a>
                                     <a href="https://www.patreon.com/artem_egorov"
-                                           class="btn btn-danger" role="button">Patreon</a></h5>
+                                       class="btn btn-danger" role="button">Patreon</a></h5>
                                 {% if Theme.patreon or Theme.boosty %}
                                     <h5>Посмотреть
                                         {% if Theme.boosty %}
@@ -212,12 +212,17 @@
                                                                     {% if oneTheme.decision %}
 
                                                                         <div class="p-1 bg-light">
+                                                                            {% if oneTheme.boosty %}
+                                                                                <a href="{{ oneTheme.boosty }}"
+                                                                                   class="btn btn-danger" role="button">Boosty</a>
+                                                                            {% endif %}
+                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                                                               class="btn btn-primary" role="button">Разбор</a>
                                                                             {% if oneTheme.patreon %}
                                                                                 <a href="{{ oneTheme.patreon }}"
                                                                                    class="btn btn-danger" role="button">Patreon</a>
                                                                             {% endif %}
-                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
-                                                                               class="btn btn-primary" role="button">Разбор</a>
+
 
                                                                         </div>
                                                                         </div>
