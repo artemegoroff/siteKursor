@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/admin.py" afterPath="$PROJECT_DIR$/videos/admin.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
     </list>
     <list id="a2dfb706-b5c0-4807-976a-a65a43e1b9c2" name="Revert: добавил новые шаблоны" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -54,65 +54,40 @@
       <file leaf-file-name="decisionTheme.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/decisionTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2618">
-              <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
+            <state relative-caret-position="308">
+              <caret line="138" column="47" lean-forward="false" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="service_home.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/services/templates/service/service_home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="41" column="46" lean-forward="false" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="home_page.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/home/templates/home/home_page.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4246">
-              <caret line="193" column="41" lean-forward="false" selection-start-line="193" selection-start-column="41" selection-end-line="193" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="c5.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/c5.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="12" />
+            <state relative-caret-position="792">
+              <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-              <folding />
+            <state relative-caret-position="638">
+              <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="116" column="36" lean-forward="false" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
+            <state relative-caret-position="193">
+              <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
               <folding>
                 <element signature="n#if#0;n#!!top" expanded="false" />
               </folding>
@@ -123,7 +98,7 @@
       <file leaf-file-name="sponsorship_page.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
+            <state relative-caret-position="3938">
               <caret line="179" column="81" lean-forward="false" selection-start-line="179" selection-start-column="81" selection-end-line="179" selection-end-column="81" />
               <folding />
             </state>
@@ -151,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>войти</find>
       <find>for</find>
       <find>STATICFILES_DIRS</find>
       <find>comme</find>
@@ -179,8 +153,9 @@
       <find>section-padding-100</find>
       <find>80</find>
       <find>ste</find>
-      <find>Офор</find>
       <find>patreon</find>
+      <find>Patreon</find>
+      <find>Офор</find>
     </findStrings>
     <replaceStrings>
       <replace>Oge</replace>
@@ -261,12 +236,12 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/home/views.py" />
         <option value="$PROJECT_DIR$/home/templates/home/home_page.html" />
-        <option value="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
         <option value="$PROJECT_DIR$/services/templates/service/service_home.html" />
-        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html" />
         <option value="$PROJECT_DIR$/videos/models.py" />
         <option value="$PROJECT_DIR$/videos/admin.py" />
+        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
+        <option value="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
       </list>
     </option>
   </component>
@@ -300,8 +275,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -374,48 +347,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sponsorship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sponsorship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sponsorship" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="base_static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -834,27 +773,6 @@
       <workItem from="1569265117902" duration="4185000" />
       <workItem from="1584190718712" duration="2455000" />
     </task>
-    <task id="LOCAL-00134" summary="15  mart">
-      <created>1552653864906</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1552653864906</updated>
-    </task>
-    <task id="LOCAL-00135" summary="16  mart">
-      <created>1552698545352</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1552698545353</updated>
-    </task>
-    <task id="LOCAL-00136" summary="16  mart">
-      <created>1555431858404</created>
-      <option name="number" value="00136" />
-      <option name="presentableId" value="LOCAL-00136" />
-      <option name="project" value="LOCAL" />
-      <updated>1555431858406</updated>
-    </task>
     <task id="LOCAL-00137" summary="добавил кнопки регистрации в меню">
       <created>1561827781308</created>
       <option name="number" value="00137" />
@@ -1177,7 +1095,28 @@
       <option name="project" value="LOCAL" />
       <updated>1596057730794</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="boosty">
+      <created>1596057981928</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1596057981928</updated>
+    </task>
+    <task id="LOCAL-00184" summary="boosty админ фильтр">
+      <created>1596060479321</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1596060479321</updated>
+    </task>
+    <task id="LOCAL-00185" summary="boosty админ фильтр">
+      <created>1596199151179</created>
+      <option name="number" value="00185" />
+      <option name="presentableId" value="LOCAL-00185" />
+      <option name="project" value="LOCAL" />
+      <updated>1596199151182</updated>
+    </task>
+    <option name="localTasksCounter" value="186" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1196,16 +1135,15 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14524421" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21015424" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43172413" sideWeight="0.5052016" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32974428" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2395693" sideWeight="0.49609882" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1911171" sideWeight="0.49609882" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4293405" sideWeight="0.49479845" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4293405" sideWeight="0.49479845" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49932706" sideWeight="0.4973992" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1213,6 +1151,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1241,7 +1180,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="фикс инкремента правильных и неправильных ответов" />
     <MESSAGE value="завез сброс пароля" />
     <MESSAGE value="формы для восстановления пароля" />
     <MESSAGE value="ссылка на страницу восстановления пароля" />
@@ -1266,7 +1204,8 @@
     <MESSAGE value="степик" />
     <MESSAGE value="степик active" />
     <MESSAGE value="boosty" />
-    <option name="LAST_COMMIT_MESSAGE" value="boosty" />
+    <MESSAGE value="boosty админ фильтр" />
+    <option name="LAST_COMMIT_MESSAGE" value="boosty админ фильтр" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1602,7 +1541,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1618,14 +1556,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
           <caret line="51" column="39" lean-forward="false" selection-start-line="51" selection-start-column="39" selection-end-line="51" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/decisionTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2618">
-          <caret line="119" column="36" lean-forward="false" selection-start-line="119" selection-start-column="36" selection-end-line="119" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1655,16 +1585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="116" column="36" lean-forward="false" selection-start-line="116" selection-start-column="36" selection-end-line="116" selection-end-column="36" />
-          <folding>
-            <element signature="n#if#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/base_static/img/bg-img/PatreonSp.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1672,7 +1592,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/services/templates/service/service_home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
+        <state relative-caret-position="902">
           <caret line="41" column="46" lean-forward="false" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="46" />
           <folding />
         </state>
@@ -1680,25 +1600,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
+        <state relative-caret-position="3938">
           <caret line="179" column="81" lean-forward="false" selection-start-line="179" selection-start-column="81" selection-end-line="179" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/videos/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="36" column="12" lean-forward="false" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        <state relative-caret-position="638">
+          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="792">
+          <caret line="38" column="10" lean-forward="false" selection-start-line="38" selection-start-column="4" selection-end-line="38" selection-end-column="10" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/decisionTheme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="138" column="47" lean-forward="false" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+          <folding>
+            <element signature="n#if#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

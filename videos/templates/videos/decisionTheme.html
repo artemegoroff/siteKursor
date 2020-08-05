@@ -122,12 +122,21 @@
                             <h5>Оформить спонсорскую подписку можно на
                                 <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
                                    class="btn btn-danger" role="button">Youtube</a>
-                                или <a href="https://www.patreon.com/artem_egorov"
-                                       class="btn btn-danger" role="button">Patreon</a></h5>
-                            {% if Decision.patreon %}
-                                <h5>Посмотреть <a href="{{ Decision.patreon }}"
-                                                  class="btn btn-dark" role="button">данное видео на patreon</a>
+                                <a href="https://boosty.to/egoroff_channel"
+                                   class="btn btn-danger" role="button">Boosty</a>
+                                <a href="https://www.patreon.com/artem_egorov"
+                                   class="btn btn-danger" role="button">Patreon</a></h5>
+                            {% if Decision.patreon or Decision.boosty %}
 
+                                <h5>Посмотреть
+                                    {% if Decision.boosty %}
+                                        <a href="{{ Decision.boosty }}"
+                                           class="btn btn-dark" role="button">данное видео на Boosty</a>
+                                    {% endif %}
+                                    {% if Decision.patreon %}
+                                         <a href="{{ Decision.patreon }}"
+                                       class="btn btn-dark" role="button">данное видео на patreon</a>
+                                    {% endif %}
                                 </h5>
                             {% endif %}
                         </div>
