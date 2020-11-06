@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/menuBS4.html" afterPath="$PROJECT_DIR$/templates/menuBS4.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/models.py" afterPath="$PROJECT_DIR$/videos/models.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" afterPath="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/hamburger_menu.html" afterPath="$PROJECT_DIR$/videos/templates/videos/hamburger_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/urls.py" afterPath="$PROJECT_DIR$/videos/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/views.py" afterPath="$PROJECT_DIR$/videos/views.py" />
     </list>
     <list id="a2dfb706-b5c0-4807-976a-a65a43e1b9c2" name="Revert: добавил новые шаблоны" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+            <state relative-caret-position="168">
+              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -96,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="allThemes.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="allThemes.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/allThemes.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="181">
@@ -274,12 +269,12 @@
         <option value="$PROJECT_DIR$/videos/admin.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
-        <option value="$PROJECT_DIR$/videos/models.py" />
         <option value="$PROJECT_DIR$/templates/menuBS4.html" />
         <option value="$PROJECT_DIR$/videos/views.py" />
         <option value="$PROJECT_DIR$/videos/urls.py" />
         <option value="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/hamburger_menu.html" />
+        <option value="$PROJECT_DIR$/videos/models.py" />
       </list>
     </option>
   </component>
@@ -825,13 +820,6 @@
       <workItem from="1569265117902" duration="4185000" />
       <workItem from="1584190718712" duration="2455000" />
     </task>
-    <task id="LOCAL-00138" summary="добавил шаблоны для входа и регистрации">
-      <created>1561848027801</created>
-      <option name="number" value="00138" />
-      <option name="presentableId" value="LOCAL-00138" />
-      <option name="project" value="LOCAL" />
-      <updated>1561848027801</updated>
-    </task>
     <task id="LOCAL-00139" summary="регистрация пользователей и сообщения о входе/выходе/регистрации">
       <created>1563096875758</created>
       <option name="number" value="00139" />
@@ -1168,7 +1156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596664400907</updated>
     </task>
-    <option name="localTasksCounter" value="187" />
+    <task id="LOCAL-00187" summary="завез ткинтер">
+      <created>1604662424612</created>
+      <option name="number" value="00187" />
+      <option name="presentableId" value="LOCAL-00187" />
+      <option name="project" value="LOCAL" />
+      <updated>1604662424614</updated>
+    </task>
+    <option name="localTasksCounter" value="188" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1232,7 +1227,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="формы для восстановления пароля" />
     <MESSAGE value="ссылка на страницу восстановления пароля" />
     <MESSAGE value="прикручиваю услуги" />
     <MESSAGE value="прикручиваю услуги фикс" />
@@ -1257,7 +1251,8 @@
     <MESSAGE value="boosty" />
     <MESSAGE value="boosty админ фильтр" />
     <MESSAGE value="разбор" />
-    <option name="LAST_COMMIT_MESSAGE" value="разбор" />
+    <MESSAGE value="завез ткинтер" />
+    <option name="LAST_COMMIT_MESSAGE" value="завез ткинтер" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1649,14 +1644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1693,6 +1680,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
           <folding />
         </state>
       </provider>

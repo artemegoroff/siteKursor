@@ -57,7 +57,7 @@ class Course(models.Model):
     TURTLEPython = 'TUR'
     PYGAMEPython = 'PGA'
     OOP = 'OOP'
-    TKINTER = 'Tkinter'
+    TKINTER = 'TKN'
     LANG_CHOICES = (
         (PYTHON, 'Python'),
         (PASCAL, 'Pascal'),
