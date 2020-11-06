@@ -57,6 +57,7 @@ class Course(models.Model):
     TURTLEPython = 'TUR'
     PYGAMEPython = 'PGA'
     OOP = 'OOP'
+    TKINTER = 'Tkinter'
     LANG_CHOICES = (
         (PYTHON, 'Python'),
         (PASCAL, 'Pascal'),
@@ -64,6 +65,7 @@ class Course(models.Model):
         (TURTLEPython, 'Turtle'),
         (PYGAMEPython, 'Pygame'),
         (OOP, 'OOP Python'),
+        (TKINTER, 'Tkinter'),
     )
     language = models.CharField(verbose_name="Язык", max_length=3, choices=LANG_CHOICES, default=PYTHON)
     slug = models.SlugField(null=True, unique=True)
