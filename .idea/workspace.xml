@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5f1bbeec-6b4c-4d15-bf54-ebd59a27a372" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/models.py" afterPath="$PROJECT_DIR$/videos/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" afterPath="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
     </list>
     <list id="a2dfb706-b5c0-4807-976a-a65a43e1b9c2" name="Revert: добавил новые шаблоны" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,7 +44,7 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
+            <state relative-caret-position="2552">
               <caret line="117" column="62" lean-forward="false" selection-start-line="117" selection-start-column="62" selection-end-line="117" selection-end-column="62" />
               <folding />
             </state>
@@ -61,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="168">
-              <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+              <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -74,7 +74,7 @@
       <file leaf-file-name="menuBS4.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="1408">
               <caret line="64" column="86" lean-forward="false" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="86" />
               <folding />
             </state>
@@ -84,7 +84,7 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="462">
               <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
@@ -94,7 +94,7 @@
       <file leaf-file-name="allThemes.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/allThemes.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
+            <state relative-caret-position="1232">
               <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
               <folding />
             </state>
@@ -123,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="oneTheme.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="193">
-              <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
+            <state relative-caret-position="208">
+              <caret line="116" column="51" lean-forward="false" selection-start-line="116" selection-start-column="51" selection-end-line="116" selection-end-column="51" />
               <folding>
                 <element signature="n#if#0;n#!!top" expanded="false" />
               </folding>
@@ -267,7 +267,6 @@
         <option value="$PROJECT_DIR$/services/templates/service/service_home.html" />
         <option value="$PROJECT_DIR$/sponsorship/templates/sponsorship/sponsorship_page.html" />
         <option value="$PROJECT_DIR$/videos/admin.py" />
-        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/decisionTheme.html" />
         <option value="$PROJECT_DIR$/templates/menuBS4.html" />
         <option value="$PROJECT_DIR$/videos/views.py" />
@@ -275,6 +274,7 @@
         <option value="$PROJECT_DIR$/videos/templates/videos/allThemes.html" />
         <option value="$PROJECT_DIR$/videos/templates/videos/hamburger_menu.html" />
         <option value="$PROJECT_DIR$/videos/models.py" />
+        <option value="$PROJECT_DIR$/videos/templates/videos/oneTheme.html" />
       </list>
     </option>
   </component>
@@ -336,70 +336,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="videos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="videos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="videos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="siteKursorBest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base_static" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -426,19 +362,19 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Python36\Django projects\siteKursorBest\base_static\img\bg-img" />
-      <recent name="C:\Python36\Django projects\siteKursorBest" />
-      <recent name="C:\Python36\Django projects\New Design Kursor" />
-      <recent name="C:\Python36\Django projects\New Design Kursor\base_static\img\bg-img" />
-      <recent name="C:\Python36\Django projects\New Design Kursor\sponsorship" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Python36\Django projects\New Design Kursor\templates\partitions" />
       <recent name="C:\Python36\Django projects\New Design Kursor\ege" />
       <recent name="C:\Python36\Django projects\New Design Kursor\templates\registration" />
       <recent name="C:\Python36\Django projects\New Design Kursor\base_static\Bs4 all\css\css" />
       <recent name="C:\Python36\Django projects\New Design Kursor\base_static\Bs4 all\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Python36\Django projects\siteKursorBest" />
+      <recent name="C:\Python36\Django projects\siteKursorBest\base_static\img\bg-img" />
+      <recent name="C:\Python36\Django projects\New Design Kursor" />
+      <recent name="C:\Python36\Django projects\New Design Kursor\base_static\img\bg-img" />
+      <recent name="C:\Python36\Django projects\New Design Kursor\sponsorship" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -820,13 +756,6 @@
       <workItem from="1569265117902" duration="4185000" />
       <workItem from="1584190718712" duration="2455000" />
     </task>
-    <task id="LOCAL-00139" summary="регистрация пользователей и сообщения о входе/выходе/регистрации">
-      <created>1563096875758</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1563096875760</updated>
-    </task>
     <task id="LOCAL-00140" summary="добавил страницу для одного задания">
       <created>1563111515110</created>
       <option name="number" value="00140" />
@@ -1163,7 +1092,14 @@
       <option name="project" value="LOCAL" />
       <updated>1604662424614</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="завез ткинтер">
+      <created>1604662884968</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1604662884969</updated>
+    </task>
+    <option name="localTasksCounter" value="189" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1182,7 +1118,7 @@
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21520619" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21778351" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43172413" sideWeight="0.5052016" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1193,7 +1129,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4293405" sideWeight="0.49479845" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49932706" sideWeight="0.4973992" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30686405" sideWeight="0.4973992" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1634,19 +1570,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
-          <folding>
-            <element signature="n#if#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/menuBS4.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="1408">
           <caret line="64" column="86" lean-forward="false" selection-start-line="64" selection-start-column="68" selection-end-line="64" selection-end-column="86" />
           <folding />
         </state>
@@ -1654,7 +1580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
+        <state relative-caret-position="2552">
           <caret line="117" column="62" lean-forward="false" selection-start-line="117" selection-start-column="62" selection-end-line="117" selection-end-column="62" />
           <folding />
         </state>
@@ -1662,7 +1588,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="462">
           <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
@@ -1678,7 +1604,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/videos/templates/videos/allThemes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
+        <state relative-caret-position="1232">
           <caret line="56" column="32" lean-forward="false" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
           <folding />
         </state>
@@ -1687,8 +1613,18 @@
     <entry file="file://$PROJECT_DIR$/videos/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
-          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/videos/templates/videos/oneTheme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="116" column="51" lean-forward="false" selection-start-line="116" selection-start-column="51" selection-end-line="116" selection-end-column="51" />
+          <folding>
+            <element signature="n#if#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
