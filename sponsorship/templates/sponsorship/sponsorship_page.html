@@ -9,6 +9,14 @@
 огэ по информатике,огэ по информатике подготовка,программирование python,python уроки">
 {% endblock %}
 
+{% block extracss %}
+    <link rel="stylesheet/less" href="{% static 'base_static/css/videoRazbor.less' %}" type="text/less">
+    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
+    <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+    <script src="{% static 'base_static/js/prism.js' %}"></script>
+
+{% endblock %}
+
 {% block content %}
 
     <!-- ##### Hero Area End ##### -->
@@ -17,26 +25,77 @@
     <section class="popular-courses-area section-padding-50-0"
              style="background-image: url('{% static "base_static/img/core-img/texture.png" %}');">
         <div class="container">
-            <div class="row h-100">
+            <div class="row h-50">
                 <div class="col-12">
                     <div class="section-heading ">
                         <h3>Поддержать проект</h3>
                     </div>
-                    <div class="section-heading" style="line-height: 1.5;">
-                        <p class="text-justify" style=" font-size: 18px">Если мой проект полезен для вас, вы можете оформить подписку на Patreon
-                            или Youtube.
-                        </p>
 
-                        <p class="text-justify" style=" font-size: 18px">Вы получите доступ к закрытым видео и разборам задач, быстрые ответы на
-                            вопросы в
-                            комментариях и возможность лично пообщаться со мной. </p>
-
-                        <p class="text-justify" style=" font-size: 18px">Чтобы оформить подписку, вам необходимо выбрать один из вариантов,
-                            представленных ниже:</p>
-
-                    </div>
                 </div>
             </div>
+
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
+                            <div class="row">
+
+                                <div class="videoContainer">
+                                    <!-- THE YOUTUBE PLAYER -->
+                                    {#                    <div class="vid-container">#}
+                                    <div class="embed-responsive embed-responsive-16by9">
+                                        <iframe id="vid_frame" class="embed-responsive-item"
+                                                src="https://youtube.com/embed/2rbVNTw8ajc?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
+                                                frameborder="0" width="854" height="480" allowfullscreen></iframe>
+                                    </div>
+
+                                    <div class="section-heading" style="line-height: 1.5;">
+                                        <p class="text-justify" style=" font-size: 18px">Если мой проект полезен для
+                                            вас, вы можете
+                                            оформить подписку на Patreon
+                                            или Youtube.
+                                        </p>
+
+                                        <p class="text-justify" style=" font-size: 18px">Вы получите доступ к закрытым
+                                            видео и разборам
+                                            задач, быстрые ответы на
+                                            вопросы в
+                                            комментариях и возможность лично пообщаться со мной. </p>
+
+                                        <p class="text-justify" style=" font-size: 18px">Чтобы оформить подписку, вам
+                                            необходимо выбрать
+                                            один из вариантов,
+                                            представленных ниже:</p>
+
+                                    </div>
+
+
+                                    <div class="vid-list-spon-container">
+                                        <div class="vid-list-spon">
+
+                                            {#                                            <div class="vid-item"#}
+                                            {#                                                 onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.decision }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">#}
+                                            {#                                                #}
+                                            {#                                            </div>#}
+
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <script src="https://apis.google.com/js/platform.js"></script>
+
+                                <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA"
+                                     data-layout="default"
+                                     data-count="hidden"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             <div class="row">
 
@@ -171,13 +230,17 @@
 
             <div class="row h-100">
                 <div class="section-heading" style="line-height: 1.5">
-                    <p class="text-justify" style=" font-size: 18px"><b>Спонсорство на Youtube</b>. Если вы находитесь не в РФ, кнопка подписки может
+                    <p class="text-justify" style=" font-size: 18px"><b>Спонсорство на Youtube</b>. Если вы находитесь
+                        не в РФ, кнопка подписки может
                         быть не доступна.
                         В этом случае вам нужно оформить подписку на Boosty или Patreon.</p>
-                     <p class="text-justify" style=" font-size: 18px">  <b>Подписка на Boosty</b>. Этот вариант для тех, у кого кнопка "Спонсировать"
-                         не доступна на Youtube. Стоимость немного выше, потому что мне приходится дополнительно оплачивать услуги видеохостинга Vimeo
-                     </p>
-                      <p class="text-justify" style=" font-size: 18px">  <b>Подписка на Patreon</b> (доступно для всех стран мира). Деньги списываются в момент оплаты
+                    <p class="text-justify" style=" font-size: 18px"><b>Подписка на Boosty</b>. Этот вариант для тех, у
+                        кого кнопка "Спонсировать"
+                        не доступна на Youtube. Стоимость немного выше, потому что мне приходится дополнительно
+                        оплачивать услуги видеохостинга Vimeo
+                    </p>
+                    <p class="text-justify" style=" font-size: 18px"><b>Подписка на Patreon</b> (доступно для всех стран
+                        мира). Деньги списываются в момент оплаты
                         подписки и далее каждое 1-е число.</p>
                 </div>
             </div>
