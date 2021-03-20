@@ -11,5 +11,5 @@ local_settings.py
 db.sqlite3
 
 # User-specific stuff
-.idea/workspace.xml
+.idea/*
 
