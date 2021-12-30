@@ -1,8 +1,4 @@
-from django.shortcuts import render_to_response, render
-from django.template import RequestContext
-from ege.models import VideoRazborEGE, NumberTaskEge
-from oge.models import VideoRazborOGE, NumberTaskOge
-from videos.models import Course
+from django.shortcuts import render
 
 
 def get_sponsorship_page(request):

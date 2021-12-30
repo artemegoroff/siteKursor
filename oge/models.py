@@ -60,7 +60,7 @@ class NumberTaskOge(models.Model):
 
 
 class CategoryOge(models.Model):
-    number_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
+    number_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания", on_delete=models.CASCADE)
     text = models.CharField(verbose_name="Название", max_length=60)
 
     def __str__(self):
@@ -74,7 +74,7 @@ class CategoryOge(models.Model):
 
 class VideoRazborOGE(models.Model):
     url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
-    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
+    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания", on_delete=models.CASCADE)
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
@@ -105,9 +105,9 @@ class VideoRazborOGE(models.Model):
 
 class QuestionsOge(models.Model):
     text = models.TextField("Вопрос")
-    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания")
-    category = models.ForeignKey(CategoryOge, verbose_name="Категория вопроса", blank=True, null=True)
-    number_of_variant = models.ForeignKey(VariantOge, verbose_name="Номер варианта", blank=True, null=True)
+    number_of_task = models.ForeignKey(NumberTaskOge, verbose_name="Номер задания", on_delete=models.CASCADE)
+    category = models.ForeignKey(CategoryOge, verbose_name="Категория вопроса", blank=True, null=True, on_delete=models.CASCADE)
+    number_of_variant = models.ForeignKey(VariantOge, verbose_name="Номер варианта", blank=True, null=True, on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='oge/photo', blank=True, default='')
     table_data = models.TextField("Табличные данные", blank=True, null=True)
     code_python = models.TextField("Python", blank=True, null=True)

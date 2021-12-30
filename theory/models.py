@@ -13,7 +13,7 @@ class CategoryTheory(models.Model):
 
 class TheoryVideo(models.Model):
     name = models.CharField("Название",max_length=100)
-    category = models.ForeignKey(CategoryTheory, verbose_name="Категория видео")
+    category = models.ForeignKey(CategoryTheory, verbose_name="Категория видео", on_delete=models.CASCADE)
     url_video = models.CharField("Url-видео", max_length=50)
 
     def __str__(self):

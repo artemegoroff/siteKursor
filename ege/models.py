@@ -2,6 +2,7 @@ from django.db import models
 from theory.models import TheoryVideo
 from django.contrib.auth.models import User
 
+
 class VarEge(models.Model):
     number_var = models.IntegerField(verbose_name="Номер варианта", unique=True)
 
@@ -60,7 +61,7 @@ class NumberTaskEge(models.Model):
 
 
 class CategoryEge(models.Model):
-    number_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
+    number_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания", on_delete=models.CASCADE)
     text = models.CharField(verbose_name="Название", max_length=60)
 
     def __str__(self):
@@ -74,7 +75,7 @@ class CategoryEge(models.Model):
 
 class VideoRazborEGE(models.Model):
     url_video = models.CharField("Url-видео", max_length=50, blank=True, null=True)
-    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
+    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания", on_delete=models.CASCADE)
     data_add = models.DateField(verbose_name="Дата добавления", auto_now_add=True)
     seo_description = models.TextField('SEO Description', blank=True, max_length=160)
     seo_keywords = models.TextField('SEO Keywords', blank=True, max_length=160)
@@ -102,9 +103,11 @@ class VideoRazborEGE(models.Model):
 
 class QuestionsEGE(models.Model):
     text = models.TextField("Вопрос")
-    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания")
-    category = models.ForeignKey(CategoryEge, verbose_name="Категория вопроса", blank=True, null=True)
-    number_of_variant = models.ForeignKey(VarEge, verbose_name="Номер варианта", blank=True, null=True)
+    number_of_task = models.ForeignKey(NumberTaskEge, verbose_name="Номер задания", on_delete=models.CASCADE)
+    category = models.ForeignKey(CategoryEge, verbose_name="Категория вопроса", blank=True, null=True,
+                                 on_delete=models.CASCADE)
+    number_of_variant = models.ForeignKey(VarEge, verbose_name="Номер варианта", blank=True, null=True,
+                                          on_delete=models.CASCADE)
     picture = models.ImageField(upload_to='ege/photo', blank=True, default='')
     table_data = models.TextField("Табличные данные", blank=True, null=True)
     code_python = models.TextField("Python", blank=True, null=True)
@@ -112,7 +115,7 @@ class QuestionsEGE(models.Model):
     code_c_plus = models.TextField("C++", blank=True, null=True)
     q_url_video = models.OneToOneField(VideoRazborEGE, verbose_name="Url-видео", on_delete=models.CASCADE, blank=True,
                                        null=True)
-    failed = models.IntegerField("Неверные попытки",default=0)
+    failed = models.IntegerField("Неверные попытки", default=0)
     passed = models.IntegerField("Правильные попытки", default=0)
     answer = models.CharField(verbose_name="Ответ", max_length=30)
 

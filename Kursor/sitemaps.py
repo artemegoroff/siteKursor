@@ -3,7 +3,7 @@ from ege.models import NumberTaskEge, VarEge, VideoRazborEGE
 from oge.models import NumberTaskOge, VariantOge, VideoRazborOGE
 from videos.models import Course
 from ege.urls import urlpatterns as egeUrls
-from django.core.urlresolvers import reverse
+from django.shortcuts import reverse
 
 
 class CoursePythonSiteMap(sitemaps.Sitemap):

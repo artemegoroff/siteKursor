@@ -1,5 +1,4 @@
-from django.shortcuts import render_to_response, render
-from django.template import RequestContext
+from django.shortcuts import render
 from ege.models import VideoRazborEGE, NumberTaskEge
 from oge.models import VideoRazborOGE, NumberTaskOge
 from videos.models import Course
@@ -26,7 +25,7 @@ def get_home_page(request):
     return render(request, 'home/home_page.html', context)
 
 
-def e_handler404(request):
+def e_handler404(request, exception):
     context = {}
     return render(request, 'error404.html', context)
 
