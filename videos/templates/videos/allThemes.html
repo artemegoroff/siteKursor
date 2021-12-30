@@ -65,6 +65,11 @@
                                            class="free">
                                             Перейти
                                         </a>
+                                    {% elif 'django' in request.path %}
+                                        <a href="{% url 'videos:videos_django_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
                                     {% else %}
                                         <a href="{% url 'videos:videos_python_theme_by_slug' Theme.slug %}"
                                            class="free">

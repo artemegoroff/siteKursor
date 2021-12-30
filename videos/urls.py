@@ -1,7 +1,7 @@
 from django.conf.urls import url
+from django.urls import path
 from . import views
 from django.conf import settings
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf.urls.static import static
 
 app_name = 'videos'
@@ -35,6 +35,12 @@ urlpatterns = [
                   url(r'^tkinter/(?P<slug>[\w-]+)$', views.videos_tkinter_theme_by_slug,
                       name='videos_tkinter_theme_by_slug'),
                   url(r'^tkinter/$', views.videos_tkinter_all, name='videos_tkinter_all'),
+
+                  path('django/<int:number>', views.videos_django_theme,
+                      name='videos_django_theme'),
+                  path('django/<slug:slug>', views.videos_django_theme_by_slug,
+                      name='videos_django_theme_by_slug'),
+                  path('django/', views.videos_django_all, name='videos_django_all'),
 
                   url(r'^test/$', views.videos_test, name='videos_test'),
                   url(r'^$', views.videos_home, name='videos_home'),

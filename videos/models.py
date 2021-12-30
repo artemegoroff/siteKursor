@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import mark_safe
 from django.template.defaultfilters import slugify as django_slugify
 
 alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
@@ -58,6 +57,7 @@ class Course(models.Model):
     PYGAMEPython = 'PGA'
     OOP = 'OOP'
     TKINTER = 'TKN'
+    DJANGO = 'DJA'
     LANG_CHOICES = (
         (PYTHON, 'Python'),
         (PASCAL, 'Pascal'),
@@ -66,6 +66,7 @@ class Course(models.Model):
         (PYGAMEPython, 'Pygame'),
         (OOP, 'OOP Python'),
         (TKINTER, 'Tkinter'),
+        (DJANGO, 'Django'),
     )
     language = models.CharField(verbose_name="Язык", max_length=3, choices=LANG_CHOICES, default=PYTHON)
     slug = models.SlugField(null=True, unique=True)
