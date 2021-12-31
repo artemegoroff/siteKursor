@@ -5,7 +5,12 @@ from .models import Course, ProgrammTask
 # Create your views here.
 
 def get_all_themes_by_course(course):
-    return {'allThemes': Course.objects.filter(language=course)}
+    course_name = ''
+    for choice in Course.LANG_CHOICES:
+        if choice[0] == course:
+            course_name = choice[1]
+
+    return {'allThemes': Course.objects.filter(language=course), 'course_name': course_name}
 
 
 def get_course_theme_by_number(course, number):
