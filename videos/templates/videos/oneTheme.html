@@ -166,7 +166,7 @@
                                     {% if Theme.stepic %}
                                         <li class="nav-item {% if not Theme.article and not Theme.tasks.all %} active {% endif %}">
                                             <a class="nav-link" id="tab--3" data-toggle="tab"
-                                               href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Stepic.org</a>
+                                               href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Stepik.org</a>
                                         </li>
                                     {% endif %}
                                 </ul>
@@ -343,6 +343,24 @@
                                                         Записывайтесь на курсы по Python </h3>
 
                                                     <div class="row">
+
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="single-popular-course mb-100 ">
+                                                                <img src="{% static 'base_static/img/bg-img/c5.jpg' %}"
+                                                                     alt="">
+                                                                <div class="course-content">
+                                                                    <h4>Основы Python</h4>
+                                                                </div>
+                                                                <div class="seat-rating-fee d-flex justify-content-between">
+                                                                    <div class="seat-rating h-100 d-flex align-items-center">
+                                                                    </div>
+                                                                    <div class="course-fee h-100">
+                                                                        <a href="https://stepik.org/course/63085/promo"
+                                                                           class="free" target="_blank">Подробнее</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
                                                             <div class="single-popular-course mb-100">
                                                                 <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}"
@@ -361,18 +379,18 @@
                                                             </div>
                                                         </div>
                                                         <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <div class="single-popular-course mb-100 ">
-                                                                <img src="{% static 'base_static/img/bg-img/c5.jpg' %}"
+                                                            <div class="single-popular-course mb-100">
+                                                                <img src="{% static 'base_static/img/bg-img/django-bg.png' %}"
                                                                      alt="">
                                                                 <div class="course-content">
-                                                                    <h4>Основы Python</h4>
+                                                                    <h4>Веб-разработка на Django</h4>
                                                                 </div>
                                                                 <div class="seat-rating-fee d-flex justify-content-between">
                                                                     <div class="seat-rating h-100 d-flex align-items-center">
                                                                     </div>
                                                                     <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/course/63085/promo"
-                                                                           class="free" target="_blank">Подробнее</a>
+                                                                        <a href="https://stepik.org/course/104792/promo"
+                                                                           class="free">Подробнее</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -437,27 +455,27 @@
     {% endif %}
 
 
-{#    <div class="container">#}
-{#        <hr>#}
-{#        <h3 class="text-center">Комментарии</h3>#}
-{#        <div id="disqus_thread"></div>#}
-{#        <script>#}
-{##}
-{#            var disqus_config = function () {#}
-                {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
-{#                this.page.identifier = 'course{{ Theme.id }}';#}
-{#            };#}
-{##}
-{#            (function () { // DON'T EDIT BELOW THIS LINE#}
-{#                var d = document, s = d.createElement('script');#}
-{#                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';#}
-{#                s.setAttribute('data-timestamp', +new Date());#}
-{#                (d.head || d.body).appendChild(s);#}
-{#            })();#}
-{#        </script>#}
-{#        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by#}
-{#            Disqus.</a></noscript>#}
-{#    </div>#}
+    {#    <div class="container">#}
+    {#        <hr>#}
+    {#        <h3 class="text-center">Комментарии</h3>#}
+    {#        <div id="disqus_thread"></div>#}
+    {#        <script>#}
+    {##}
+    {#            var disqus_config = function () {#}
+    {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
+    {#                this.page.identifier = 'course{{ Theme.id }}';#}
+    {#            };#}
+    {##}
+    {#            (function () { // DON'T EDIT BELOW THIS LINE#}
+    {#                var d = document, s = d.createElement('script');#}
+    {#                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';#}
+    {#                s.setAttribute('data-timestamp', +new Date());#}
+    {#                (d.head || d.body).appendChild(s);#}
+    {#            })();#}
+    {#        </script>#}
+    {#        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by#}
+    {#            Disqus.</a></noscript>#}
+    {#    </div>#}
 
 {% endblock %}
 
