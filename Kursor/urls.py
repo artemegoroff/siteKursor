@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^$', include('home.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'subscribe/', include('sponsorship.urls')),
-    url(r'accounts/', include('accounts.urls')),
+    # url(r'accounts/', include('accounts.urls')),
     url(r'^ege/', include('ege.urls')),
     url(r'^oge/', include('oge.urls')),
     url(r'^services/', include('services.urls')),

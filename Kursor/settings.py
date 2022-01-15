@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'theory',
     'robots',
     'django_summernote',
-    'accounts',
+    # 'accounts',
     'services',
     'sponsorship'
 ]

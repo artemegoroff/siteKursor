@@ -48,19 +48,19 @@ def ege_task_detail(request, number_task):
                         questions[i].status = 'wrong'
                         questions[i].increase_failed()
                         questions[i].save()
-                        if request.user.is_anonymous():
+                        if request.user.is_anonymous:
                             continue
-                        request.user.profile.fail_ege_tasks.add(questions[i].id)
-                        request.user.profile.done_ege_tasks.remove(questions[i].id)
+                        # request.user.profile.fail_ege_tasks.add(questions[i].id)
+                        # request.user.profile.done_ege_tasks.remove(questions[i].id)
 
                     else:
                         questions[i].status = 'good'
                         questions[i].increase_passed()
                         questions[i].save()
-                        if request.user.is_anonymous():
+                        if request.user.is_anonymous:
                             continue
-                        request.user.profile.done_ege_tasks.add(questions[i].id)
-                        request.user.profile.fail_ege_tasks.remove(questions[i].id)
+                        # request.user.profile.done_ege_tasks.add(questions[i].id)
+                        # request.user.profile.fail_ege_tasks.remove(questions[i].id)
                     questions[i].old_answer = request.POST[dataPost]
                     break
 
@@ -164,7 +164,7 @@ def ege_get_exercise(request, id_exercise):
             task.status = 'wrong'
             task.increase_failed()
             task.save()
-            if not request.user.is_anonymous():
+            if not request.user.is_anonymous:
                 request.user.profile.fail_ege_tasks.add(task.id)
                 request.user.profile.done_ege_tasks.remove(task.id)
 
@@ -172,7 +172,7 @@ def ege_get_exercise(request, id_exercise):
             task.status = 'good'
             task.increase_passed()
             task.save()
-            if not request.user.is_anonymous():
+            if not request.user.is_anonymous:
                 request.user.profile.done_ege_tasks.add(task.id)
                 request.user.profile.fail_ege_tasks.remove(task.id)
         task.old_answer = user_answer

@@ -79,27 +79,27 @@
                                 <li><a href="{% url 'services:services_home' %}">Услуги</a></li>
 
                                 <!-- Register / Login -->
-                                {% if user.is_authenticated %}
-                                        <li><a href="#">{{ request.user.username }}</a>
-                                            <ul class="dropdown">
-                                                <li><a href="{% url 'profile' %}">Профиль</a></li>
-                                                <li><a href="javascript:document.getElementById('logout').submit()">Выйти</a></li>
-                                                <form action="{% url 'logout' %}" id="logout" method="post" style="display: none">
-                                                    {% csrf_token %}
-                                                    <input type="hidden">
-                                                </form>
-                                            </ul>
-                                        </li>
-                                        <li class="userthumb">
-                                            <img src="{{ request.user.profile.avatar }}" alt="" height="100px"
-                                                 width="165px">
-                                        </li>
-                                {% else %}
-                                    <div class="register-login-area">
-                                        <a href="{% url 'sign_up' %}" class="btn">Регистрация</a>
-                                        <a href="{% url 'login' %}" class="btn active">Войти</a>
-                                    </div>
-                                {% endif %}
+{#                                {% if user.is_authenticated %}#}
+{#                                        <li><a href="#">{{ request.user.username }}</a>#}
+{#                                            <ul class="dropdown">#}
+{#                                                <li><a href="{% url 'profile' %}">Профиль</a></li>#}
+{#                                                <li><a href="javascript:document.getElementById('logout').submit()">Выйти</a></li>#}
+{#                                                <form action="{% url 'logout' %}" id="logout" method="post" style="display: none">#}
+{#                                                    {% csrf_token %}#}
+{#                                                    <input type="hidden">#}
+{#                                                </form>#}
+{#                                            </ul>#}
+{#                                        </li>#}
+{#                                        <li class="userthumb">#}
+{#                                            <img src="{{ request.user.profile.avatar }}" alt="" height="100px"#}
+{#                                                 width="165px">#}
+{#                                        </li>#}
+{#                                {% else %}#}
+{#                                    <div class="register-login-area">#}
+{#                                        <a href="{% url 'sign_up' %}" class="btn">Регистрация</a>#}
+{#                                        <a href="{% url 'login' %}" class="btn active">Войти</a>#}
+{#                                    </div>#}
+{#                                {% endif %}#}
                             </ul>
                         </div>
                     </div>

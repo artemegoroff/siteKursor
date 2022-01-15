@@ -13,8 +13,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('ege', '0019_remove_questionsege_code_executor'),
-        ('oge', '0017_questionsoge_file'),
     ]
 
     operations = [
