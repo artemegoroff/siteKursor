@@ -1,5 +1,6 @@
 {% extends "baseBoot4.html" %}
 {% load static %}
+{% load route_video %}
 
 {% block seo_block %}
     <title>{{ Theme.seo_title }}</title>
@@ -57,28 +58,27 @@
                                 видео</h3>
                             <div class="vid-list-container">
                                 <div class="vid-list">
-
-                                    <div class="vid-item"
-                                         onclick="document.getElementById('vid_frame').src='http://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
-                                        <div class="thumb"><img
-                                                src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
+                                    <a href="{% url request.path|get_route Theme.slug %}">
+                                        <div class="vid-item">
+                                            <div class="thumb"><img
+                                                    src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
+                                            </div>
+                                            <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
                                         </div>
-                                        <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
-                                    </div>
+                                    </a>
+
                                     {% if nextThemes %}
                                         {% for elem in nextThemes %}
-                                            <div class="vid-item"
-                                                 onclick="document.getElementById('vid_frame').src='https://youtube.com/embed/{{ elem.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1'">
-                                                <div class="thumb"><img
-                                                        src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                            <a href="{% url request.path|get_route elem.slug %}">
+                                                <div class="vid-item">
+                                                    <div class="thumb"><img
+                                                            src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
+                                                    </div>
+                                                    <div class="desc">{{ elem.number_theme }}. {{ elem.theme }}</div>
                                                 </div>
-                                                <div class="desc">{{ elem.number_theme }}. {{ elem.theme }}</div>
-                                            </div>
+                                            </a>
                                         {% endfor %}
-
-
                                     {% endif %}
-
                                 </div>
                             </div>
 
@@ -89,7 +89,6 @@
                             </div>
 
                         </div>
-
 
                         <script src="https://apis.google.com/js/platform.js"></script>
 
@@ -128,7 +127,6 @@
                                        class="btn btn-dark" role="button">Boosty</a>
                                     <a href="https://www.patreon.com/artem_egorov"
                                        class="btn btn-dark" role="button">Patreon</a></h5>
-
                             </div>
                         </div>
                     </div>
@@ -372,7 +370,7 @@
                                                                     <div class="seat-rating h-100 d-flex align-items-center">
                                                                     </div>
                                                                     <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/course/72969/promo"
+                                                                        <a href="https://stepik.org/z/114354"
                                                                            class="free">Подробнее</a>
                                                                     </div>
                                                                 </div>
@@ -389,7 +387,25 @@
                                                                     <div class="seat-rating h-100 d-flex align-items-center">
                                                                     </div>
                                                                     <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/course/104792/promo"
+                                                                        <a href="https://stepik.org/z/114288"
+                                                                           class="free">Подробнее</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+                                                            <div class="single-popular-course mb-100">
+                                                                <img src="{% static 'base_static/img/bg-img/pygame.png' %}"
+                                                                     alt="">
+                                                                <div class="course-content">
+                                                                    <h4>Создание игр на Pygame</h4>
+                                                                </div>
+                                                                <div class="seat-rating-fee d-flex justify-content-between">
+                                                                    <div class="seat-rating h-100 d-flex align-items-center">
+                                                                    </div>
+                                                                    <div class="course-fee h-100">
+                                                                        <a href="https://stepik.org/z/118434"
                                                                            class="free">Подробнее</a>
                                                                     </div>
                                                                 </div>
