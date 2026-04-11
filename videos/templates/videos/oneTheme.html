@@ -3,522 +3,423 @@
 {% load route_video %}
 
 {% block seo_block %}
-    <title>{{ Theme.seo_title }}</title>
-    <meta name="description" content="{{ Theme.seo_title }}">
-    <meta name="keywords" content="{{ Theme.seo_keywords }}">
+<title>{{ Theme.seo_title }}</title>
+<meta name="description" content="{{ Theme.seo_title }}">
+<meta name="keywords" content="{{ Theme.seo_keywords }}">
 {% endblock %}
-
 
 {% block extracss %}
-    <link rel="stylesheet/less" href="{% static 'base_static/css/videoRazbor.less' %}" type="text/less">
-    <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
-    <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
-    <script src="{% static 'base_static/js/prism.js' %}"></script>
-
-{% endblock %}
-
-
-{% block content %}
-
-    {% include 'videos/hamburger_menu.html' %}
-
-    <section>
-        <div class="container">
-            <div class="row">
-                <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
-                    <div class="row">
-                        {% if '127.0.0.1' in request.META.HTTP_HOST %}
-                            <div class="abs_spanRedact">
-
-                                <a href="http://127.0.0.1:8000/admin/videos/course/{{ Theme.id }}/change/"
-                                   target="_blank" class="btn btn-info"
-                                   role="button">Редактировать {{ Theme.id }}
-                                </a>
-
-                            </div>
-                        {% endif %}
-
-
-                        <h2 class="text-center"> {{ Theme.number_theme }}. {{ Theme.theme }}</h2>
-
-                        <div class="videoContainer">
-                            <!-- THE YOUTUBE PLAYER -->
-                            {#                    <div class="vid-container">#}
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe id="vid_frame" class="embed-responsive-item"
-                                        src="https://youtube.com/embed/{{ video.url_video }}?autoplay=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"
-                                        frameborder="0" width="854" height="480" allowfullscreen></iframe>
-                            </div>
-
-                            <!-- THE PLAYLIST -->
-                            <!-- Идея взята -->
-                            <!--http://woosterwebdesign.com/responsive-youtube-player-with-playlist/-->
-                            <h3 class="text-center"
-                                style="margin-top: 10px;border-bottom: 2px solid;border-top: 2px solid"> Следующие
-                                видео</h3>
-                            <div class="vid-list-container">
-                                <div class="vid-list">
-                                    <a href="{% url request.path|get_route Theme.slug %}">
-                                        <div class="vid-item">
-                                            <div class="thumb"><img
-                                                    src="http://i4.ytimg.com/vi/{{ video.url_video }}/default.jpg">
-                                            </div>
-                                            <div class="desc">{{ video.number_theme }}. {{ video.theme }}</div>
-                                        </div>
-                                    </a>
-
-                                    {% if nextThemes %}
-                                        {% for elem in nextThemes %}
-                                            <a href="{% url request.path|get_route elem.slug %}">
-                                                <div class="vid-item">
-                                                    <div class="thumb"><img
-                                                            src="http://img.youtube.com/vi/{{ elem.url_video }}/0.jpg">
-                                                    </div>
-                                                    <div class="desc">{{ elem.number_theme }}. {{ elem.theme }}</div>
-                                                </div>
-                                            </a>
-                                        {% endfor %}
-                                    {% endif %}
-                                </div>
-                            </div>
-
-                            <!-- LEFT AND RIGHT ARROWS -->
-                            <div class="arrows">
-                                <div class="arrow-left"><i class="fa fa-chevron-left fa-lg"></i></div>
-                                <div class="arrow-right"><i class="fa fa-chevron-right fa-lg"></i></div>
-                            </div>
-
-                        </div>
-
-                        <script src="https://apis.google.com/js/platform.js"></script>
-
-                        <div class="g-ytsubscribe" data-channelid="UCMcC_43zGHttf9bY-xJOTwA" data-layout="default"
-                             data-count="hidden"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {% if Theme.is_closed_video %}
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 offset-lg-1 col-lg-10 offset-md-1 col-md-10">
-                        <div class="row">
-                            <div class="videoContainer">
-                                <h4>Видео доступно только для спонсоров проекта</h4>
-                                {% if Theme.patreon or Theme.boosty %}
-                                    <h2>Посмотреть данное видео
-                                        {% if Theme.boosty %}
-                                            <a href="{{ Theme.boosty }}"
-                                               class="btn btn-danger" role="button"> на Boosty</a>
-                                        {% endif %}
-                                        {% if Theme.patreon %}
-                                            <a href="{{ Theme.patreon }}"
-                                               class="btn btn-primary" role="button"> на Patreon</a>
-                                        {% endif %}
-                                    </h2>
-                                {% endif %}
-                                <h5>Оформить спонсорскую подписку можно на
-                                    <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
-                                       class="btn btn-dark" role="button">Youtube</a>
-                                    <a href="https://boosty.to/egoroff_channel"
-                                       class="btn btn-dark" role="button">Boosty</a>
-                                    <a href="https://www.patreon.com/artem_egorov"
-                                       class="btn btn-dark" role="button">Patreon</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    {% endif %}
-
-
-    {% if Theme.article or Theme.tasks.all or Theme.stepic %}
-        <div class="single-course-content section-padding-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-lg-9">
-                        <div class="course--content">
-                            <div class="clever-tabs-content">
-                                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                    {% if Theme.article %}
-                                        <li class="nav-item">
-                                            <a class="nav-link active" id="tab--1" data-toggle="tab"
-                                               href="#tab1"
-                                               role="tab"
-                                               aria-controls="tab1" aria-selected="false">Теория</a>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if Theme.tasks.all %}
-                                        <li class="nav-item {% if not Theme.article %} active {% endif %}">
-                                            <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2"
-                                               role="tab"
-                                               aria-controls="tab2" aria-selected="true">Практика</a>
-                                        </li>
-                                    {% endif %}
-
-                                    {% if Theme.stepic %}
-                                        <li class="nav-item {% if not Theme.article and not Theme.tasks.all %} active {% endif %}">
-                                            <a class="nav-link" id="tab--3" data-toggle="tab"
-                                               href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Stepik.org</a>
-                                        </li>
-                                    {% endif %}
-                                </ul>
-
-                                <div class="tab-content" id="myTabContent">
-                                    <!-- Tab Text -->
-                                    {% if Theme.article %}
-                                        <div class="tab-pane fade show active" id="tab1" role="tabpanel"
-                                             aria-labelledby="tab--1">
-                                            <div class="clever-description">
-                                                <!-- About Course -->
-                                                <div class="about-course mb-15">
-                                                    <p>{{ Theme.article|safe }} </p>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    {% endif %}
-
-                                    {% if Theme.tasks.all %}
-                                        <!-- Tab Text -->
-                                        <div class="tab-pane fade {% if not Theme.article %} show active {% endif %}"
-                                             id="tab2" role="tabpanel" aria-labelledby="tab--2">
-
-                                            <div class="clever-description">
-
-                                                <!-- FAQ -->
-                                                <div class="clever-faqs">
-                                                    <h4>Задачи</h4>
-
-                                                    <div class="accordions" id="accordion" role="tablist"
-                                                         aria-multiselectable="true">
-                                                        {% for oneTheme in Theme.tasks.all %}
-                                                            {% if oneTheme.url_ref %}
-                                                                <div class="panel single-accordion">
-                                                                    {% if oneTheme.decision %}
-                                                                        <div class="d-flex justify-content-between">
-                                                                    {% endif %}
-                                                                    <h6 class="flex-fill">
-                                                                        <a target="_blank"
-                                                                           href="{{ oneTheme.url_ref }}">{{ forloop.counter }}. {{ oneTheme.name }} </a>
-                                                                    </h6>
-
-                                                                    {% if oneTheme.decision %}
-
-                                                                        <div class="p-1 bg-light">
-                                                                            {% if oneTheme.boosty %}
-                                                                                <a href="{{ oneTheme.boosty }}"
-                                                                                   class="btn btn-danger" role="button">Boosty</a>
-                                                                            {% endif %}
-                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
-                                                                               class="btn btn-primary" role="button">Разбор</a>
-                                                                            {% if oneTheme.patreon %}
-                                                                                <a href="{{ oneTheme.patreon }}"
-                                                                                   class="btn btn-danger" role="button">Patreon</a>
-                                                                            {% endif %}
-
-
-                                                                        </div>
-                                                                        </div>
-                                                                    {% endif %}
-                                                                </div>
-                                                            {% else %}
-                                                                <!-- Single Accordian Area -->
-                                                                <div class="panel single-accordion">
-                                                                    {% if oneTheme.decision %}
-                                                                        <div class="d-flex justify-content-between">
-                                                                    {% endif %}
-                                                                    <h6 class="flex-fill">
-                                                                        <a role="button" class="collapsed"
-                                                                           aria-expanded="true"
-                                                                           aria-controls="collapse{{ forloop.counter }}"
-                                                                           data-parent="#accordion"
-                                                                           data-toggle="collapse"
-                                                                           href="#collapse{{ forloop.counter }}">{{ forloop.counter }}. {{ oneTheme.name }}
-                                                                            <span class="accor-open"><i
-                                                                                    class="fa fa-plus"
-                                                                                    aria-hidden="true"></i></span>
-                                                                            <span class="accor-close"><i
-                                                                                    class="fa fa-minus"
-                                                                                    aria-hidden="true"></i></span>
-                                                                        </a>
-                                                                    </h6>
-
-
-
-
-                                                                    {% if oneTheme.decision %}
-                                                                        <div class="p-1 bg-light">
-                                                                            {% if oneTheme.boosty %}
-                                                                                <a href="{{ oneTheme.boosty }}"
-                                                                                   class="btn btn-danger" role="button">Boosty</a>
-                                                                            {% endif %}
-
-                                                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
-                                                                               class="btn btn-primary" role="button">Разбор</a>
-                                                                            {% if oneTheme.patreon %}
-                                                                                <a href="{{ oneTheme.patreon }}"
-                                                                                   class="btn btn-danger" role="button">Patreon</a>
-                                                                            {% endif %}
-                                                                        </div>
-                                                                        </div>
-                                                                    {% endif %}
-                                                                    <div id="collapse{{ forloop.counter }}"
-                                                                         class="accordion-content collapse">
-                                                                        <h3 class="text-center">Условие
-                                                                            задачи</h3>
-                                                                        <p> {{ oneTheme.condition|safe }}</p>
-                                                                        {% if oneTheme.examples.all %}
-                                                                            <div class="table-responsive table-bordered">
-                                                                                <table class="table">
-                                                                                    <thead>
-                                                                                    <tr>
-                                                                                        <th>№</th>
-                                                                                        <th>Входные данные</th>
-                                                                                        <th>Выходные данные</th>
-                                                                                    </tr>
-                                                                                    </thead>
-                                                                                    <tbody>
-                                                                                    {% for example in oneTheme.examples.all %}
-                                                                                        <tr>
-                                                                                            <td>{{ forloop.counter }}</td>
-                                                                                            <td>
-                                                                                                {% for row in example.get_rowsInput %}
-                                                                                                    {{ row }}
-                                                                                                    <br>
-                                                                                                {% endfor %}
-                                                                                            </td>
-                                                                                            <td>
-                                                                                                {% for row in example.get_rowsOutput %}
-                                                                                                    {{ row }}
-                                                                                                    <br>
-                                                                                                {% endfor %}
-                                                                                            </td>
-                                                                                        </tr>
-                                                                                    {% endfor %}
-                                                                                    </tbody>
-                                                                                </table>
-                                                                            </div>
-
-                                                                        {% endif %}
-                                                                    </div>
-                                                                </div>
-
-                                                            {% endif %}
-
-                                                        {% endfor %}
-
-                                                        <!-- Single Accordian Area -->
-
-
-                                                    </div>
-
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    {% endif %}
-
-                                    {% if Theme.stepic %}
-                                        <div class="tab-pane fade {% if not Theme.article and not Theme.tasks.all %} show active {% endif %}"
-                                             id="tab3" role="tabpanel"
-                                             aria-labelledby="tab--3">
-                                            <div class="clever-description">
-                                                <div class="about-course mb-15">
-
-
-                                                    <h4 class="text-center"> Попрактиковаться на stepik <a
-                                                            href="{{ Theme.stepic }}" class="btn btn-info"
-                                                            role="button">Перейти</a></h4>
-
-                                                    <h3 class="text-center text-primary " style='margin-bottom: 30px'>
-                                                        Записывайтесь на курсы по Python </h3>
-
-                                                    <div class="row">
-
-                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <div class="single-popular-course mb-100 ">
-                                                                <img src="{% static 'base_static/img/bg-img/c5.jpg' %}"
-                                                                     alt="">
-                                                                <div class="course-content">
-                                                                    <h4>Основы Python</h4>
-                                                                </div>
-                                                                <div class="seat-rating-fee d-flex justify-content-between">
-                                                                    <div class="seat-rating h-100 d-flex align-items-center">
-                                                                    </div>
-                                                                    <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/course/63085/promo"
-                                                                           class="free" target="_blank">Подробнее</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <div class="single-popular-course mb-100">
-                                                                <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}"
-                                                                     alt="">
-                                                                <div class="course-content">
-                                                                    <h4>ООП на Python</h4>
-                                                                </div>
-                                                                <div class="seat-rating-fee d-flex justify-content-between">
-                                                                    <div class="seat-rating h-100 d-flex align-items-center">
-                                                                    </div>
-                                                                    <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/z/114354"
-                                                                           class="free">Подробнее</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <div class="single-popular-course mb-100">
-                                                                <img src="{% static 'base_static/img/bg-img/django-bg.png' %}"
-                                                                     alt="">
-                                                                <div class="course-content">
-                                                                    <h4>Веб-разработка на Django</h4>
-                                                                </div>
-                                                                <div class="seat-rating-fee d-flex justify-content-between">
-                                                                    <div class="seat-rating h-100 d-flex align-items-center">
-                                                                    </div>
-                                                                    <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/z/114288"
-                                                                           class="free">Подробнее</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
-                                                            <div class="single-popular-course mb-100">
-                                                                <img src="{% static 'base_static/img/bg-img/pygame.png' %}"
-                                                                     alt="">
-                                                                <div class="course-content">
-                                                                    <h4>Создание игр на Pygame</h4>
-                                                                </div>
-                                                                <div class="seat-rating-fee d-flex justify-content-between">
-                                                                    <div class="seat-rating h-100 d-flex align-items-center">
-                                                                    </div>
-                                                                    <div class="course-fee h-100">
-                                                                        <a href="https://stepik.org/z/118434"
-                                                                           class="free">Подробнее</a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-12 col-lg-3">
-                        <div class="course-sidebar ">
-                            <!-- Buy Course -->
-                            {% if 'python' in request.path %}
-                                <a target="_blank" href="https://vk.com/topic-177962775_39843736"
-                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
-                            {% elif 'turtle' in request.path %}
-                                <a target="_blank" href="https://vk.com/topic-177962775_39843737"
-                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
-                            {% else %}
-                                <a target="_blank" href="https://vk.com/topic-116207750_37403417"
-                                   class="btn clever-btn mb-30 w-100">Задать вопрос</a>
-                            {% endif %}
-
-
-                            <div class="row">
-                                <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
-                                    <h4 class="text-center" style="margin-top: 5px">Поддержать</h4>
-
-                                    <iframe src="https://money.yandex.ru/quickpay/shop-widget?writer=seller&targets=%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%B0%D1%82%D1%8C%20%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82&targets-hint=&default-sum=100&button-text=13&hint=&successURL=&quickpay=shop&account=410017907063167"
-                                            height="222" frameborder="0" allowtransparency="true" scrolling="no"
-                                            style="width: 95%; margin: 0 auto;"></iframe>
-                                </div>
-
-
-                                <div class="sidebar-widget col-12 col-sm-6 col-lg-12">
-                                    <h4 class="text-center">Группа </h4>
-
-                                    <script type="text/javascript" src="https://vk.com/js/api/openapi.js?160"></script>
-
-                                    <!-- VK Widget -->
-                                    <div id="vk_groups"></div>
-                                    <script type="text/javascript">
-                                        VK.Widgets.Group("vk_groups", {mode: 3, no_cover: 1}, 177962775);
-                                    </script>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    {% endif %}
-
-
-    {#    <div class="container">#}
-    {#        <hr>#}
-    {#        <h3 class="text-center">Комментарии</h3>#}
-    {#        <div id="disqus_thread"></div>#}
-    {#        <script>#}
-    {##}
-    {#            var disqus_config = function () {#}
-    {#this.page.url = 'egoroffartem.pythonanywhere.com/{{ path }}';#}
-    {#                this.page.identifier = 'course{{ Theme.id }}';#}
-    {#            };#}
-    {##}
-    {#            (function () { // DON'T EDIT BELOW THIS LINE#}
-    {#                var d = document, s = d.createElement('script');#}
-    {#                s.src = 'https://http-egoroffartem-pythonanywhere-com.disqus.com/embed.js';#}
-    {#                s.setAttribute('data-timestamp', +new Date());#}
-    {#                (d.head || d.body).appendChild(s);#}
-    {#            })();#}
-    {#        </script>#}
-    {#        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by#}
-    {#            Disqus.</a></noscript>#}
-    {#    </div>#}
-
+<link rel="stylesheet" href="{% static 'base_static/css/course-lesson.css' %}">
+<link rel="stylesheet" href="{% static 'base_static/css/sidebar-menu.css' %}">
+<link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+<script src="{% static 'base_static/js/prism.js' %}"></script>
 {% endblock %}
 
 {% block extraJS %}
-    <script type="text/javascript">
+<script src="{% static 'base_static/js/sidebar-menu.js' %}"></script>
+<script src="{% static 'base_static/js/lesson-video.js' %}"></script>
+{% endblock %}
 
-        $(document).ready(function () {
-            $(".arrow-right").bind("click", function (event) {
-                event.preventDefault();
-                $(".vid-list-container").stop().animate({
-                    scrollLeft: "+=336"
-                }, 750);
-            });
-            $(".arrow-left").bind("click", function (event) {
-                event.preventDefault();
-                $(".vid-list-container").stop().animate({
-                    scrollLeft: "-=336"
-                }, 750);
-            });
-        });
+{% block content %}
 
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "300px";
-        }
+{% include 'videos/hamburger_menu.html' %}
 
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
+<div class="lesson-layout">
+    <div class="lesson-main">
+
+        {% if '127.0.0.1' in request.META.HTTP_HOST %}
+        <div class="lesson-admin-actions">
+            <a href="http://127.0.0.1:8000/admin/videos/course/{{ Theme.id }}/change/"
+               target="_blank"
+               class="btn btn-info">
+                Редактировать {{ Theme.id }}
+            </a>
+        </div>
+        {% endif %}
+
+        <header class="lesson-header">
+            <div class="lesson-header__meta">
+                <span class="lesson-header__badge">Урок</span>
+            </div>
+            <h1 class="lesson-header__title">{{ Theme.number_theme }}. {{ Theme.theme }}</h1>
+        </header>
+
+        {% if not Theme.is_closed_video and video %}
+        <section class="lesson-section">
+            <div class="course-video-player">
+                <div class="course-video-player__header">
+                    <div>
+                        <h2 class="course-video-player__heading">Видеоурок</h2>
+                        <p class="course-video-player__subtitle">
+                            Выберите удобную платформу для просмотра
+                        </p>
+                    </div>
+
+                    <div class="course-video-player__tabs" id="video-source-switch">
+                        <button type="button" class="course-video-player__tab" data-source="youtube">
+                            YouTube
+                        </button>
+                        <button type="button" class="course-video-player__tab" data-source="rutube">
+                            Rutube
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-video-player__frame-wrap">
+                    <iframe
+                        id="lesson-video-frame"
+                        class="course-video-player__frame"
+                        src=""
+                        title="{{ video.theme }}"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div id="video-source-warning"
+                     class="course-video-player__warning"
+                     style="display:none;">
+                    Для этого урока выбранный источник недоступен. Мы автоматически переключили плеер на доступную платформу.
+                </div>
+
+                {% if nextThemes %}
+                <div class="course-video-player__playlist">
+                    <div class="course-video-player__playlist-header">
+                        <h3 class="course-video-player__playlist-title">Следующие уроки</h3>
+                        <div class="course-video-player__playlist-nav">
+                            <button type="button" class="course-video-player__nav-btn" id="playlist-prev">‹</button>
+                            <button type="button" class="course-video-player__nav-btn" id="playlist-next">›</button>
+                        </div>
+                    </div>
+
+                    <div class="course-video-player__playlist-viewport" id="playlist-viewport">
+                        <div class="course-video-player__playlist-track">
+                            <a href="{% url request.path|get_route Theme.slug %}"
+                               class="course-video-player__item course-video-player__item--current">
+                                <div class="course-video-player__thumb">
+                                    {% if video.youtube_id %}
+                                        <img src="https://i.ytimg.com/vi/{{ video.youtube_id }}/hqdefault.jpg"
+                                             alt="{{ video.theme }}">
+                                    {% elif video.url_video %}
+                                        <img src="https://i.ytimg.com/vi/{{ video.url_video }}/hqdefault.jpg"
+                                             alt="{{ video.theme }}">
+                                    {% else %}
+                                        <div class="course-video-player__thumb-placeholder">Видео</div>
+                                    {% endif %}
+                                </div>
+                                <div class="course-video-player__item-body">
+                                    <div class="course-video-player__item-meta">Текущий урок</div>
+                                    <div class="course-video-player__item-title">
+                                        {{ video.number_theme }}. {{ video.theme }}
+                                    </div>
+                                </div>
+                            </a>
+
+                            {% for elem in nextThemes %}
+                            <a href="{% url request.path|get_route elem.slug %}"
+                               class="course-video-player__item">
+                                <div class="course-video-player__thumb">
+                                    {% if elem.youtube_id %}
+                                        <img src="https://i.ytimg.com/vi/{{ elem.youtube_id }}/hqdefault.jpg"
+                                             alt="{{ elem.theme }}">
+                                    {% elif elem.url_video %}
+                                        <img src="https://i.ytimg.com/vi/{{ elem.url_video }}/hqdefault.jpg"
+                                             alt="{{ elem.theme }}">
+                                    {% else %}
+                                        <div class="course-video-player__thumb-placeholder">Видео</div>
+                                    {% endif %}
+                                </div>
+                                <div class="course-video-player__item-body">
+                                    <div class="course-video-player__item-meta">Следующий урок</div>
+                                    <div class="course-video-player__item-title">
+                                        {{ elem.number_theme }}. {{ elem.theme }}
+                                    </div>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </section>
+        {% endif %}
+
+        {% if Theme.is_closed_video %}
+        <section class="lesson-section">
+            <div class="lesson-lock-card">
+                <h2 class="lesson-lock-card__title">Видео доступно только для спонсоров проекта</h2>
+
+                {% if Theme.patreon or Theme.boosty %}
+                <p class="lesson-lock-card__text">
+                    Посмотреть это видео можно на закрытых площадках:
+                </p>
+
+                <div class="lesson-lock-card__actions">
+                    {% if Theme.boosty %}
+                    <a href="{{ Theme.boosty }}" class="btn btn-danger" role="button">Boosty</a>
+                    {% endif %}
+                    {% if Theme.patreon %}
+                    <a href="{{ Theme.patreon }}" class="btn btn-primary" role="button">Patreon</a>
+                    {% endif %}
+                </div>
+                {% endif %}
+
+                <p class="lesson-lock-card__text">
+                    Оформить спонсорскую подписку можно на:
+                </p>
+
+                <div class="lesson-lock-card__actions">
+                    <a href="https://www.youtube.com/channel/UCMcC_43zGHttf9bY-xJOTwA/join"
+                       class="btn btn-dark"
+                       role="button">YouTube</a>
+                    <a href="https://boosty.to/egoroff_channel"
+                       class="btn btn-dark"
+                       role="button">Boosty</a>
+                    <a href="https://www.patreon.com/artem_egorov"
+                       class="btn btn-dark"
+                       role="button">Patreon</a>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        {% if Theme.article or Theme.tasks.all or Theme.stepic %}
+        <section class="lesson-section">
+            <div class="lesson-tabs">
+                <ul class="nav nav-tabs lesson-tabs__nav" id="myTab" role="tablist">
+                    {% if Theme.article %}
+                    <li class="nav-item">
+                        <a class="nav-link active"
+                           id="tab--1"
+                           data-toggle="tab"
+                           href="#tab1"
+                           role="tab"
+                           aria-controls="tab1"
+                           aria-selected="true">
+                            Теория
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if Theme.tasks.all %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if not Theme.article %}active{% endif %}"
+                           id="tab--2"
+                           data-toggle="tab"
+                           href="#tab2"
+                           role="tab"
+                           aria-controls="tab2"
+                           aria-selected="{% if not Theme.article %}true{% else %}false{% endif %}">
+                            Практика
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    {% if Theme.stepic %}
+                    <li class="nav-item">
+                        <a class="nav-link {% if not Theme.article and not Theme.tasks.all %}active{% endif %}"
+                           id="tab--3"
+                           data-toggle="tab"
+                           href="#tab3"
+                           role="tab"
+                           aria-controls="tab3"
+                           aria-selected="{% if not Theme.article and not Theme.tasks.all %}true{% else %}false{% endif %}">
+                            Stepik
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+
+                <div class="tab-content lesson-tabs__content" id="myTabContent">
+
+                    {% if Theme.article %}
+                    <div class="tab-pane fade show active"
+                         id="tab1"
+                         role="tabpanel"
+                         aria-labelledby="tab--1">
+                        <div class="lesson-article-card">
+                            <div class="lesson-prose">
+                                {{ Theme.article|safe }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if Theme.tasks.all %}
+                    <div class="tab-pane fade {% if not Theme.article %}show active{% endif %}"
+                         id="tab2"
+                         role="tabpanel"
+                         aria-labelledby="tab--2">
+
+                        <div class="lesson-panel-card">
+                            <h2 class="lesson-panel-card__title">Задачи</h2>
+
+                            <div class="lesson-accordion" id="accordion" role="tablist" aria-multiselectable="true">
+                                {% for oneTheme in Theme.tasks.all %}
+                                    {% if oneTheme.url_ref %}
+                                        <div class="lesson-task-card">
+                                            <div class="lesson-task-card__header lesson-task-card__header--flat">
+                                                <div class="lesson-task-card__name">
+                                                    <a target="_blank" href="{{ oneTheme.url_ref }}">
+                                                        {{ forloop.counter }}. {{ oneTheme.name }}
+                                                    </a>
+                                                </div>
+
+                                                {% if oneTheme.decision %}
+                                                <div class="lesson-task-card__actions">
+                                                    {% if oneTheme.boosty %}
+                                                    <a href="{{ oneTheme.boosty }}" class="btn btn-danger" role="button">Boosty</a>
+                                                    {% endif %}
+                                                    <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                                       class="btn btn-primary"
+                                                       role="button">Разбор</a>
+                                                    {% if oneTheme.patreon %}
+                                                    <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
+                                                    {% endif %}
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% else %}
+                                        <div class="lesson-task-card">
+                                            <div class="lesson-task-card__header">
+                                                <a role="button"
+                                                   class="lesson-task-card__toggle collapsed"
+                                                   aria-expanded="false"
+                                                   aria-controls="collapse{{ forloop.counter }}"
+                                                   data-parent="#accordion"
+                                                   data-toggle="collapse"
+                                                   href="#collapse{{ forloop.counter }}">
+                                                    <span>{{ forloop.counter }}. {{ oneTheme.name }}</span>
+                                                    <span class="lesson-task-card__toggle-icon">+</span>
+                                                </a>
+
+                                                {% if oneTheme.decision %}
+                                                <div class="lesson-task-card__actions">
+                                                    {% if oneTheme.boosty %}
+                                                    <a href="{{ oneTheme.boosty }}" class="btn btn-danger" role="button">Boosty</a>
+                                                    {% endif %}
+                                                    <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                                       class="btn btn-primary"
+                                                       role="button">Разбор</a>
+                                                    {% if oneTheme.patreon %}
+                                                    <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
+                                                    {% endif %}
+                                                </div>
+                                                {% endif %}
+                                            </div>
+
+                                            <div id="collapse{{ forloop.counter }}"
+                                                 class="collapse lesson-task-card__body">
+                                                <h3 class="lesson-task-card__subtitle">Условие задачи</h3>
+
+                                                <div class="lesson-prose lesson-prose--task">
+                                                    {{ oneTheme.condition|safe }}
+                                                </div>
+
+                                                {% if oneTheme.examples.all %}
+                                                <div class="lesson-table-wrap">
+                                                    <table class="lesson-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>№</th>
+                                                                <th>Входные данные</th>
+                                                                <th>Выходные данные</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {% for example in oneTheme.examples.all %}
+                                                            <tr>
+                                                                <td>{{ forloop.counter }}</td>
+                                                                <td>
+                                                                    {% for row in example.get_rowsInput %}
+                                                                        {{ row }}<br>
+                                                                    {% endfor %}
+                                                                </td>
+                                                                <td>
+                                                                    {% for row in example.get_rowsOutput %}
+                                                                        {{ row }}<br>
+                                                                    {% endfor %}
+                                                                </td>
+                                                            </tr>
+                                                            {% endfor %}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    {% if Theme.stepic %}
+                    <div class="tab-pane fade {% if not Theme.article and not Theme.tasks.all %}show active{% endif %}"
+                         id="tab3"
+                         role="tabpanel"
+                         aria-labelledby="tab--3">
+
+                        <div class="lesson-panel-card">
+                            <h2 class="lesson-panel-card__title">Практика на Stepik</h2>
+
+                            <div class="lesson-stepik-intro">
+                                <p class="lesson-stepik-intro__text">
+                                    Попрактиковаться по этой теме можно на Stepik.
+                                </p>
+                                <a href="{{ Theme.stepic }}" class="btn btn-info" role="button">
+                                    Перейти на Stepik
+                                </a>
+                            </div>
+
+                            <div class="lesson-course-grid">
+                                <div class="lesson-course-card">
+                                    <img src="{% static 'base_static/img/bg-img/c5.jpg' %}" alt="Основы Python">
+                                    <div class="lesson-course-card__body">
+                                        <h3>Основы Python</h3>
+                                        <a href="https://stepik.org/course/63085/promo" target="_blank">Подробнее</a>
+                                    </div>
+                                </div>
+
+                                <div class="lesson-course-card">
+                                    <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}" alt="ООП на Python">
+                                    <div class="lesson-course-card__body">
+                                        <h3>ООП на Python</h3>
+                                        <a href="https://stepik.org/z/114354" target="_blank">Подробнее</a>
+                                    </div>
+                                </div>
+
+                                <div class="lesson-course-card">
+                                    <img src="{% static 'base_static/img/bg-img/django-bg.png' %}" alt="Django">
+                                    <div class="lesson-course-card__body">
+                                        <h3>Веб-разработка на Django</h3>
+                                        <a href="https://stepik.org/z/114288" target="_blank">Подробнее</a>
+                                    </div>
+                                </div>
+
+                                <div class="lesson-course-card">
+                                    <img src="{% static 'base_static/img/bg-img/pygame.png' %}" alt="Pygame">
+                                    <div class="lesson-course-card__body">
+                                        <h3>Создание игр на Pygame</h3>
+                                        <a href="https://stepik.org/z/118434" target="_blank">Подробнее</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </div>
+</div>
+
+{% if video_sources %}
+{{ video_sources|json_script:"video-sources-data" }}
+{% endif %}
+
 {% endblock %}

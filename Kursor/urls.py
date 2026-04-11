@@ -45,6 +45,7 @@ urlpatterns = [
     ),
     path('robots.txt', include('robots.urls')),
     path('summernote/', include('django_summernote.urls')),
+    path('tinymce/', include('tinymce.urls')),
 ]
 urlpatterns += [
     re_path(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}),

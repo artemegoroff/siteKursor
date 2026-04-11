@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'theory',
     'robots',
     'django_summernote',
+    'tinymce',
     # 'accounts',
     'services',
     'sponsorship'
