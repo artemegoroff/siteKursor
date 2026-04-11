@@ -130,3 +130,8 @@ def videos_home(request):
 def videos_test(request):
     context = {}
     return render(request, 'videos/test.html', context)
+
+
+def get_landing_indi_course_page(request):
+    context = {}
+    return render(request, 'videos/indi_landing.html', context)

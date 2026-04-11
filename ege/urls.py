@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.urls import path, re_path
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -6,14 +6,24 @@ from django.conf.urls.static import static
 app_name = 'ege'
 
 urlpatterns = [
-                  url(r'^task/(?P<number_task>[1-9]|[1][\d]|2[0-7])$', views.ege_task_detail, name='ege_task_detail'),
-                  url(r'^var/(?P<variant_number>[0-9]+)$', views.ege_get_var, name='ege_get_var'),
-                  url(r'^exercise/(?P<id_exercise>[0-9]+)$', views.ege_get_exercise, name='ege_get_exercise'),
-                  url(r'^videotask/$', views.ege_videotask_AllTask, name='ege_videotask_AllTask'),
-                  url(r'^videotask/(?P<id_theme>[0-9]+)/(?P<id_task>[0-9]+)$', views.ege_videotask_detail,
-                      name='ege_videotask_detail'),
-                  url(r'^videotask/(?P<id_theme>[0-9]+)$', views.ege_videotask_ONEtheme,
-                      name='ege_videotask_ONEtheme'),
+    path('task/<int:number_task>/', views.ege_task_detail, name='ege_task_detail'),
+    path('var/<int:variant_number>/', views.ege_get_var, name='ege_get_var'),
+    path('exercise/<int:id_exercise>/', views.ege_get_exercise, name='ege_get_exercise'),
 
-                  url(r'^$', views.ege_home_page, name='base_ege'),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('videotask/', views.ege_videotask_AllTask, name='ege_videotask_AllTask'),
+    path(
+        'videotask/<int:id_theme>/<int:id_task>/',
+        views.ege_videotask_detail,
+        name='ege_videotask_detail',
+    ),
+    path(
+        'videotask/<int:id_theme>/',
+        views.ege_videotask_ONEtheme,
+        name='ege_videotask_ONEtheme',
+    ),
+
+    path('', views.ege_home_page, name='base_ege'),
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

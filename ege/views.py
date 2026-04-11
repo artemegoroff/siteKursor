@@ -4,6 +4,7 @@ from django.template.loader import render_to_string
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from .models import QuestionsEGE, NumberTaskEge, VarEge, CategoryEge, VideoRazborEGE
+from django.http import Http404
 
 TASK_PRISM_JS = (8, 11, 14, 19, 20, 21, 24, 25)
 
@@ -25,6 +26,8 @@ def ege_home_page(request):
 
 
 def ege_task_detail(request, number_task):
+    if not 1 <= number_task <= 27:
+        raise Http404()
     exam = 'ege'
     questions = QuestionsEGE.objects.filter(number_of_task=number_task)[::-1]
     category = list(CategoryEge.objects.filter(number_task=number_task))

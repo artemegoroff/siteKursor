@@ -1,4 +1,5 @@
 myvenv
+venv
 /static
 .DS_Store
 media
