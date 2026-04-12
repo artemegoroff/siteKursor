@@ -86,14 +86,6 @@ class Course(models.Model):
         self.slug = self.slug or slugify(self.theme)
         return super().save(*args, **kwargs)
 
-    # def delete(self, *args, **kwargs):
-    #     themes = Course.objects.filter(number_theme__gt=self.number_theme, language=self.language).order_by(
-    #         '-number_theme')
-    #     for theme in themes:
-    #         theme.number_theme -= 1
-    #         theme.save()
-    #     return super().delete(*args, **kwargs)
-
     def __str__(self):
         return self.get_language_display() + " " + str(self.number_theme) + " " + self.theme
 
