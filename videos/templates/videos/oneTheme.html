@@ -44,7 +44,7 @@
             <h1 class="lesson-header__title">{{ Theme.number_theme }}. {{ Theme.theme }}</h1>
         </header>
 
-        {% if not Theme.is_closed_video and video %}
+        {% if not Theme.is_closed_video %}
         <section class="lesson-section">
             <div class="course-video-player">
                 <div class="course-video-player__header">
@@ -67,19 +67,20 @@
 
                 <div class="course-video-player__frame-wrap">
                     <iframe
-                        id="lesson-video-frame"
-                        class="course-video-player__frame"
-                        src=""
-                        title="{{ video.theme }}"
-                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                        allowfullscreen>
+                            id="lesson-video-frame"
+                            class="course-video-player__frame"
+                            src=""
+                            title="{{ Theme.theme }}"
+                            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                            allowfullscreen>
                     </iframe>
                 </div>
 
                 <div id="video-source-warning"
                      class="course-video-player__warning"
                      style="display:none;">
-                    Для этого урока выбранный источник недоступен. Мы автоматически переключили плеер на доступную платформу.
+                    Для этого урока выбранный источник недоступен. Мы автоматически переключили плеер на доступную
+                    платформу.
                 </div>
 
                 {% if nextThemes %}
@@ -97,20 +98,17 @@
                             <a href="{% url request.path|get_route Theme.slug %}"
                                class="course-video-player__item course-video-player__item--current">
                                 <div class="course-video-player__thumb">
-                                    {% if video.youtube_id %}
-                                        <img src="https://i.ytimg.com/vi/{{ video.youtube_id }}/hqdefault.jpg"
-                                             alt="{{ video.theme }}">
-                                    {% elif video.url_video %}
-                                        <img src="https://i.ytimg.com/vi/{{ video.url_video }}/hqdefault.jpg"
-                                             alt="{{ video.theme }}">
+                                    {% if Theme.youtube_id %}
+                                    <img src="https://i.ytimg.com/vi/{{ Theme.youtube_id }}/hqdefault.jpg"
+                                         alt="{{ Theme.theme }}">
                                     {% else %}
-                                        <div class="course-video-player__thumb-placeholder">Видео</div>
+                                    <div class="course-video-player__thumb-placeholder">Видео</div>
                                     {% endif %}
                                 </div>
                                 <div class="course-video-player__item-body">
                                     <div class="course-video-player__item-meta">Текущий урок</div>
                                     <div class="course-video-player__item-title">
-                                        {{ video.number_theme }}. {{ video.theme }}
+                                        {{ Theme.number_theme }}. {{ Theme.theme }}
                                     </div>
                                 </div>
                             </a>
@@ -120,13 +118,10 @@
                                class="course-video-player__item">
                                 <div class="course-video-player__thumb">
                                     {% if elem.youtube_id %}
-                                        <img src="https://i.ytimg.com/vi/{{ elem.youtube_id }}/hqdefault.jpg"
-                                             alt="{{ elem.theme }}">
-                                    {% elif elem.url_video %}
-                                        <img src="https://i.ytimg.com/vi/{{ elem.url_video }}/hqdefault.jpg"
-                                             alt="{{ elem.theme }}">
+                                    <img src="https://i.ytimg.com/vi/{{ elem.youtube_id }}/hqdefault.jpg"
+                                         alt="{{ elem.theme }}">
                                     {% else %}
-                                        <div class="course-video-player__thumb-placeholder">Видео</div>
+                                    <div class="course-video-player__thumb-placeholder">Видео</div>
                                     {% endif %}
                                 </div>
                                 <div class="course-video-player__item-body">
@@ -257,100 +252,102 @@
 
                             <div class="lesson-accordion" id="accordion" role="tablist" aria-multiselectable="true">
                                 {% for oneTheme in Theme.tasks.all %}
-                                    {% if oneTheme.url_ref %}
-                                        <div class="lesson-task-card">
-                                            <div class="lesson-task-card__header lesson-task-card__header--flat">
-                                                <div class="lesson-task-card__name">
-                                                    <a target="_blank" href="{{ oneTheme.url_ref }}">
-                                                        {{ forloop.counter }}. {{ oneTheme.name }}
-                                                    </a>
-                                                </div>
-
-                                                {% if oneTheme.decision %}
-                                                <div class="lesson-task-card__actions">
-                                                    {% if oneTheme.boosty %}
-                                                    <a href="{{ oneTheme.boosty }}" class="btn btn-danger" role="button">Boosty</a>
-                                                    {% endif %}
-                                                    <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
-                                                       class="btn btn-primary"
-                                                       role="button">Разбор</a>
-                                                    {% if oneTheme.patreon %}
-                                                    <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
-                                                    {% endif %}
-                                                </div>
-                                                {% endif %}
-                                            </div>
+                                {% if oneTheme.url_ref %}
+                                <div class="lesson-task-card">
+                                    <div class="lesson-task-card__header lesson-task-card__header--flat">
+                                        <div class="lesson-task-card__name">
+                                            <a target="_blank" href="{{ oneTheme.url_ref }}">
+                                                {{ forloop.counter }}. {{ oneTheme.name }}
+                                            </a>
                                         </div>
-                                    {% else %}
-                                        <div class="lesson-task-card">
-                                            <div class="lesson-task-card__header">
-                                                <a role="button"
-                                                   class="lesson-task-card__toggle collapsed"
-                                                   aria-expanded="false"
-                                                   aria-controls="collapse{{ forloop.counter }}"
-                                                   data-parent="#accordion"
-                                                   data-toggle="collapse"
-                                                   href="#collapse{{ forloop.counter }}">
-                                                    <span>{{ forloop.counter }}. {{ oneTheme.name }}</span>
-                                                    <span class="lesson-task-card__toggle-icon">+</span>
-                                                </a>
 
-                                                {% if oneTheme.decision %}
-                                                <div class="lesson-task-card__actions">
-                                                    {% if oneTheme.boosty %}
-                                                    <a href="{{ oneTheme.boosty }}" class="btn btn-danger" role="button">Boosty</a>
-                                                    {% endif %}
-                                                    <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
-                                                       class="btn btn-primary"
-                                                       role="button">Разбор</a>
-                                                    {% if oneTheme.patreon %}
-                                                    <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
-                                                    {% endif %}
-                                                </div>
-                                                {% endif %}
-                                            </div>
-
-                                            <div id="collapse{{ forloop.counter }}"
-                                                 class="collapse lesson-task-card__body">
-                                                <h3 class="lesson-task-card__subtitle">Условие задачи</h3>
-
-                                                <div class="lesson-prose lesson-prose--task">
-                                                    {{ oneTheme.condition|safe }}
-                                                </div>
-
-                                                {% if oneTheme.examples.all %}
-                                                <div class="lesson-table-wrap">
-                                                    <table class="lesson-table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>№</th>
-                                                                <th>Входные данные</th>
-                                                                <th>Выходные данные</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            {% for example in oneTheme.examples.all %}
-                                                            <tr>
-                                                                <td>{{ forloop.counter }}</td>
-                                                                <td>
-                                                                    {% for row in example.get_rowsInput %}
-                                                                        {{ row }}<br>
-                                                                    {% endfor %}
-                                                                </td>
-                                                                <td>
-                                                                    {% for row in example.get_rowsOutput %}
-                                                                        {{ row }}<br>
-                                                                    {% endfor %}
-                                                                </td>
-                                                            </tr>
-                                                            {% endfor %}
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                {% endif %}
-                                            </div>
+                                        {% if oneTheme.decision %}
+                                        <div class="lesson-task-card__actions">
+                                            {% if oneTheme.boosty %}
+                                            <a href="{{ oneTheme.boosty }}" class="btn btn-danger"
+                                               role="button">Boosty</a>
+                                            {% endif %}
+                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                               class="btn btn-primary"
+                                               role="button">Разбор</a>
+                                            {% if oneTheme.patreon %}
+                                            <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
+                                            {% endif %}
                                         </div>
-                                    {% endif %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="lesson-task-card">
+                                    <div class="lesson-task-card__header">
+                                        <a role="button"
+                                           class="lesson-task-card__toggle collapsed"
+                                           aria-expanded="false"
+                                           aria-controls="collapse{{ forloop.counter }}"
+                                           data-parent="#accordion"
+                                           data-toggle="collapse"
+                                           href="#collapse{{ forloop.counter }}">
+                                            <span>{{ forloop.counter }}. {{ oneTheme.name }}</span>
+                                            <span class="lesson-task-card__toggle-icon">+</span>
+                                        </a>
+
+                                        {% if oneTheme.decision %}
+                                        <div class="lesson-task-card__actions">
+                                            {% if oneTheme.boosty %}
+                                            <a href="{{ oneTheme.boosty }}" class="btn btn-danger"
+                                               role="button">Boosty</a>
+                                            {% endif %}
+                                            <a href="{% url 'videos:videos_decision_one' oneTheme.decision %}"
+                                               class="btn btn-primary"
+                                               role="button">Разбор</a>
+                                            {% if oneTheme.patreon %}
+                                            <a href="{{ oneTheme.patreon }}" class="btn btn-danger" role="button">Patreon</a>
+                                            {% endif %}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+                                    <div id="collapse{{ forloop.counter }}"
+                                         class="collapse lesson-task-card__body">
+                                        <h3 class="lesson-task-card__subtitle">Условие задачи</h3>
+
+                                        <div class="lesson-prose lesson-prose--task">
+                                            {{ oneTheme.condition|safe }}
+                                        </div>
+
+                                        {% if oneTheme.examples.all %}
+                                        <div class="lesson-table-wrap">
+                                            <table class="lesson-table">
+                                                <thead>
+                                                <tr>
+                                                    <th>№</th>
+                                                    <th>Входные данные</th>
+                                                    <th>Выходные данные</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for example in oneTheme.examples.all %}
+                                                <tr>
+                                                    <td>{{ forloop.counter }}</td>
+                                                    <td>
+                                                        {% for row in example.get_rowsInput %}
+                                                        {{ row }}<br>
+                                                        {% endfor %}
+                                                    </td>
+                                                    <td>
+                                                        {% for row in example.get_rowsOutput %}
+                                                        {{ row }}<br>
+                                                        {% endfor %}
+                                                    </td>
+                                                </tr>
+                                                {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                         </div>

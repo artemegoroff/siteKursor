@@ -4,6 +4,32 @@ from .models import Course, ProgrammTask
 
 # Create your views here.
 
+def build_youtube_embed(video_id: str) -> str:
+    return (
+        f"https://www.youtube.com/embed/{video_id}"
+        f"?rel=0&autoplay=1&modestbranding=1"
+    )
+
+
+def build_rutube_embed(video_id: str) -> str:
+    return f"https://rutube.ru/play/embed/{video_id}"
+
+
+def get_video_sources(video) -> dict:
+    sources = {}
+
+    if video.youtube_id:
+        sources["youtube"] = {
+            "embed_url": build_youtube_embed(video.youtube_id),
+        }
+
+    if video.rutube_id:
+        sources["rutube"] = {
+            "embed_url": build_rutube_embed(video.rutube_id),
+        }
+
+    return sources
+
 def get_all_themes_by_course(course):
     course_name = ''
     for choice in Course.LANG_CHOICES:
@@ -25,8 +51,16 @@ def get_course_theme_by_slug(course, slug):
     theme = get_object_or_404(Course, language=course, slug=slug)
     all_themes = Course.objects.filter(language=course)
     next_themes = all_themes.filter(number_theme__gt=theme.number_theme)[:8]
-    context = {"Theme": theme, "video": theme, "allThemes": all_themes, "nextThemes": next_themes}
-    return context
+    prev_themes = (
+        all_themes.filter(number_theme__lt=theme.number_theme).order_by('-number_theme')[:8]
+    )
+    return {
+        "Theme": theme,
+        "allThemes": all_themes,
+        "nextThemes": next_themes,
+        "prevThemes": list(prev_themes)[::-1],  # переворачиваем
+        "video_sources": get_video_sources(theme),
+    }
 
 
 def videos_python_theme(request, number):

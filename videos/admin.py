@@ -37,7 +37,7 @@ class CourseAdminForm(forms.ModelForm):
             mce_attrs={
                 'width': '100%',
                 'height': 700,
-                'menubar': True,
+                # 'menubar': True,
 
                 'plugins': (
                     'advlist autolink lists link image charmap preview anchor '
@@ -82,9 +82,9 @@ class AdminCourse(admin.ModelAdmin):
     filter_horizontal = ['tasks']
     save_on_top = True
     list_filter = ['language']
-    list_display = ['theme', 'number_theme', 'boosty', 'patreon', 'is_closed_video']
+    list_display = ['theme', 'number_theme', 'youtube_id', 'rutube_id', 'is_closed_video']
     prepopulated_fields = {"slug": ("theme",)}
-    list_editable = ['number_theme', 'boosty', 'patreon', 'is_closed_video']
+    list_editable = ['number_theme', 'youtube_id', 'rutube_id', 'is_closed_video']
 
 
 @admin.register(ProgrammTask)

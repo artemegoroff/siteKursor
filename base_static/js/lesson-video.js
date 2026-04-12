@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
             sourceButtons.forEach((btn) => {
                 const sourceName = btn.dataset.source;
                 const isAvailable = Boolean(sources[sourceName]);
+
                 btn.disabled = !isAvailable;
                 btn.classList.toggle('is-active', sourceName === activeSource);
             });
@@ -38,12 +39,14 @@ document.addEventListener('DOMContentLoaded', function () {
             if (warningBox) {
                 warningBox.style.display = showWarning ? 'block' : 'none';
             }
+
             return true;
         }
 
         sourceButtons.forEach((btn) => {
             btn.addEventListener('click', function () {
-                setPlayerSource(btn.dataset.source, false);
+                const sourceName = btn.dataset.source;
+                setPlayerSource(sourceName, false);
             });
         });
 
