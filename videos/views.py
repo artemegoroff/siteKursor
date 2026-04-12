@@ -50,9 +50,9 @@ def get_course_theme_by_number(course, number):
 def get_course_theme_by_slug(course, slug):
     theme = get_object_or_404(Course, language=course, slug=slug)
     all_themes = Course.objects.filter(language=course)
-    next_themes = all_themes.filter(number_theme__gt=theme.number_theme)[:8]
+    next_themes = all_themes.filter(number_theme__gt=theme.number_theme)[:5]
     prev_themes = (
-        all_themes.filter(number_theme__lt=theme.number_theme).order_by('-number_theme')[:8]
+        all_themes.filter(number_theme__lt=theme.number_theme).order_by('-number_theme')[:5]
     )
     return {
         "Theme": theme,
