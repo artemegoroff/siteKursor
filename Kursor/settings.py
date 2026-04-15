@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'tinymce',
     # 'accounts',
     'services',
-    'sponsorship',
     'courses',
     'adminsortable2'
 ]

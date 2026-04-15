@@ -1,5 +1,6 @@
 from django.db import models
 from django.template.defaultfilters import slugify as django_slugify
+from django.urls import reverse
 
 alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
             'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
@@ -34,6 +35,9 @@ class LearningCourse(models.Model):
     def seo_title(self):
         return f'Курс "{self.title}"'
 
+    def get_absolute_url(self):
+        return reverse('courses:course_detail', kwargs={'course_slug': self.slug})
+
     class Meta:
         verbose_name = 'Курс'
         verbose_name_plural = 'Курсы'
@@ -54,6 +58,15 @@ class LearningModule(models.Model):
 
     def __str__(self):
         return f'{self.course} / {self.sort_order}. {self.title}' if self.sort_order else f'{self.course} / {self.title}'
+
+    def get_absolute_url(self):
+        return reverse(
+            'courses:module_detail',
+            kwargs={
+                'course_slug': self.course.slug,
+                'module_slug': self.slug,
+            }
+        )
 
     class Meta:
         verbose_name = 'Модуль'
@@ -82,6 +95,16 @@ class Lesson(models.Model):
 
     def seo_title(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse(
+            'courses:lesson_detail',
+            kwargs={
+                'course_slug': self.module.course.slug,
+                'module_slug': self.module.slug,
+                'lesson_slug': self.slug,
+            }
+        )
 
     class Meta:
         verbose_name = 'Урок'

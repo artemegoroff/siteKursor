@@ -30,12 +30,12 @@ handler500 = home_view.e_handler500
 urlpatterns = [
     path('', include('home.urls')),
     path('admin/', admin.site.urls),
-    path('subscribe/', include('sponsorship.urls')),
     # path('accounts/', include('accounts.urls')),
     path('ege/', include('ege.urls')),
     path('oge/', include('oge.urls')),
     path('services/', include('services.urls')),
-    path('course/', include('videos.urls')),
+    path('old_course/', include('videos.urls')),
+    path('courses/', include('courses.urls')),
 
     path(
         'sitemap.xml',
