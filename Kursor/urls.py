@@ -33,7 +33,6 @@ urlpatterns = [
     # path('accounts/', include('accounts.urls')),
     path('ege/', include('ege.urls')),
     path('oge/', include('oge.urls')),
-    path('services/', include('services.urls')),
     path('old_course/', include('videos.urls')),
     path('courses/', include('courses.urls')),
 

@@ -1,4 +1,4 @@
-from django.db.models import Prefetch
+from django.db.models import Prefetch, Count
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 
@@ -62,30 +62,41 @@ def build_course_navigation(course, current_lesson):
 
 
 def courses_home(request):
-    courses = LearningCourse.objects.order_by('sort_order', 'title')
-
+    courses = (
+        LearningCourse.objects
+        .annotate(
+            lessons_count=Count('modules__lessons')
+        )
+        .order_by('sort_order')
+    )
     context = {
         'courses': courses,
     }
-    return render(request, 'courses/courses_home.html', context)
+    return render(request, 'courses/courses.html', context)
 
 
 def course_detail(request, course_slug):
-    course = get_object_or_404(
-        LearningCourse.objects.prefetch_related(
-            Prefetch(
-                'modules',
-                queryset=LearningModule.objects.prefetch_related(
-                    Prefetch('lessons', queryset=Lesson.objects.order_by('sort_order', 'title'))
-                ).order_by('sort_order', 'title')
-            )
-        ),
-        slug=course_slug,
+    course = get_object_or_404(LearningCourse, slug=course_slug)
+
+    lesson_qs = Lesson.objects.order_by('sort_order', 'title')
+    modules = (
+        LearningModule.objects
+        .filter(course=course)
+        .prefetch_related(Prefetch('lessons', queryset=lesson_qs))
+        .order_by('sort_order', 'title')
     )
+
+    current_lesson_id = request.GET.get('current')
+
+    try:
+        current_lesson_id = int(current_lesson_id) if current_lesson_id else None
+    except (TypeError, ValueError):
+        current_lesson_id = None
 
     context = {
         'course': course,
-        'modules': course.modules.all(),
+        'modules': modules,
+        'current_lesson_id': current_lesson_id,
     }
     return render(request, 'courses/course_detail.html', context)
 

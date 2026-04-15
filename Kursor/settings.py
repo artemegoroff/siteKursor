@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django_summernote',
     'tinymce',
     # 'accounts',
-    'services',
     'courses',
     'adminsortable2'
 ]

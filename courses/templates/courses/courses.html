@@ -1,0 +1,83 @@
+{% extends 'baseBoot4.html' %}
+{% load static %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'base_static/css/courses.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="courses">
+
+    <!-- 🔹 Заголовок -->
+    <div class="courses-header">
+        <h1 class="courses-title">Все курсы</h1>
+        <div class="courses-subtitle">
+            Пройдите путь от новичка до разработчика 🚀
+        </div>
+    </div>
+
+    <!-- 🔥 ПУТЬ ОБУЧЕНИЯ -->
+    <div class="learning-path">
+        {% for course in courses %}
+            <a href="{{ course.get_absolute_url }}"
+               class="learning-path__item">
+                {{ course.title }}
+            </a>
+
+            {% if not forloop.last %}
+                <div class="learning-path__arrow">→</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- 🔹 КАРТОЧКИ КУРСОВ -->
+    <div class="courses-grid">
+
+        {% for course in courses %}
+            <a href="{{ course.get_absolute_url }}" class="course-card">
+
+                <!-- TOP -->
+                <div class="course-card__content">
+
+                    <div class="course-card__title">
+                        {{ course.title }}
+                    </div>
+
+                    {% if course.description %}
+                        <div class="course-card__description">
+                            {{ course.description|striptags|truncatechars:120 }}
+                        </div>
+                    {% endif %}
+
+                </div>
+
+                <!-- FOOTER -->
+                <div class="course-card__footer">
+
+                    <div class="course-card__meta">
+                        🟢 {{ course.level_display }} • {{ course.lessons_count }} уроков
+                    </div>
+
+                    {% if course.previous_course %}
+                        <div class="course-card__after">
+                            После: {{ course.previous_course.title }}
+                        </div>
+                    {% endif %}
+
+                    <div class="course-card__arrow">→</div>
+
+                </div>
+
+            </a>
+        {% empty %}
+            <div class="courses-empty">
+                Курсы пока не добавлены
+            </div>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -6,54 +6,49 @@
 
             <div class="lesson-nav__col lesson-nav__col--prev">
                 {% if prevThemes %}
-                    {% with prev_lesson=prevThemes|last %}
-                        <a href="{{ prev_lesson.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--prev">
-                            <div class="lesson-nav-card__label">Предыдущий урок</div>
-                            <div class="lesson-nav-card__title">
-                                {{ prev_lesson.menu_number }}. {{ prev_lesson.title }}
-                            </div>
-                            <div class="lesson-nav-card__arrow">←</div>
-                        </a>
-                    {% endwith %}
-                {% else %}
-                    <div class="lesson-nav-card lesson-nav-card--muted">
-                        <div class="lesson-nav-card__label">Навигация</div>
-                        <div class="lesson-nav-card__title">Это первый урок курса</div>
+                {% with prev_lesson=prevThemes|last %}
+                <a href="{{ prev_lesson.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--prev">
+                    <div class="lesson-nav-card__label">Предыдущий урок</div>
+                    <div class="lesson-nav-card__title">
+                        {{ prev_lesson.menu_number }}. {{ prev_lesson.title }}
                     </div>
+                    <div class="lesson-nav-card__arrow">←</div>
+                </a>
+                {% endwith %}
+                {% else %}
+                <div class="lesson-nav-card lesson-nav-card--muted">
+                    <div class="lesson-nav-card__label">Навигация</div>
+                    <div class="lesson-nav-card__title">Это первый урок курса</div>
+                </div>
                 {% endif %}
             </div>
 
             <div class="lesson-nav__col lesson-nav__col--center">
-                <a href="{{ module.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--center">
-                    <div class="lesson-nav-card__label">Текущий модуль</div>
+                <a href="{{ course.get_absolute_url }}?current={{ Theme.id }}#module-{{ module.slug }}"
+                   class="lesson-nav-card lesson-nav-card--center">
+                    <div class="lesson-nav-card__label">Содержание курса</div>
                     <div class="lesson-nav-card__title">{{ module.title }}</div>
-                    <div class="lesson-nav-card__meta">
-                        {% if module.lessons_for_menu %}
-                            {{ module.lessons_for_menu|length }} уроков в модуле
-                        {% else %}
-                            Вернуться к модулю
-                        {% endif %}
-                    </div>
+                    <div class="lesson-nav-card__meta">Перейти к модулю</div>
                 </a>
             </div>
 
             <div class="lesson-nav__col lesson-nav__col--next">
                 {% if nextThemes %}
-                    {% with next_lesson=nextThemes|first %}
-                        <a href="{{ next_lesson.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--next">
-                            <div class="lesson-nav-card__label">Следующий урок</div>
-                            <div class="lesson-nav-card__title">
-                                {{ next_lesson.menu_number }}. {{ next_lesson.title }}
-                            </div>
-                            <div class="lesson-nav-card__arrow">→</div>
-                        </a>
-                    {% endwith %}
+                {% with next_lesson=nextThemes|first %}
+                <a href="{{ next_lesson.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--next">
+                    <div class="lesson-nav-card__label">Следующий урок</div>
+                    <div class="lesson-nav-card__title">
+                        {{ next_lesson.menu_number }}. {{ next_lesson.title }}
+                    </div>
+                    <div class="lesson-nav-card__arrow">→</div>
+                </a>
+                {% endwith %}
                 {% else %}
-                    <a href="{{ course.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--muted">
-                        <div class="lesson-nav-card__label">Курс завершён</div>
-                        <div class="lesson-nav-card__title">Вы дошли до последнего урока</div>
-                        <div class="lesson-nav-card__meta">Вернуться к курсу</div>
-                    </a>
+                <a href="{{ course.get_absolute_url }}" class="lesson-nav-card lesson-nav-card--muted">
+                    <div class="lesson-nav-card__label">Курс завершён</div>
+                    <div class="lesson-nav-card__title">Вы дошли до последнего урока</div>
+                    <div class="lesson-nav-card__meta">Вернуться к курсу</div>
+                </a>
                 {% endif %}
             </div>
 

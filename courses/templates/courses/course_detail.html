@@ -1,15 +1,14 @@
-{% extends 'base.html' %}
+{% extends 'baseBoot4.html' %}
+{% load static %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'base_static/css/course.css' %}">
+<link rel="stylesheet" href="{% static 'base_static/css/course-detail.css' %}">
 {% endblock %}
-
 
 {% block content %}
 
 <section class="course">
 
-    <!-- 🔹 ШАПКА КУРСА -->
     <div class="course-header">
         <h1 class="course-title">{{ course.title }}</h1>
 
@@ -20,17 +19,21 @@
         {% endif %}
 
         {% if modules %}
-            {% with first_lesson=modules.0.lessons.first %}
-                {% if first_lesson %}
-                    <a href="{{ first_lesson.get_absolute_url }}" class="course-start-btn">
-                        🚀 Начать обучение
-                    </a>
+            {% with first_module=modules|first %}
+                {% if first_module.lessons.all %}
+                    {% with first_lesson=first_module.lessons.all|first %}
+                        {% if first_lesson %}
+                            <a href="{{ first_lesson.get_absolute_url }}" class="course-start-btn">
+                                🚀 Начать обучение
+                            </a>
+                        {% endif %}
+                    {% endwith %}
                 {% endif %}
             {% endwith %}
         {% endif %}
     </div>
 
-    <!-- 🔹 НАВИГАЦИЯ ПО МОДУЛЯМ (ЯКОРЯ) -->
+    {% if modules %}
     <div class="course-nav">
         <div class="course-nav__list">
             {% for module in modules %}
@@ -40,36 +43,41 @@
             {% endfor %}
         </div>
     </div>
+    {% endif %}
 
-    <!-- 🔹 СПИСОК МОДУЛЕЙ -->
     <div class="course-modules">
-
         {% for module in modules %}
             <section id="module-{{ module.slug }}" class="course-module">
 
-                <!-- Заголовок модуля -->
                 <div class="course-module__header">
                     <h2 class="course-module__title">
                         {{ forloop.counter }}. {{ module.title }}
                     </h2>
 
                     <div class="course-module__meta">
-                        {{ module.lessons.count }} уроков
+                        {{ module.lessons.all|length }} уроков
                     </div>
                 </div>
 
-                <!-- Список уроков -->
+                {% if module.description %}
+                    <div class="course-module__description">
+                        {{ module.description|safe }}
+                    </div>
+                {% endif %}
+
                 <div class="course-lessons">
                     {% for lesson in module.lessons.all %}
                         <a href="{{ lesson.get_absolute_url }}"
-                           class="course-lesson">
+                           class="course-lesson {% if lesson.id == current_lesson_id %}is-active{% endif %}">
 
                             <div class="course-lesson__number">
                                 {{ forloop.counter }}.
                             </div>
 
-                            <div class="course-lesson__title">
-                                {{ lesson.title }}
+                            <div class="course-lesson__body">
+                                <div class="course-lesson__title">
+                                    {{ lesson.title }}
+                                </div>
                             </div>
 
                         </a>
@@ -81,10 +89,28 @@
                 </div>
 
             </section>
+        {% empty %}
+            <div class="course-empty">
+                В этом курсе пока нет модулей.
+            </div>
         {% endfor %}
-
     </div>
 
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const activeLesson = document.querySelector('.course-lesson.is-active');
+
+     if (activeLesson) {
+        setTimeout(function () {
+            activeLesson.scrollIntoView({
+                behavior: 'smooth',
+                block: 'nearest'
+            });
+        }, 150);
+    }
+});
+</script>
 
 {% endblock %}

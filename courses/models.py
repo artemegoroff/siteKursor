@@ -25,6 +25,13 @@ class LearningCourse(models.Model):
     seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
     stepik = models.CharField('Stepik', max_length=200, blank=True, null=True)
 
+    previous_course = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL
+    )
+
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
         return super().save(*args, **kwargs)
