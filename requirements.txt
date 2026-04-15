@@ -3,3 +3,4 @@ django-robots
 django-tinymce
 django_summernote
 Pillow
+django-admin-sortable2

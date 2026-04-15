@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'tinymce',
     # 'accounts',
     'services',
-    'sponsorship'
+    'sponsorship',
+    'courses',
+    'adminsortable2'
 ]
 
 MIDDLEWARE = [

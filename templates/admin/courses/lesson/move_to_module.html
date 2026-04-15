@@ -1,0 +1,18 @@
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+
+  <p>Будут перенесены уроки:</p>
+  <ul>
+    {% for lesson in lessons %}
+      <li>{{ lesson.title }} ({{ lesson.module.course.title }} → {{ lesson.module.title }})</li>
+    {% endfor %}
+  </ul>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Перенести" class="default">
+  </form>
+{% endblock %}

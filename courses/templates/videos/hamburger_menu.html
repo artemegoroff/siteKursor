@@ -1,0 +1,40 @@
+{% load route_video %}
+
+<div id="sideMenuOverlay" class="side-menu-overlay" onclick="closeNav()"></div>
+
+<aside id="mySidenav"
+       class="sidenav"
+       aria-hidden="true"
+       aria-label="Меню уроков">
+    <div class="sidenav__header">
+        <div class="sidenav__title">Содержание уроков</div>
+        <button type="button"
+                class="sidenav__close"
+                onclick="closeNav()"
+                aria-label="Закрыть меню">
+            &times;
+        </button>
+    </div>
+
+    <div class="sidenav__body">
+        <ul class="sidenav__list">
+            {% for oneTheme in allThemes %}
+                <li class="sidenav__item">
+                    <a href="{% url request.path|get_route oneTheme.slug %}"
+                       class="sidenav__link {% if oneTheme.slug == Theme.slug %}is-active{% endif %}">
+                        <span class="sidenav__lesson-number">{{ oneTheme.number_theme }}.</span>
+                        <span class="sidenav__lesson-title">{{ oneTheme.theme }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
+
+<button type="button"
+        class="side-menu-toggle"
+        onclick="openNav()"
+        aria-label="Открыть меню уроков">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    <span class="side-menu-toggle__text">Уроки</span>
+</button>

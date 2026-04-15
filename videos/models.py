@@ -50,6 +50,7 @@ class ProgrammTask(models.Model):
 
 
 class Course(models.Model):
+    """Старая модель уроков. Используется как архив до завершения переноса."""
     PYTHON = 'PYT'
     PASCAL = 'PAS'
     CPLUSPLUS = 'CPP'

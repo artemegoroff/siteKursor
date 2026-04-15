@@ -1,0 +1,89 @@
+{% extends "baseBoot4.html" %}
+{% load static %}
+
+{% block seo_block %}
+    <title>Программирование на языке Python #egoroff_channel</title>
+    <meta name="description" content="Курс содержит видеоматериалы по всем основным разделам программирования.">
+    <meta name="keywords" content="Python, Питон, Программирование на питоне,
+    Программирование python, Программист Python, Задача на программирование">
+{% endblock %}
+
+
+
+{% block extracss %}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- ##### Catagory ##### -->
+    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"
+         style="background-image: url({% static 'base_static/img/bg-img/bg2.jpg' %});">
+        <h2>{{ course_name }}</h2>
+    </div>
+
+
+    <!-- ##### Popular Course Area Start ##### -->
+    <section class="popular-courses-area section-padding-100">
+        <div class="container">
+            <div class="row">
+
+                {% for Theme in allThemes %}
+
+                    <!-- Single Popular Course -->
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-popular-course mb-70 wow fadeInUp" data-wow-delay="250ms">
+                            <img src="http://i3.ytimg.com/vi/{{ Theme.url_video }}/maxresdefault.jpg" alt="">
+                            <!-- Course Content -->
+                            <div class="course-content">
+                                <h6>{{ Theme.number_theme }}. {{ Theme.theme }}</h6>
+                            </div>
+                            <!-- Seat Rating Fee -->
+                            <div class="seat-rating-fee d-flex justify-content-between">
+                                <div class="seat-rating h-100 d-flex align-items-center">
+
+                                </div>
+                                <div class="course-fee h-100">
+                                    {% if 'turtle' in request.path %}
+                                        <a href="{% url 'videos:videos_turtle_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% elif 'pygame' in request.path %}
+                                        <a href="{% url 'videos:videos_pygame_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% elif 'oop-python' in request.path %}
+                                        <a href="{% url 'videos:videos_oop_python_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% elif 'tkinter' in request.path %}
+                                        <a href="{% url 'videos:videos_tkinter_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% elif 'django' in request.path %}
+                                        <a href="{% url 'videos:videos_django_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'videos:videos_python_theme_by_slug' Theme.slug %}"
+                                           class="free">
+                                            Перейти
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ##### Popular Course Area End ##### -->
+{% endblock %}
