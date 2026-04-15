@@ -1,0 +1,58 @@
+<div id="sideMenuOverlay" class="side-menu-overlay" onclick="closeNav()"></div>
+
+<aside id="mySidenav"
+       class="sidenav"
+       aria-hidden="true"
+       aria-label="Меню уроков">
+    <div class="sidenav__header">
+        <div class="sidenav__title">{{ course.title }}</div>
+        <button type="button"
+                class="sidenav__close"
+                onclick="closeNav()"
+                aria-label="Закрыть меню">
+            &times;
+        </button>
+    </div>
+
+    <div class="sidenav__body">
+        <ul class="sidenav__list">
+            {% for one_module in modules %}
+                <li class="sidenav__item sidenav__item--module">
+                    <div class="sidenav__module-title">
+                        {{ forloop.counter }}. {{ one_module.title }}
+                    </div>
+
+                    <ul class="sidenav__sublist">
+                        {% for one_lesson in one_module.lessons_for_menu %}
+                            <li class="sidenav__item sidenav__item--lesson">
+                                <a href="{{ one_lesson.get_absolute_url }}"
+                                   class="sidenav__link {% if one_lesson.id == Theme.id %}is-active{% endif %}">
+                                    {% if one_lesson.menu_number %}
+                                        <span class="sidenav__lesson-number">{{ one_lesson.menu_number }}.</span>
+                                    {% endif %}
+                                    <span class="sidenav__lesson-title">{{ one_lesson.title }}</span>
+                                </a>
+                            </li>
+                        {% empty %}
+                            <li class="sidenav__item sidenav__item--empty">
+                                <span class="sidenav__empty">Уроков пока нет</span>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% empty %}
+                <li class="sidenav__item sidenav__item--empty">
+                    <span class="sidenav__empty">Модули пока не добавлены</span>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</aside>
+
+<button type="button"
+        class="side-menu-toggle"
+        onclick="openNav()"
+        aria-label="Открыть меню уроков">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+    <span class="side-menu-toggle__text">Уроки</span>
+</button>

@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+
+{% block extracss %}
+<link rel="stylesheet" href="{% static 'base_static/css/course.css' %}">
+{% endblock %}
+
+
+{% block content %}
+
+<section class="course">
+
+    <!-- 🔹 ШАПКА КУРСА -->
+    <div class="course-header">
+        <h1 class="course-title">{{ course.title }}</h1>
+
+        {% if course.description %}
+            <div class="course-description">
+                {{ course.description|safe }}
+            </div>
+        {% endif %}
+
+        {% if modules %}
+            {% with first_lesson=modules.0.lessons.first %}
+                {% if first_lesson %}
+                    <a href="{{ first_lesson.get_absolute_url }}" class="course-start-btn">
+                        🚀 Начать обучение
+                    </a>
+                {% endif %}
+            {% endwith %}
+        {% endif %}
+    </div>
+
+    <!-- 🔹 НАВИГАЦИЯ ПО МОДУЛЯМ (ЯКОРЯ) -->
+    <div class="course-nav">
+        <div class="course-nav__list">
+            {% for module in modules %}
+                <a href="#module-{{ module.slug }}" class="course-nav__link">
+                    {{ module.title }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- 🔹 СПИСОК МОДУЛЕЙ -->
+    <div class="course-modules">
+
+        {% for module in modules %}
+            <section id="module-{{ module.slug }}" class="course-module">
+
+                <!-- Заголовок модуля -->
+                <div class="course-module__header">
+                    <h2 class="course-module__title">
+                        {{ forloop.counter }}. {{ module.title }}
+                    </h2>
+
+                    <div class="course-module__meta">
+                        {{ module.lessons.count }} уроков
+                    </div>
+                </div>
+
+                <!-- Список уроков -->
+                <div class="course-lessons">
+                    {% for lesson in module.lessons.all %}
+                        <a href="{{ lesson.get_absolute_url }}"
+                           class="course-lesson">
+
+                            <div class="course-lesson__number">
+                                {{ forloop.counter }}.
+                            </div>
+
+                            <div class="course-lesson__title">
+                                {{ lesson.title }}
+                            </div>
+
+                        </a>
+                    {% empty %}
+                        <div class="course-empty">
+                            Уроков пока нет
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </section>
+        {% endfor %}
+
+    </div>
+
+</section>
+
+{% endblock %}
