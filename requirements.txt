@@ -2,3 +2,4 @@ django==3.2
 django-robots
 django-summernote
 Pillow
+python-dotenv
