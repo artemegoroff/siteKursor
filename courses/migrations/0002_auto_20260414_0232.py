@@ -15,7 +15,7 @@ LANGUAGE_TO_COURSE = {
 
 
 def forward(apps, schema_editor):
-    OldCourse = apps.get_model('courses', 'Course')
+    OldCourse = apps.get_model('videos', 'Course')
     LearningCourse = apps.get_model('courses', 'LearningCourse')
     LearningModule = apps.get_model('courses', 'LearningModule')
     Lesson = apps.get_model('courses', 'Lesson')
