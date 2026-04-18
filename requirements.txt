@@ -5,4 +5,5 @@ django_summernote
 Pillow
 python-dotenv
 django-admin-sortable2
+cryptography
 PyMySQL
