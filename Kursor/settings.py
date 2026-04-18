@@ -13,7 +13,6 @@ EMAIL_PORT = int(os.getenv('EMAIL_PORT', 587))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -97,6 +96,10 @@ DATABASES = {
         "OPTIONS": {
             "charset": "utf8mb4",
         },
+    },
+    "legacy": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "old_db.sqlite3",
     }
 }
 
@@ -150,6 +153,7 @@ LOGOUT_REDIRECT_URL = '/'
 
 # messages
 from django.contrib.messages import constants as messages
+
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
     messages.SUCCESS: 'success'
