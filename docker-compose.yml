@@ -18,16 +18,17 @@ services:
       - ./docker/mysql/init:/docker-entrypoint-initdb.d
 
     command: >
-      --default-authentication-plugin=mysql_native_password
+      --mysql-native-password=ON
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_unicode_ci
       --max_allowed_packet=256M
 
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u${DB_USER}", "-p${DB_PASSWORD}"]
-      interval: 10s
-      timeout: 5s
-      retries: 10
+  adminer:
+    image: adminer
+    container_name: django_adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
 
 volumes:
   mysql_data:

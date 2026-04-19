@@ -47,11 +47,47 @@ class MoveLessonsToModuleForm(forms.Form):
         label='Куда перенести',
     )
 
+class CourseListFilter(admin.SimpleListFilter):
+    title = 'Курс'
+    parameter_name = 'course'
+
+    def lookups(self, request, model_admin):
+        courses = LearningCourse.objects.order_by('sort_order', 'title')
+        return [(str(course.id), course.title) for course in courses]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(module__course_id=self.value())
+        return queryset
+
+class ModuleListFilter(admin.SimpleListFilter):
+    title = 'Модуль'
+    parameter_name = 'module_custom'
+
+    def lookups(self, request, model_admin):
+        selected_course_id = request.GET.get('course')
+
+        modules = LearningModule.objects.select_related('course')
+
+        if selected_course_id:
+            modules = modules.filter(course_id=selected_course_id)
+
+        modules = modules.order_by('course__sort_order', 'course__title', 'sort_order', 'title')
+
+        return [
+            (str(module.id), f'{module.course.title} / {module.title}')
+            for module in modules
+        ]
+
+    def queryset(self, request, queryset):
+        if self.value():
+            return queryset.filter(module_id=self.value())
+        return queryset
 
 @admin.register(Lesson)
 class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('title', 'module', 'sort_order', 'slug')
-    list_filter = ('module', 'module__course')
+    list_filter = (CourseListFilter, ModuleListFilter)
     search_fields = ('title', 'slug', 'module__title', 'module__course__title')
     prepopulated_fields = {'slug': ('title',)}
     actions = ['move_to_module']
