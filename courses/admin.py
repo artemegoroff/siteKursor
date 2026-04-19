@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.urls import path
 from django.db.models import Max
 from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
+from tinymce.widgets import TinyMCE
 
 from .models import LearningCourse, LearningModule, Lesson
 
@@ -84,8 +85,58 @@ class ModuleListFilter(admin.SimpleListFilter):
             return queryset.filter(module_id=self.value())
         return queryset
 
+class LessonAdminForm(forms.ModelForm):
+    article = forms.CharField(
+        required=False,
+        widget=TinyMCE(
+            attrs={
+                'cols': 150,
+                'rows': 30,
+            },
+            mce_attrs={
+                'width': '100%',
+                'height': 700,
+
+                'plugins': (
+                    'advlist autolink lists link image charmap preview anchor '
+                    'searchreplace visualblocks code fullscreen '
+                    'insertdatetime media table help wordcount '
+                    'codesample hr pagebreak nonbreaking '
+                    'emoticons directionality paste'
+                ),
+
+                'toolbar': (
+                    'undo redo | formatselect styles | '
+                    'bold italic underline strikethrough | '
+                    'forecolor backcolor | '
+                    'alignleft aligncenter alignright alignjustify | '
+                    'bullist numlist outdent indent | '
+                    'link image media table | '
+                    'codesample code | '
+                    'fullscreen preview | '
+                    'removeformat'
+                ),
+
+                'toolbar_mode': 'wrap',
+
+                'menubar': 'file edit view insert format tools table help',
+                'paste_as_text': True,
+                'content_css': 'default',
+                'body_class': 'lesson-editor',
+                'branding': False,
+            }
+        ),
+        label='Текст урока',
+    )
+
+    class Meta:
+        model = Lesson
+        fields = '__all__'
+
+
 @admin.register(Lesson)
 class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
+    form = LessonAdminForm  # 👈 ВАЖНО
     list_display = ('title', 'module', 'sort_order', 'slug')
     list_filter = (CourseListFilter, ModuleListFilter)
     search_fields = ('title', 'slug', 'module__title', 'module__course__title')
