@@ -292,129 +292,11 @@
     padding: 32px 36px;
 }
 
-
 .lesson-panel-card__title {
     margin: 0 0 20px;
     font-size: 28px;
     color: #27323f;
     font-weight: 700;
-}
-
-
-/* prose */
-.lesson-prose {
-    color: #27323f;
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.lesson-prose > *:first-child {
-    margin-top: 0;
-}
-
-.lesson-prose > *:last-child {
-    margin-bottom: 0;
-}
-
-.lesson-prose p {
-    margin: 18px 0;
-    color: #374151;
-    font-size: 17px;
-    line-height: 1.8;
-}
-
-.lesson-prose h2,
-.lesson-prose h3,
-.lesson-prose h4 {
-    margin-top: 34px;
-    margin-bottom: 14px;
-    line-height: 1.3;
-    font-weight: 700;
-    color: #1f2937;
-}
-
-.lesson-prose h2 {
-    font-size: 30px;
-}
-
-.lesson-prose h3 {
-    font-size: 24px;
-}
-
-.lesson-prose h4 {
-    font-size: 20px;
-}
-
-.lesson-prose ul,
-.lesson-prose ol {
-    margin: 18px 0 18px 24px;
-}
-
-.lesson-prose li {
-    margin: 8px 0;
-    color: #374151;
-}
-
-.lesson-prose a {
-    color: #1d72d8;
-    text-decoration: none;
-    border-bottom: 1px solid rgba(29, 114, 216, 0.25);
-}
-
-.lesson-prose a:hover {
-    color: #145db2;
-    border-bottom-color: rgba(20, 93, 178, 0.45);
-}
-
-.lesson-prose code {
-    background: #eef3f8;
-    color: #213547;
-    border-radius: 8px;
-    padding: 2px 7px;
-    font-size: 0.95em;
-    font-family: Consolas, Monaco, "Courier New", monospace;
-}
-
-.lesson-prose pre {
-    margin: 22px 0;
-    border-radius: 16px;
-    overflow: hidden;
-}
-
-.lesson-prose img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin: 24px auto;
-    border-radius: 16px;
-}
-
-.lesson-prose blockquote {
-    margin: 24px 0;
-    padding: 16px 20px;
-    border-left: 4px solid #1ea7c5;
-    background: #f7fbfd;
-    color: #374151;
-    border-radius: 0 12px 12px 0;
-}
-
-.lesson-prose table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 24px 0;
-}
-
-.lesson-prose th,
-.lesson-prose td {
-    border: 1px solid #e5ebf2;
-    padding: 12px 14px;
-    text-align: left;
-}
-
-.lesson-prose th {
-    background: #f8fbff;
-    font-weight: 700;
-    color: #27323f;
 }
 
 /* callout blocks */
@@ -646,14 +528,6 @@
     .course-video-player__item {
         width: 220px;
         min-width: 220px;
-    }
-
-    .lesson-prose {
-        font-size: 16px;
-    }
-
-    .lesson-prose p {
-        font-size: 16px;
     }
 
     .lesson-callout {
