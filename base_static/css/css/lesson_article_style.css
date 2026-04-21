@@ -1,21 +1,21 @@
+/* Код блока вывода программы */
 .lesson-output-block {
     margin: 28px 0;
     border-radius: 16px;
     overflow: hidden;
-    background: #111827;
+    background: #0f172a;
     border: 1px solid rgba(148, 163, 184, 0.18);
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
 }
 
 .lesson-output-block::before {
-    content: "Вывод программы";
+    content: "ВЫВОД ПРОГРАММЫ";
     display: block;
-    padding: 10px 16px;
+    padding: 12px 16px;
     font-size: 12px;
     font-weight: 700;
-    letter-spacing: 0.03em;
-    text-transform: uppercase;
-    color: #cbd5e1;
+    letter-spacing: 0.04em;
+    color: #e2e8f0;
     background: rgba(255, 255, 255, 0.04);
     border-bottom: 1px solid rgba(148, 163, 184, 0.10);
 }
@@ -24,14 +24,236 @@
     margin: 0;
     padding: 18px 20px;
     overflow-x: auto;
-    background: transparent;
+    background: #f8fafc;
 }
 
 .lesson-output-block code {
     display: block;
     font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
     font-size: 15px;
-    line-height: 1.7;
-    color: #e5e7eb;
+    line-height: 1.75;
     white-space: pre;
+    color: #0f172a;   /* ключевая строка */
+    background: transparent;
+}
+
+/* Блоки Важно Определения Внимание */
+
+.lesson-note-definition,
+.lesson-note-important,
+.lesson-note-attention {
+    position: relative;
+    margin: 24px 0;
+    padding: 38px 18px 16px;
+    border-radius: 14px;
+    line-height: 1.7;
+    font-size: 17px;
+    border-left: 5px solid;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+}
+
+.lesson-note-definition::before,
+.lesson-note-important::before,
+.lesson-note-attention::before {
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+}
+
+.lesson-note-definition {
+    background: #f0fdf4;
+    border-left-color: #22c55e;
+    color: #14532d;
+}
+
+.lesson-note-definition::before {
+    content: "Определение";
+    color: #16a34a;
+}
+
+.lesson-note-important {
+    background: #fef2f2;
+    border-left-color: #ef4444;
+    color: #7f1d1d;
+}
+
+.lesson-note-important::before {
+    content: "Важно";
+    color: #dc2626;
+}
+
+.lesson-note-attention {
+    background: #fff7ed;
+    border-left-color: #f59e0b;
+    color: #9a3412;
+}
+
+.lesson-note-attention::before {
+    content: "Обратите внимание";
+    color: #ea580c;
+}
+
+/* ===============================
+   ОБЩАЯ СТИЛИЗАЦИЯ СПИСКОВ В УРОКЕ
+================================ */
+
+.lesson-prose ul,
+.lesson-prose ol {
+    margin: 1.2em 0 1.4em;
+    padding: 0;
+}
+
+.lesson-prose li {
+    position: relative;
+    margin: 0.55em 0;
+    line-height: 1.75;
+    color: #1e293b;
+}
+
+/* ===============================
+   НЕУПОРЯДОЧЕННЫЕ СПИСКИ
+================================ */
+
+.lesson-prose ul {
+    list-style: none;
+}
+
+.lesson-prose ul > li {
+    padding-left: 1.6em;
+}
+
+.lesson-prose ul > li::before {
+    content: "";
+    position: absolute;
+    top: 0.72em;
+    left: 0;
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 999px;
+    background: #3b82f6;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+}
+
+/* вложенный ul */
+.lesson-prose ul ul {
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+}
+
+.lesson-prose ul ul > li {
+    padding-left: 1.4em;
+}
+
+.lesson-prose ul ul > li::before {
+    width: 0.42em;
+    height: 0.42em;
+    top: 0.76em;
+    background: #94a3b8;
+    box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.14);
+}
+
+/* ===============================
+   УПОРЯДОЧЕННЫЕ СПИСКИ
+================================ */
+
+.lesson-prose ol {
+    list-style: none;
+    counter-reset: lesson-counter;
+}
+
+.lesson-prose ol > li {
+    counter-increment: lesson-counter;
+    padding-left: 2.4em;
+    min-height: 1.8em;
+}
+
+.lesson-prose ol > li::before {
+    content: counter(lesson-counter);
+    position: absolute;
+    top: 0.08em;
+    left: 0;
+    width: 1.7em;
+    height: 1.7em;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eff6ff;
+    color: #2563eb;
+    font-size: 0.84em;
+    font-weight: 700;
+    line-height: 1;
+    border: 1px solid #bfdbfe;
+}
+
+/* вложенный ol */
+.lesson-prose ol ol {
+    counter-reset: lesson-subcounter;
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+}
+
+.lesson-prose ol ol > li {
+    counter-increment: lesson-subcounter;
+    padding-left: 2.1em;
+}
+
+.lesson-prose ol ol > li::before {
+    content: counter(lesson-counter) "." counter(lesson-subcounter);
+    width: auto;
+    min-width: 1.9em;
+    height: 1.55em;
+    padding: 0 0.45em;
+    border-radius: 999px;
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #dbe4ee;
+    font-size: 0.78em;
+    font-weight: 700;
+}
+
+/* ===============================
+   СМЕШАННЫЕ ВЛОЖЕННОСТИ
+================================ */
+
+.lesson-prose ol ul,
+.lesson-prose ul ol {
+    margin-top: 0.6em;
+    margin-bottom: 0.4em;
+}
+
+/* ===============================
+   ТЕКСТ ВНУТРИ ПУНКТОВ
+================================ */
+
+.lesson-prose li > p {
+    margin: 0.2em 0 0.45em;
+}
+
+.lesson-prose li > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ===============================
+   АККУРАТНЫЕ ОТСТУПЫ ДЛЯ МОБИЛЬНЫХ
+================================ */
+
+@media (max-width: 768px) {
+    .lesson-prose ul > li {
+        padding-left: 1.4em;
+    }
+
+    .lesson-prose ol > li {
+        padding-left: 2.1em;
+    }
+
+    .lesson-prose ol > li::before {
+        width: 1.55em;
+        height: 1.55em;
+        font-size: 0.8em;
+    }
 }

@@ -115,6 +115,7 @@ class LessonAdminForm(forms.ModelForm):
                     'alignleft aligncenter alignright alignjustify | '
                     'bullist numlist outdent indent | '
                     'link image media table | '
+                    'lessondefinition lessonimportant lessonattention | '
                     'lessoncode lessonoutput | '
                     'code | '
                     'fullscreen preview | '
@@ -320,6 +321,52 @@ class LessonAdminForm(forms.ModelForm):
             if (outputBlock) {
                 e.preventDefault();
                 openLessonOutputDialog(outputBlock);
+            }
+        });
+        
+        function insertNoteBlock(blockClass, fallbackText) {
+            const selectedText = editor.selection.getContent({ format: 'text' }).trim();
+            const content = selectedText || fallbackText;
+            const encoded = editor.dom.encode(content);
+        
+            editor.insertContent(
+                '<div class="' + blockClass + '">' +
+                    encoded +
+                '</div>' +
+                '<p></p>'
+            );
+        }
+        
+        editor.ui.registry.addButton('lessondefinition', {
+            text: 'Термин',
+            tooltip: 'Вставить блок с определением',
+            onAction: function() {
+                insertNoteBlock(
+                    'lesson-note-definition',
+                    'Вставьте сюда важный термин или понятие.'
+                );
+            }
+        });
+        
+        editor.ui.registry.addButton('lessonimportant', {
+            text: 'Важно',
+            tooltip: 'Вставить блок с важной информацией',
+            onAction: function() {
+                insertNoteBlock(
+                    'lesson-note-important',
+                    'Вставьте сюда критически важную информацию.'
+                );
+            }
+        });
+        
+        editor.ui.registry.addButton('lessonattention', {
+            text: 'Внимание',
+            tooltip: 'Вставить блок с замечанием',
+            onAction: function() {
+                insertNoteBlock(
+                    'lesson-note-attention',
+                    'Вставьте сюда полезное замечание.'
+                );
             }
         });
     }
