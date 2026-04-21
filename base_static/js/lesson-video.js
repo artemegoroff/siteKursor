@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const sourceData = sources[sourceName];
             if (!sourceData) return false;
 
-            iframe.src = sourceData.embed_url;
+            iframe.src = sourceData.url;
             updateButtons(sourceName);
             localStorage.setItem(STORAGE_KEY, sourceName);
 

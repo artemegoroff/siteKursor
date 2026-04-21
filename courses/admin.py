@@ -112,6 +112,7 @@ class LessonAdminForm(forms.ModelForm):
                     'alignleft aligncenter alignright alignjustify | '
                     'bullist numlist outdent indent | '
                     'link image media table | '
+                    'lessoncode lessonoutput | '
                     'codesample code | '
                     'fullscreen preview | '
                     'removeformat'
@@ -124,6 +125,47 @@ class LessonAdminForm(forms.ModelForm):
                 'content_css': 'default',
                 'body_class': 'lesson-editor',
                 'branding': False,
+                'extended_valid_elements': (
+                    'div[class|style],'
+                    'span[class|style],'
+                    'pre[class|style],'
+                    'code[class|style]'
+                ),
+                'valid_children': '+div[pre],+pre[code],+div[div],+div[span]',
+                'setup': '''
+                   function(editor) {
+                        function wrapCodeWithPrism(blockClass, fallbackText) {
+                            const selectedText = editor.selection.getContent({ format: 'text' }).trim();
+                            const content = selectedText || fallbackText;
+                
+                            const encoded = editor.dom.encode(content);
+                
+                            editor.insertContent(
+                                '<div class="' + blockClass + '">' +
+                                    '<pre class="language-python line-numbers">' +
+                                        '<code class="language-python">' + encoded + '</code>' +
+                                    '</pre>' +
+                                '</div>' +
+                                '<p></p>'
+                            );
+                        }
+                
+                        editor.ui.registry.addButton('lessoncode', {
+                            text: 'Код',
+                            tooltip: 'Обернуть в блок кода (Prism)',
+                            onAction: function() {
+                                wrapCodeWithPrism('lesson-code-block', '# напишите код здесь');
+                            }
+                        });
+                        editor.ui.registry.addButton('lessonoutput', {
+                            text: 'Вывод',
+                            tooltip: 'Обернуть выделенный текст в блок вывода',
+                            onAction: function() {
+                                wrapSelectedText('lesson-output-block', 'Вывод программы');
+                            }
+                        });
+                    }
+                ''',
             }
         ),
         label='Текст урока',
