@@ -1,0 +1,37 @@
+.lesson-output-block {
+    margin: 28px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #111827;
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+}
+
+.lesson-output-block::before {
+    content: "Вывод программы";
+    display: block;
+    padding: 10px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #cbd5e1;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.10);
+}
+
+.lesson-output-block pre {
+    margin: 0;
+    padding: 18px 20px;
+    overflow-x: auto;
+    background: transparent;
+}
+
+.lesson-output-block code {
+    display: block;
+    font-family: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #e5e7eb;
+    white-space: pre;
+}

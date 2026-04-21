@@ -48,6 +48,7 @@ class MoveLessonsToModuleForm(forms.Form):
         label='Куда перенести',
     )
 
+
 class CourseListFilter(admin.SimpleListFilter):
     title = 'Курс'
     parameter_name = 'course'
@@ -60,6 +61,7 @@ class CourseListFilter(admin.SimpleListFilter):
         if self.value():
             return queryset.filter(module__course_id=self.value())
         return queryset
+
 
 class ModuleListFilter(admin.SimpleListFilter):
     title = 'Модуль'
@@ -85,6 +87,7 @@ class ModuleListFilter(admin.SimpleListFilter):
             return queryset.filter(module_id=self.value())
         return queryset
 
+
 class LessonAdminForm(forms.ModelForm):
     article = forms.CharField(
         required=False,
@@ -101,7 +104,7 @@ class LessonAdminForm(forms.ModelForm):
                     'advlist autolink lists link image charmap preview anchor '
                     'searchreplace visualblocks code fullscreen '
                     'insertdatetime media table help wordcount '
-                    'codesample hr pagebreak nonbreaking '
+                    'hr pagebreak nonbreaking '
                     'emoticons directionality paste'
                 ),
 
@@ -113,7 +116,7 @@ class LessonAdminForm(forms.ModelForm):
                     'bullist numlist outdent indent | '
                     'link image media table | '
                     'lessoncode lessonoutput | '
-                    'codesample code | '
+                    'code | '
                     'fullscreen preview | '
                     'removeformat'
                 ),
@@ -126,46 +129,201 @@ class LessonAdminForm(forms.ModelForm):
                 'body_class': 'lesson-editor',
                 'branding': False,
                 'extended_valid_elements': (
-                    'div[class|style],'
-                    'span[class|style],'
+                    'div[class|style|data-language|data-line-numbers],'
                     'pre[class|style],'
-                    'code[class|style]'
+                    'code[class|style],'
+                    'span[class|style]'
                 ),
                 'valid_children': '+div[pre],+pre[code],+div[div],+div[span]',
                 'setup': '''
-                   function(editor) {
-                        function wrapCodeWithPrism(blockClass, fallbackText) {
-                            const selectedText = editor.selection.getContent({ format: 'text' }).trim();
-                            const content = selectedText || fallbackText;
-                
-                            const encoded = editor.dom.encode(content);
-                
-                            editor.insertContent(
-                                '<div class="' + blockClass + '">' +
-                                    '<pre class="language-python line-numbers">' +
-                                        '<code class="language-python">' + encoded + '</code>' +
-                                    '</pre>' +
-                                '</div>' +
-                                '<p></p>'
-                            );
-                        }
-                
-                        editor.ui.registry.addButton('lessoncode', {
-                            text: 'Код',
-                            tooltip: 'Обернуть в блок кода (Prism)',
-                            onAction: function() {
-                                wrapCodeWithPrism('lesson-code-block', '# напишите код здесь');
-                            }
-                        });
-                        editor.ui.registry.addButton('lessonoutput', {
-                            text: 'Вывод',
-                            tooltip: 'Обернуть выделенный текст в блок вывода',
-                            onAction: function() {
-                                wrapSelectedText('lesson-output-block', 'Вывод программы');
-                            }
-                        });
+    function(editor) {
+        function getCurrentCodeBlock() {
+            const node = editor.selection.getNode();
+            return editor.dom.getParent(node, 'div.lesson-code-block');
+        }
+
+        function getCurrentOutputBlock() {
+            const node = editor.selection.getNode();
+            return editor.dom.getParent(node, 'div.lesson-output-block');
+        }
+
+        function openLessonCodeDialog(existingBlock = null) {
+            let initialCode = '';
+            let initialLanguage = 'python';
+            let initialLineNumbers = true;
+
+            if (existingBlock) {
+                const codeNode = existingBlock.querySelector('code');
+                const preNode = existingBlock.querySelector('pre');
+
+                if (codeNode) {
+                    initialCode = codeNode.textContent || '';
+                }
+
+                if (preNode) {
+                    const className = preNode.className || '';
+                    const langMatch = className.match(/language-([\\w-]+)/);
+                    if (langMatch) {
+                        initialLanguage = langMatch[1];
                     }
-                ''',
+
+                    initialLineNumbers = className.indexOf('line-numbers') !== -1;
+                }
+            } else {
+                const selectedText = editor.selection.getContent({ format: 'text' }).trim();
+                initialCode = selectedText || '# напишите код здесь';
+            }
+
+            editor.windowManager.open({
+                title: 'Добавить / изменить блок кода',
+                size: 'large',
+                body: {
+                    type: 'panel',
+                    items: [
+                        {
+                            type: 'selectbox',
+                            name: 'language',
+                            label: 'Язык',
+                            items: [
+                                { text: 'Python', value: 'python' },
+                                { text: 'HTML', value: 'markup' },
+                                { text: 'CSS', value: 'css' },
+                                { text: 'JavaScript', value: 'javascript' },
+                                { text: 'SQL', value: 'sql' }
+                            ]
+                        },
+                        {
+                            type: 'checkbox',
+                            name: 'lineNumbers',
+                            label: 'Показывать номера строк'
+                        },
+                        {
+                            type: 'textarea',
+                            name: 'code',
+                            label: 'Код'
+                        }
+                    ]
+                },
+                initialData: {
+                    language: initialLanguage,
+                    lineNumbers: initialLineNumbers,
+                    code: initialCode
+                },
+                buttons: [
+                    { type: 'cancel', text: 'Отмена' },
+                    { type: 'submit', text: 'Сохранить', primary: true }
+                ],
+                onSubmit: function(api) {
+                    const data = api.getData();
+                    const code = editor.dom.encode(data.code || '');
+                    const language = data.language || 'python';
+                    const lineNumbersClass = data.lineNumbers ? ' line-numbers' : '';
+
+                    const html =
+                        '<div class="lesson-code-block">' +
+                            '<pre class="language-' + language + lineNumbersClass + '">' +
+                                '<code class="language-' + language + '">' + code + '</code>' +
+                            '</pre>' +
+                        '</div><p></p>';
+
+                    if (existingBlock) {
+                        editor.dom.setOuterHTML(existingBlock, html);
+                    } else {
+                        editor.insertContent(html);
+                    }
+
+                    api.close();
+                }
+            });
+        }
+
+        function openLessonOutputDialog(existingBlock = null) {
+            let initialOutput = '';
+
+            if (existingBlock) {
+                const codeNode = existingBlock.querySelector('code');
+                if (codeNode) {
+                    initialOutput = codeNode.textContent || '';
+                }
+            } else {
+                const selectedText = editor.selection.getContent({ format: 'text' }).trim();
+                initialOutput = selectedText || 'Вывод программы';
+            }
+
+            editor.windowManager.open({
+                title: 'Добавить / изменить вывод программы',
+                size: 'large',
+                body: {
+                    type: 'panel',
+                    items: [
+                        {
+                            type: 'textarea',
+                            name: 'output',
+                            label: 'Вывод'
+                        }
+                    ]
+                },
+                initialData: {
+                    output: initialOutput
+                },
+                buttons: [
+                    { type: 'cancel', text: 'Отмена' },
+                    { type: 'submit', text: 'Сохранить', primary: true }
+                ],
+                onSubmit: function(api) {
+                    const data = api.getData();
+                    const output = editor.dom.encode(data.output || '');
+
+                    const html =
+                        '<div class="lesson-output-block">' +
+                            '<pre><code>' + output + '</code></pre>' +
+                        '</div><p></p>';
+
+                    if (existingBlock) {
+                        editor.dom.setOuterHTML(existingBlock, html);
+                    } else {
+                        editor.insertContent(html);
+                    }
+
+                    api.close();
+                }
+            });
+        }
+
+        editor.ui.registry.addButton('lessoncode', {
+            text: 'Код',
+            tooltip: 'Добавить или изменить блок кода',
+            onAction: function() {
+                const block = getCurrentCodeBlock();
+                openLessonCodeDialog(block);
+            }
+        });
+
+        editor.ui.registry.addButton('lessonoutput', {
+            text: 'Вывод',
+            tooltip: 'Добавить или изменить блок вывода программы',
+            onAction: function() {
+                const block = getCurrentOutputBlock();
+                openLessonOutputDialog(block);
+            }
+        });
+
+        editor.on('DblClick', function(e) {
+            const codeBlock = editor.dom.getParent(e.target, 'div.lesson-code-block');
+            if (codeBlock) {
+                e.preventDefault();
+                openLessonCodeDialog(codeBlock);
+                return;
+            }
+
+            const outputBlock = editor.dom.getParent(e.target, 'div.lesson-output-block');
+            if (outputBlock) {
+                e.preventDefault();
+                openLessonOutputDialog(outputBlock);
+            }
+        });
+    }
+''',
             }
         ),
         label='Текст урока',
