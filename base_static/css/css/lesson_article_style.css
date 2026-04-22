@@ -228,7 +228,8 @@
 
 .lesson-note-definition,
 .lesson-note-important,
-.lesson-note-attention {
+.lesson-note-attention,
+.lesson-note-remember {
     position: relative;
     margin: 24px 0;
     padding: 38px 18px 16px;
@@ -241,7 +242,8 @@
 
 .lesson-note-definition::before,
 .lesson-note-important::before,
-.lesson-note-attention::before {
+.lesson-note-attention::before,
+.lesson-note-remember::before {
     position: absolute;
     top: 12px;
     left: 18px;
@@ -249,6 +251,17 @@
     font-weight: 800;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+}
+
+.lesson-note-remember {
+    background: #ecfeff;
+    border-left-color: #06b6d4;
+    color: #164e63;
+}
+
+.lesson-note-remember::before {
+    content: "Запомните";
+    color: #0891b2;
 }
 
 .lesson-note-definition {
@@ -523,7 +536,8 @@
 
     .lesson-note-definition,
     .lesson-note-important,
-    .lesson-note-attention {
+    .lesson-note-attention,
+    .lesson-note-remember {
         margin: 20px 0;
         padding: 34px 16px 14px;
         border-radius: 12px;
@@ -532,7 +546,8 @@
 
     .lesson-note-definition::before,
     .lesson-note-important::before,
-    .lesson-note-attention::before {
+    .lesson-note-attention::before,
+    .lesson-note-remember::before {
         top: 11px;
         left: 16px;
         font-size: 10px;

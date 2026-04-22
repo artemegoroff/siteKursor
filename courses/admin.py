@@ -115,7 +115,7 @@ class LessonAdminForm(forms.ModelForm):
                     'alignleft aligncenter alignright alignjustify | '
                     'bullist numlist outdent indent | '
                     'link image media table | '
-                    'lessondefinition lessonimportant lessonattention | '
+                    'lessondefinition lessonremember lessonimportant lessonattention | '
                     'lessoncode lessonoutput | '
                     'code | '
                     'fullscreen preview | '
@@ -366,6 +366,17 @@ class LessonAdminForm(forms.ModelForm):
                 insertNoteBlock(
                     'lesson-note-attention',
                     'Вставьте сюда полезное замечание.'
+                );
+            }
+        });
+        
+        editor.ui.registry.addButton('lessonremember', {
+            text: 'Запомните',
+            tooltip: 'Вставить блок "Запомните"',
+            onAction: function() {
+                insertNoteBlock(
+                    'lesson-note-remember',
+                    'Вставьте сюда то, что ученик должен хорошо запомнить.'
                 );
             }
         });
