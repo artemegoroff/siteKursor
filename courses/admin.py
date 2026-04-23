@@ -114,7 +114,7 @@ class LessonAdminForm(forms.ModelForm):
                     'forecolor backcolor | '
                     'alignleft aligncenter alignright alignjustify | '
                     'bullist numlist outdent indent | '
-                    'link image media table | '
+                    'link image media table | inlinecode | '
                     'lessondefinition lessonremember lessonimportant lessonattention | '
                     'lessoncode lessonoutput | '
                     'code | '
@@ -377,6 +377,28 @@ class LessonAdminForm(forms.ModelForm):
                 insertNoteBlock(
                     'lesson-note-remember',
                     'Вставьте сюда то, что ученик должен хорошо запомнить.'
+                );
+            }
+        });
+        
+        editor.ui.registry.addButton('inlinecode', {
+            text: 'Inline code',
+            tooltip: 'Inline code',
+            onAction: function () {
+                const node = editor.selection.getNode();
+                const codeNode = editor.dom.getParent(node, 'code.inline-code');
+        
+                if (codeNode) {
+                    editor.dom.remove(codeNode, true);
+                    return;
+                }
+        
+                const selectedText = editor.selection.getContent({ format: 'text' }).trim();
+                const content = selectedText || 'код';
+                const encoded = editor.dom.encode(content);
+        
+                editor.insertContent(
+                    '<code class="inline-code">' + encoded + '</code>'
                 );
             }
         });

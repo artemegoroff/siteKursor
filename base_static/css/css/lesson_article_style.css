@@ -222,6 +222,18 @@
     background: transparent;
 }
 
+.lesson-prose :not(pre) > code,
+.inline-code {
+    background: #eef3f8;
+    color: #213547;
+    border-radius: 8px;
+    padding: 2px 7px;
+    font-size: 0.95em;
+    font-family: Consolas, Monaco, "Courier New", monospace;
+    border: 1px solid #dde6ef;
+    white-space: normal;
+}
+
 /* =========================================
    NOTE-БЛОКИ
 ========================================= */
