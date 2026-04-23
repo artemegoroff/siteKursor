@@ -661,6 +661,71 @@
     color: #3b82f6;
 }
 
+.course-video-player__thumb--generated {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 14px;
+    background: linear-gradient(135deg, #334155 0%, #1e293b 100%);
+    color: #ffffff;
+}
+
+.course-video-player__thumb-badge {
+    align-self: flex-start;
+    padding: 5px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #0f172a;
+    background: #facc15;
+}
+
+.course-video-player__thumb-course {
+    margin-top: 10px;
+    font-size: 12px;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+}
+
+.course-video-player__thumb-number {
+    margin-top: 10px;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 800;
+    color: #93c5fd;
+}
+
+.course-video-player__thumb-title {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.35;
+    font-weight: 700;
+    color: #ffffff;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* видео */
+.thumb--video {
+    background: linear-gradient(135deg, #1e3a8a, #1e293b);
+}
+
+/* теория */
+.thumb--text {
+    background: linear-gradient(135deg, #334155, #1e293b);
+}
+
+/* смешанный */
+.thumb--mixed {
+    background: linear-gradient(135deg, #065f46, #1e293b);
+}
+
 @media (max-width: 991px) {
     .lesson-nav__grid {
         grid-template-columns: 1fr;
