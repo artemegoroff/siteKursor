@@ -1,0 +1,120 @@
+<section class="lesson-section" id="block-{{ block.pk }}">
+    <div class="course-video-player">
+
+        <div class="course-video-player__header">
+            <div>
+                <h2 class="course-video-player__heading">
+                    {{ block.title|default:"Видеоурок" }}
+                </h2>
+
+                {% if block.rutube_id and block.youtube_id %}
+                    <p class="course-video-player__subtitle">
+                        Выберите удобную платформу для просмотра
+                    </p>
+                {% endif %}
+            </div>
+
+            {% if block.rutube_id and block.youtube_id %}
+                <div
+                        class="course-video-player__tabs"
+                        role="group"
+                        aria-label="Источник видео"
+                >
+                    <button
+                            type="button"
+                            class="course-video-player__tab is-active"
+                            data-video-source="rutube"
+                            data-video-url="https://rutube.ru/play/embed/{{ block.rutube_id }}"
+                            aria-pressed="true"
+                            aria-controls="video-frame-{{ block.pk }}"
+                    >
+                        Rutube
+                    </button>
+
+                    <button
+                            type="button"
+                            class="course-video-player__tab"
+                            data-video-source="youtube"
+                            data-video-url="https://www.youtube.com/embed/{{ block.youtube_id }}"
+                            aria-pressed="false"
+                            aria-controls="video-frame-{{ block.pk }}"
+                    >
+                        YouTube
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if block.rutube_id or block.youtube_id %}
+            <div class="course-video-player__frame-wrap">
+                <iframe
+                        id="video-frame-{{ block.pk }}"
+                        class="course-video-player__frame"
+                        src="{% if block.rutube_id %}https://rutube.ru/play/embed/{{ block.rutube_id }}{% else %}https://www.youtube.com/embed/{{ block.youtube_id }}{% endif %}"
+                        title="{{ block.title|default:'Видеоурок' }} — {% if block.rutube_id %}Rutube{% else %}YouTube{% endif %}"
+                        data-video-title="{{ block.title|default:'Видеоурок' }}"
+                        loading="lazy"
+                        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+                        allowfullscreen
+                ></iframe>
+            </div>
+        {% else %}
+            <p class="course-video-player__warning">
+                Источник видео пока не указан.
+            </p>
+        {% endif %}
+
+    </div>
+</section>
+
+<script>
+(function () {
+    const section = document.currentScript.previousElementSibling;
+
+    if (!section) {
+        return;
+    }
+
+    const frame = section.querySelector(
+        '.course-video-player__frame'
+    );
+    const buttons = section.querySelectorAll(
+        'button[data-video-source]'
+    );
+
+    if (!frame || !buttons.length) {
+        return;
+    }
+
+    buttons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            if (button.classList.contains('is-active')) {
+                return;
+            }
+
+            const videoUrl = button.dataset.videoUrl;
+
+            if (!videoUrl) {
+                return;
+            }
+
+            buttons.forEach(function (item) {
+                const isSelected = item === button;
+
+                item.classList.toggle('is-active', isSelected);
+                item.setAttribute(
+                    'aria-pressed',
+                    String(isSelected)
+                );
+            });
+
+            frame.title = (
+                frame.dataset.videoTitle +
+                ' — ' +
+                button.textContent.trim()
+            );
+            frame.src = videoUrl;
+        });
+    });
+})();
+</script>

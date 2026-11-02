@@ -8,16 +8,27 @@
 {% endblock %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'base_static/css/course-lesson.css' %}">
-<link rel="stylesheet" href="{% static 'base_static/css/sidebar-menu.css' %}">
-<link rel="stylesheet" href="{% static 'base_static/css/css/lesson_article_style.css' %}">
-<link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/course-lesson.css' %}"
+>
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/sidebar-menu.css' %}"
+>
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/css/lesson_article_style.css' %}"
+>
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/css/prism.css' %}"
+>
 <script src="{% static 'base_static/js/prism.js' %}"></script>
 {% endblock %}
 
 {% block extraJS %}
 <script src="{% static 'base_static/js/sidebar-menu.js' %}"></script>
-<script src="{% static 'base_static/js/lesson-video.js' %}"></script>
 {% endblock %}
 
 {% block content %}
@@ -27,304 +38,60 @@
 <div class="lesson-layout">
     <div class="lesson-main">
 
-        {% if '127.0.0.1' in request.META.HTTP_HOST %}
-        <div class="lesson-admin-actions">
-            <a href="http://127.0.0.1:8000/admin/courses/lesson/{{ Theme.id }}/change/"
-               target="_blank"
-               class="btn btn-info">
-                Редактировать {{ Theme.id }}
-            </a>
-        </div>
+        {% if request.user.is_staff %}
+            <div class="lesson-admin-actions">
+                <a
+                        href="{% url 'admin:courses_lesson_change' Theme.pk %}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-info"
+                >
+                    Редактировать урок
+                </a>
+            </div>
         {% endif %}
 
         <header class="lesson-header">
             <div class="lesson-header__meta">
-                <span class="lesson-header__badge">Урок</span>
-                <span class="lesson-header__course">{{ course.title }}</span>
-                <span class="lesson-header__module">{{ module.title }}</span>
+                <span class="lesson-header__badge">
+                    Урок
+                </span>
+
+                <span class="lesson-header__course">
+                    {{ course.title }}
+                </span>
+
+                <span class="lesson-header__module">
+                    {{ module.title }}
+                </span>
             </div>
-            <h1 class="lesson-header__title">{{ Theme.menu_number }}. {{ Theme.title }}</h1>
+
+            <h1 class="lesson-header__title">
+                {{ Theme.menu_number }}. {{ Theme.title }}
+            </h1>
         </header>
 
-        {% if Theme.youtube_id or Theme.rutube_id %}
-        <section class="lesson-section">
-            <div class="course-video-player">
+        {% for block in blocks %}
+            {% if block.kind == 'text' %}
+                {% include "courses/blocks/text.html" with block=block only %}
 
-                <div class="course-video-player__header">
-                    <div>
-                        <h2 class="course-video-player__heading">Видеоурок</h2>
-                        <p class="course-video-player__subtitle">
-                            Выберите удобную платформу для просмотра
-                        </p>
-                    </div>
+            {% elif block.kind == 'video' %}
+                {% include "courses/blocks/video.html" with block=block only %}
 
-                    <div class="course-video-player__tabs" id="video-source-switch">
-                        <button type="button" class="course-video-player__tab" data-source="rutube">
-                            Rutube
-                        </button>
-                        <button type="button" class="course-video-player__tab" data-source="youtube">
-                            YouTube
-                        </button>
-                    </div>
+            {% elif block.kind == 'practice' %}
+                {% include "courses/blocks/practice.html" with block=block only %}
+            {% endif %}
+        {% empty %}
+            <section class="lesson-section">
+                <div class="lesson-panel-card">
+                    <p>Содержимое урока пока не добавлено.</p>
                 </div>
-
-                <div class="course-video-player__frame-wrap">
-                    <iframe
-                            id="lesson-video-frame"
-                            class="course-video-player__frame"
-                            src=""
-                            title="{{ Theme.title }}"
-                            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
-                            allowfullscreen>
-                    </iframe>
-                </div>
-
-                <div id="video-source-warning"
-                     class="course-video-player__warning"
-                     style="display:none;">
-                    Для этого урока выбранный источник недоступен. Мы автоматически переключили плеер.
-                </div>
-
-                {% if prevThemes or nextThemes %}
-                <div class="course-video-player__playlist">
-
-                    <div class="course-video-player__playlist-header">
-                        <h3 class="course-video-player__playlist-title">Уроки курса</h3>
-                        <div class="course-video-player__playlist-nav">
-                            <button type="button" class="course-video-player__nav-btn" id="playlist-prev">‹</button>
-                            <button type="button" class="course-video-player__nav-btn" id="playlist-next">›</button>
-                        </div>
-                    </div>
-
-                    <div class="course-video-player__playlist-viewport" id="playlist-viewport">
-                        <div class="course-video-player__playlist-track">
-
-                            {% for elem in prevThemes %}
-                            <a href="{{ elem.get_absolute_url }}"
-                               class="course-video-player__item">
-
-                                <div class="course-video-player__thumb course-video-player__thumb--generated">
-                                    <div class="course-video-player__thumb-badge">
-                                        {% if elem.youtube_id or elem.rutube_id %}
-                                        {% if elem.article %}Теория + видео{% else %}Видеоурок{% endif %}
-                                        {% else %}
-                                        Текстовый урок
-                                        {% endif %}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-course">
-                                        {{ elem.module.course.title }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-number">
-                                        {{ elem.menu_number }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-title">
-                                        {{ elem.title }}
-                                    </div>
-                                </div>
-
-                                <div class="course-video-player__item-body">
-                                    <div class="course-video-player__item-meta">Предыдущий</div>
-                                    <div class="course-video-player__item-title">
-                                        {{ elem.menu_number }}. {{ elem.title }}
-                                    </div>
-                                </div>
-                            </a>
-                            {% endfor %}
-
-                            <a href="{{ Theme.get_absolute_url }}"
-                               class="course-video-player__item course-video-player__item--current">
-
-                                <div class="course-video-player__thumb course-video-player__thumb--generated">
-                                    <div class="course-video-player__thumb-badge">
-                                        {% if Theme.youtube_id or Theme.rutube_id %}
-                                        {% if Theme.article %}Теория + видео{% else %}Видеоурок{% endif %}
-                                        {% else %}
-                                        Текстовый урок
-                                        {% endif %}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-course">
-                                        {{ Theme.module.course.title }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-number">
-                                        {{ Theme.menu_number }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-title">
-                                        {{ Theme.title }}
-                                    </div>
-                                </div>
-
-                                <div class="course-video-player__item-body">
-                                    <div class="course-video-player__item-meta">Текущий урок</div>
-                                    <div class="course-video-player__item-title">
-                                        {{ Theme.menu_number }}. {{ Theme.title }}
-                                    </div>
-                                </div>
-                            </a>
-
-                            {% for elem in nextThemes %}
-                            <a href="{{ elem.get_absolute_url }}"
-                               class="course-video-player__item">
-
-                                <div class="course-video-player__thumb course-video-player__thumb--generated">
-                                    <div class="course-video-player__thumb-badge">
-                                        {% if elem.youtube_id or elem.rutube_id %}
-                                        {% if elem.article %}Теория + видео{% else %}Видеоурок{% endif %}
-                                        {% else %}
-                                        Текстовый урок
-                                        {% endif %}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-course">
-                                        {{ elem.module.course.title }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-number">
-                                        {{ elem.menu_number }}
-                                    </div>
-
-                                    <div class="course-video-player__thumb-title">
-                                        {{ elem.title }}
-                                    </div>
-                                </div>
-
-                                <div class="course-video-player__item-body">
-                                    <div class="course-video-player__item-meta">Следующий</div>
-                                    <div class="course-video-player__item-title">
-                                        {{ elem.menu_number }}. {{ elem.title }}
-                                    </div>
-                                </div>
-                            </a>
-                            {% endfor %}
-
-                        </div>
-                    </div>
-                </div>
-                {% endif %}
-
-            </div>
-        </section>
-        {% endif %}
-
-        {% if Theme.article or Theme.stepik %}
-        <section class="lesson-section">
-            <div class="lesson-tabs">
-                <ul class="nav nav-tabs lesson-tabs__nav" id="myTab" role="tablist">
-                    {% if Theme.article %}
-                    <li class="nav-item">
-                        <a class="nav-link active"
-                           id="tab--1"
-                           data-toggle="tab"
-                           href="#tab1"
-                           role="tab"
-                           aria-controls="tab1"
-                           aria-selected="true">
-                            Теория
-                        </a>
-                    </li>
-                    {% endif %}
-
-                    {% if Theme.stepik %}
-                    <li class="nav-item">
-                        <a class="nav-link {% if not Theme.article %}active{% endif %}"
-                           id="tab--3"
-                           data-toggle="tab"
-                           href="#tab3"
-                           role="tab"
-                           aria-controls="tab3"
-                           aria-selected="{% if not Theme.article %}true{% else %}false{% endif %}">
-                            Stepik
-                        </a>
-                    </li>
-                    {% endif %}
-                </ul>
-
-                <div class="tab-content lesson-tabs__content" id="myTabContent">
-
-                    {% if Theme.article %}
-                    <div class="tab-pane fade show active"
-                         id="tab1"
-                         role="tabpanel"
-                         aria-labelledby="tab--1">
-                        <div class="lesson-article-card">
-                            <div class="lesson-prose">
-                                {{ Theme.article|safe }}
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                    {% if Theme.stepik %}
-                    <div class="tab-pane fade {% if not Theme.article %}show active{% endif %}"
-                         id="tab3"
-                         role="tabpanel"
-                         aria-labelledby="tab--3">
-
-                        <div class="lesson-panel-card">
-                            <h2 class="lesson-panel-card__title">Практика на Stepik</h2>
-
-                            <div class="lesson-stepik-intro">
-                                <p class="lesson-stepik-intro__text">
-                                    Попрактиковаться по этой теме можно на Stepik.
-                                </p>
-                                <a href="{{ Theme.stepik }}" class="btn btn-info" role="button" target="_blank">
-                                    Перейти на Stepik
-                                </a>
-                            </div>
-
-                            <div class="lesson-course-grid">
-                                <div class="lesson-course-card">
-                                    <img src="{% static 'base_static/img/bg-img/c5.jpg' %}" alt="Основы Python">
-                                    <div class="lesson-course-card__body">
-                                        <h3>Основы Python</h3>
-                                        <a href="https://stepik.org/course/63085/promo" target="_blank">Подробнее</a>
-                                    </div>
-                                </div>
-
-                                <div class="lesson-course-card">
-                                    <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}" alt="ООП на Python">
-                                    <div class="lesson-course-card__body">
-                                        <h3>ООП на Python</h3>
-                                        <a href="https://stepik.org/z/114354" target="_blank">Подробнее</a>
-                                    </div>
-                                </div>
-
-                                <div class="lesson-course-card">
-                                    <img src="{% static 'base_static/img/bg-img/django-bg.png' %}" alt="Django">
-                                    <div class="lesson-course-card__body">
-                                        <h3>Веб-разработка на Django</h3>
-                                        <a href="https://stepik.org/z/114288" target="_blank">Подробнее</a>
-                                    </div>
-                                </div>
-
-                                <div class="lesson-course-card">
-                                    <img src="{% static 'base_static/img/bg-img/pygame.png' %}" alt="Pygame">
-                                    <div class="lesson-course-card__body">
-                                        <h3>Создание игр на Pygame</h3>
-                                        <a href="https://stepik.org/z/118434" target="_blank">Подробнее</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endif %}
-
-                </div>
-            </div>
-        </section>
-        {% endif %}
+            </section>
+        {% endfor %}
 
         {% include 'courses/includes/lesson_navigation.html' %}
+
     </div>
 </div>
-
-{% if video_sources %}
-{{ video_sources|json_script:"video-sources-data" }}
-{% endif %}
 
 {% endblock %}

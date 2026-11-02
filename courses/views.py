@@ -5,24 +5,6 @@ from django.shortcuts import get_object_or_404, render
 from .models import LearningCourse, LearningModule, Lesson
 
 
-def get_video_sources(lesson):
-    sources = {}
-
-    if lesson.rutube_id:
-        sources['rutube'] = {
-            'url': f'https://rutube.ru/play/embed/{lesson.rutube_id}',
-            'label': 'Rutube',
-        }
-
-    if lesson.youtube_id:
-        sources['youtube'] = {
-            'url': f'https://www.youtube.com/embed/{lesson.youtube_id}',
-            'label': 'YouTube',
-        }
-
-    return sources
-
-
 def build_course_navigation(course, current_lesson):
     lesson_qs = Lesson.objects.order_by('sort_order', 'title')
 
@@ -137,6 +119,6 @@ def lesson_detail(request, course_slug, module_slug, lesson_slug):
         'allThemes': all_lessons,
         'prevThemes': prev_lessons,
         'nextThemes': next_lessons,
-        'video_sources': get_video_sources(lesson),
+        'blocks': lesson.blocks.order_by('sort_order', 'id'),
     }
     return render(request, 'courses/lesson_detail.html', context)

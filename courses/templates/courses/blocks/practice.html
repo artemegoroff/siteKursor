@@ -1,0 +1,22 @@
+<section class="lesson-section" id="block-{{ block.pk }}">
+    <div class="lesson-panel-card">
+        <h2 class="lesson-panel-card__title">
+            {{ block.title|default:"Практика" }}
+        </h2>
+
+        <div class="lesson-stepik-intro">
+            <p class="lesson-stepik-intro__text">
+                Закрепите материал, выполнив задания.
+            </p>
+
+            <a
+                    href="{{ block.practice_url }}"
+                    class="btn btn-info"
+                    target="_blank"
+                    rel="noopener noreferrer"
+            >
+                Перейти к заданиям
+            </a>
+        </div>
+    </div>
+</section>

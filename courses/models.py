@@ -1,6 +1,7 @@
 from django.db import models
 from django.template.defaultfilters import slugify as django_slugify
 from django.urls import reverse
+from django.core.exceptions import ValidationError
 
 alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
             'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
@@ -93,6 +94,44 @@ class Lesson(models.Model):
     stepik = models.CharField('Stepik', max_length=200, blank=True, null=True)
     seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
 
+    parent = models.ForeignKey(
+        'self',
+        verbose_name='Родительский урок',
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name='children',
+    )
+
+    def clean(self):
+        super().clean()
+
+        if self.parent_id is None:
+            return
+
+        if self.pk and self.parent_id == self.pk:
+            raise ValidationError({
+                'parent': 'Урок не может быть родителем самому себе.',
+            })
+
+        visited = {self.pk} if self.pk else set()
+        ancestor = self.parent
+
+        while ancestor is not None:
+            if ancestor.pk in visited:
+                raise ValidationError({
+                    'parent': 'В иерархии уроков обнаружен цикл.',
+                })
+
+            visited.add(ancestor.pk)
+
+            if ancestor.module_id != self.module_id:
+                raise ValidationError({
+                    'parent': 'Родительский урок должен быть в том же модуле.',
+                })
+
+            ancestor = ancestor.parent
+
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
         return super().save(*args, **kwargs)
@@ -118,3 +157,54 @@ class Lesson(models.Model):
         verbose_name_plural = 'Уроки'
         ordering = ['sort_order', 'module', 'title']
         unique_together = ('module', 'slug')
+
+
+class LessonBlock(models.Model):
+    class Kind(models.TextChoices):
+        TEXT = 'text', 'Текст'
+        VIDEO = 'video', 'Видео'
+        PRACTICE = 'practice', 'Практика'
+
+    lesson = models.ForeignKey(
+        Lesson,
+        verbose_name='Урок',
+        related_name='blocks',
+        on_delete=models.CASCADE,
+    )
+    kind = models.CharField(
+        'Тип блока',
+        max_length=20,
+        choices=Kind.choices,
+    )
+    title = models.CharField(
+        'Заголовок',
+        max_length=200,
+        blank=True,
+    )
+    sort_order = models.PositiveIntegerField(
+        'Порядок',
+        default=0,
+        db_index=True,
+    )
+
+    content = models.TextField('Текст', blank=True)
+    youtube_id = models.CharField(
+        'YouTube ID', max_length=75, blank=True,
+    )
+    rutube_id = models.CharField(
+        'Rutube ID', max_length=75, blank=True,
+    )
+    practice_url = models.URLField(
+        'Ссылка на практику', max_length=500, blank=True,
+    )
+
+    def __str__(self):
+        return (
+            f'{self.lesson.title} / '
+            f'{self.sort_order}. {self.title or self.get_kind_display()}'
+        )
+
+    class Meta:
+        verbose_name = 'Блок урока'
+        verbose_name_plural = 'Блоки урока'
+        ordering = ['sort_order', 'id']

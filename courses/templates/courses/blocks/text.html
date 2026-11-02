@@ -1,0 +1,11 @@
+<section class="lesson-section" id="block-{{ block.pk }}">
+    {% if block.title %}
+        <h2>{{ block.title }}</h2>
+    {% endif %}
+
+    <div class="lesson-article-card">
+        <div class="lesson-prose">
+            {{ block.content|safe }}
+        </div>
+    </div>
+</section>
