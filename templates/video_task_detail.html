@@ -19,8 +19,8 @@
     <link rel="stylesheet/less" href="{% static 'base_static/css/videoRazbor.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
     {% if vopros.code_python or 'language-' in vopros.text %}
-        <link rel="stylesheet" href="{% static 'css/css/prism.css' %}">
-        <script src="{% static 'js/prism.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+        <script src="{% static 'base_static/js/prism.js' %}"></script>
     {% endif %}
 {% endblock %}
 
@@ -42,7 +42,7 @@
 
 
 {#    <div class="clever-catagory bg-img d-flex align-items-center justify-content-center p-3"#}
-{#         style="background-image: url({% static 'img/bg-img/bg2.jpg' %});">#}
+{#         style="background-image: url({% static 'base_static/img/bg-img/bg2.jpg' %});">#}
 {#        {% if exam == 'ege' %}#}
 {#            <h2>Видеоразборы задач ЕГЭ по информатике</h2>#}
 {#        {% elif exam == 'oge' %}#}

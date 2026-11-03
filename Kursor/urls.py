@@ -43,7 +43,6 @@ urlpatterns = [
         name='django.contrib.sitemaps.views.sitemap',
     ),
     path('robots.txt', include('robots.urls')),
-    path('summernote/', include('django_summernote.urls')),
     path('tinymce/', include('tinymce.urls')),
 ]
 urlpatterns += [
