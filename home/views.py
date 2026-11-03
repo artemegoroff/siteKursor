@@ -1,33 +1,44 @@
+from django.db.models import Count
 from django.shortcuts import render
-from ege.models import VideoRazborEGE, NumberTaskEge
-from oge.models import VideoRazborOGE, NumberTaskOge
-from videos.models import Course
+
+from courses.models import LearningCourse
+from ege.models import NumberTaskEge, VideoRazborEGE
+from oge.models import NumberTaskOge, VideoRazborOGE
+
+
+COURSE_COVERS = {
+    'python': 'c2.jpg',
+    'oop-python': 'oop-bg.png',
+    'django': 'django-bg.png',
+    'pygame': 'gamedev.png',
+    'turtle': 'c4.jpg',
+}
 
 
 def get_home_page(request):
-    countEGERazbor = len(VideoRazborEGE.objects.all())
-    countOGERazbor = len(VideoRazborOGE.objects.all())
-    countPythonVideos = len(Course.objects.filter(language=Course.PYTHON))
-    countTURTLEVideos = len(Course.objects.filter(language=Course.TURTLEPython))
-    countPYGAMEVideos = len(Course.objects.filter(language=Course.PYGAMEPython))
-    countDJANGO = Course.objects.filter(language=Course.DJANGO).count()
-    countOOPVideos = len(Course.objects.filter(language=Course.OOP))
-    CountTaskEGE = len(NumberTaskEge.objects.all())
-    CountTaskOge = len(NumberTaskOge.objects.all())
-    context = {
-        'countEGERazbor': countEGERazbor, 'countOGERazbor': countOGERazbor,
-        'countPythonVideos': countPythonVideos, 'CountTaskEGE': CountTaskEGE, 'CountTaskOge': CountTaskOge,
-        'countTURTLEVideos': countTURTLEVideos, 'countPYGAMEVideos': countPYGAMEVideos,
-        'countOOPVideos': countOOPVideos, 'countDJANGO': countDJANGO
-    }
-    return render(request, 'home/home_page.html', context)
+    courses = list(
+        LearningCourse.objects
+        .exclude(slug__isnull=True)
+        .exclude(slug='')
+        .annotate(lessons_count=Count('modules__lessons'))
+        .order_by('sort_order', 'title', 'pk')
+    )
+    for course in courses:
+        cover = COURSE_COVERS.get(course.slug, 'c5.jpg')
+        course.cover_static_path = f'base_static/img/bg-img/{cover}'
+
+    return render(request, 'home/home_page.html', {
+        'learning_courses': courses,
+        'countEGERazbor': VideoRazborEGE.objects.count(),
+        'countOGERazbor': VideoRazborOGE.objects.count(),
+        'CountTaskEGE': NumberTaskEge.objects.count(),
+        'CountTaskOge': NumberTaskOge.objects.count(),
+    })
 
 
 def e_handler404(request, exception):
-    context = {}
-    return render(request, 'error404.html', context)
+    return render(request, 'error404.html', status=404)
 
 
 def e_handler500(request):
-    context = {}
-    return render(request, 'error500.html', context)
+    return render(request, 'error500.html', status=500)

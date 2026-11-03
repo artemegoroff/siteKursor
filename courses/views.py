@@ -1,9 +1,22 @@
 from django.db.models import Count, Prefetch
-from django.http import Http404
+from django.http import Http404, HttpResponsePermanentRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 
-from .models import LearningCourse, LearningModule, Lesson
+from .models import LearningCourse, LearningModule, Lesson, LegacyCourseRedirect
 from .navigation import build_lesson_tree
+
+
+def legacy_course_redirect(request, old_path=''):
+    if not old_path:
+        return HttpResponsePermanentRedirect(reverse('courses:courses_home'))
+    destination = get_object_or_404(
+        LegacyCourseRedirect.objects.select_related(
+            'course', 'lesson__module__course',
+        ),
+        old_path=old_path,
+    )
+    return HttpResponsePermanentRedirect(destination.get_absolute_url())
 
 
 def get_course_tree(course, current_id=None):
