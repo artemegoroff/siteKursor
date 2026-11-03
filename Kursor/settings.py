@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'videos',
     'theory',
     'robots',
-    'django_summernote',
     'tinymce',
     'courses',
     'adminsortable2'
