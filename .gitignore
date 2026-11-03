@@ -13,4 +13,6 @@ db.sqlite3
 .env
 # User-specific stuff
 .idea/*
-
+dump_*.sql
+/docker/mysql/init/*.sql
+/docker/mysql/init/*.sql.gz

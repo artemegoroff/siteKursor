@@ -137,20 +137,6 @@ class Lesson(models.Model):
         'Keywords', blank=True, max_length=160,
     )
 
-    # Старые поля пока сохраняем для контроля переноса данных.
-    article = models.TextField(
-        'Текст урока', blank=True, null=True,
-    )
-    youtube_id = models.CharField(
-        'YouTube ID', max_length=75, blank=True, null=True,
-    )
-    rutube_id = models.CharField(
-        'Rutube ID', max_length=75, blank=True, null=True,
-    )
-    stepik = models.CharField(
-        'Stepik', max_length=200, blank=True, null=True,
-    )
-
     def clean(self):
         super().clean()
 
