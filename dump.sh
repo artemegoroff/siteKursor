@@ -22,6 +22,7 @@ mysqldump \
   -p"$DB_PASSWORD" \
   --default-character-set=utf8mb4 \
   --single-transaction \
+  --no-tablespaces \
   "$DB_NAME" > "$DUMP_FILE"
 
 echo "✅ Dump created: $DUMP_FILE"
