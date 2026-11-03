@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import QuestionsEGE, NumberTaskEge, CategoryEge, VarEge, VideoRazborEGE
-from django.forms import TextInput, Textarea, Select
+from django.forms import TextInput, Textarea
 from django.db import models
 
 
