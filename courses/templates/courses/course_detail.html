@@ -2,14 +2,20 @@
 {% load static %}
 
 {% block extracss %}
-<link rel="stylesheet" href="{% static 'base_static/css/course-detail.css' %}">
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/course-detail.css' %}"
+>
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/lesson-hierarchy.css' %}"
+>
 {% endblock %}
 
 {% block content %}
 
-<section class="course">
-
-    <div class="course-header">
+<main class="course">
+    <header class="course-header">
         <h1 class="course-title">{{ course.title }}</h1>
 
         {% if course.description %}
@@ -18,44 +24,44 @@
             </div>
         {% endif %}
 
-        {% if modules %}
-            {% with first_module=modules|first %}
-                {% if first_module.lessons.all %}
-                    {% with first_lesson=first_module.lessons.all|first %}
-                        {% if first_lesson %}
-                            <a href="{{ first_lesson.get_absolute_url }}" class="course-start-btn">
-                                🚀 Начать обучение
-                            </a>
-                        {% endif %}
-                    {% endwith %}
-                {% endif %}
-            {% endwith %}
+        {% if first_lesson %}
+            <a
+                    href="{{ first_lesson.get_absolute_url }}"
+                    class="course-start-btn"
+            >
+                Перейти к первому уроку →
+            </a>
         {% endif %}
-    </div>
+    </header>
 
     {% if modules %}
-    <div class="course-nav">
-        <div class="course-nav__list">
-            {% for module in modules %}
-                <a href="#module-{{ module.slug }}" class="course-nav__link">
-                    {{ module.title }}
-                </a>
-            {% endfor %}
-        </div>
-    </div>
+        <nav class="course-nav" aria-label="Модули курса">
+            <div class="course-nav__list">
+                {% for module in modules %}
+                    <a
+                            href="#module-{{ module.slug }}"
+                            class="course-nav__link"
+                    >
+                        {{ module.title }}
+                    </a>
+                {% endfor %}
+            </div>
+        </nav>
     {% endif %}
 
     <div class="course-modules">
         {% for module in modules %}
-            <section id="module-{{ module.slug }}" class="course-module">
-
+            <section
+                    id="module-{{ module.slug }}"
+                    class="course-module"
+            >
                 <div class="course-module__header">
                     <h2 class="course-module__title">
                         {{ forloop.counter }}. {{ module.title }}
                     </h2>
 
                     <div class="course-module__meta">
-                        {{ module.lessons.all|length }} уроков
+                        Всего уроков: {{ module.lesson_count }}
                     </div>
                 </div>
 
@@ -65,52 +71,14 @@
                     </div>
                 {% endif %}
 
-                <div class="course-lessons">
-                    {% for lesson in module.lessons.all %}
-                        <a href="{{ lesson.get_absolute_url }}"
-                           class="course-lesson {% if lesson.id == current_lesson_id %}is-active{% endif %}">
-
-                            <div class="course-lesson__number">
-                                {{ forloop.counter }}.
-                            </div>
-
-                            <div class="course-lesson__body">
-                                <div class="course-lesson__title">
-                                    {{ lesson.title }}
-                                </div>
-                            </div>
-
-                        </a>
-                    {% empty %}
-                        <div class="course-empty">
-                            Уроков пока нет
-                        </div>
-                    {% endfor %}
-                </div>
-
+                {% include "courses/includes/lesson_tree.html" with nodes=module.lessons_for_menu only %}
             </section>
         {% empty %}
-            <div class="course-empty">
+            <p class="course-empty">
                 В этом курсе пока нет модулей.
-            </div>
+            </p>
         {% endfor %}
     </div>
-
-</section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const activeLesson = document.querySelector('.course-lesson.is-active');
-
-     if (activeLesson) {
-        setTimeout(function () {
-            activeLesson.scrollIntoView({
-                behavior: 'smooth',
-                block: 'nearest'
-            });
-        }, 150);
-    }
-});
-</script>
+</main>
 
 {% endblock %}

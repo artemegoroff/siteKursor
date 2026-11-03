@@ -6,7 +6,7 @@ from django.db.models import Max
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import path
-
+import json
 from adminsortable2.admin import (
     SortableAdminMixin,
     SortableInlineAdminMixin,
@@ -779,3 +779,41 @@ class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
             'admin/courses/lesson/move_to_module.html',
             context,
         )
+
+    class Media:
+        js = ('base_static/js/admin/lesson-parent-filter.js',)
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        field = super().formfield_for_foreignkey(
+            db_field,
+            request,
+            **kwargs,
+        )
+
+        if db_field.name != 'parent' or field is None:
+            return field
+
+        queryset = field.queryset.select_related('module__course')
+
+        # При редактировании исключаем сам урок.
+        object_id = request.resolver_match.kwargs.get('object_id')
+
+        if object_id and str(object_id).isdigit():
+            queryset = queryset.exclude(pk=object_id)
+
+        field.queryset = queryset
+
+        field.widget.attrs['data-parent-lessons'] = json.dumps(
+            list(
+                queryset.order_by('sort_order', 'title', 'pk')
+                .values('id', 'title', 'module_id')
+            ),
+            ensure_ascii=False,
+        )
+
+        field.help_text = (
+            'Выберите модуль. Для самостоятельного урока '
+            'оставьте родителя пустым.'
+        )
+
+        return field

@@ -24,19 +24,54 @@
         rel="stylesheet"
         href="{% static 'base_static/css/css/prism.css' %}"
 >
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/lesson-hierarchy.css' %}"
+>
 <script src="{% static 'base_static/js/prism.js' %}"></script>
 {% endblock %}
 
 {% block extraJS %}
-<script src="{% static 'base_static/js/sidebar-menu.js' %}"></script>
+<script src="{% static 'base_static/js/lesson-hierarchy-menu.js' %}"></script>
 {% endblock %}
 
 {% block content %}
 
 {% include 'courses/hamburger_menu.html' %}
 
-<div class="lesson-layout">
-    <div class="lesson-main">
+<div class="lesson-layout lesson-hierarchy">
+    <main class="lesson-main">
+
+        <nav
+                class="lesson-breadcrumbs"
+                aria-label="Путь к уроку"
+        >
+            <ol>
+                <li>
+                    <a href="{{ course.get_absolute_url }}">
+                        {{ course.title }}
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{ module.get_absolute_url }}">
+                        {{ module.title }}
+                    </a>
+                </li>
+
+                {% for ancestor in ancestors %}
+                    <li>
+                        <a href="{{ ancestor.get_absolute_url }}">
+                            {{ ancestor.title }}
+                        </a>
+                    </li>
+                {% endfor %}
+
+                <li aria-current="page">
+                    {{ Theme.title }}
+                </li>
+            </ol>
+        </nav>
 
         {% if request.user.is_staff %}
             <div class="lesson-admin-actions">
@@ -54,20 +89,26 @@
         <header class="lesson-header">
             <div class="lesson-header__meta">
                 <span class="lesson-header__badge">
-                    Урок
+                    {% if ancestors %}
+                        Подурок
+                    {% else %}
+                        Урок
+                    {% endif %}
+                    {{ Theme.menu_number }}
                 </span>
 
-                <span class="lesson-header__course">
-                    {{ course.title }}
-                </span>
-
-                <span class="lesson-header__module">
-                    {{ module.title }}
-                </span>
+                {% if child_lessons %}
+                    <a
+                            href="#child-lessons"
+                            class="lesson-sublessons-link"
+                    >
+                        Подуроки: {{ child_lessons|length }} ↓
+                    </a>
+                {% endif %}
             </div>
 
             <h1 class="lesson-header__title">
-                {{ Theme.menu_number }}. {{ Theme.title }}
+                {{ Theme.title }}
             </h1>
         </header>
 
@@ -82,16 +123,62 @@
                 {% include "courses/blocks/practice.html" with block=block only %}
             {% endif %}
         {% empty %}
-            <section class="lesson-section">
-                <div class="lesson-panel-card">
-                    <p>Содержимое урока пока не добавлено.</p>
-                </div>
-            </section>
+            {% if not child_lessons %}
+                <section class="lesson-section">
+                    <div class="lesson-panel-card">
+                        <p>Содержимое урока пока не добавлено.</p>
+                    </div>
+                </section>
+            {% endif %}
         {% endfor %}
+
+        {% if child_lessons %}
+            <section
+                    id="child-lessons"
+                    class="lesson-children"
+                    aria-labelledby="child-lessons-heading"
+            >
+                <h2 id="child-lessons-heading">
+                    В этом разделе
+                </h2>
+
+                <p>
+                    Изучайте темы по порядку или выберите нужную.
+                </p>
+
+                <ol class="lesson-child-list">
+                    {% for child in child_lessons %}
+                        <li>
+                            <a
+                                    class="lesson-child-card"
+                                    href="{{ child.get_absolute_url }}"
+                            >
+                                <span class="lesson-child-card__number">
+                                    {{ child.menu_number }}
+                                </span>
+
+                                <span class="lesson-child-card__body">
+                                    <strong>{{ child.title }}</strong>
+
+                                    {% if child.children_for_menu %}
+                                        <small>
+                                            Подуроки:
+                                            {{ child.children_for_menu|length }}
+                                        </small>
+                                    {% endif %}
+                                </span>
+
+                                <span aria-hidden="true">→</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </section>
+        {% endif %}
 
         {% include 'courses/includes/lesson_navigation.html' %}
 
-    </div>
+    </main>
 </div>
 
 {% endblock %}

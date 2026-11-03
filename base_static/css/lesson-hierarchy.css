@@ -1,0 +1,309 @@
+/* Путь к уроку */
+
+.lesson-breadcrumbs {
+    margin: 0 0 20px;
+    color: #64748b;
+    font-size: 14px;
+}
+
+.lesson-breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lesson-breadcrumbs li {
+    overflow-wrap: anywhere;
+}
+
+.lesson-breadcrumbs li + li::before {
+    content: "/";
+    margin-right: 10px;
+    color: #94a3b8;
+}
+
+.lesson-breadcrumbs a,
+.lesson-sublessons-link,
+.lesson-paging__contents {
+    color: #087e98;
+}
+
+/* Заголовок и текст */
+
+.lesson-hierarchy .lesson-header__meta {
+    flex-wrap: wrap;
+}
+
+.lesson-hierarchy .lesson-header__title {
+    overflow-wrap: anywhere;
+}
+
+.lesson-hierarchy .lesson-prose {
+    max-width: 76ch;
+    margin-inline: auto;
+    line-height: 1.75;
+}
+
+.lesson-hierarchy .lesson-prose pre {
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.lesson-hierarchy .lesson-prose img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Карточки подуроков */
+
+.lesson-children {
+    margin-top: 32px;
+    padding: 24px;
+    background: #f7fbff;
+    border: 1px solid #dbe4ee;
+    border-radius: 18px;
+    scroll-margin-top: 90px;
+}
+
+.lesson-children h2 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+
+.lesson-children > p {
+    margin-bottom: 18px;
+    color: #546274;
+}
+
+.lesson-child-list,
+.lesson-tree {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lesson-child-list {
+    display: grid;
+    gap: 10px;
+}
+
+.lesson-child-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #dbe4ee;
+    border-radius: 12px;
+    color: #193247;
+    overflow-wrap: anywhere;
+}
+
+.lesson-child-card__number {
+    flex: 0 0 auto;
+    color: #087e98;
+    font-weight: 700;
+}
+
+.lesson-child-card__body {
+    flex: 1;
+    min-width: 0;
+}
+
+.lesson-child-card__body strong,
+.lesson-child-card__body small {
+    display: block;
+}
+
+.lesson-child-card__body small {
+    margin-top: 4px;
+    color: #64748b;
+}
+
+/* Дерево уроков */
+
+.lesson-tree__item {
+    margin: 6px 0;
+}
+
+.lesson-tree__link {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    color: #193247;
+    overflow-wrap: anywhere;
+}
+
+.lesson-tree__number {
+    flex: 0 0 auto;
+    color: #64748b;
+    font-variant-numeric: tabular-nums;
+}
+
+.lesson-tree__link:hover {
+    background: #f0f7fc;
+    text-decoration: none;
+}
+
+.lesson-tree__link.is-active {
+    background: #e8f7fb;
+    border-color: #a8dae5;
+    color: #075f73;
+    font-weight: 700;
+}
+
+.lesson-tree__link.is-active .lesson-tree__number {
+    color: inherit;
+}
+
+.lesson-tree__branch {
+    margin: 0 0 8px 20px;
+}
+
+.lesson-tree__branch > summary {
+    cursor: pointer;
+    padding: 6px 10px;
+    color: #546274;
+    font-size: 13px;
+}
+
+.lesson-tree__branch > .lesson-tree {
+    border-left: 2px solid #dbe4ee;
+    padding-left: 10px;
+}
+
+.lesson-tree__empty {
+    padding: 12px;
+    color: #64748b;
+}
+
+.lesson-menu-module {
+    margin-bottom: 14px;
+}
+
+.lesson-menu-module > summary {
+    cursor: pointer;
+    padding: 12px 4px;
+    color: #193247;
+    font-weight: 700;
+}
+
+/* Переходы между уроками */
+
+.lesson-paging {
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid #dbe4ee;
+}
+
+.lesson-paging__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.lesson-paging__card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    border: 1px solid #dbe4ee;
+    border-radius: 14px;
+    background: #fff;
+    color: #193247;
+    overflow-wrap: anywhere;
+}
+
+.lesson-paging__card--next {
+    background: #effafd;
+    border-color: #b8e0e9;
+}
+
+.lesson-paging__card--muted {
+    background: #f8fafc;
+    color: #64748b;
+}
+
+.lesson-paging__label {
+    font-size: 13px;
+    color: #546274;
+}
+
+.lesson-paging__contents {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 6px 0;
+}
+
+.lesson-child-card:hover,
+a.lesson-paging__card:hover {
+    color: #075f73;
+    border-color: #1ea7c5;
+    background: #f0fafd;
+    text-decoration: none;
+}
+
+/* Фокус клавиатуры */
+
+.lesson-hierarchy a:focus-visible,
+.lesson-tree a:focus-visible,
+.lesson-tree summary:focus-visible,
+.lesson-menu-module > summary:focus-visible,
+.sidenav button:focus-visible,
+.side-menu-toggle:focus-visible {
+    outline: 3px solid #087e98;
+    outline-offset: 3px;
+}
+
+/* Исправление затемнения под меню */
+
+.side-menu-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.side-menu-open {
+    overflow: hidden;
+}
+
+.course-module {
+    scroll-margin-top: 90px;
+}
+
+/* Мобильная версия */
+
+@media (max-width: 640px) {
+    .lesson-paging__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .lesson-children {
+        padding: 16px;
+    }
+
+    .lesson-child-card {
+        padding: 14px;
+        gap: 10px;
+    }
+
+    .lesson-tree__branch {
+        margin-left: 10px;
+    }
+
+    .lesson-tree__link {
+        padding: 12px 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidenav,
+    .side-menu-overlay {
+        transition: none;
+    }
+}

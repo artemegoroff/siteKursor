@@ -1,36 +1,48 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify as django_slugify
 from django.urls import reverse
-from django.core.exceptions import ValidationError
-
-alphabet = {'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
-            'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
-            'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'shch', 'ы': 'i', 'э': 'e', 'ю': 'yu',
-            'я': 'ya'}
 
 
-def slugify(s):
-    """
-    Overriding django slugify that allows to use russian words as well.
-    """
-    return django_slugify(''.join(alphabet.get(w, w) for w in s.lower()))
+alphabet = {
+    'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+    'е': 'e', 'ё': 'yo', 'ж': 'zh', 'з': 'z', 'и': 'i',
+    'й': 'j', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+    'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+    'у': 'u', 'ф': 'f', 'х': 'kh', 'ц': 'ts', 'ч': 'ch',
+    'ш': 'sh', 'щ': 'shch', 'ы': 'y', 'э': 'e', 'ю': 'yu',
+    'я': 'ya',
+}
 
 
-# Create your models here.
+def slugify(value):
+    return django_slugify(
+        ''.join(alphabet.get(char, char) for char in value.lower())
+    )
+
 
 class LearningCourse(models.Model):
-    slug = models.SlugField('Slug', unique=True, null=True, blank=True)
+    slug = models.SlugField(
+        'Slug', unique=True, null=True, blank=True,
+    )
     title = models.CharField('Название курса', max_length=200)
-    sort_order = models.PositiveIntegerField('Порядок', default=0, db_index=True)
-    description = models.TextField('Описание курса', blank=True, null=True)
-    seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
-    stepik = models.CharField('Stepik', max_length=200, blank=True, null=True)
-
+    sort_order = models.PositiveIntegerField(
+        'Порядок', default=0, db_index=True,
+    )
+    description = models.TextField(
+        'Описание курса', blank=True, null=True,
+    )
+    seo_keywords = models.TextField(
+        'Keywords', blank=True, max_length=160,
+    )
+    stepik = models.CharField(
+        'Stepik', max_length=200, blank=True, null=True,
+    )
     previous_course = models.ForeignKey(
         'self',
         null=True,
         blank=True,
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
     )
 
     def save(self, *args, **kwargs):
@@ -38,13 +50,18 @@ class LearningCourse(models.Model):
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.sort_order}. {self.title}' if self.sort_order else self.title
+        if self.sort_order:
+            return f'{self.sort_order}. {self.title}'
+        return self.title
 
     def seo_title(self):
         return f'Курс "{self.title}"'
 
     def get_absolute_url(self):
-        return reverse('courses:course_detail', kwargs={'course_slug': self.slug})
+        return reverse(
+            'courses:course_detail',
+            kwargs={'course_slug': self.slug},
+        )
 
     class Meta:
         verbose_name = 'Курс'
@@ -53,19 +70,32 @@ class LearningCourse(models.Model):
 
 
 class LearningModule(models.Model):
-    course = models.ForeignKey(LearningCourse, on_delete=models.CASCADE, related_name='modules', verbose_name='Курс')
+    course = models.ForeignKey(
+        LearningCourse,
+        on_delete=models.CASCADE,
+        related_name='modules',
+        verbose_name='Курс',
+    )
     slug = models.SlugField('Slug', null=True, blank=True)
     title = models.CharField('Название модуля', max_length=200)
-    sort_order = models.PositiveIntegerField('Порядок', default=0, db_index=True)
-    description = models.TextField('Описание модуля', blank=True, null=True)
-    stepik = models.CharField('Stepik', max_length=200, blank=True, null=True)
+    sort_order = models.PositiveIntegerField(
+        'Порядок', default=0, db_index=True,
+    )
+    description = models.TextField(
+        'Описание модуля', blank=True, null=True,
+    )
+    stepik = models.CharField(
+        'Stepik', max_length=200, blank=True, null=True,
+    )
 
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.course} / {self.sort_order}. {self.title}' if self.sort_order else f'{self.course} / {self.title}'
+        if self.sort_order:
+            return f'{self.course} / {self.sort_order}. {self.title}'
+        return f'{self.course} / {self.title}'
 
     def get_absolute_url(self):
         return reverse(
@@ -73,27 +103,23 @@ class LearningModule(models.Model):
             kwargs={
                 'course_slug': self.course.slug,
                 'module_slug': self.slug,
-            }
+            },
         )
 
     class Meta:
         verbose_name = 'Модуль'
         verbose_name_plural = 'Модули'
-        ordering = [ 'sort_order', 'course','title']
+        ordering = ['sort_order', 'course', 'title']
         unique_together = ('course', 'slug')
 
 
 class Lesson(models.Model):
-    module = models.ForeignKey(LearningModule, on_delete=models.CASCADE, related_name='lessons', verbose_name='Модуль')
-    slug = models.SlugField('Slug', null=True, blank=True)
-    title = models.CharField('Название урока', max_length=200)
-    sort_order = models.PositiveIntegerField('Порядок', default=0, db_index=True)
-    article = models.TextField('Текст урока', blank=True, null=True)
-    youtube_id = models.CharField('YouTube ID', max_length=75, blank=True, null=True)
-    rutube_id = models.CharField('Rutube ID', max_length=75, blank=True, null=True)
-    stepik = models.CharField('Stepik', max_length=200, blank=True, null=True)
-    seo_keywords = models.TextField('Keywords', blank=True, max_length=160)
-
+    module = models.ForeignKey(
+        LearningModule,
+        on_delete=models.CASCADE,
+        related_name='lessons',
+        verbose_name='Модуль',
+    )
     parent = models.ForeignKey(
         'self',
         verbose_name='Родительский урок',
@@ -102,16 +128,49 @@ class Lesson(models.Model):
         on_delete=models.PROTECT,
         related_name='children',
     )
+    slug = models.SlugField('Slug', null=True, blank=True)
+    title = models.CharField('Название урока', max_length=200)
+    sort_order = models.PositiveIntegerField(
+        'Порядок', default=0, db_index=True,
+    )
+    seo_keywords = models.TextField(
+        'Keywords', blank=True, max_length=160,
+    )
+
+    # Старые поля пока сохраняем для контроля переноса данных.
+    article = models.TextField(
+        'Текст урока', blank=True, null=True,
+    )
+    youtube_id = models.CharField(
+        'YouTube ID', max_length=75, blank=True, null=True,
+    )
+    rutube_id = models.CharField(
+        'Rutube ID', max_length=75, blank=True, null=True,
+    )
+    stepik = models.CharField(
+        'Stepik', max_length=200, blank=True, null=True,
+    )
 
     def clean(self):
         super().clean()
+
+        if self.pk and self.children.exclude(
+            module_id=self.module_id,
+        ).exists():
+            raise ValidationError({
+                'module': (
+                    'Нельзя изменить модуль отдельно от подуроков.'
+                ),
+            })
 
         if self.parent_id is None:
             return
 
         if self.pk and self.parent_id == self.pk:
             raise ValidationError({
-                'parent': 'Урок не может быть родителем самому себе.',
+                'parent': (
+                    'Урок не может быть родителем самому себе.'
+                ),
             })
 
         visited = {self.pk} if self.pk else set()
@@ -127,7 +186,10 @@ class Lesson(models.Model):
 
             if ancestor.module_id != self.module_id:
                 raise ValidationError({
-                    'parent': 'Родительский урок должен быть в том же модуле.',
+                    'parent': (
+                        'Родительский урок должен быть '
+                        'в том же модуле.'
+                    ),
                 })
 
             ancestor = ancestor.parent
@@ -137,7 +199,9 @@ class Lesson(models.Model):
         return super().save(*args, **kwargs)
 
     def __str__(self):
-        return f'{self.module} / {self.sort_order}. {self.title}' if self.sort_order else f'{self.module} / {self.title}'
+        if self.sort_order:
+            return f'{self.module} / {self.sort_order}. {self.title}'
+        return f'{self.module} / {self.title}'
 
     def seo_title(self):
         return self.title
@@ -149,7 +213,7 @@ class Lesson(models.Model):
                 'course_slug': self.module.course.slug,
                 'module_slug': self.module.slug,
                 'lesson_slug': self.slug,
-            }
+            },
         )
 
     class Meta:
@@ -177,16 +241,11 @@ class LessonBlock(models.Model):
         choices=Kind.choices,
     )
     title = models.CharField(
-        'Заголовок',
-        max_length=200,
-        blank=True,
+        'Заголовок', max_length=200, blank=True,
     )
     sort_order = models.PositiveIntegerField(
-        'Порядок',
-        default=0,
-        db_index=True,
+        'Порядок', default=0, db_index=True,
     )
-
     content = models.TextField('Текст', blank=True)
     youtube_id = models.CharField(
         'YouTube ID', max_length=75, blank=True,
@@ -201,7 +260,8 @@ class LessonBlock(models.Model):
     def __str__(self):
         return (
             f'{self.lesson.title} / '
-            f'{self.sort_order}. {self.title or self.get_kind_display()}'
+            f'{self.sort_order}. '
+            f'{self.title or self.get_kind_display()}'
         )
 
     class Meta:

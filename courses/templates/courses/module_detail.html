@@ -1,0 +1,55 @@
+{% extends 'baseBoot4.html' %}
+{% load static %}
+
+{% block extracss %}
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/course-detail.css' %}"
+>
+<link
+        rel="stylesheet"
+        href="{% static 'base_static/css/lesson-hierarchy.css' %}"
+>
+{% endblock %}
+
+{% block content %}
+
+<main class="course">
+
+    <nav
+            class="lesson-breadcrumbs"
+            aria-label="Путь к модулю"
+    >
+        <ol>
+            <li>
+                <a href="{{ course.get_absolute_url }}">
+                    {{ course.title }}
+                </a>
+            </li>
+
+            <li aria-current="page">
+                {{ module.title }}
+            </li>
+        </ol>
+    </nav>
+
+    <header class="course-header">
+        <h1 class="course-title">{{ module.title }}</h1>
+
+        {% if module.description %}
+            <div class="course-description">
+                {{ module.description|safe }}
+            </div>
+        {% endif %}
+    </header>
+
+    <section
+            class="course-module"
+            aria-label="Уроки модуля"
+    >
+        {% include "courses/includes/lesson_tree.html" with nodes=module.lessons_for_menu only %}
+    </section>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+<ul class="lesson-tree">
+    {% for node in nodes %}
+        <li class="lesson-tree__item">
+            <a
+                    href="{{ node.get_absolute_url }}"
+                    class="lesson-tree__link{% if node.is_current %} is-active{% endif %}"
+                    data-lesson-link
+                    {% if node.is_current %}
+                        aria-current="page"
+                    {% endif %}
+            >
+                <span class="lesson-tree__number">
+                    {{ node.menu_number }}
+                </span>
+
+                <span>{{ node.title }}</span>
+            </a>
+
+            {% if node.children_for_menu %}
+                <details
+                        class="lesson-tree__branch"
+                        {% if node.is_on_current_path %}open{% endif %}
+                >
+                    <summary>
+                        Подуроки: {{ node.children_for_menu|length }}
+                    </summary>
+
+                    {% include "courses/includes/lesson_tree.html" with nodes=node.children_for_menu only %}
+                </details>
+            {% endif %}
+        </li>
+    {% empty %}
+        <li class="lesson-tree__empty">
+            Уроков пока нет.
+        </li>
+    {% endfor %}
+</ul>
