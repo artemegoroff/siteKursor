@@ -1,7 +1,8 @@
-from django.shortcuts import render,get_object_or_404,redirect
-from .models import QuestionsOge, NumberTaskOge, VariantOge,CategoryOge,VideoRazborOGE
-from django.template.loader import render_to_string
-from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render
+
+from .models import (
+    CategoryOge, NumberTaskOge, QuestionsOge, VariantOge, VideoRazborOGE,
+)
 
 TASK_PRISM_JS = (6, 8, 9, 10)
 
