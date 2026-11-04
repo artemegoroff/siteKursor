@@ -400,6 +400,25 @@ class LessonBlockAdminForm(forms.ModelForm):
         model = LessonBlock
         fields = '__all__'
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.block_kind = (
+            self.data.get(self.add_prefix('kind')) if self.is_bound
+            else self.initial.get('kind', self.instance.kind)
+        )
+        if self.block_kind != LessonBlock.Kind.PRACTICE:
+            # Keep inactive values, but validate URLs only for practice blocks.
+            self.fields['practice_url'] = forms.CharField(
+                label='Ссылка на практику', required=False, max_length=500,
+                widget=forms.TextInput,
+            )
+
+    def _get_validation_exclusions(self):
+        exclusions = super()._get_validation_exclusions()
+        if self.block_kind != LessonBlock.Kind.PRACTICE:
+            exclusions.add('practice_url')
+        return exclusions
+
     def clean(self):
         cleaned_data = super().clean()
         kind = cleaned_data.get('kind')
@@ -438,6 +457,12 @@ class LessonBlockInline(
     model = LessonBlock
     form = LessonBlockAdminForm
     extra = 0
+    template = 'admin/courses/lesson/blocks_inline.html'
+    ordering = ('sort_order', 'id')
+
+    class Media:
+        css = {'all': ('base_static/css/admin/lesson-blocks.css',)}
+        js = ('base_static/js/admin/lesson-blocks.js',)
 
     fields = (
         'kind',

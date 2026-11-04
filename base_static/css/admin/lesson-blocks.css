@@ -1,0 +1,74 @@
+[data-lesson-blocks] .lesson-blocks-help {
+    padding: 0 12px;
+    color: var(--body-quiet-color);
+    line-height: 1.5;
+}
+
+[data-lesson-blocks] .lesson-blocks-status {
+    margin: 0;
+    padding: 0 12px;
+    color: var(--link-fg);
+}
+
+[data-lesson-blocks] .lesson-block {
+    margin-bottom: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+[data-lesson-blocks] .lesson-block > h3 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    height: auto !important;
+    padding: 10px 12px;
+    background: var(--darkened-bg) !important;
+    cursor: grab;
+}
+
+[data-lesson-blocks] .lesson-block-grip {
+    font-size: 24px;
+    color: var(--body-quiet-color);
+}
+
+[data-lesson-blocks] .inline_label {
+    flex: 1;
+    min-width: 120px;
+    overflow-wrap: anywhere;
+}
+
+[data-lesson-blocks] .lesson-block-controls {
+    display: inline-flex;
+    gap: 4px;
+}
+
+[data-lesson-blocks] .lesson-block-controls button {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--body-bg);
+    color: var(--body-fg);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+[data-lesson-blocks] .lesson-block-controls button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+[data-lesson-blocks] .lesson-block-controls button:focus-visible {
+    outline: 2px solid var(--link-fg);
+    outline-offset: 2px;
+}
+
+[data-lesson-blocks] .form-row[hidden] {
+    display: none !important;
+}
+
+[data-lesson-blocks] .lesson-block.is-deleted {
+    opacity: 0.55;
+}
