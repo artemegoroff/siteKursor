@@ -1,117 +1,146 @@
-from django.contrib import sitemaps
+from django.contrib.sitemaps import Sitemap
+from django.urls import reverse
+
+from courses.models import LearningCourse, LearningModule, Lesson
 from ege.models import NumberTaskEge, VarEge, VideoRazborEGE
 from oge.models import NumberTaskOge, VariantOge, VideoRazborOGE
-from videos.models import Course
-from django.shortcuts import reverse
 
 
-class CoursePythonSiteMap(sitemaps.Sitemap):
+class LearningCourseSiteMap(Sitemap):
+    priority = 0.7
+    changefreq = 'weekly'
+
+    def items(self):
+        return LearningCourse.objects.exclude(slug__isnull=True).exclude(slug='').order_by('pk')
+
+
+class LearningModuleSiteMap(Sitemap):
+    priority = 0.6
+    changefreq = 'weekly'
+
+    def items(self):
+        return (
+            LearningModule.objects.select_related('course')
+            .exclude(slug__isnull=True).exclude(slug='')
+            .exclude(course__slug__isnull=True).exclude(course__slug='')
+            .order_by('pk')
+        )
+
+
+class LessonSiteMap(Sitemap):
+    priority = 0.6
+    changefreq = 'weekly'
+
+    def items(self):
+        return (
+            Lesson.objects.select_related('module__course')
+            .exclude(slug__isnull=True).exclude(slug='')
+            .exclude(module__slug__isnull=True).exclude(module__slug='')
+            .exclude(module__course__slug__isnull=True)
+            .exclude(module__course__slug='').order_by('pk')
+        )
+
+
+class EgeTaskSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return list(range(1, len(Course.objects.all().filter(language=Course.PYTHON)) + 1))
+        return NumberTaskEge.objects.order_by('number')
 
     def location(self, item):
-        return reverse("videos:videos_python_theme", kwargs={"number": item})
+        return reverse('ege:ege_task_detail', kwargs={'number_task': item.number})
 
 
-class EgeTaskSiteMap(sitemaps.Sitemap):
+class EgeVarSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return list(range(1, len(NumberTaskEge.objects.all()) + 1))
+        return VarEge.objects.order_by('number_var')
 
     def location(self, item):
-        return reverse("ege:ege_task_detail", kwargs={"number_task": item})
+        return reverse('ege:ege_get_var', kwargs={'variant_number': item.number_var})
 
 
-class EgeVarSiteMap(sitemaps.Sitemap):
+class EgeVideoSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return list(range(1, len(VarEge.objects.all()) + 1))
+        return VideoRazborEGE.objects.order_by('pk')
 
     def location(self, item):
-        return reverse("ege:ege_get_var", kwargs={"variant_number": item})
+        return reverse('ege:ege_videotask_detail', kwargs={
+            'id_theme': item.number_of_task_id,
+            'id_task': item.pk,
+        })
 
 
-class EgeVideoSiteMap(sitemaps.Sitemap):
+class OgeTaskSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        razbors = VideoRazborEGE.objects.all()
-        return sorted(list(razbors.values_list('id', flat=True).distinct()))
+        return NumberTaskOge.objects.order_by('number')
 
     def location(self, item):
-        return reverse("ege:ege_videotask_detail", kwargs={"id_task": item})
+        return reverse('oge:oge_task_detail', kwargs={'number_task': item.number})
 
 
-class OgeTaskSiteMap(sitemaps.Sitemap):
+class OgeVarSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return list(range(1, len(NumberTaskOge.objects.all()) + 1))
+        return VariantOge.objects.order_by('number_var')
 
     def location(self, item):
-        return reverse("oge:oge_task_detail", kwargs={"number_task": item})
+        return reverse('oge:oge_get_var', kwargs={'variant_number': item.number_var})
 
 
-class OgeVarSiteMap(sitemaps.Sitemap):
+class OgeVideoSiteMap(Sitemap):
     priority = 0.5
     changefreq = 'daily'
 
     def items(self):
-        return list(range(1, len(VariantOge.objects.all()) + 1))
+        return VideoRazborOGE.objects.order_by('pk')
 
     def location(self, item):
-        return reverse("oge:oge_get_var", kwargs={"variant_number": item})
+        return reverse('oge:oge_videotask_detail', kwargs={
+            'id_theme': item.number_of_task_id,
+            'id_task': item.pk,
+        })
 
 
-class OgeVideoSiteMap(sitemaps.Sitemap):
+class EgeStaticSiteMap(Sitemap):
     priority = 0.5
-    changefreq = 'daily'
+    changefreq = 'weekly'
 
     def items(self):
-        razbors = VideoRazborOGE.objects.all()
-        return list(razbors.values_list('id', flat=True).distinct())
-
-    def location(self, item):
-        return reverse("oge:oge_videotask_detail", kwargs={"id_task": item})
-
-
-class EgeStaticSiteMap(sitemaps.Sitemap):
-    priority = 0.5
-    changefreq = 'daily'
-
-    def items(self):
-        return ['ege:base_ege', 'ege:ege_list', 'ege:ege_videotask_list']
+        return ['ege:base_ege', 'ege:ege_videotask_AllTask']
 
     def location(self, item):
         return reverse(item)
 
 
-class OgeStaticSiteMap(sitemaps.Sitemap):
+class OgeStaticSiteMap(Sitemap):
     priority = 0.5
-    changefreq = 'daily'
+    changefreq = 'weekly'
 
     def items(self):
-        return ['oge:base_oge', 'oge:oge_list', 'oge:oge_videotask_list']
+        return ['oge:base_oge', 'oge:oge_videotask_AllTask']
 
     def location(self, item):
         return reverse(item)
 
 
-class AllLastSiteMap(sitemaps.Sitemap):
-    priority = 0.5
-    changefreq = 'daily'
+class AllLastSiteMap(Sitemap):
+    priority = 0.7
+    changefreq = 'weekly'
 
     def items(self):
-        return ['home:main_page', 'videos:videos_python_all']
+        return ['home:main_page', 'courses:courses_home']
 
     def location(self, item):
         return reverse(item)

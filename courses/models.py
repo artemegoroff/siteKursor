@@ -254,3 +254,32 @@ class LessonBlock(models.Model):
         verbose_name = 'Блок урока'
         verbose_name_plural = 'Блоки урока'
         ordering = ['sort_order', 'id']
+
+
+class LegacyCourseRedirect(models.Model):
+    old_path = models.CharField('Старый путь', max_length=500, unique=True)
+    course = models.ForeignKey(
+        LearningCourse,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='legacy_redirects',
+    )
+    lesson = models.ForeignKey(
+        Lesson,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='legacy_redirects',
+    )
+
+    def get_absolute_url(self):
+        if self.lesson_id:
+            return self.lesson.get_absolute_url()
+        if self.course_id:
+            return self.course.get_absolute_url()
+        return reverse('courses:courses_home')
+
+    class Meta:
+        verbose_name = 'Перенаправление старого курса'
+        verbose_name_plural = 'Перенаправления старых курсов'

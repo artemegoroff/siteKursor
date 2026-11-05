@@ -98,7 +98,7 @@
                                     <i class="fa fa-tasks" aria-hidden="true"></i> 54
                                 </div>
                                 <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOOPVideos }}
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> Видеоуроки
                                 </div>
                             </div>
                             <div class="course-fee h-100">
@@ -162,7 +162,7 @@
                                     <i class="fa fa-tasks" aria-hidden="true"></i> 54
                                 </div>
                                 <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOOPVideos }}
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> Видеоуроки
                                 </div>
                             </div>
                             <div class="course-fee h-100">
@@ -177,164 +177,39 @@
 
 
                 <!-- Single Popular Course -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'base_static/img/bg-img/c2.jpg' %}" alt="">
-                        <!-- Course Content -->
-                        <div class="course-content">
-                            <h4>Программирование на языке Python</h4>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Видеоуроки</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Практические задания</a>
+                {% for learning_course in learning_courses %}
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
+                            <a href="{{ learning_course.get_absolute_url }}" aria-label="{{ learning_course.title }}">
+                                <img src="{% static learning_course.cover_static_path %}" alt="" loading="lazy">
+                            </a>
+                            <div class="course-content">
+                                <h4>
+                                    <a href="{{ learning_course.get_absolute_url }}">{{ learning_course.title }}</a>
+                                </h4>
+                                {% if learning_course.description and learning_course.description != 'Автоматически создано миграцией' %}
+                                    <div>{{ learning_course.description|truncatewords_html:35|safe }}</div>
+                                {% else %}
+                                    <p>Изучайте материалы по порядку или выберите нужную тему.</p>
+                                {% endif %}
                             </div>
-                            <p>Мечтаешь научиться программировать? Мой курс, состоящий из видеоуроков и заданий для
-                                самостоятельного решения, может тебе в этом помочь</p>
-                        </div>
-                        <!-- Seat Rating Fee -->
-                        <div class="seat-rating-fee d-flex justify-content-between">
-                            <div class="seat-rating h-100 d-flex align-items-center">
-
-                                <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countPythonVideos }}
+                            <div class="seat-rating-fee d-flex justify-content-between">
+                                <div class="seat-rating h-100 d-flex align-items-center">
+                                    <div class="videos">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        Уроков: {{ learning_course.lessons_count }}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="course-fee h-100">
-                                <a href="{% url 'videos:videos_python_all' %}" class="free">Подробнее</a>
+                                <div class="course-fee h-100">
+                                    <a href="{{ learning_course.get_absolute_url }}" class="free">Открыть курс</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% empty %}
+                    <div class="col-12"><p>Курсы скоро появятся.</p></div>
+                {% endfor %}
 
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'base_static/img/bg-img/oop-bg.png' %}" alt="">
-                        <!-- Course Content -->
-                        <div class="course-content">
-                            <h4>ООП на Python</h4>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Видеоуроки</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Практические задания</a>
-                            </div>
-                            <p>Уже знаешь основы программирования и хочешь пойти дальше? Самое время изучить
-                                объектно-ориентированное программирование!
-                                Специально для вас я снял это подробный курс по ООП в python</p>
-                        </div>
-                        <!-- Seat Rating Fee -->
-                        <div class="seat-rating-fee d-flex justify-content-between">
-                            <div class="seat-rating h-100 d-flex align-items-center">
-
-                                <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countOOPVideos }}
-                                </div>
-                            </div>
-                            <div class="course-fee h-100">
-                                <a href="{% url 'videos:videos_oop_python_all' %}" class="free">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'base_static/img/bg-img/django-bg.png' %}" alt="" width="846px"
-                             height="420px">
-                        <!-- Course Content -->
-                        <div class="course-content">
-                            <h4>Веб-разработка на Django</h4>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Видеоуроки</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Практические задания</a>
-                            </div>
-                            <p>После изучения основ Python и ООП желаешь применить свои знания на практике?
-                                При помощи самого популярного фрейморвка
-                                Django мы
-                                с вами создадим несколько проектов</p>
-                        </div>
-                        <!-- Seat Rating Fee -->
-                        <div class="seat-rating-fee d-flex justify-content-between">
-                            <div class="seat-rating h-100 d-flex align-items-center">
-
-                                <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countDJANGO }}
-                                </div>
-                            </div>
-                            <div class="course-fee h-100">
-                                <a href="{% url 'videos:videos_django_all' %}" class="free">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- Single Popular Course -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'base_static/img/bg-img/gamedev.png' %}" alt="">
-                        <!-- Course Content -->
-                        <div class="course-content">
-                            <h4>Делаем игры c Python и Pygame</h4>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Видеоуроки</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Практические задания</a>
-                            </div>
-                            <p>Посмотрим на практике как можно применить циклы, условия, переменные, функции и все
-                                остальное,
-                                что мы изучали в основном курсе в процессе создания компьютерной игры.</p>
-                        </div>
-                        <!-- Seat Rating Fee -->
-                        <div class="seat-rating-fee d-flex justify-content-between">
-                            <div class="seat-rating h-100 d-flex align-items-center">
-
-                                <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countPYGAMEVideos }}
-                                </div>
-                            </div>
-                            <div class="course-fee h-100">
-                                <a href="{% url 'videos:videos_pygame_all' %}" class="free">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Popular Course -->
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="{% static 'base_static/img/bg-img/c4.jpg' %}" alt="">
-                        <!-- Course Content -->
-                        <div class="course-content">
-                            <h4>Графика в Python</h4>
-                            <div class="meta d-flex align-items-center">
-                                <a href="#">Видеоуроки</a>
-                                <span><i class="fa fa-circle" aria-hidden="true"></i></span>
-                                <a href="#">Практические задания</a>
-                            </div>
-                            <p>Посмотрим на практике как можно применить циклы, условия, переменные, функции и все
-                                остальное,
-                                что мы изучали в основном курсе. Масса интересных примеров и разработка графических игр
-                                ждет вас
-                                этом курсе.</p>
-                        </div>
-                        <!-- Seat Rating Fee -->
-                        <div class="seat-rating-fee d-flex justify-content-between">
-                            <div class="seat-rating h-100 d-flex align-items-center">
-
-                                <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> {{ countTURTLEVideos }}
-                                </div>
-                            </div>
-                            <div class="course-fee h-100">
-                                <a href="{% url 'videos:videos_turtle_all' %}" class="free">Подробнее</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Popular Course -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="single-popular-course mb-100 wow fadeInUp" data-wow-delay="250ms">
                         <img src="{% static 'base_static/img/bg-img/c1.jpg' %}" alt="">
