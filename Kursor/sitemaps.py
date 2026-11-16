@@ -115,3 +115,15 @@ class AllLastSiteMap(sitemaps.Sitemap):
 
     def location(self, item):
         return reverse(item)
+
+
+class CourseLandingSiteMap(sitemaps.Sitemap):
+    priority = 0.8
+    changefreq = 'monthly'
+
+    def items(self):
+        from courses.landing_data import LANDING_COURSES
+        return list(LANDING_COURSES)
+
+    def location(self, item):
+        return reverse('course_landings:detail', kwargs={'course_slug': item})

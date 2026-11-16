@@ -46,7 +46,7 @@
                         <img src="{% static 'base_static/img/bg-img/c5.jpg' %}" alt="">
                         <!-- Course Content -->
                         <div class="course-content">
-                            <h4>Курс изучения Python на Stepic</h4>
+                            <h4>Инди-курс Python с нуля</h4>
                             <div class="meta d-flex align-items-center">
                                 <a href="#">Видеоуроки</a>
                                 <span><i class="fa fa-circle" aria-hidden="true"></i></span>
@@ -60,15 +60,14 @@
                         <div class="seat-rating-fee d-flex justify-content-between">
                             <div class="seat-rating h-100 d-flex align-items-center">
                                 <div class="tasks">
-                                    <i class="fa fa-tasks" aria-hidden="true"></i> 267
+                                    <i class="fa fa-tasks" aria-hidden="true"></i> Практика
                                 </div>
                                 <div class="videos">
-                                    <i class="fa fa-video-camera" aria-hidden="true"></i> 80
+                                    <i class="fa fa-video-camera" aria-hidden="true"></i> Видео
                                 </div>
                             </div>
                             <div class="course-fee h-100">
-                                <a href="https://stepik.org/course/63085/promo" class="free"
-                                   target="_blank">Подробнее</a>
+                                <a href="{% url 'course_landings:detail' course_slug='python' %}" class="free">Подробнее</a>
                             </div>
                         </div>
                     </div>
