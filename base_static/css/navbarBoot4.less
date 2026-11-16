@@ -250,3 +250,10 @@
     justify-content: center;
   }
 }
+// Keep the rightmost desktop dropdown inside the viewport.
+@media only screen and (min-width: 992px) {
+  .classynav > ul > li:last-child > .dropdown {
+    left: auto;
+    right: 0;
+  }
+}
