@@ -1,7 +1,7 @@
 """Editorial landing content. Each additional course needs its own copy and template."""
 
 LANDING_COURSES = {
-    'python': {
+    'basic-python': {
         'name': 'Инди-курс программирования на Python',
         'subtitle': 'Бесплатный курс Python с нуля: видео, текст и практика на Stepik.',
         'stepik_url': 'https://stepik.org/course/63085/promo',
@@ -9,7 +9,9 @@ LANDING_COURSES = {
         'rating': '4,9',
         'reviews_count': '2 600+',
         'students_count': '220 000+',
-        'author_name': 'egoroff_channel',
+        'author_name': 'Артём Егоров',
+        'channel_name': 'egoroff_channel',
+        'author_photo': 'base_static/img/landing/artem-egorov.webp',
         'author_url': 'https://www.youtube.com/c/egoroffchannel',
         'stats': [
             {'value': '70+', 'label': 'уроков — от первых строк до функций'},

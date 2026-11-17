@@ -20,7 +20,7 @@ def detail(request, course_slug):
         'url': canonical_url, 'inLanguage': 'ru',
         'educationalLevel': 'Beginner', 'isAccessibleForFree': True,
         'provider': {
-            '@type': 'Organization', 'name': course['author_name'],
+            '@type': 'Organization', 'name': course['channel_name'],
             'url': request.build_absolute_uri(reverse('home:main_page')),
         },
     }
