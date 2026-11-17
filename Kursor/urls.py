@@ -2,7 +2,7 @@ from .sitemaps import EgeTaskSiteMap, EgeVarSiteMap, EgeVideoSiteMap, EgeStaticS
 from .sitemaps import OgeTaskSiteMap, OgeVarSiteMap, OgeVideoSiteMap, OgeStaticSiteMap
 import home.views as home_view
 
-from .sitemaps import CoursePythonSiteMap, AllLastSiteMap
+from .sitemaps import CoursePythonSiteMap, AllLastSiteMap, CourseLandingSiteMap
 from django.conf import settings
 from django.conf.urls import include
 from django.urls import path, re_path
@@ -21,6 +21,7 @@ sitemaps = {
     'ogeVar': OgeVarSiteMap,
     'ogeRazbor': OgeVideoSiteMap,
     'coursePython': CoursePythonSiteMap,
+    'courseLandings': CourseLandingSiteMap,
     'allLast': AllLastSiteMap,
 }
 
@@ -35,6 +36,7 @@ urlpatterns = [
     path('oge/', include('oge.urls')),
     path('old_course/', include('videos.urls')),
     path('courses/', include('courses.urls')),
+    path('learn/', include('courses.landing_urls')),
 
     path(
         'sitemap.xml',
