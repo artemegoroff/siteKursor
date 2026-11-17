@@ -28,7 +28,7 @@ class LandingTests(SimpleTestCase):
 
     def test_sitemap_and_assets(self):
         sitemap = CourseLandingSiteMap()
-        self.assertEqual(sitemap.items(), ['basic-python'])
+        self.assertCountEqual(sitemap.items(), ['basic-python', 'functional-python'])
         self.assertEqual(sitemap.location('basic-python'), reverse('course_landings:detail', kwargs={'course_slug': 'basic-python'}))
         for asset in ['base_static/css/landing/python.css', 'base_static/js/landing/python.js']:
             self.assertIsNotNone(finders.find(asset))
@@ -44,3 +44,18 @@ class LandingTests(SimpleTestCase):
         self.assertContains(response, 'Артём Егоров')
         self.assertContains(response, 'Инди-курс<br>')
         self.assertContains(response, 'Профессиональный разработчик')
+
+    def test_functional_course_uses_own_design_and_paid_metadata(self):
+        response = self.client.get('/learn/functional-python/?utm_source=test')
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'courses/landing/functional_python.html')
+        self.assertTemplateNotUsed(response, 'courses/landing/python.html')
+        schema = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', response.content.decode(), re.S).group(1))
+        self.assertFalse(schema['isAccessibleForFree'])
+        self.assertEqual(schema['educationalLevel'], 'Intermediate')
+        self.assertEqual(schema['url'], 'http://testserver/learn/functional-python/')
+        self.assertContains(response, 'https://stepik.org/course/195619/promo')
+        self.assertContains(response, 'data-fp-lab')
+        self.assertContains(response, 'class="module"', count=9)
+        for asset in ['base_static/css/landing/functional-python.css', 'base_static/js/landing/functional-python.js']:
+            self.assertIsNotNone(finders.find(asset))

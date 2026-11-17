@@ -1,7 +1,13 @@
 """Editorial landing content. Each additional course needs its own copy and template."""
 
+from .functional_landing_data import FUNCTIONAL_PYTHON
+
 LANDING_COURSES = {
+    'functional-python': FUNCTIONAL_PYTHON,
     'basic-python': {
+        'template': 'courses/landing/python.html',
+        'level': 'Beginner',
+        'is_free': True,
         'name': 'Инди-курс программирования на Python',
         'subtitle': 'Бесплатный курс Python с нуля: видео, текст и практика на Stepik.',
         'stepik_url': 'https://stepik.org/course/63085/promo',

@@ -18,13 +18,14 @@ def detail(request, course_slug):
         '@context': 'https://schema.org', '@type': 'Course',
         'name': course['name'], 'description': course['subtitle'],
         'url': canonical_url, 'inLanguage': 'ru',
-        'educationalLevel': 'Beginner', 'isAccessibleForFree': True,
+        'educationalLevel': course['level'],
+        'isAccessibleForFree': course['is_free'],
         'provider': {
             '@type': 'Organization', 'name': course['channel_name'],
             'url': request.build_absolute_uri(reverse('home:main_page')),
         },
     }
-    return render(request, 'courses/landing/python.html', {
+    return render(request, course['template'], {
         'course': course, 'canonical_url': canonical_url,
         'course_schema_json': json.dumps(schema, ensure_ascii=False).replace('<', '\\u003c'),
     })
