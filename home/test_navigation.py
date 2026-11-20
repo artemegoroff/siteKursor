@@ -25,7 +25,8 @@ class SiteNavigationTests(SimpleTestCase):
         parser.feed(html)
         self.assertIn('/learn/basic-python/', parser.paths)
         self.assertIn('/learn/functional-python/', parser.paths)
-        self.assertIn('Учебные материалы', html)
+        self.assertIn('О курсах', html)
+        self.assertIn('Уроки', html)
         self.assertNotIn('classynav', html)
         for path in parser.paths:
             with self.subTest(path=path):

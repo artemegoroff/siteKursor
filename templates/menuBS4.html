@@ -14,7 +14,7 @@
             <summary class="site-nav__mobile-toggle">Меню <span class="site-nav__burger" aria-hidden="true"></span></summary>
             <nav class="site-nav__links" aria-label="Главная навигация">
                 <details class="site-nav__group" data-nav-group>
-                    <summary class="site-nav__trigger site-nav__trigger--courses">Курсы <span class="site-nav__chevron" aria-hidden="true"></span></summary>
+                    <summary class="site-nav__trigger site-nav__trigger--courses">О курсах <span class="site-nav__chevron" aria-hidden="true"></span></summary>
                     <div class="site-nav__panel site-nav__panel--courses">
                         <div class="site-nav__panel-heading"><span>Выбрать курс</span><p>Программа, навыки и условия обучения</p></div>
                         <div class="site-nav__course-grid">
@@ -25,11 +25,11 @@
                                 <span class="site-nav__course-label">После основ</span><strong>Функциональное программирование</strong><span class="site-nav__description">Функции, декораторы, рекурсия и генераторы</span><span class="site-nav__course-action">О курсе <span aria-hidden="true">→</span></span>
                             </a>
                         </div>
-                        <div class="site-nav__panel-foot">Хочешь сразу к урокам? <a href="{% url 'courses:courses_home' %}">Открыть учебные материалы →</a></div>
+                        <div class="site-nav__panel-foot">Хочешь сразу к урокам? <a href="{% url 'courses:courses_home' %}">Открыть уроки →</a></div>
                     </div>
                 </details>
                 <details class="site-nav__group" data-nav-group>
-                    <summary class="site-nav__trigger">Учебные материалы <span class="site-nav__chevron" aria-hidden="true"></span></summary>
+                    <summary class="site-nav__trigger">Уроки <span class="site-nav__chevron" aria-hidden="true"></span></summary>
                     <div class="site-nav__panel site-nav__panel--materials">
                         <div class="site-nav__panel-heading"><span>Перейти к изучению</span><p>Уроки, примеры и разборы задач</p></div>
                         <a class="site-nav__library" href="{% url 'courses:courses_home' %}"><span><strong>Библиотека уроков</strong><small>Курсы, модули и вложенные уроки</small></span><span aria-hidden="true">→</span></a>

@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import path
 import json
+from urllib.parse import parse_qs
 from adminsortable2.admin import (
     SortableAdminMixin,
     SortableInlineAdminMixin,
@@ -632,6 +633,27 @@ class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
     )
     prepopulated_fields = {'slug': ('title',)}
     actions = ['move_to_module']
+
+    def get_changeform_initial_data(self, request):
+        initial = super().get_changeform_initial_data(request)
+        if 'module' in initial:
+            return initial
+
+        filters = parse_qs(request.GET.get('_changelist_filters', ''))
+        module_id = filters.get(ModuleListFilter.parameter_name, [''])[-1]
+        # Ignore malformed or stale filter values from an old add-page URL.
+        if (
+            module_id.isascii()
+            and module_id.isdecimal()
+            and len(module_id) <= 19
+        ):
+            module_id = int(module_id)
+            if (
+                module_id <= 9223372036854775807
+                and LearningModule.objects.filter(pk=module_id).exists()
+            ):
+                initial['module'] = module_id
+        return initial
 
     def get_urls(self):
         custom_urls = [
