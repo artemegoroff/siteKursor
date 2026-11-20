@@ -31,7 +31,7 @@
                 <a href="#faq">Вопросы</a>
             </nav>
         </details>
-        <a class="button button-small button-dark header-cta" href="{{ course.stepik_url }}">Начать бесплатно <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+        <a class="button button-small button-dark header-cta" href="{{ course.stepik_url }}">Пройти на Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
     </div>
 </header>
 
@@ -109,10 +109,10 @@ for item in numbers:
                 <h1 id="hero-heading">Инди-курс<br><span>Python с нуля</span></h1>
                 <p class="hero-description">От первой строки кода до собственных функций. Освой условия, циклы и коллекции — и научись решать задачи на Python. Видео, понятные объяснения и сотни задач с автоматической проверкой.</p>
                 <div class="hero-actions">
-                    <a class="button button-mint hero-primary-cta" href="{{ course.stepik_url }}">Начать бесплатно <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-                    <a class="button button-outline" href="#programme">Посмотреть программу <span aria-hidden="true">↓</span></a>
+                    <a class="button button-mint hero-primary-cta" href="{{ course.stepik_url }}">Пройти на Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
+                    <a class="button button-outline" href="{{ theory_url }}" data-theory-link>Читать теорию</a>
                 </div>
-                <p class="hero-note">Обучение на Stepik. Можно начать в любое время.</p>
+                <p class="hero-note">Вся теория бесплатно на сайте. Полный курс с практикой — на Stepik.</p>
                 <a class="hero-rating" href="#reviews"><span aria-hidden="true">★</span><strong>{{ course.rating }} / 5</strong><span>на Stepik · {{ course.reviews_count }} отзывов</span></a>
             </div>
 
@@ -138,6 +138,17 @@ print(f"Привет, {name}!")</code></pre></div>
     <div class="container stats-strip" aria-label="Курс в цифрах">
         {% for stat in course.stats %}<div class="stat"><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div>{% endfor %}
     </div>
+
+    <section class="section study-options" aria-labelledby="study-options-heading">
+        <div class="container">
+            <p class="eyebrow">Два способа учиться</p>
+            <h2 id="study-options-heading">Вся теория — здесь.<br>Практика — на Stepik.</h2>
+            <div class="study-options-grid">
+                <article class="study-option"><p class="study-option-label">На этом сайте · бесплатно</p><h3>Читай всю теорию</h3><p>Все теоретические материалы курса доступны в разделе «Уроки». Изучай темы по порядку или возвращайся к нужному объяснению.</p><a class="button button-outline-light" href="{{ theory_url }}" data-theory-link>Читать теорию</a>{% if not theory_is_course %}<small>В разделе «Уроки» выбери Инди-курс Python.</small>{% endif %}</article>
+                <article class="study-option study-option-stepik"><p class="study-option-label">На Stepik · полный курс</p><h3>Закрепляй знания практикой</h3><p>Теория, практические задания, автоматическая проверка решений и сохранение прогресса — вместе в полном курсе на Stepik.</p><a class="button button-mint" href="{{ course.stepik_url }}">Пройти курс на Stepik</a><small>Полный Инди-курс на Stepik тоже бесплатный.</small></article>
+            </div>
+        </div>
+    </section>
 
     <section id="results" class="section results-section" aria-labelledby="results-heading">
         <div class="container results-layout">
@@ -184,12 +195,12 @@ print(greet("Мир"))</code></pre><div class="example-result"><span>Резул�
 
     <section id="reviews" class="section reviews-section" aria-labelledby="reviews-heading"><div class="container reviews-layout"><div><p class="eyebrow">Опыт тех, кто уже учится</p><h2 id="reviews-heading">Сначала познакомься.<br>Потом решай.</h2><p class="section-lead">Отзывы помогут понять, подходит ли тебе подача и формат курса. Прочитай их на странице Stepik перед началом.</p><a class="button button-dark" href="{{ course.stepik_url }}">Посмотреть отзывы на Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div><div class="review-proof"><div class="rating-big"><span aria-hidden="true">★</span> {{ course.rating }}<small>/ 5</small></div><p>{{ course.reviews_count }} отзывов на Stepik</p><hr><strong>{{ course.students_count }}</strong><p>учащихся на странице курса</p><a class="source-note" href="{{ course.stepik_url }}">Источник: Stepik · проверено {{ course.source_checked }}</a></div></div></section>
 
-    <section id="faq" class="section faq-section" aria-labelledby="faq-heading"><div class="container faq-layout"><div class="section-intro"><p class="eyebrow">Перед стартом</p><h2 id="faq-heading">Остались вопросы?</h2><p class="section-lead">Вот то, что полезно знать до первой программы.</p></div><div class="faq-list">{% for item in course.faq %}<details class="faq-item"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><div><p>{{ item.answer }}</p></div></details>{% endfor %}</div></div></section>
+    <section id="faq" class="section faq-section" aria-labelledby="faq-heading"><div class="container faq-layout"><div class="section-intro"><p class="eyebrow">Перед стартом</p><h2 id="faq-heading">Остались вопросы?</h2><p class="section-lead">Теория на сайте, практика и полный курс на Stepik — отвечаем на частые вопросы.</p></div><div class="faq-list">{% for item in course.faq %}<details class="faq-item"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><div><p>{{ item.answer }}</p></div></details>{% endfor %}</div></div></section>
 
-    <section class="signup-section" aria-labelledby="signup-heading"><div class="container signup-inner"><p class="eyebrow">Первый шаг не требует опыта</p><h2 id="signup-heading">Твоя первая программа —<br>начало новых возможностей.</h2><p>Освой основы Python и закрепи их в сотнях задач.<br>Начни бесплатно на Stepik и двигайся в своём темпе.</p><a class="button button-mint signup-cta" href="{{ course.stepik_url }}">Начать бесплатно на Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="signup-library" href="{% url 'courses:courses_home' %}">Или открыть библиотеку уроков на сайте →</a></div></section>
+    <section class="signup-section" aria-labelledby="signup-heading"><div class="container signup-inner"><p class="eyebrow">Первый шаг не требует опыта</p><h2 id="signup-heading">Твоя первая программа —<br>начало новых возможностей.</h2><p>Освой основы Python и закрепи их в сотнях задач.<br>Читай всю теорию бесплатно на сайте или проходи полный курс с практикой на Stepik.</p><a class="button button-mint signup-cta" href="{{ course.stepik_url }}">Пройти курс на Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a><a class="signup-library" href="{{ theory_url }}" data-theory-link>Читать всю теорию бесплатно на сайте</a></div></section>
 </main>
 
 <footer class="site-footer"><div class="container footer-inner"><a class="brand" href="{% url 'home:main_page' %}">egoroff<span>_</span>channel</a><span>Учись понимать код.</span><a href="{% url 'courses:courses_home' %}">Все курсы на сайте</a></div></footer>
-<div class="mobile-cta" data-mobile-cta hidden><div><strong>Бесплатно</strong><span>Начни на Stepik</span></div><a class="button button-dark" href="{{ course.stepik_url }}">Начать <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
+<div class="mobile-cta" data-mobile-cta hidden><div><strong>Бесплатно</strong><span>Полный курс на Stepik</span></div><a class="button button-dark" href="{{ course.stepik_url }}">На Stepik <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17 17 7M7 7h10v10"/></svg></a></div>
 </body>
 </html>
