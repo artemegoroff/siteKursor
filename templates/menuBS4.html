@@ -1,112 +1,49 @@
 {% load static %}
-<header>
-    <header class="header-area">
-        <!-- Top Header Area -->
-        <div class="top-header-area d-flex justify-content-between align-items-center">
-            <!-- Contact Info -->
-            <div class="contact-info">
-                {#                <a href="#"><span>Phone:</span> +44 300 303 0266</a>#}
-                <a href="#"><span>Email:</span> egorofartem@gmail.com</a>
-            </div>
-            <!-- Follow Us -->
-            <div class="follow-us">
-                <span>Следите за новостями</span>
-
-                <a href="https://t.me/python_egoroff" target="_blank"><i
-                        class="fa fa-telegram"
-                        aria-hidden="true"></i></a>
-
-                <a href="https://www.youtube.com/c/egoroffchannel" target="_blank"><i class="fa fa-youtube-square"
-                                                                                      aria-hidden="true"></i></a>
-
-                {% if 'oge' in request.path %}
-                    <a href="https://vk.com/egoroff_channel_oge" target="_blank"><i class="fa fa-vk"
-                                                                                    aria-hidden="true"></i></a>
-                {% elif 'ege' in request.path %}
-                    <a href="https://vk.com/egoroff_channel" target="_blank"><i class="fa fa-vk" aria-hidden="true"></i></a>
-                {% else %}
-                    <a href="https://vk.com/python.study" target="_blank"><i class="fa fa-vk"
-                                                                             aria-hidden="true"></i></a>
-                {% endif %}
+<header class="site-nav" data-site-nav>
+    <div class="site-nav__utility">
+        <div class="site-nav__wrap site-nav__utility-row">
+            <a href="mailto:egorofartem@gmail.com">egorofartem@gmail.com</a>
+            <div><a href="https://t.me/python_egoroff" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://www.youtube.com/c/egoroffchannel" target="_blank" rel="noopener noreferrer">YouTube</a>
+                {% if 'oge' in request.path %}<a href="https://vk.com/egoroff_channel_oge" target="_blank" rel="noopener noreferrer">ВКонтакте</a>{% elif 'ege' in request.path %}<a href="https://vk.com/egoroff_channel" target="_blank" rel="noopener noreferrer">ВКонтакте</a>{% else %}<a href="https://vk.com/python.study" target="_blank" rel="noopener noreferrer">ВКонтакте</a>{% endif %}
             </div>
         </div>
-
-        <!-- Navbar Area -->
-        <div class="clever-main-menu">
-            <div class="classy-nav-container breakpoint-off">
-                <!-- Menu -->
-                <nav class="classy-navbar justify-content-between" id="cleverNav">
-
-                    <!-- Logo -->
-                    <a class="nav-brand" href="{% url 'home:main_page' %}"><img
-                            src="{% static 'base_static/img/core-img/LOGO.jpg' %}" alt="" width="200px" height="15px"></a>
-                    <!-- Navbar Toggler -->
-                    <div class="classy-navbar-toggler">
-                        <span class="navbarToggler"><span></span><span></span><span></span></span>
-                    </div>
-                    <!-- Menu -->
-                    <div class="classy-menu">
-
-                        <!-- Close Button -->
-                        <div class="classycloseIcon">
-                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+    </div>
+    <div class="site-nav__wrap site-nav__row">
+        <a class="site-nav__brand" href="{% url 'home:main_page' %}" aria-label="egoroff_channel — главная">egoroff<span>_</span>channel</a>
+        <details class="site-nav__mobile" data-nav-mobile open>
+            <summary class="site-nav__mobile-toggle">Меню <span class="site-nav__burger" aria-hidden="true"></span></summary>
+            <nav class="site-nav__links" aria-label="Главная навигация">
+                <details class="site-nav__group" data-nav-group>
+                    <summary class="site-nav__trigger site-nav__trigger--courses">Курсы <span class="site-nav__chevron" aria-hidden="true"></span></summary>
+                    <div class="site-nav__panel site-nav__panel--courses">
+                        <div class="site-nav__panel-heading"><span>Выбрать курс</span><p>Программа, навыки и условия обучения</p></div>
+                        <div class="site-nav__course-grid">
+                            <a class="site-nav__course site-nav__course--basic" href="{% url 'course_landings:detail' course_slug='basic-python' %}">
+                                <span class="site-nav__course-label">С нуля</span><strong>Инди-курс Python</strong><span class="site-nav__description">Первый код, условия, циклы и коллекции</span><span class="site-nav__course-action">О курсе <span aria-hidden="true">→</span></span>
+                            </a>
+                            <a class="site-nav__course site-nav__course--functional" href="{% url 'course_landings:detail' course_slug='functional-python' %}">
+                                <span class="site-nav__course-label">После основ</span><strong>Функциональное программирование</strong><span class="site-nav__description">Функции, декораторы, рекурсия и генераторы</span><span class="site-nav__course-action">О курсе <span aria-hidden="true">→</span></span>
+                            </a>
                         </div>
-
-                        <!-- Nav Start -->
-                        <div class="classynav">
-                            <ul>
-                                <li><a href="{% url 'home:main_page' %}">Главная</a></li>
-
-                                <li><a href="#">Python</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'course_landings:detail' course_slug='basic-python' %}">Инди-курс на Stepik</a></li>
-                                        <li><a href="{% url 'course_landings:detail' course_slug='functional-python' %}">Функциональное программирование</a></li>
-                                        <li><a href="{% url 'videos:videos_python_all' %}">Основы Python</a></li>
-                                        <li><a href="{% url 'videos:videos_oop_python_all' %}">ООП в Python</a></li>
-                                        <li><a href="{% url 'videos:videos_django_all' %}">Django</a></li>
-                                        <li><a href="{% url 'videos:videos_pygame_all' %}">Модуль pygame</a></li>
-                                        <li><a href="{% url 'videos:videos_turtle_all' %}">Модуль turtle</a></li>
-                                        <li><a href="{% url 'videos:videos_tkinter_all' %}">Модуль tkinter</a></li>
-                                        <li><a href="{% url 'videos:decision_all' %}">Разбор задач</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{% url 'videos:videos_django_all' %}">Django</a></li>
-
-                                <li><a href="#">Экзамены</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{% url 'ege:base_ege' %}">ЕГЭ Информатика</a></li>
-                                        <li><a href="{% url 'oge:base_oge' %}">ОГЭ Информатика</a></li>
-                                    </ul>
-                                </li>
-
-                                <!-- Register / Login -->
-{#                                {% if user.is_authenticated %}#}
-{#                                        <li><a href="#">{{ request.user.username }}</a>#}
-{#                                            <ul class="dropdown">#}
-{#                                                <li><a href="{% url 'profile' %}">Профиль</a></li>#}
-{#                                                <li><a href="javascript:document.getElementById('logout').submit()">Выйти</a></li>#}
-{#                                                <form action="{% url 'logout' %}" id="logout" method="post" style="display: none">#}
-{#                                                    {% csrf_token %}#}
-{#                                                    <input type="hidden">#}
-{#                                                </form>#}
-{#                                            </ul>#}
-{#                                        </li>#}
-{#                                        <li class="userthumb">#}
-{#                                            <img src="{{ request.user.profile.avatar }}" alt="" height="100px"#}
-{#                                                 width="165px">#}
-{#                                        </li>#}
-{#                                {% else %}#}
-{#                                    <div class="register-login-area">#}
-{#                                        <a href="{% url 'sign_up' %}" class="btn">Регистрация</a>#}
-{#                                        <a href="{% url 'login' %}" class="btn active">Войти</a>#}
-{#                                    </div>#}
-{#                                {% endif %}#}
-                            </ul>
+                        <div class="site-nav__panel-foot">Хочешь сразу к урокам? <a href="{% url 'courses:courses_home' %}">Открыть учебные материалы →</a></div>
+                    </div>
+                </details>
+                <details class="site-nav__group" data-nav-group>
+                    <summary class="site-nav__trigger">Учебные материалы <span class="site-nav__chevron" aria-hidden="true"></span></summary>
+                    <div class="site-nav__panel site-nav__panel--materials">
+                        <div class="site-nav__panel-heading"><span>Перейти к изучению</span><p>Уроки, примеры и разборы задач</p></div>
+                        <a class="site-nav__library" href="{% url 'courses:courses_home' %}"><span><strong>Библиотека уроков</strong><small>Курсы, модули и вложенные уроки</small></span><span aria-hidden="true">→</span></a>
+                        <div class="site-nav__material-grid">
+                            <div><p class="site-nav__column-label">Python и веб-разработка</p><a class="site-nav__item" href="{% url 'videos:videos_python_all' %}">Основы Python</a><a class="site-nav__item" href="{% url 'videos:videos_oop_python_all' %}">ООП в Python</a><a class="site-nav__item" href="{% url 'videos:videos_django_all' %}">Django</a><a class="site-nav__item" href="{% url 'videos:decision_all' %}">Разбор задач</a></div>
+                            <div><p class="site-nav__column-label">Игры и интерфейсы</p><a class="site-nav__item" href="{% url 'videos:videos_pygame_all' %}">Pygame</a><a class="site-nav__item" href="{% url 'videos:videos_turtle_all' %}">Turtle</a><a class="site-nav__item" href="{% url 'videos:videos_tkinter_all' %}">Tkinter</a></div>
                         </div>
                     </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+                </details>
+                <details class="site-nav__group" data-nav-group>
+                    <summary class="site-nav__trigger">Экзамены <span class="site-nav__chevron" aria-hidden="true"></span></summary>
+                    <div class="site-nav__panel site-nav__panel--exams"><div class="site-nav__panel-heading"><span>Подготовка к экзаменам</span><p>Информатика: теория и задания</p></div><a class="site-nav__item" href="{% url 'ege:base_ege' %}">ЕГЭ по информатике <span aria-hidden="true">→</span></a><a class="site-nav__item" href="{% url 'oge:base_oge' %}">ОГЭ по информатике <span aria-hidden="true">→</span></a></div>
+                </details>
+            </nav>
+        </details>
+    </div>
 </header>
-
