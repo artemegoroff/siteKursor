@@ -42,7 +42,7 @@
         }, 0);
     });
     header.querySelectorAll('nav a').forEach(function (link) {
-        if (link.origin === location.origin && link.pathname === location.pathname) {
+        if (link.origin === location.origin && !link.hash && link.pathname === location.pathname) {
             link.setAttribute('aria-current', 'page');
             const group = link.closest('[data-nav-group]');
             if (group) group.classList.add('is-current');

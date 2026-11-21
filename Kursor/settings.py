@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'ege',
     'oge',
     'home',
-    'videos',
+    # Historical migrations only; runtime models and archived tables are removed.
+    'videos.apps.VideosMigrationsConfig',
     'theory',
     'robots',
     'tinymce',
@@ -74,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'courses.context_processors.course_navigation',
             ],
         },
     },
