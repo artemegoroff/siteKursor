@@ -35,6 +35,7 @@
     <!-- Favicon -->
     <link rel="icon" href="{% static 'base_static/img/core-img/FAVIKON.png' %}">
 
+    {% block base_styles %}
     <!-- Stylesheet -->
     <link rel="stylesheet/less" href="{% static 'base_static/css/base_temp.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'base_static/css/navbarBoot4.less' %}" type="text/less">
@@ -43,9 +44,10 @@
     <link rel="stylesheet/less" href="{% static 'base_static/css/footerBoot4.less' %}" type="text/less">
     <link rel="stylesheet" href="{% static 'base_static/css/site-navigation.css' %}">
     <script src="{% static 'base_static/js/site-navigation.js' %}" defer></script>
+    {% endblock base_styles %}
     {% block extracss %} {% endblock %}
     <!-- Подключение LESS -->
-    <script src="{% static 'base_static/js/less.min.js' %}"></script>
+    {% block less_script %}<script src="{% static 'base_static/js/less.min.js' %}"></script>{% endblock %}
 
 </head>
 <body>
@@ -65,11 +67,14 @@
 
 
 <!--футер-->
+{% block site_footer %}
 <div id="footer123">
     {% include 'footerBS4.html' %}
 </div>
+{% endblock %}
 
 <!-- ##### All Javascript Script ##### -->
+{% block legacy_scripts %}
 <!-- jQuery-2.2.4 js -->
 <script src="{% static 'base_static/js/jquery/jquery-2.2.4.min.js' %}"></script>
 <!-- Popper js -->
@@ -82,10 +87,12 @@
 <!-- Active js -->
 <script src="{% static 'base_static/js/active.js' %}"></script>
 
+{% endblock legacy_scripts %}
 {#additional js#}
 {% block extraJS %}
 {% endblock %}
 
+{% block footer_script %}
 <script>
     function autoHeight() {
         var h = $(document).height() - $('body').height();
@@ -97,6 +104,7 @@
     }
     $(window).on('load', autoHeight);
 </script>
+{% endblock %}
 
 </body>
 </html>
