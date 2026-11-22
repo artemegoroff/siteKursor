@@ -1,0 +1,10 @@
+.site-wordmark.site-wordmark{--wordmark-ink:#18313c;--wordmark-accent:#087c72;--wordmark-mark:#18313c;--wordmark-slash:#95e7cf;display:inline-flex;align-items:center;gap:.55rem;flex-shrink:0;max-width:100%;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:1.375rem;font-weight:780;letter-spacing:-.055em;line-height:1.25;text-decoration:none;color:var(--wordmark-ink);white-space:nowrap;vertical-align:middle}
+.site-wordmark.site-wordmark--violet{--wordmark-ink:#24232c;--wordmark-accent:#6340ce;--wordmark-mark:#302343;--wordmark-slash:#d4bcff}
+.site-wordmark.site-wordmark--light{--wordmark-ink:#f1f8f9;--wordmark-accent:#8ee0c6;--wordmark-mark:#2e515b}
+.site-wordmark .site-wordmark__mark{display:inline-flex;align-items:center;justify-content:center;width:2.1rem;height:2.1rem;flex-shrink:0;border-radius:.6rem;background:var(--wordmark-mark);color:#fff}
+.site-wordmark__mark svg{display:block;width:1.8rem;height:1.8rem}
+.site-wordmark .site-wordmark__slash{stroke:var(--wordmark-slash)}
+.site-wordmark .site-wordmark__name{color:var(--wordmark-ink);font:inherit;letter-spacing:inherit}
+.site-wordmark .site-wordmark__accent{color:var(--wordmark-accent);font-weight:650;letter-spacing:-.065em}
+.site-wordmark:focus-visible{outline:3px solid #168aa5;outline-offset:5px;border-radius:.5rem}
+@media(max-width:600px){.site-wordmark.site-wordmark{font-size:1.125rem;gap:.45rem}.site-wordmark .site-wordmark__mark{width:1.8rem;height:1.8rem;border-radius:.5rem}.site-wordmark__mark svg{width:1.55rem;height:1.55rem}}

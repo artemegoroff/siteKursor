@@ -8,11 +8,12 @@
     <meta name="description" content="Освой функции, замыкания, декораторы, рекурсию и генераторы Python. 46 уроков и 223 задачи с проверкой на Stepik. Курс после основ Python.">
     <link rel="canonical" href="{{ canonical_url }}">
     <meta property="og:title" content="Функциональное программирование на Python">
-    <meta property="og:description" content="Следующий шаг после основ: функции, декораторы, рекурсия и генераторы. Вся теория бесплатно на сайте. Полный курс с практикой — на Stepik.">
+    <meta property="og:description" content="Следующий шаг после основ: функции, декораторы, рекурсия и генераторы. Теория, практика и поддержка сообщества.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ canonical_url }}">
     <link rel="icon" href="{% static 'base_static/img/core-img/FAVIKON.png' %}">
     <link rel="stylesheet" href="{% static 'base_static/css/landing/functional-python.css' %}">
+    <link rel="stylesheet" href="{% static 'base_static/css/site-wordmark.css' %}">
     <script type="application/ld+json">{{ course_schema_json|safe }}</script>
     <script src="{% static 'base_static/js/landing/functional-python.js' %}" defer></script>
 </head>
@@ -20,7 +21,7 @@
 <a class="skip" href="#main">К содержимому</a>
 <header class="header">
     <div class="wrap header-row">
-        <a class="brand" href="{% url 'home:main_page' %}">egoroff<span>_</span>channel</a>
+        {% include 'includes/site_wordmark.html' with wordmark_class='brand' wordmark_theme='violet' only %}
         <details class="menu" data-fp-menu open>
             <summary>Меню <span aria-hidden="true">+</span></summary>
             <nav aria-label="По странице"><a href="#skills">Навыки</a><a href="#programme">Программа</a><a href="#author">Автор</a><a href="#enroll">Стоимость</a></nav>
@@ -36,8 +37,8 @@
                 <h1 id="title">Функциональное<br> программирование<br> <span>на Python<span class="title-period">.</span></span></h1>
                 <p class="hero-lead">Собирай сложные решения<br> из понятных функций.</p>
                 <p class="intro">От аргументов и замыканий до декораторов, рекурсии и генераторов. Разберись, как работают инструменты Python, которые превращают знакомый код в осознанное решение.</p>
-                <div class="hero-actions"><a class="button" href="{{ course.stepik_url }}">Пройти курс на Stepik</a><a class="plain-link" href="{{ theory_url }}" data-theory-link>Читать теорию</a></div>
-                <p class="hero-footnote">Для тех, кто знает основы Python. Вся теория бесплатно на сайте, полный курс с практикой — на Stepik.</p>
+                <div class="hero-actions"><a class="button" href="{{ course.stepik_url }}">Перейти к курсу <span aria-hidden="true">→</span></a><a class="plain-link" href="#programme">Что будем изучать <span aria-hidden="true">↓</span></a></div>
+                <p class="hero-footnote">Для тех, кто уже знает основы Python. Обучение на Stepik.</p>
             </div>
             <div class="function-art" aria-label="Иллюстрация: данные проходят через filter и map">
                 <div class="art-heading"><span>МЫСЛИ ПРЕОБРАЗОВАНИЯМИ</span><span aria-hidden="true">01 → 03</span></div>
@@ -57,11 +58,6 @@
     <div class="wrap facts" aria-label="Курс в цифрах">
         <div><strong>{{ course.lessons }}</strong><span>уроков</span></div><div><strong>{{ course.tasks }}</strong><span>задачи на код</span></div><div><strong>{{ course.tests }}</strong><span>тестов</span></div><a href="{{ course.stepik_url }}"><strong>{{ course.rating }}<small>/5</small></strong><span>{{ course.reviews }} отзывов на Stepik →</span></a>
     </div>
-
-    <section class="section study-options" aria-labelledby="study-options-title"><div class="wrap"><p class="eyebrow">Выбирай подходящий формат</p><h2 id="study-options-title">Всю теорию читай здесь.<br>Закрепляй на <em>Stepik.</em></h2><div class="study-options-grid">
-        <article class="study-option"><span class="study-option-label">На сайте · бесплатно</span><h3>Вся теория курса</h3><p>Функции, замыкания, декораторы, рекурсия и генераторы — все теоретические материалы доступны в разделе «Уроки».</p><a class="plain-link" href="{{ theory_url }}" data-theory-link>Читать теорию</a>{% if not theory_is_course %}<small>В разделе «Уроки» выбери функциональное программирование.</small>{% endif %}</article>
-        <article class="study-option study-option-stepik"><span class="study-option-label">На Stepik · полный курс</span><h3>Теория и практика вместе</h3><p>Изучай объяснения, решай практические задания, получай автоматическую проверку и сохраняй свой прогресс.</p><a class="button" href="{{ course.stepik_url }}">Пройти курс на Stepik</a><small>Стоимость полного курса и условия — ниже.</small></article>
-    </div></div></section>
 
     <section class="section fit-section" aria-labelledby="fit-title">
         <div class="wrap fit-layout"><div><p class="eyebrow">База уже есть. Что дальше?</p><h2 id="fit-title">Умеешь писать код.<br> Пора понять его<br> <em>глубже.</em></h2></div><div class="fit-copy"><p class="lead">Циклы и списки знакомы, но декоратор выглядит магией, а <code>yield</code> вызывает вопросы?</p><p>Здесь ты свяжешь отдельные конструкции в систему: как функция получает данные, что помнит её окружение и когда стоит вычислять результат.</p><ul class="checklist"><li>После Инди-курса или другого курса по основам Python</li><li>Для самостоятельных разработчиков, которым нужна система</li><li>Для тех, кто хочет уверенно читать и писать более сложный Python</li></ul><a class="plain-link" href="{% url 'course_landings:detail' course_slug='basic-python' %}">Нужна база? Начни с Инди-курса →</a></div></div>
@@ -96,8 +92,8 @@ result = list(map(square, evens))</code></pre><div class="lab-trace" aria-live="
 
     <section id="faq" class="section faq-section" aria-labelledby="faq-title"><div class="wrap faq-layout"><div><p class="eyebrow">Перед следующим шагом</p><h2 id="faq-title">Остались<br> <em>вопросы?</em></h2></div><div>{% for item in course.faq %}<details class="faq"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><p>{{ item.answer }}</p></details>{% endfor %}</div></div></section>
 
-    <section id="enroll" class="section enroll-section" aria-labelledby="enroll-title"><div class="wrap enroll-layout"><div><p class="eyebrow">Твой следующий шаг в Python</p><h2 id="enroll-title">Пиши функции.<br> Понимай связи.<br> <em>Решай сложнее.</em></h2><p class="enroll-description">{{ course.lessons }} уроков, {{ course.tasks }} задачи и {{ course.tests }} тестов — чтобы освоить функции, декораторы, рекурсию и генераторы на практике.</p><a class="plain-link enroll-theory" href="{{ theory_url }}" data-theory-link>Читать всю теорию бесплатно</a></div><div class="enroll-card"><span class="enroll-label">Полный курс на Stepik</span><p class="price">{{ course.price }} <span>₽</span></p><p class="price-note">Цена на {{ course.source_checked }}.<br> Актуальная стоимость и условия — на Stepik.</p><ul><li>Последовательная программа из 9 модулей</li><li>Задачи с автоматической проверкой</li><li>Telegram-чат с преподавателем и участниками</li><li>Сертификат по условиям Stepik</li></ul><a class="button" href="{{ course.stepik_url }}">Пройти курс на Stepik</a><span class="payment-note">Оплата и практика — на Stepik. Вся теория на сайте бесплатна.</span></div></div></section>
+    <section id="enroll" class="section enroll-section" aria-labelledby="enroll-title"><div class="wrap enroll-layout"><div><p class="eyebrow">Твой следующий шаг в Python</p><h2 id="enroll-title">Пиши функции.<br> Понимай связи.<br> <em>Решай сложнее.</em></h2><p class="enroll-description">{{ course.lessons }} уроков, {{ course.tasks }} задачи и {{ course.tests }} тестов — чтобы освоить функции, декораторы, рекурсию и генераторы на практике.</p></div><div class="enroll-card"><span class="enroll-label">Курс на Stepik</span><p class="price">{{ course.price }} <span>₽</span></p><p class="price-note">Цена на {{ course.source_checked }}.<br> Актуальная стоимость и условия — на Stepik.</p><ul><li>Последовательная программа из 9 модулей</li><li>Задачи с автоматической проверкой</li><li>Telegram-чат с преподавателем и участниками</li><li>Сертификат по условиям Stepik</li></ul><a class="button" href="{{ course.stepik_url }}">Посмотреть курс и записаться →</a><span class="payment-note">Оплата и обучение проходят на Stepik</span></div></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-row"><a class="brand" href="{% url 'home:main_page' %}">egoroff<span>_</span>channel</a><a href="{% url 'courses:courses_home' %}">Библиотека уроков →</a><a class="source" href="{{ course.stepik_url }}">Данные Stepik · {{ course.source_checked }}</a></div></footer>
+<footer class="footer"><div class="wrap footer-row">{% include 'includes/site_wordmark.html' with wordmark_class='brand' wordmark_theme='violet' only %}<a href="{% url 'courses:courses_home' %}">Библиотека уроков →</a><a class="source" href="{{ course.stepik_url }}">Данные Stepik · {{ course.source_checked }}</a></div></footer>
 </body>
 </html>

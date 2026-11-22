@@ -53,6 +53,7 @@
                         src="{% if block.rutube_id %}https://rutube.ru/play/embed/{{ block.rutube_id }}{% else %}https://www.youtube.com/embed/{{ block.youtube_id }}{% endif %}"
                         title="{{ block.title|default:'Видеоурок' }} — {% if block.rutube_id %}Rutube{% else %}YouTube{% endif %}"
                         data-video-title="{{ block.title|default:'Видеоурок' }}"
+                        referrerpolicy="strict-origin-when-cross-origin"
                         loading="lazy"
                         allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
                         allowfullscreen
