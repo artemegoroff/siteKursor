@@ -1,10 +1,10 @@
 {% extends "home/base.html" %}
 {% load static %}
 {% block seo_block %}
-<title>Курсы Python и бесплатные уроки — egoroff_channel</title>
+<title>Курсы Python и бесплатные уроки — egoroffpython</title>
 <meta name="description" content="Изучайте Python с Артёмом Егоровым: вся теория бесплатно на сайте, полные курсы с практикой на Stepik. Найдите нужный урок или выберите программу обучения.">
 <link rel="canonical" href="{{ canonical_url }}">
-<meta property="og:title" content="Python становится понятнее — egoroff_channel">
+<meta property="og:title" content="Python становится понятнее — egoroffpython">
 <meta property="og:description" content="Найдите нужное объяснение или выберите свой следующий курс Python. Вся теория бесплатно на сайте, практика — на Stepik.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ canonical_url }}">
@@ -12,7 +12,7 @@
 {% block content %}
 <main class="home-page" id="home-main">
     <section class="home-hero"><div class="home-wrap home-hero__grid">
-        <div class="home-hero__copy"><p class="home-kicker">ПРОГРАММИРОВАНИЕ С EGOROFF_CHANNEL</p><h1>Python становится<br> <span>понятнее.</span></h1><p class="home-hero__lead">От первой строки кода —<br> к самостоятельным решениям.</p><p class="home-hero__text">Выбери курс под свой уровень или найди объяснение нужной темы. Вся теория доступна бесплатно на сайте. Полные курсы с практикой и проверкой решений — на Stepik.</p><div class="home-actions"><a class="home-button" href="#courses">Выбрать курс</a><a class="home-text-link" href="#learning-path">Не знаю, с чего начать</a></div><div class="home-hero__meta"><span>Автор — практикующий разработчик</span><span>Теория и примеры кода</span></div></div>
+        <div class="home-hero__copy"><p class="home-kicker">ПРОГРАММИРОВАНИЕ С EGOROFFPYTHON</p><h1>Python становится<br> <span>понятнее.</span></h1><p class="home-hero__lead">От первой строки кода —<br> к самостоятельным решениям.</p><p class="home-hero__text">Выбери курс под свой уровень или найди объяснение нужной темы. Вся теория доступна бесплатно на сайте. Полные курсы с практикой и проверкой решений — на Stepik.</p><div class="home-actions"><a class="home-button" href="#courses">Выбрать курс</a><a class="home-text-link" href="#learning-path">Не знаю, с чего начать</a></div><div class="home-hero__meta"><span>Автор — практикующий разработчик</span><span>Теория и примеры кода</span></div></div>
         <div class="home-search-card"><div class="home-search-card__top"><span>БЫСТРО К НУЖНОЙ ТЕМЕ</span><code>learn(python)</code></div><h2>Что хочешь<br> разобрать?</h2><p>Найди урок по названию, теме или содержимому.</p><form class="home-search" action="{% url 'home:search' %}" method="get" role="search"><label for="home-query">Поиск по урокам</label><div><input id="home-query" name="q" type="search" placeholder="Например, zip или декораторы" minlength="2" maxlength="120" required><button type="submit">Найти</button></div></form><div class="home-search-card__topics"><span>Попробуй:</span>{% for topic in topics|slice:':5' %}<a href="{% url 'home:search' %}?q={{ topic|urlencode }}">{{ topic }}</a>{% endfor %}</div><div class="home-search-card__note"><span aria-hidden="true">{ }</span><p>Нужное объяснение —<br> без поиска по десяткам вкладок.</p></div></div>
     </div></section>
 

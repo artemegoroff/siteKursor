@@ -9,5 +9,5 @@
 {% block legacy_scripts %}{% endblock %}
 {% block footer_script %}{% endblock %}
 {% block site_footer %}
-<footer class="home-footer"><div class="home-wrap home-footer__row"><a class="home-brand" href="{% url 'home:main_page' %}">egoroff<span>_</span>channel</a><p>Объясняю программирование. Помогаю разобраться.</p><div><a href="{% url 'courses:courses_home' %}">Уроки</a><a href="https://t.me/python_egoroff" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:egorofartem@gmail.com">Написать автору</a></div></div></footer>
+<footer class="home-footer"><div class="home-wrap home-footer__row">{% include 'includes/site_wordmark.html' with wordmark_class='home-brand' wordmark_theme='' only %}<p>Объясняю программирование. Помогаю разобраться.</p><div><a href="{% url 'courses:courses_home' %}">Уроки</a><a href="https://t.me/python_egoroff" target="_blank" rel="noopener noreferrer">Telegram</a><a href="mailto:egorofartem@gmail.com">Написать автору</a></div></div></footer>
 {% endblock %}

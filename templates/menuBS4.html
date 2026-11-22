@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="site-nav__wrap site-nav__row">
-        <a class="site-nav__brand" href="{% url 'home:main_page' %}" aria-label="egoroff_channel — главная">egoroff<span>_</span>channel</a>
+        {% include 'includes/site_wordmark.html' with wordmark_class='site-nav__brand' wordmark_theme='' only %}
         <details class="site-nav__mobile" data-nav-mobile open>
             <summary class="site-nav__mobile-toggle">Меню <span class="site-nav__burger" aria-hidden="true"></span></summary>
             <nav class="site-nav__links" aria-label="Главная навигация">
