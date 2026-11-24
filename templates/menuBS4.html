@@ -19,7 +19,7 @@
                         <div class="site-nav__panel-heading"><span>Выбрать курс</span><p>Программа, навыки и условия обучения</p></div>
                         <div class="site-nav__course-grid">
                             {% for landing in navigation_landings %}
-                            <a class="site-nav__course {% if landing.slug == 'basic-python' %}site-nav__course--basic{% else %}site-nav__course--functional{% endif %}" href="{{ landing.url }}"><span class="site-nav__course-label">{{ landing.level }}</span><strong>{{ landing.name }}</strong><span class="site-nav__description">{{ landing.description }}</span><span class="site-nav__course-action">О курсе</span></a>
+                            <a class="site-nav__course site-nav__course--{{ landing.theme }}" href="{{ landing.url }}"><span class="site-nav__course-label">{{ landing.level }}</span><strong>{{ landing.name }}</strong><span class="site-nav__description">{{ landing.description }}</span><span class="site-nav__course-action">О курсе</span></a>
                             {% empty %}<a class="site-nav__item" href="{% url 'courses:courses_home' %}">Каталог курсов</a>{% endfor %}
                         </div>
                         <div class="site-nav__panel-foot">Хочешь сразу к урокам? <a href="{% url 'courses:courses_home' %}">Открыть уроки →</a></div>
