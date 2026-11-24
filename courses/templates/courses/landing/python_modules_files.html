@@ -1,0 +1,60 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Модули и файлы в Python — Сохрани меня, если сможешь | egoroffpython</title>
+    <meta name="description" content="Модули, импорты, venv и работа с файлами в Python. JSON, CSV, XML и pickle. Третий курс после основ Python и функционального программирования.">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:title" content="Сохрани меня, если сможешь: модули и файлы в Python">
+    <meta property="og:description" content="Организуй проект и научись сохранять данные. Курс после Инди-курса Python и функционального программирования.">
+    <meta property="og:type" content="website"><meta property="og:url" content="{{ canonical_url }}">
+    <link rel="icon" href="{% static 'base_static/img/core-img/FAVIKON.png' %}">
+    <link rel="stylesheet" href="{% static 'base_static/css/landing/python-modules-files.css' %}">
+    <link rel="stylesheet" href="{% static 'base_static/css/site-wordmark.css' %}">
+    <script type="application/ld+json">{{ course_schema_json|safe }}</script>
+    <script src="{% static 'base_static/js/landing/python-modules-files.js' %}" defer></script>
+</head>
+<body>
+<a href="#main" class="fm-skip">К содержимому</a>
+<header class="fm-header"><div class="fm-wrap fm-header-row">
+    {% include 'includes/site_wordmark.html' with wordmark_theme='light' only %}
+    <details class="fm-menu" data-files-menu open><summary>Меню <span aria-hidden="true">+</span></summary><nav aria-label="По странице"><a href="#prerequisites">Перед началом</a><a href="#programme">Программа</a><a href="#formats">Как учиться</a><a href="#author">Автор</a></nav></details>
+    <a class="fm-button fm-button-small fm-header-cta" href="{{ course.stepik_url }}">Курс на Stepik</a>
+</div></header>
+<main id="main">
+    <section class="fm-hero" aria-labelledby="hero-title"><div class="fm-wrap fm-hero-layout">
+        <div><p class="fm-eyebrow">Python / модули, файлы и структура проекта</p><h1 id="hero-title">Сохрани меня,<br> если <em>сможешь.</em></h1><p class="fm-hero-subtitle">Модули и файлы в Python</p><p class="fm-hero-description">Твой код умеет решать задачи.<br> Научи его работать с данными и жить в настоящем проекте.</p><div class="fm-hero-actions"><a class="fm-button" href="{{ course.stepik_url }}">Пройти курс на Stepik</a><a class="fm-link" href="{{ theory_url }}" data-theory-link>Читать теорию бесплатно</a></div><a class="fm-prerequisite-note" href="#prerequisites"><span aria-hidden="true">{ }</span><span>Третий шаг в Python.<br> Нужны знания двух предыдущих курсов.</span></a></div>
+        <div class="fm-workspace" data-files-demo>
+            <div class="fm-window-top"><span class="fm-window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>my_python_project</span><span class="fm-window-hint">Пример проекта</span></div>
+            <div class="fm-workspace-layout"><div class="fm-explorer"><span class="fm-explorer-label">ПРОЕКТ</span><div class="fm-folder"><span aria-hidden="true"></span>my_project/</div><div class="fm-file-list" role="group" aria-label="Посмотреть файл проекта"><button type="button" class="fm-file" data-demo-file="main" aria-pressed="true" disabled><span class="fm-file-type">py</span>main.py</button><button type="button" class="fm-file" data-demo-file="storage" aria-pressed="false" disabled><span class="fm-file-type">py</span>storage.py</button><div class="fm-folder fm-folder-data"><span aria-hidden="true"></span>data/</div><button type="button" class="fm-file fm-file-json" data-demo-file="json" aria-pressed="false" disabled><span class="fm-file-type">{ }</span>profile.json</button></div></div><div class="fm-editor"><div class="fm-editor-tab" data-demo-filename>main.py</div><pre><code data-demo-code>from storage import save_profile
+
+profile = {
+    "name": "Алексей",
+    "skills": ["Python", "Функции"]
+}
+
+save_profile(profile)</code></pre></div></div>
+            <div class="fm-demo-controls"><label for="profile-name">Имя в данных</label><div><input id="profile-name" type="text" value="Алексей" maxlength="40" data-demo-name autocomplete="off"><button type="button" data-demo-download disabled>Скачать JSON-пример</button></div><p data-demo-status aria-live="polite">Выбери файл слева, чтобы увидеть связь модулей и данных.</p><small>Браузерный пример: скачивается JSON-файл, Python-код здесь не запускается.</small><noscript><p>Включи JavaScript для переключения файлов и скачивания примера. Программа курса и ссылки доступны без него.</p></noscript></div>
+        </div>
+    </div></section>
+
+    <div class="fm-facts"><div class="fm-wrap">{% for stat in course.stats %}<div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div>{% endfor %}</div></div>
+
+    <section id="prerequisites" class="fm-section fm-prerequisites" aria-labelledby="prerequisites-title"><div class="fm-wrap"><div class="fm-section-heading"><div><p class="fm-eyebrow">Важная точка старта</p><h2 id="prerequisites-title">Сначала — два курса.<br> Затем — <em>новый уровень.</em></h2></div><p>Для прохождения нужны знания Инди-курса Python и функционального программирования. Здесь опираемся на уже знакомый язык, функции и итераторы.</p></div><div class="fm-prerequisite-grid"><article><span class="fm-prerequisite-label">Основа языка</span><h3>Инди-курс Python</h3><p>Типы данных и коллекции, условия, циклы и исключения. Умение написать программу и разобраться в её выполнении.</p><a class="fm-link" href="{% url 'course_landings:detail' course_slug='basic-python' %}">Посмотреть первый курс</a></article><article><span class="fm-prerequisite-label">Работа с функциями</span><h3>Функциональное программирование</h3><p>Функции, параметры и аргументы, области видимости, итераторы и генераторы. База для организации и обработки данных.</p><a class="fm-link" href="{% url 'course_landings:detail' course_slug='functional-python' %}">Посмотреть второй курс</a></article></div><p class="fm-prerequisite-footnote">Эта база уже есть? Можно переходить сюда. Повторно покупать или проходить предыдущие курсы не требуется.</p></div></section>
+
+    <section class="fm-section fm-outcomes" aria-labelledby="outcomes-title"><div class="fm-wrap"><p class="fm-eyebrow">Что изменится в твоём коде</p><h2 id="outcomes-title">Больше, чем один скрипт.<br> <em>Больше, чем print().</em></h2><div class="fm-outcome-grid">{% for item in course.outcomes %}<article><code>{{ item.code }}</code><h3>{{ item.title }}</h3><p>{{ item.text }}</p></article>{% endfor %}</div></div></section>
+
+    <section id="programme" class="fm-section fm-programme" aria-labelledby="programme-title"><div class="fm-wrap fm-programme-layout"><div><p class="fm-eyebrow">Программа курса</p><h2 id="programme-title">Импортируй.<br> Читай.<br> Записывай.<br> <em>Понимай.</em></h2><p class="fm-section-lead">От организации проекта и окружения — к файлам и форматам обмена данными.</p><a class="fm-link" href="{{ course.stepik_url }}">Посмотреть все уроки на Stepik</a></div><div class="fm-topics">{% for topic in course.topics %}<details class="fm-topic"{% if forloop.first %} open{% endif %}><summary><span>{{ topic.title }}<small>{{ topic.tag }}</small></span><span class="fm-topic-toggle" aria-hidden="true">+</span></summary><p>{{ topic.text }}</p></details>{% endfor %}</div></div></section>
+
+    <section class="fm-section fm-formats-section" id="formats" aria-labelledby="formats-title"><div class="fm-wrap"><div class="fm-section-heading"><div><p class="fm-eyebrow">Выбирай свой формат</p><h2 id="formats-title">Вся теория — на сайте.<br> Полный курс — <em>на Stepik.</em></h2></div><p>Читать объяснения можно бесплатно. Для практики с проверкой переходи на платформу.</p></div><div class="fm-format-grid"><article><span>На сайте / бесплатно</span><h3>Разберись в теории.</h3><p>Все теоретические материалы курса в разделе «Уроки». Изучай по порядку или возвращайся к нужной теме.</p><a class="fm-button fm-button-outline" href="{{ theory_url }}" data-theory-link>Читать теорию</a>{% if not theory_is_course %}<small>Откроется библиотека: выбери курс о модулях и файлах.</small>{% endif %}</article><article><span>На Stepik / теория и практика</span><h3>Примени и проверь.</h3><p>Проходи объяснения, решай задачи и тесты, получай автоматическую проверку и сохраняй прогресс.</p><a class="fm-button" href="{{ course.stepik_url }}">Пройти полный курс</a><small>Актуальная стоимость и условия оплаты указаны на Stepik.</small></article></div></div></section>
+
+    <section class="fm-section fm-author" id="author" aria-labelledby="author-title"><div class="fm-wrap fm-author-layout"><figure><img src="{% static course.author_photo %}" alt="Артём Егоров, автор курса" width="720" height="900" loading="lazy" decoding="async"></figure><div><p class="fm-eyebrow">Автор курса</p><h2 id="author-title">{{ course.author_name }}</h2><p class="fm-author-lead">Профессиональный разработчик<br> и автор egoroff_channel.</p><p>Помогаю разобраться в программировании через примеры и пошаговый разбор кода. Этот курс продолжает путь от основ Python и функций к инструментам, с которыми работает разработчик: модулям, окружениям и файлам.</p><p>Знакомься с объяснениями на YouTube, читай теорию на сайте и закрепляй её в практике на Stepik.</p><a class="fm-link" href="{{ course.author_url }}" target="_blank" rel="noopener noreferrer">Посмотреть YouTube-канал</a></div></div></section>
+
+    <section class="fm-section fm-faq-section" id="faq" aria-labelledby="faq-title"><div class="fm-wrap fm-faq-layout"><div><p class="fm-eyebrow">Перед запуском</p><h2 id="faq-title">Остались<br> <em>вопросы?</em></h2></div><div>{% for item in course.faq %}<details class="fm-faq"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><p>{{ item.answer }}</p></details>{% endfor %}</div></div></section>
+
+    <section class="fm-section fm-final" aria-labelledby="final-title"><div class="fm-wrap"><p class="fm-eyebrow">Твой следующий Python-проект</p><h2 id="final-title">Пусть код работает.<br> А данные — <em>сохраняются.</em></h2><p>Освой структуру проекта, модули и файловые форматы.<br> Начинай, если уверенно знаешь основы Python и функциональное программирование.</p><div class="fm-final-actions"><a class="fm-button" href="{{ course.stepik_url }}">Посмотреть курс на Stepik</a><a class="fm-link" href="{{ theory_url }}" data-theory-link>Читать всю теорию бесплатно</a></div></div></section>
+</main>
+<footer class="fm-footer"><div class="fm-wrap fm-footer-row">{% include 'includes/site_wordmark.html' with wordmark_theme='light' only %}<a href="{% url 'courses:courses_home' %}">Библиотека уроков</a><a href="{{ course.stepik_url }}">Программа и условия на Stepik</a></div></footer>
+</body>
+</html>

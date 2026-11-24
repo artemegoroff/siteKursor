@@ -11,6 +11,7 @@ from .models import LearningCourse
 LANDING_ALIASES = {
     'basic-python': {'python', 'basic-python', 'инди-курс программирования на python', 'инди-курс python с нуля'},
     'functional-python': {'functional-python', 'функциональное программирование', 'функциональное программирование на python'},
+    'python-modules-files': {'python-modules-files', 'модули и файлы в python', 'сохрани меня, если сможешь: модули и файлы в python'},
 }
 
 
@@ -53,8 +54,14 @@ def landing_cards(courses):
             'url': reverse('course_landings:detail', kwargs={'course_slug': slug}),
             'theory_url': linked.get_absolute_url() if linked else reverse('courses:courses_home'),
             'theory_available': linked is not None,
-            'level': 'С нуля' if data['level'] == 'Beginner' else 'После основ',
+            'level': data.get('display_level', 'С нуля' if data['level'] == 'Beginner' else 'После основ'),
+            'order': data.get('catalogue_order', 10 if slug == 'basic-python' else 20),
+            'theme': data.get('card_theme', 'basic' if slug == 'basic-python' else 'functional'),
+            'card_description': data.get('card_description', data['subtitle']),
+            'card_code': data.get('card_code', 'print("Привет, Python!")' if slug == 'basic-python' else 'def next_level():\n    yield "Python"'),
+            'card_symbol': data.get('card_symbol', 'Py' if slug == 'basic-python' else 'ƒ(x)'),
+            'card_tags': data.get('card_tags', ['Первые программы', 'Основы языка'] if slug == 'basic-python' else ['Декораторы', 'Генераторы']),
             'course': linked,
         })
     # Show the introductory course first regardless of registry insertion order.
-    return sorted(cards, key=lambda card: card['slug'] != 'basic-python')
+    return sorted(cards, key=lambda card: card['order'])
