@@ -67,3 +67,7 @@
 .site-nav .site-nav__course--files:hover{background:#ffedc5;border-color:#d9b663}
 .site-nav__course--files .site-nav__course-label,.site-nav__course--files .site-nav__course-action{color:#855b15}
 @media(min-width:801px){.site-nav__panel--courses:has(.site-nav__course:nth-child(3)){width:min(960px,100%)}.site-nav__panel--courses:has(.site-nav__course:nth-child(3)) .site-nav__course-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.site-nav .site-nav__course--oop{background:#eef2ff;border-color:#c4d0ef}
+.site-nav .site-nav__course--oop:hover{background:#e0e8ff;border-color:#93a9e0}
+.site-nav__course--oop .site-nav__course-label,.site-nav__course--oop .site-nav__course-action{color:#254da8}
+@media(min-width:801px){.site-nav__panel--courses:has(.site-nav__course:nth-child(4)) .site-nav__course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}

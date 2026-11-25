@@ -9,6 +9,7 @@ from .models import LearningCourse
 
 
 LANDING_ALIASES = {
+    'python-oop': {'oop-python', 'python-oop', 'oop python', 'ооп на python', 'объектно-ориентированное программирование на python'},
     'basic-python': {'python', 'basic-python', 'инди-курс программирования на python', 'инди-курс python с нуля'},
     'functional-python': {'functional-python', 'функциональное программирование', 'функциональное программирование на python'},
     'python-modules-files': {'python-modules-files', 'модули и файлы в python', 'сохрани меня, если сможешь: модули и файлы в python'},
@@ -45,7 +46,9 @@ def landing_cards(courses):
     cards = []
     for slug, data in LANDING_COURSES.items():
         identifier = re.search(r'/course/(\d+)', data['stepik_url']).group(1)
-        linked = next((course for course in courses if re.search(r'/course/' + identifier + r'(?:[/?#]|$)', course.stepik or '')), None)
+        linked = next((course for course in courses if course.pk == data.get('learning_course_pk')), None)
+        if linked is None:
+            linked = next((course for course in courses if re.search(r'/course/' + identifier + r'(?:[/?#]|$)', course.stepik or '')), None)
         if linked is None:
             aliases = LANDING_ALIASES.get(slug, set())
             linked = next((course for course in courses if course.slug in aliases or course.title.strip().casefold() in aliases), None)
