@@ -161,3 +161,9 @@ section[id]{scroll-margin-top:25px}
 .home-course-card--files .home-course-card__symbol{color:#91611316;font-size:90px;letter-spacing:-6px}
 .home-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:900px){.home-path-grid{grid-template-columns:1fr}}
+.home-course-card--oop{border-color:#bdcbef}
+.home-course-card--oop .home-course-card__cover{background:#e6edff}
+.home-course-card--oop .home-course-card__cover>span:first-child{color:#21489b;border-color:#b8c8ed}
+.home-course-card--oop .home-course-card__cover>code{color:#234a9a;font-size:16px}
+.home-course-card--oop .home-course-card__symbol{color:#284daf16;font-size:90px;letter-spacing:-5px}
+.home-path-grid>article:last-child:nth-child(odd){grid-column:1/-1}
