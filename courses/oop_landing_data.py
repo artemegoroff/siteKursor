@@ -2,7 +2,7 @@
 
 OOP_PYTHON = {
     'template': 'courses/landing/python_oop.html',
-    'name': 'Python: мысли объектами',
+    'name': 'ООП на Python: от основ до тонкостей',
     'subtitle': 'Объектно-ориентированное программирование на Python: классы, методы, наследование и инструменты объектной модели.',
     'learning_course_pk': 6,
     'level': 'Intermediate', 'is_free': False,

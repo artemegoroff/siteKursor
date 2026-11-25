@@ -6,3 +6,8 @@
 .oo-header .site-wordmark.site-wordmark{--wordmark-ink:#172c49;--wordmark-accent:#164ce4;--wordmark-mark:#164ce4;--wordmark-slash:#b9d0ff}.oo-footer .site-wordmark.site-wordmark{--wordmark-accent:#a9c4ff;--wordmark-mark:#254778;--wordmark-slash:#a9c4ff}
 .oo-facts .oo-wrap>div,.oo-facts span{min-width:0}.oo-facts span{overflow-wrap:anywhere}
 @media(max-width:700px){.oo-facts .oo-wrap>div{flex-direction:column;gap:0}.oo-skills{grid-template-columns:1fr}}
+
+/* Keep the full course title readable on narrow screens. */
+.oo-hero h1{font-size:clamp(42px,4.5vw,64px);line-height:1.08}
+@media(max-width:1024px){.oo-hero h1 br{display:block}}
+@media(max-width:700px){.oo-hero h1{font-size:clamp(36px,8.8vw,55px)}}
