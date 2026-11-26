@@ -53,6 +53,11 @@ urlpatterns = [
         TemplateView.as_view(template_name='robots.txt', content_type='text/plain'),
         name='robots',
     ),
+    path(
+        'yandex_340c31c0f8e2b98f.html',
+        TemplateView.as_view(template_name='yandex_340c31c0f8e2b98f.html'),
+        name='yandex-verification',
+    ),
     path('tinymce/', include('tinymce.urls')),
 ]
 urlpatterns += [
