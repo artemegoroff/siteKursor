@@ -28,7 +28,7 @@ class LandingTests(TestCase):
 
     def test_sitemap_and_assets(self):
         sitemap = CourseLandingSiteMap()
-        self.assertCountEqual(sitemap.items(), ['basic-python', 'functional-python', 'python-modules-files', 'python-oop'])
+        self.assertCountEqual(sitemap.items(), ['basic-python', 'functional-python', 'python-modules-files', 'python-oop', 'django'])
         self.assertEqual(sitemap.location('basic-python'), reverse('course_landings:detail', kwargs={'course_slug': 'basic-python'}))
         for asset in ['base_static/css/landing/python.css', 'base_static/js/landing/python.js']:
             self.assertIsNotNone(finders.find(asset))

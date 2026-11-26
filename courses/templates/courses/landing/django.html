@@ -1,0 +1,111 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django, потанцуем? — курс веб-разработки на Python | egoroffpython</title>
+    <meta name="description" content="Курс основ Django от Артёма Егорова: 88 уроков, последовательные видеообъяснения и практика на Stepik. Для старта нужны Python, ООП и знакомство с веб-технологиями.">
+    <link rel="canonical" href="{{ canonical_url }}">
+    <meta property="og:title" content="Django, потанцуем? — твой Python теперь в вебе">
+    <meta property="og:description" content="Познакомься с основами Django после Python и ООП. Вся теория бесплатно на сайте, полный курс с практикой — на Stepik.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ canonical_url }}">
+    <link rel="icon" href="{% static 'base_static/img/core-img/FAVIKON.png' %}">
+    <link rel="stylesheet" href="{% static 'base_static/css/site-wordmark.css' %}">
+    <link rel="stylesheet" href="{% static 'base_static/css/landing/django.css' %}">
+    <script type="application/ld+json">{{ course_schema_json|safe }}</script>
+    <script src="{% static 'base_static/js/landing/django.js' %}" defer></script>
+</head>
+<body>
+<a class="dj-skip" href="#main">К содержимому</a>
+<header class="dj-header">
+    <div class="dj-wrap dj-header-row">
+        {% include 'includes/site_wordmark.html' only %}
+        <details class="dj-menu" data-dj-menu open>
+            <summary>Меню <span aria-hidden="true">+</span></summary>
+            <nav aria-label="Навигация по лендингу">
+                <a href="#about">О курсе</a><a href="#preparation">Подготовка</a><a href="#formats">Как учиться</a><a href="#author">Автор</a>
+            </nav>
+        </details>
+        <a class="dj-button dj-button-small" href="{{ course.stepik_url }}">Курс на Stepik</a>
+    </div>
+</header>
+<main id="main">
+    <section class="dj-hero" aria-labelledby="hero-title">
+        <div class="dj-sky-lines" aria-hidden="true"></div>
+        <div class="dj-wrap dj-hero-layout">
+            <div class="dj-hero-copy">
+                <div class="dj-badges"><span>Веб-разработка</span><span>Python</span><span>После ООП</span></div>
+                <p class="dj-hero-kicker">Django, потанцуем?</p>
+                <h1 id="hero-title">Твой Python.<br> <em>Теперь в вебе.</em></h1>
+                <p class="dj-hero-lead">Код уже умеет работать в консоли.<br> Пора познакомить его с браузером.</p>
+                <p class="dj-hero-description">Разберись в основах Django через последовательные видеоуроки. Переходи от знания языка к пониманию веб-приложений.</p>
+                <div class="dj-actions"><a class="dj-button dj-button-light" href="{{ course.stepik_url }}">Начать курс на Stepik</a><a class="dj-text-link" href="{{ theory_url }}" data-theory-link>Читать теорию бесплатно</a></div>
+                <p class="dj-hero-note">Для старта нужны Python, ООП и понимание того, для чего нужны HTML, CSS и JavaScript.</p>
+            </div>
+            <div class="dj-flight" aria-label="Иллюстрация пути от кода к веб-странице">
+                <div class="dj-flight-orbit" aria-hidden="true"></div>
+                <div class="dj-flight-tag dj-flight-tag-request">GET /hello/</div>
+                <div class="dj-flight-browser">
+                    <div class="dj-browser-bar"><span class="dj-window-dots" aria-hidden="true">● ● ●</span><code>localhost:8000/hello/</code></div>
+                    <div class="dj-browser-page"><span class="dj-browser-label">ТВОЯ ПЕРВАЯ ВСТРЕЧА С ВЕБОМ</span><strong>Привет,<br> <em>Django!</em></strong><p>Python на сервере.<br> Результат — в браузере.</p><span class="dj-browser-stamp">HttpResponse</span></div>
+                </div>
+                <div class="dj-flight-code"><span>views.py</span><pre><code>def hello(request):
+    return HttpResponse(
+        "Привет, Django!"
+    )</code></pre></div>
+                <div class="dj-flight-tag dj-flight-tag-response">200 OK <span aria-hidden="true">✦</span></div>
+            </div>
+        </div>
+        <div class="dj-wrap dj-hero-bottom"><span>Изучаем Django с первых шагов</span><a href="#about">Познакомиться с курсом</a></div>
+    </section>
+
+    <section id="about" class="dj-section dj-about" aria-labelledby="about-title">
+        <div class="dj-wrap">
+            <div class="dj-section-heading"><p class="dj-eyebrow">От языка к веб-разработке</p><h2 id="about-title">Python — твоя база.<br> <em>Django — новое направление.</em></h2><p>Если уже умеешь писать программы и понимаешь классы, следующий вопрос — как использовать эти знания для сайта. Этот курс помогает сделать первые шаги в Django.</p></div>
+            <div class="dj-stats">{% for stat in course.stats %}<div><strong>{{ stat.value }}</strong><span>{{ stat.label }}</span></div>{% endfor %}</div>
+            <div class="dj-about-bottom"><p>Смотри последовательные объяснения, повторяй примеры и проверяй понимание в заданиях. Начинай знакомство с фреймворком без требования заранее знать Django.</p><a class="dj-text-link" href="{{ course.stepik_url }}">Посмотреть полную программу</a></div>
+        </div>
+    </section>
+
+    <section id="request-path" class="dj-section dj-playground" aria-labelledby="path-title">
+        <div class="dj-wrap dj-playground-layout">
+            <div class="dj-playground-copy"><p class="dj-eyebrow">Почувствуй связь кода и страницы</p><h2 id="path-title">Один адрес.<br> Один ответ.<br> <em>Уже диалог.</em></h2><p>Браузер запрашивает страницу. Django находит подходящее представление. Python-код формирует ответ — и пользователь видит результат.</p><p class="dj-secondary">Выбери адрес в примере: посмотри, как вместе с ним меняются функция и ответ.</p></div>
+            <div class="dj-lab" data-dj-lab>
+                <div class="dj-lab-top"><span>Запрос в браузере</span><div class="dj-route-buttons" aria-label="Адрес примера"><button type="button" data-dj-route="hello" aria-pressed="true" disabled>/hello/</button><button type="button" data-dj-route="about" aria-pressed="false" disabled>/about/</button></div></div>
+                <div class="dj-lab-code"><span>Представление · views.py</span><pre><code data-dj-code>from django.http import HttpResponse
+
+def hello(request):
+    return HttpResponse("Привет, Django!")</code></pre></div>
+                <div class="dj-lab-result"><div><span>Ответ браузеру</span><code data-dj-request>GET /hello/ · 200 OK</code></div><output data-dj-response aria-live="polite">Привет, Django!</output></div>
+                <p class="dj-lab-note">Учебная иллюстрация в браузере. Здесь не запускается Python или сервер Django.</p>
+                <noscript><p class="dj-lab-note">Для переключения примеров включи JavaScript. Остальная страница доступна без него.</p></noscript>
+            </div>
+        </div>
+    </section>
+
+    <section id="preparation" class="dj-section dj-preparation" aria-labelledby="preparation-title">
+        <div class="dj-wrap"><div class="dj-section-heading"><p class="dj-eyebrow">Что взять с собой</p><h2 id="preparation-title">В Django — впервые.<br> <em>В Python — уже уверенно.</em></h2><p>Не нужно начинать с нуля во всём. Достаточно базы, на которую мы сможем опираться.</p></div>
+            <div class="dj-preparation-grid">{% for item in course.preparation %}<article><span class="dj-preparation-icon" aria-hidden="true">{% if forloop.first %}Py{% elif forloop.last %}&lt;/&gt;{% else %}{ }{% endif %}</span><h3>{{ item.title }}</h3><p>{{ item.text }}</p>{% if item.slug %}<a class="dj-text-link" href="{% url 'course_landings:detail' course_slug=item.slug %}">{{ item.link }}</a>{% endif %}</article>{% endfor %}</div>
+            <p class="dj-preparation-note">Уже освоил эту базу самостоятельно? Повторно проходить предыдущие курсы не требуется.</p>
+        </div>
+    </section>
+
+    <section id="formats" class="dj-section dj-formats" aria-labelledby="formats-title">
+        <div class="dj-wrap"><div class="dj-section-heading"><p class="dj-eyebrow">Два способа двигаться дальше</p><h2 id="formats-title">Теория здесь.<br> <em>Полный курс на Stepik.</em></h2></div>
+            <div class="dj-format-grid"><article><span class="dj-format-label">На сайте · бесплатно</span><h3>Разбирайся в теории</h3><p>Вся теория курса доступна в разделе «Уроки». Читай по порядку, находи нужное объяснение и возвращайся к примерам.</p><a class="dj-button dj-button-outline" href="{{ theory_url }}" data-theory-link>Открыть теорию Django</a>{% if not theory_is_course %}<small>Откроется библиотека: выбери курс Django.</small>{% endif %}</article><article><span class="dj-format-label">На Stepik · полный курс</span><h3>Смотри и пробуй</h3><p>Видеообъяснения, тесты и интерактивные задачи. Проверяй понимание и сохраняй свой прогресс на платформе.</p><a class="dj-button" href="{{ course.stepik_url }}">Перейти к полному курсу</a><small>Актуальная программа, стоимость и условия — на Stepik.</small></article></div>
+        </div>
+    </section>
+
+    <section id="author" class="dj-section dj-author" aria-labelledby="author-title">
+        <div class="dj-wrap dj-author-layout"><figure><img src="{% static course.author_photo %}" alt="Артём Егоров, автор курса Django" width="720" height="900" loading="lazy" decoding="async"><figcaption>Python. Понятно и по делу.</figcaption></figure><div><p class="dj-eyebrow">Твой проводник в Django</p><h2 id="author-title">{{ course.author_name }}</h2><p class="dj-author-lead">Профессиональный разработчик<br> и автор egoroff_channel.</p><p>Показываю программирование через код и последовательные объяснения. Помогаю связать отдельные конструкции с тем, как работает программа.</p><p>Познакомься с моей подачей на YouTube, читай теорию на сайте и закрепляй знания на Stepik.</p><a class="dj-text-link" href="{{ course.author_url }}" target="_blank" rel="noopener noreferrer">Посмотреть YouTube-канал</a></div></div>
+    </section>
+
+    <section id="faq" class="dj-section dj-faq-section" aria-labelledby="faq-title"><div class="dj-wrap dj-faq-layout"><div><p class="dj-eyebrow">Перед стартом</p><h2 id="faq-title">Остались<br> <em>вопросы?</em></h2></div><div>{% for item in course.faq %}<details class="dj-faq"><summary>{{ item.question }}<span aria-hidden="true">+</span></summary><p>{{ item.answer }}</p></details>{% endfor %}</div></div></section>
+
+    <section class="dj-section dj-final" aria-labelledby="final-title"><div class="dj-wrap"><p class="dj-eyebrow">Django, потанцуем?</p><h2 id="final-title">Пусть твой Python<br> <em>увидит мир.</em></h2><p>Начни знакомство с веб-разработкой.<br> С базой Python и ООП — к первым шагам в Django.</p><div class="dj-actions"><a class="dj-button dj-button-light" href="{{ course.stepik_url }}">Посмотреть курс на Stepik</a><a class="dj-text-link" href="{{ theory_url }}" data-theory-link>Начать с бесплатной теории</a></div></div></section>
+</main>
+<footer class="dj-footer"><div class="dj-wrap dj-footer-row">{% include 'includes/site_wordmark.html' with wordmark_theme='light' only %}<a href="{% url 'courses:courses_home' %}">Библиотека уроков</a><a href="{{ course.stepik_url }}">Источник: Stepik · {{ course.source_checked }}</a></div></footer>
+</body>
+</html>
