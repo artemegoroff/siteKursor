@@ -200,3 +200,37 @@ div.code-toolbar > .toolbar span:hover {
     color: #0f172a;
     text-decoration: none;
 }
+
+/* On narrow screens the controls occupy their own row, above the code. */
+@media (max-width: 767px) {
+    div.code-toolbar {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+    }
+
+    div.code-toolbar > .toolbar {
+        position: static;
+        order: -1;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 8px 12px;
+        border-bottom: 1px solid #d9e2ec;
+        background: #f8fafc;
+    }
+
+    div.code-toolbar > pre[class*="language-"] {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    div.code-toolbar > .toolbar button,
+    div.code-toolbar > .toolbar a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+    }
+}
