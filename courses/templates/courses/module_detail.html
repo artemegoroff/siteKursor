@@ -1,15 +1,9 @@
 {% extends 'baseBoot4.html' %}
-{% load static %}
+{% load static course_descriptions %}
 
 {% block extracss %}
-<link
-        rel="stylesheet"
-        href="{% static 'base_static/css/course-detail.css' %}"
->
-<link
-        rel="stylesheet"
-        href="{% static 'base_static/css/lesson-hierarchy.css' %}"
->
+<link rel="stylesheet" href="{% static 'base_static/css/lesson-hierarchy.css' %}">
+<link rel="stylesheet" href="{% static 'base_static/css/course-detail.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -36,11 +30,13 @@
     <header class="course-header">
         <h1 class="course-title">{{ module.title }}</h1>
 
-        {% if module.description %}
+        {% with description=module.description|public_description %}
+        {% if description %}
             <div class="course-description">
-                {{ module.description|safe }}
+                {{ description|safe }}
             </div>
         {% endif %}
+        {% endwith %}
     </header>
 
     <section

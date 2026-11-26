@@ -1,5 +1,5 @@
 {% extends 'baseBoot4.html' %}
-{% load static %}
+{% load static course_descriptions %}
 
 {% block extracss %}
 <link rel="stylesheet" href="{% static 'base_static/css/courses.css' %}">
@@ -44,11 +44,13 @@
                         {{ course.title }}
                     </div>
 
-                    {% if course.description %}
+                    {% with description=course.description|public_description %}
+                    {% if description %}
                         <div class="course-card__description">
-                            {{ course.description|striptags|truncatechars:120 }}
+                            {{ description|striptags|truncatechars:120 }}
                         </div>
                     {% endif %}
+                    {% endwith %}
 
                 </div>
 

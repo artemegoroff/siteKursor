@@ -1,84 +1,59 @@
 {% extends 'baseBoot4.html' %}
-{% load static %}
+{% load static course_descriptions %}
+
+{% block seo_block %}
+<title>{{ course.title }} — программа и уроки | egoroffpython</title>
+{% endblock %}
 
 {% block extracss %}
-<link
-        rel="stylesheet"
-        href="{% static 'base_static/css/course-detail.css' %}"
->
-<link
-        rel="stylesheet"
-        href="{% static 'base_static/css/lesson-hierarchy.css' %}"
->
+<link rel="stylesheet" href="{% static 'base_static/css/lesson-hierarchy.css' %}">
+<link rel="stylesheet" href="{% static 'base_static/css/course-detail.css' %}">
 {% endblock %}
 
 {% block content %}
-
 <main class="course">
+    <nav class="course-breadcrumbs" aria-label="Путь к курсу">
+        <a href="{% url 'courses:courses_home' %}">Все курсы</a><span aria-hidden="true">/</span><span>Программа курса</span>
+    </nav>
     <header class="course-header">
+        <p class="course-eyebrow">Библиотека Python · теория</p>
         <h1 class="course-title">{{ course.title }}</h1>
-
-        {% if course.description %}
-            <div class="course-description">
-                {{ course.description|safe }}
-            </div>
-        {% endif %}
-
-        {% if first_lesson %}
-            <a
-                    href="{{ first_lesson.get_absolute_url }}"
-                    class="course-start-btn"
-            >
-                Перейти к первому уроку →
-            </a>
-        {% endif %}
+        {% with description=course.description|public_description %}
+            {% if description %}<div class="course-description">{{ description|safe }}</div>{% endif %}
+        {% endwith %}
+        <p class="course-header__intro">Изучайте темы по порядку или переходите к нужному уроку. Вся теория курса доступна бесплатно.</p>
+        <div class="course-header__actions">
+            {% if first_lesson %}<a href="{{ first_lesson.get_absolute_url }}" class="course-start-btn">К первому уроку <span aria-hidden="true">→</span></a>{% endif %}
+            {% if modules %}<a href="#course-programme" class="course-programme-link">Смотреть программу</a>{% endif %}
+        </div>
     </header>
 
-    {% if modules %}
-        <nav class="course-nav" aria-label="Модули курса">
+    <div class="course-content-layout">
+        {% if modules %}
+        <nav class="course-nav" aria-label="Разделы курса">
+            <h2 class="course-nav__title">Разделы курса <span>{{ modules|length }}</span></h2>
             <div class="course-nav__list">
                 {% for module in modules %}
-                    <a
-                            href="#module-{{ module.slug }}"
-                            class="course-nav__link"
-                    >
-                        {{ module.title }}
-                    </a>
+                <a href="#module-{{ module.slug }}" class="course-nav__link"><span class="course-nav__number">{{ forloop.counter|stringformat:'02d' }}</span><span>{{ module.title }}</span></a>
                 {% endfor %}
             </div>
         </nav>
-    {% endif %}
+        {% endif %}
 
-    <div class="course-modules">
-        {% for module in modules %}
-            <section
-                    id="module-{{ module.slug }}"
-                    class="course-module"
-            >
+        <div class="course-modules" id="course-programme">
+            {% for module in modules %}
+            <section id="module-{{ module.slug }}" class="course-module" aria-labelledby="module-title-{{ module.pk }}">
                 <div class="course-module__header">
-                    <h2 class="course-module__title">
-                        {{ forloop.counter }}. {{ module.title }}
-                    </h2>
-
-                    <div class="course-module__meta">
-                        Всего уроков: {{ module.lesson_count }}
-                    </div>
+                    <div class="course-module__heading"><span class="course-module__index" aria-hidden="true">{{ forloop.counter|stringformat:'02d' }}</span><h2 class="course-module__title" id="module-title-{{ module.pk }}">{{ module.title }}</h2></div>
+                    <span class="course-module__meta">Уроков: {{ module.lesson_count }}</span>
                 </div>
-
-                {% if module.description %}
-                    <div class="course-module__description">
-                        {{ module.description|safe }}
-                    </div>
-                {% endif %}
-
-                {% include "courses/includes/lesson_tree.html" with nodes=module.lessons_for_menu only %}
+                {% with description=module.description|public_description %}
+                    {% if description %}<div class="course-module__description">{{ description|safe }}</div>{% endif %}
+                {% endwith %}
+                {% include 'courses/includes/lesson_tree.html' with nodes=module.lessons_for_menu only %}
             </section>
-        {% empty %}
-            <p class="course-empty">
-                В этом курсе пока нет модулей.
-            </p>
-        {% endfor %}
+            {% empty %}<p class="course-empty">Программа этого курса скоро появится.</p>{% endfor %}
+        </div>
     </div>
 </main>
-
 {% endblock %}
