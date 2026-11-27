@@ -19,7 +19,6 @@ from .models import (
     LearningModule,
     Lesson,
     LessonBlock,
-    LegacyCourseRedirect,
 )
 
 
@@ -865,11 +864,3 @@ class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
         )
 
         return field
-
-@admin.register(LegacyCourseRedirect)
-class LegacyCourseRedirectAdmin(admin.ModelAdmin):
-    list_display = ('old_path', 'course', 'lesson')
-    list_select_related = ('course', 'lesson__module__course')
-    list_filter = ('course',)
-    search_fields = ('old_path', 'course__title', 'lesson__title')
-    autocomplete_fields = ('course', 'lesson')
