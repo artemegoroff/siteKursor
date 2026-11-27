@@ -21,14 +21,14 @@ pre[class*="language-"] {
 
 div.code-toolbar {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 44px;
     min-width: 0;
     max-width: 100%;
     margin: 28px 0;
     border-radius: 16px;
     overflow: hidden;
-    background: #ffffff;
+    background: #f8fafc;
     border: 1px solid #d9e2ec;
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
 }
@@ -170,58 +170,65 @@ pre[class*="language-"][data-line] {
    TOOLBAR
 ================================ */
 
+/* A narrow side rail keeps the icon beside the code, never on top of it. */
 div.code-toolbar > .toolbar {
-    /* Prism appends this after pre; order places it above the example. */
     position: static;
-    order: -1;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: start;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding: 8px 12px;
-    border-bottom: 1px solid #d9e2ec;
-    background: #f8fafc;
+    justify-content: center;
     opacity: 1;
 }
 
-div.code-toolbar > .toolbar .toolbar-item {
-    display: inline-flex;
-}
-
-div.code-toolbar > .toolbar a,
-div.code-toolbar > .toolbar button,
-div.code-toolbar > .toolbar span {
-    color: #334155;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 10px;
-    background: #e8eef5;
-    border-radius: 8px;
-    border: 1px solid #d5dee8;
-    box-shadow: none;
-}
-
-div.code-toolbar > .toolbar a:hover,
-div.code-toolbar > .toolbar button:hover,
-div.code-toolbar > .toolbar span:hover {
-    background: #dbe7f3;
-    color: #0f172a;
-    text-decoration: none;
-}
-
-/* The code scrolls independently; the toolbar never covers any line. */
 div.code-toolbar > pre[class*="language-"] {
+    grid-column: 1;
+    grid-row: 1;
     min-width: 0;
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
 }
 
-div.code-toolbar > .toolbar button,
-div.code-toolbar > .toolbar a {
+div.code-toolbar > .toolbar .toolbar-item { display: inline-flex; }
+
+div.code-toolbar > .toolbar .code-copy {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    border-radius: 10px;
+    background: transparent;
+    color: #2563eb;
+    cursor: pointer;
+    transition: background .15s ease, color .15s ease;
+}
+
+div.code-toolbar > .toolbar .code-copy:hover {
+    color: #1d4ed8;
+    background: #e4edff;
+}
+
+div.code-toolbar > .toolbar .code-copy:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: -4px;
+    background: #e4edff;
+}
+
+.code-copy svg { width: 19px; height: 19px; pointer-events: none; }
+.code-copy__status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    div.code-toolbar > .toolbar .code-copy { transition: none; }
 }

@@ -19,5 +19,65 @@ Prism.languages.python={comment:{pattern:/(^|[^\\])#.*/,lookbehind:!0},"triple-q
 !function(){"undefined"!=typeof self&&!self.Prism||"undefined"!=typeof global&&!global.Prism||Prism.hooks.add("wrap",function(e){"keyword"===e.type&&e.classes.push("keyword-"+e.content)})}();
 !function(){"undefined"!=typeof self&&self.Prism&&self.document&&Prism.languages.markup&&(Prism.plugins.UnescapedMarkup=!0,Prism.hooks.add("before-highlightall",function(e){e.selector+=", [class*='lang-'] script[type='text/plain'], [class*='language-'] script[type='text/plain'], script[type='text/plain'][class*='lang-'], script[type='text/plain'][class*='language-']"}),Prism.hooks.add("before-sanity-check",function(e){if((e.element.matches||e.element.msMatchesSelector).call(e.element,"script[type='text/plain']")){var t=document.createElement("code"),n=document.createElement("pre");return n.className=t.className=e.element.className,e.element.dataset&&Object.keys(e.element.dataset).forEach(function(t){Object.prototype.hasOwnProperty.call(e.element.dataset,t)&&(n.dataset[t]=e.element.dataset[t])}),e.code=e.code.replace(/&lt;\/script(>|&gt;)/gi,"</script>"),t.textContent=e.code,n.appendChild(t),e.element.parentNode.replaceChild(n,e.element),e.element=t,void 0}var n=e.element.parentNode;!e.code&&n&&"pre"==n.nodeName.toLowerCase()&&e.element.childNodes.length&&"#comment"==e.element.childNodes[0].nodeName&&(e.element.textContent=e.code=e.element.childNodes[0].textContent)}))}();
 !function(){"undefined"!=typeof self&&self.Prism&&self.document&&document.createRange&&(Prism.plugins.KeepMarkup=!0,Prism.hooks.add("before-highlight",function(e){if(e.element.children.length){var n=0,o=[],t=function(e,d){var r={};d||(r.clone=e.cloneNode(!1),r.posOpen=n,o.push(r));for(var a=0,s=e.childNodes.length;s>a;a++){var l=e.childNodes[a];1===l.nodeType?t(l):3===l.nodeType&&(n+=l.data.length)}d||(r.posClose=n)};t(e.element,!0),o&&o.length&&(e.keepMarkup=o)}}),Prism.hooks.add("after-highlight",function(e){if(e.keepMarkup&&e.keepMarkup.length){var n=function(e,o){for(var t=0,d=e.childNodes.length;d>t;t++){var r=e.childNodes[t];if(1===r.nodeType){if(!n(r,o))return!1}else 3===r.nodeType&&(!o.nodeStart&&o.pos+r.data.length>o.node.posOpen&&(o.nodeStart=r,o.nodeStartPos=o.node.posOpen-o.pos),o.nodeStart&&o.pos+r.data.length>=o.node.posClose&&(o.nodeEnd=r,o.nodeEndPos=o.node.posClose-o.pos),o.pos+=r.data.length);if(o.nodeStart&&o.nodeEnd){var a=document.createRange();return a.setStart(o.nodeStart,o.nodeStartPos),a.setEnd(o.nodeEnd,o.nodeEndPos),o.node.clone.appendChild(a.extractContents()),a.insertNode(o.node.clone),a.detach(),!1}}return!0};e.keepMarkup.forEach(function(o){n(e.element,{node:o,pos:0})}),e.highlightedCode=e.element.innerHTML}}))}();
-!function(){if("undefined"!=typeof self&&self.Prism&&self.document){if(!Prism.plugins.toolbar)return console.warn("Show Languages plugin loaded before Toolbar plugin."),void 0;var e={html:"HTML",xml:"XML",svg:"SVG",mathml:"MathML",css:"CSS",clike:"C-like",javascript:"JavaScript",abap:"ABAP",actionscript:"ActionScript",apacheconf:"Apache Configuration",apl:"APL",applescript:"AppleScript",arff:"ARFF",asciidoc:"AsciiDoc",asm6502:"6502 Assembly",aspnet:"ASP.NET (C#)",autohotkey:"AutoHotkey",autoit:"AutoIt",basic:"BASIC",csharp:"C#",cpp:"C++",coffeescript:"CoffeeScript",csp:"Content-Security-Policy","css-extras":"CSS Extras",django:"Django/Jinja2",erb:"ERB",fsharp:"F#",gedcom:"GEDCOM",glsl:"GLSL",graphql:"GraphQL",http:"HTTP",hpkp:"HTTP Public-Key-Pins",hsts:"HTTP Strict-Transport-Security",ichigojam:"IchigoJam",inform7:"Inform 7",json:"JSON",latex:"LaTeX",livescript:"LiveScript",lolcode:"LOLCODE","markup-templating":"Markup templating",matlab:"MATLAB",mel:"MEL",n4js:"N4JS",nasm:"NASM",nginx:"nginx",nsis:"NSIS",objectivec:"Objective-C",ocaml:"OCaml",opencl:"OpenCL",parigp:"PARI/GP",objectpascal:"Object Pascal",php:"PHP","php-extras":"PHP Extras",plsql:"PL/SQL",powershell:"PowerShell",properties:".properties",protobuf:"Protocol Buffers",q:"Q (kdb+ database)",jsx:"React JSX",tsx:"React TSX",renpy:"Ren'py",rest:"reST (reStructuredText)",sas:"SAS",sass:"Sass (Sass)",scss:"Sass (Scss)",sql:"SQL",soy:"Soy (Closure Template)",tap:"TAP",tt2:"Template Toolkit 2",typescript:"TypeScript",vbnet:"VB.Net",vhdl:"VHDL",vim:"vim","visual-basic":"Visual Basic",wasm:"WebAssembly",wiki:"Wiki markup",xojo:"Xojo (REALbasic)",xquery:"XQuery",yaml:"YAML"};Prism.plugins.toolbar.registerButton("show-language",function(a){var t=a.element.parentNode;if(t&&/pre/i.test(t.nodeName)){var s=t.getAttribute("data-language")||e[a.language]||a.language&&a.language.substring(0,1).toUpperCase()+a.language.substring(1);if(s){var i=document.createElement("span");return i.textContent=s,i}}})}}();
-!function(){if("undefined"!=typeof self&&self.Prism&&self.document){if(!Prism.plugins.toolbar)return console.warn("Copy to Clipboard plugin loaded before Toolbar plugin."),void 0;var o=window.ClipboardJS||void 0;o||"function"!=typeof require||(o=require("clipboard"));var e=[];if(!o){var t=document.createElement("script"),n=document.querySelector("head");t.onload=function(){if(o=window.ClipboardJS)for(;e.length;)e.pop()()},t.src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js",n.appendChild(t)}Prism.plugins.toolbar.registerButton("copy-to-clipboard",function(t){function n(){var e=new o(i,{text:function(){return t.code}});e.on("success",function(){i.textContent="Copied!",r()}),e.on("error",function(){i.textContent="Press Ctrl+C to copy",r()})}function r(){setTimeout(function(){i.textContent="Copy"},5e3)}var i=document.createElement("a");return i.textContent="Copy",o?n():e.push(n),i})}}();
+
+/* Compact copy control. No language badge or external clipboard dependency. */
+(function () {
+    if (typeof Prism === 'undefined' || !Prism.plugins.toolbar) return;
+    const copyIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg>';
+    const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg>';
+    function fallbackCopy(text) {
+        const previous = document.activeElement;
+        const field = document.createElement('textarea');
+        field.value = text;
+        field.setAttribute('readonly', '');
+        field.style.cssText = 'position:fixed;left:-9999px;top:0';
+        document.body.appendChild(field);
+        try {
+            field.select();
+            return document.execCommand('copy');
+        } finally {
+            field.remove();
+            if (previous && previous.focus) previous.focus({preventScroll: true});
+        }
+    }
+    Prism.plugins.toolbar.registerButton('copy-to-clipboard', function (env) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'code-copy';
+        const icon = document.createElement('span');
+        icon.innerHTML = copyIcon;
+        const status = document.createElement('span');
+        status.className = 'code-copy__status';
+        status.setAttribute('role', 'status');
+        status.setAttribute('aria-live', 'polite');
+        button.append(icon, status);
+        let timer;
+        let pending = false;
+        function label(text) { button.title = text; button.setAttribute('aria-label', text); }
+        label('Скопировать код');
+        button.addEventListener('click', async function () {
+            if (pending) return;
+            pending = true;
+            clearTimeout(timer);
+            status.textContent = '';
+            let copied = false;
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    try { await navigator.clipboard.writeText(env.code); copied = true; } catch (_) { /* Try the local fallback. */ }
+                }
+                if (!copied) copied = fallbackCopy(env.code);
+            } catch (_) { copied = false; }
+            pending = false;
+            icon.innerHTML = copied ? checkIcon : copyIcon;
+            const message = copied ? 'Код скопирован' : 'Не удалось скопировать. Выделите код вручную.';
+            label(message);
+            status.textContent = message;
+            timer = setTimeout(function () {
+                icon.innerHTML = copyIcon;
+                label('Скопировать код');
+                status.textContent = '';
+            }, 2000);
+        });
+        return button;
+    });
+})();
