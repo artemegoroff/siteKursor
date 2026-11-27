@@ -79,25 +79,13 @@
                     </nav>
 
                     <header class="lesson-header">
+                        {% if child_lessons %}
                         <div class="lesson-header__meta">
-                            <span class="lesson-header__badge">
-                                {% if ancestors %}
-                                    Подурок
-                                {% else %}
-                                    Урок
-                                {% endif %}
-                                {{ Theme.menu_number }}
-                            </span>
-
-                            {% if child_lessons %}
-                                <a
-                                        href="#child-lessons"
-                                        class="lesson-sublessons-link"
-                                >
-                                    Подуроки: {{ child_lessons|length }} ↓
-                                </a>
-                            {% endif %}
+                            <a href="#child-lessons" class="lesson-sublessons-link">
+                                Подуроки: {{ child_lessons|length }} ↓
+                            </a>
                         </div>
+                        {% endif %}
 
                         {% if request.user.is_staff %}
                             <a href="{% url 'admin:courses_lesson_change' Theme.pk %}"
