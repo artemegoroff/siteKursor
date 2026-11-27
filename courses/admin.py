@@ -14,6 +14,8 @@ from adminsortable2.admin import (
 )
 from tinymce.widgets import TinyMCE
 
+from .admin_lesson_table import LessonTablePreferencesMixin
+
 from .models import (
     LearningCourse,
     LearningModule,
@@ -604,7 +606,7 @@ class MoveLessonsToModuleForm(forms.Form):
 # ---------------------------------------------------------
 
 @admin.register(Lesson)
-class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
+class LessonAdmin(LessonTablePreferencesMixin, SortableAdminMixin, admin.ModelAdmin):
     inlines = [LessonBlockInline]
 
     fields = (
@@ -828,7 +830,8 @@ class LessonAdmin(SortableAdminMixin, admin.ModelAdmin):
         )
 
     class Media:
-        js = ('base_static/js/admin/lesson-parent-filter.js',)
+        css = {'all': ('base_static/css/admin/lesson-table-settings.css',)}
+        js = ('base_static/js/admin/lesson-parent-filter.js', 'base_static/js/admin/lesson-table-settings.js')
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         field = super().formfield_for_foreignkey(
