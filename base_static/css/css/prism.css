@@ -21,6 +21,10 @@ pre[class*="language-"] {
 
 div.code-toolbar {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    max-width: 100%;
     margin: 28px 0;
     border-radius: 16px;
     overflow: hidden;
@@ -167,13 +171,18 @@ pre[class*="language-"][data-line] {
 ================================ */
 
 div.code-toolbar > .toolbar {
-    position: absolute;
-    top: 10px;
-    right: 12px;
+    /* Prism appends this after pre; order places it above the example. */
+    position: static;
+    order: -1;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
+    padding: 8px 12px;
+    border-bottom: 1px solid #d9e2ec;
+    background: #f8fafc;
     opacity: 1;
-    z-index: 5;
 }
 
 div.code-toolbar > .toolbar .toolbar-item {
@@ -201,36 +210,18 @@ div.code-toolbar > .toolbar span:hover {
     text-decoration: none;
 }
 
-/* On narrow screens the controls occupy their own row, above the code. */
-@media (max-width: 767px) {
-    div.code-toolbar {
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-    }
+/* The code scrolls independently; the toolbar never covers any line. */
+div.code-toolbar > pre[class*="language-"] {
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
 
-    div.code-toolbar > .toolbar {
-        position: static;
-        order: -1;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        padding: 8px 12px;
-        border-bottom: 1px solid #d9e2ec;
-        background: #f8fafc;
-    }
-
-    div.code-toolbar > pre[class*="language-"] {
-        min-width: 0;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    div.code-toolbar > .toolbar button,
-    div.code-toolbar > .toolbar a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 44px;
-    }
+div.code-toolbar > .toolbar button,
+div.code-toolbar > .toolbar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
 }
