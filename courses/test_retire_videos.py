@@ -12,11 +12,10 @@ from django.contrib import admin
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
 from django.test import TestCase, TransactionTestCase, override_settings
-from django.test.utils import CaptureQueriesContext
 from django.urls import resolve, reverse
 
 from .models import (
-    LearningCourse, LearningModule, LegacyCourseRedirect, Lesson, LessonBlock,
+    LearningCourse, LearningModule, Lesson, LessonBlock,
 )
 from ege.models import NumberTaskEge, VarEge, VideoRazborEGE
 from oge.models import NumberTaskOge, VariantOge, VideoRazborOGE
@@ -40,40 +39,11 @@ class CourseNavigationTests(TestCase):
         LessonBlock.objects.create(lesson=cls.child, kind='text', content='<p>Text</p>')
         LessonBlock.objects.create(lesson=cls.child, kind='video', youtube_id='test')
 
-    def make_redirect(self):
-        return LegacyCourseRedirect.objects.create(
-            old_path='python/10/', course=self.course, lesson=self.child,
-        )
-
-    def test_legacy_redirect_tracks_current_lesson_slug(self):
-        self.make_redirect()
-        for prefix in ['old_course', 'course']:
-            response = self.client.get(f'/{prefix}/python/10/')
-            self.assertEqual(response.status_code, 301)
-            self.assertEqual(response['Location'], self.child.get_absolute_url())
-        self.child.slug = 'renamed'
-        self.child.save()
-        response = self.client.get('/old_course/python/10/')
-        self.assertEqual(response['Location'], self.child.get_absolute_url())
-
-    def test_deleted_lesson_falls_back_to_course(self):
-        destination = self.make_redirect()
-        self.child.delete()
-        destination.refresh_from_db()
-        self.assertIsNone(destination.lesson_id)
-        response = self.client.get('/old_course/python/10/')
-        self.assertEqual(response['Location'], self.course.get_absolute_url())
-
-    def test_legacy_catalogue_redirects(self):
-        for prefix in ['old_course', 'course']:
-            response = self.client.get(f'/{prefix}/')
-            self.assertEqual(response.status_code, 301)
-            self.assertEqual(response['Location'], reverse('courses:courses_home'))
-
     @override_settings(DEBUG=False)
     def test_unknown_and_retired_practice_urls_return_404(self):
-        for path in ['missing/', 'decision/', 'decision/old-task/', 'test/']:
-            self.assertEqual(self.client.get('/old_course/' + path).status_code, 404)
+        for path in ['', 'python/10/', 'missing/', 'decision/', 'decision/old-task/', 'test/']:
+            for prefix in ['/old_course/', '/course/']:
+                self.assertEqual(self.client.get(prefix + path).status_code, 404)
 
     def test_no_videos_models_admin_or_tables_remain(self):
         self.assertEqual(list(apps.get_app_config('videos').get_models()), [])
@@ -173,7 +143,6 @@ import django
 django.setup()
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
-from django.test import Client
 executor = MigrationExecutor(connection)
 targets = [('courses', '0001_initial'), ('videos', '0024_alter_course_youtube_id')]
 executor.migrate(targets)
@@ -197,10 +166,7 @@ lesson = Lesson.objects.get(slug='legacy-append')
 assert lesson.blocks.get(kind='text').content == '<p>Original HTML &amp; code</p>'
 assert lesson.blocks.get(kind='video').youtube_id == 'youtube'
 assert lesson.blocks.get(kind='practice').practice_url == 'https://stepik.org/lesson/1'
-for path in ['python/legacy-append/', 'python/7/']:
-    response = Client().get('/old_course/' + path)
-    assert response.status_code == 301
-    assert response['Location'] == lesson.get_absolute_url()
+assert 'courses_legacycourseredirect' not in connection.introspection.table_names()
 assert not any(name.startswith('videos_') for name in connection.introspection.table_names())
 print('LEGACY_UPGRADE_OK')
 """
@@ -211,24 +177,22 @@ print('LEGACY_UPGRADE_OK')
             self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
             self.assertIn('LEGACY_UPGRADE_OK', result.stdout)
 
-    def test_current_database_handles_moved_lessons_numeric_slugs_and_unmatched_archive(self):
-        old_apps = self.migrate_to([
-            ('courses', '0007_remove_legacy_lesson_content'),
-            ('videos', '0024_alter_course_youtube_id'),
+    def test_redirect_table_is_removed_without_changing_course_materials(self):
+        historical_apps = self.migrate_to([
+            ('courses', '0009_capture_legacy_course_redirects'),
+            ('videos', '0025_retire_legacy_models'),
         ])
-        OldCourse = old_apps.get_model('videos', 'Course')
-        original = LearningCourse.objects.get(slug='python')
-        moved = LearningCourse.objects.create(title='Moved', slug='moved-course')
-        module = LearningModule.objects.create(course=moved, title='Moved module', slug='moved-module')
-        numeric = Lesson.objects.create(module=module, title='Numeric slug', slug='10')
-        normal = Lesson.objects.create(module=module, title='Normal', slug='normal')
-        LessonBlock.objects.create(lesson=normal, kind='text', content='Edited current text')
-        OldCourse.objects.create(language='PYT', slug='10', theme='Numeric', number_theme=20)
-        OldCourse.objects.create(language='PYT', slug='normal', theme='Normal', number_theme=10)
-        OldCourse.objects.create(language='PYT', slug='unmatched', theme='Unmatched', number_theme=30)
+        course = LearningCourse.objects.create(title='Current course', slug='current-course')
+        module = LearningModule.objects.create(course=course, title='Module', slug='module')
+        lesson = Lesson.objects.create(module=module, title='Lesson', slug='lesson')
+        block = LessonBlock.objects.create(lesson=lesson, kind='text', content='Current text')
+        # Historical model only: the runtime application no longer exposes it.
+        historical_apps.get_model('courses', 'LegacyCourseRedirect').objects.create(
+            old_path='python/10/', course_id=course.pk, lesson_id=lesson.pk,
+        )
         self.migrate_latest()
-
-        self.assertEqual(LegacyCourseRedirect.objects.get(old_path='python/10/').lesson_id, normal.pk)
-        self.assertEqual(LegacyCourseRedirect.objects.get(old_path='python/20/').lesson_id, numeric.pk)
-        self.assertEqual(LegacyCourseRedirect.objects.get(old_path='python/unmatched/').course_id, original.pk)
-        self.assertEqual(normal.blocks.get().content, 'Edited current text')
+        self.assertNotIn('courses_legacycourseredirect', connection.introspection.table_names())
+        self.assertTrue(LearningCourse.objects.filter(pk=course.pk).exists())
+        self.assertTrue(LearningModule.objects.filter(pk=module.pk).exists())
+        self.assertTrue(Lesson.objects.filter(pk=lesson.pk).exists())
+        self.assertEqual(LessonBlock.objects.get(pk=block.pk).content, 'Current text')

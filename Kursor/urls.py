@@ -37,8 +37,6 @@ urlpatterns = [
     # path('accounts/', include('accounts.urls')),
     path('ege/', include('ege.urls')),
     path('oge/', include('oge.urls')),
-    path('old_course/', include('courses.legacy_urls')),
-    path('course/', include('courses.legacy_urls')),
     path('courses/', include('courses.urls')),
     path('learn/', include('courses.landing_urls')),
 
