@@ -10,7 +10,7 @@
 {% block extracss %}
 <link
         rel="stylesheet"
-        href="{% static 'base_static/css/course-lesson.css' %}"
+        href="{% static 'base_static/css/course-lesson.css' %}?v=lesson-heading-2"
 >
 <link
         rel="stylesheet"
@@ -33,6 +33,7 @@
 {% endblock %}
 
 {% block extraJS %}
+<script src="{% static 'base_static/js/lesson-video-player.js' %}?v=1"></script>
 <script src="{% static 'base_static/js/lesson-hierarchy-menu.js' %}"></script>
 <script src="{% static 'base_static/js/lesson-toc.js' %}"></script>
 {% endblock %}
@@ -44,77 +45,72 @@
 <div class="lesson-layout lesson-hierarchy">
     <main class="lesson-main">
 
-        <nav
-                class="lesson-breadcrumbs"
-                aria-label="Путь к уроку"
-        >
-            <ol>
-                <li>
-                    <a href="{{ course.get_absolute_url }}">
-                        {{ course.title }}
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ module.get_absolute_url }}">
-                        {{ module.title }}
-                    </a>
-                </li>
-
-                {% for ancestor in ancestors %}
-                    <li>
-                        <a href="{{ ancestor.get_absolute_url }}">
-                            {{ ancestor.title }}
-                        </a>
-                    </li>
-                {% endfor %}
-
-                <li aria-current="page">
-                    {{ Theme.title }}
-                </li>
-            </ol>
-        </nav>
-
-        {% if request.user.is_staff %}
-            <div class="lesson-admin-actions">
-                <a
-                        href="{% url 'admin:courses_lesson_change' Theme.pk %}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="btn btn-info"
-                >
-                    Редактировать урок
-                </a>
-            </div>
-        {% endif %}
-
-        <header class="lesson-header">
-            <div class="lesson-header__meta">
-                <span class="lesson-header__badge">
-                    {% if ancestors %}
-                        Подурок
-                    {% else %}
-                        Урок
-                    {% endif %}
-                    {{ Theme.menu_number }}
-                </span>
-
-                {% if child_lessons %}
-                    <a
-                            href="#child-lessons"
-                            class="lesson-sublessons-link"
-                    >
-                        Подуроки: {{ child_lessons|length }} ↓
-                    </a>
-                {% endif %}
-            </div>
-
-            <h1 class="lesson-header__title">
-                {{ Theme.title }}
-            </h1>
-        </header>
-
         <div class="lesson-reading-layout" data-lesson-reading>
+                <div class="lesson-intro">
+                    <nav
+                            class="lesson-breadcrumbs"
+                            aria-label="Путь к уроку"
+                    >
+                        <ol>
+                            <li>
+                                <a href="{{ course.get_absolute_url }}">
+                                    {{ course.title }}
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ module.get_absolute_url }}">
+                                    {{ module.title }}
+                                </a>
+                            </li>
+
+                            {% for ancestor in ancestors %}
+                                <li>
+                                    <a href="{{ ancestor.get_absolute_url }}">
+                                        {{ ancestor.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+
+                            <li aria-current="page">
+                                {{ Theme.title }}
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <header class="lesson-header">
+                        <div class="lesson-header__meta">
+                            <span class="lesson-header__badge">
+                                {% if ancestors %}
+                                    Подурок
+                                {% else %}
+                                    Урок
+                                {% endif %}
+                                {{ Theme.menu_number }}
+                            </span>
+
+                            {% if child_lessons %}
+                                <a
+                                        href="#child-lessons"
+                                        class="lesson-sublessons-link"
+                                >
+                                    Подуроки: {{ child_lessons|length }} ↓
+                                </a>
+                            {% endif %}
+                        </div>
+
+                        {% if request.user.is_staff %}
+                            <a href="{% url 'admin:courses_lesson_change' Theme.pk %}"
+                               target="_blank" rel="noopener noreferrer"
+                               class="lesson-header__edit">Редактировать урок</a>
+                        {% endif %}
+
+                        <h1 class="lesson-header__title">
+                            {{ Theme.title }}
+                        </h1>
+                    </header>
+
+                </div>
             {% include 'courses/includes/lesson_toc.html' %}
             <div class="lesson-reading-content" data-lesson-content>
                 {% for block in blocks %}

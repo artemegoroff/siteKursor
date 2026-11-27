@@ -1,5 +1,5 @@
 <section class="lesson-section" id="block-{{ block.pk }}">
-    <div class="course-video-player">
+    <div class="course-video-player" data-video-player>
 
         <div class="course-video-player__header">
             <div>
@@ -59,6 +59,11 @@
                         allowfullscreen
                 ></iframe>
             </div>
+            <div class="course-video-player__links">
+                <span>Открыть видео:</span>
+                {% if block.rutube_id %}<a href="https://rutube.ru/video/{{ block.rutube_id }}/" target="_blank" rel="noopener noreferrer">Rutube</a>{% endif %}
+                {% if block.youtube_id %}<a href="https://www.youtube.com/watch?v={{ block.youtube_id }}" target="_blank" rel="noopener noreferrer">YouTube</a>{% endif %}
+            </div>
         {% else %}
             <p class="course-video-player__warning">
                 Источник видео пока не указан.
@@ -67,55 +72,3 @@
 
     </div>
 </section>
-
-<script>
-(function () {
-    const section = document.currentScript.previousElementSibling;
-
-    if (!section) {
-        return;
-    }
-
-    const frame = section.querySelector(
-        '.course-video-player__frame'
-    );
-    const buttons = section.querySelectorAll(
-        'button[data-video-source]'
-    );
-
-    if (!frame || !buttons.length) {
-        return;
-    }
-
-    buttons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            if (button.classList.contains('is-active')) {
-                return;
-            }
-
-            const videoUrl = button.dataset.videoUrl;
-
-            if (!videoUrl) {
-                return;
-            }
-
-            buttons.forEach(function (item) {
-                const isSelected = item === button;
-
-                item.classList.toggle('is-active', isSelected);
-                item.setAttribute(
-                    'aria-pressed',
-                    String(isSelected)
-                );
-            });
-
-            frame.title = (
-                frame.dataset.videoTitle +
-                ' — ' +
-                button.textContent.trim()
-            );
-            frame.src = videoUrl;
-        });
-    });
-})();
-</script>
