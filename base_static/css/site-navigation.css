@@ -71,3 +71,6 @@
 .site-nav .site-nav__course--oop:hover{background:#e0e8ff;border-color:#93a9e0}
 .site-nav__course--oop .site-nav__course-label,.site-nav__course--oop .site-nav__course-action{color:#254da8}
 @media(min-width:801px){.site-nav__panel--courses:has(.site-nav__course:nth-child(4)) .site-nav__course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.site-nav .site-nav__course--django{background:#e8f5ff;border-color:#b8d9ef}
+.site-nav .site-nav__course--django:hover{background:#d8edff;border-color:#8ebfdf}
+.site-nav__course--django .site-nav__course-label,.site-nav__course--django .site-nav__course-action{color:#176ba6}

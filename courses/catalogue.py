@@ -9,6 +9,7 @@ from .models import LearningCourse
 
 
 LANDING_ALIASES = {
+    'django': {'django', 'django-python', 'django, потанцуем?', 'django потанцуем'},
     'python-oop': {'oop-python', 'python-oop', 'oop python', 'ооп на python', 'объектно-ориентированное программирование на python'},
     'basic-python': {'python', 'basic-python', 'инди-курс программирования на python', 'инди-курс python с нуля'},
     'functional-python': {'functional-python', 'функциональное программирование', 'функциональное программирование на python'},

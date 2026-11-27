@@ -3,8 +3,10 @@
 from .functional_landing_data import FUNCTIONAL_PYTHON
 from .files_landing_data import FILES_PYTHON
 from .oop_landing_data import OOP_PYTHON
+from .django_landing_data import DJANGO
 
 LANDING_COURSES = {
+    'django': DJANGO,
     'python-oop': OOP_PYTHON,
     'python-modules-files': FILES_PYTHON,
     'functional-python': FUNCTIONAL_PYTHON,

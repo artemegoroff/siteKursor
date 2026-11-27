@@ -167,3 +167,12 @@ section[id]{scroll-margin-top:25px}
 .home-course-card--oop .home-course-card__cover>code{color:#234a9a;font-size:16px}
 .home-course-card--oop .home-course-card__symbol{color:#284daf16;font-size:90px;letter-spacing:-5px}
 .home-path-grid>article:last-child:nth-child(odd){grid-column:1/-1}
+
+/* Django course: sky blue with a touch of pink. */
+.home-course-card--django .home-course-card__cover{background:#2787ce;color:#fff}
+.home-course-card--django .home-course-card__cover>code{color:#fff}
+.home-course-card--django .home-course-card__symbol{color:#fff0a5}
+.home-course-card--django{border-color:#badcf2}
+
+.home-course-card--django .home-course-card__cover>span:first-child{color:#173354;border-color:#b8d9ef}
+.home-course-card--django .home-course-card__symbol{opacity:.16}
