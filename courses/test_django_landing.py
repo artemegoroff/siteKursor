@@ -52,3 +52,14 @@ class DjangoLandingTests(TestCase):
         response = self.client.get('/learn/django/')
         self.assertEqual(response.context['theory_url'], course.get_absolute_url())
         self.assertTrue(response.context['theory_is_course'])
+
+    def test_confirmed_programme_has_nine_sections_and_88_lessons(self):
+        from .django_landing_data import DJANGO
+        response = self.client.get('/learn/django/')
+        self.assertContains(response, 'class="dj-programme-module"', count=9)
+        self.assertContains(response, 'href="#programme"')
+        self.assertEqual(sum(len(module['lessons']) for module in DJANGO['modules']), 88)
+        self.assertEqual(DJANGO['modules'][0]['title'], 'Введение в курс дела')
+        self.assertEqual(DJANGO['modules'][-1]['title'], 'Обработка файлов')
+        for text in ('Тестирование представлений', 'Django Debug Toolbar', 'ModelForm', 'CreateView, UpdateView', 'Продолжение следует'):
+            self.assertContains(response, text)

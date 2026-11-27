@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Django, потанцуем? — курс веб-разработки на Python | egoroffpython</title>
-    <meta name="description" content="Курс основ Django от Артёма Егорова: 88 уроков, последовательные видеообъяснения и практика на Stepik. Для старта нужны Python, ООП и знакомство с веб-технологиями.">
+    <meta name="description" content="Освой Django: URL и views, шаблоны, ORM, формы, CBV и загрузка файлов. 88 уроков Артёма Егорова. Вся теория бесплатно на сайте, практика на Stepik.">
     <link rel="canonical" href="{{ canonical_url }}">
     <meta property="og:title" content="Django, потанцуем? — твой Python теперь в вебе">
     <meta property="og:description" content="Познакомься с основами Django после Python и ООП. Вся теория бесплатно на сайте, полный курс с практикой — на Stepik.">
@@ -25,7 +25,7 @@
         <details class="dj-menu" data-dj-menu open>
             <summary>Меню <span aria-hidden="true">+</span></summary>
             <nav aria-label="Навигация по лендингу">
-                <a href="#about">О курсе</a><a href="#preparation">Подготовка</a><a href="#formats">Как учиться</a><a href="#author">Автор</a>
+                <a href="#about">О курсе</a><a href="#programme">Программа</a><a href="#preparation">Подготовка</a><a href="#formats">Как учиться</a><a href="#author">Автор</a>
             </nav>
         </details>
         <a class="dj-button dj-button-small" href="{{ course.stepik_url }}">Курс на Stepik</a>
@@ -81,6 +81,26 @@ def hello(request):
                 <div class="dj-lab-result"><div><span>Ответ браузеру</span><code data-dj-request>GET /hello/ · 200 OK</code></div><output data-dj-response aria-live="polite">Привет, Django!</output></div>
                 <p class="dj-lab-note">Учебная иллюстрация в браузере. Здесь не запускается Python или сервер Django.</p>
                 <noscript><p class="dj-lab-note">Для переключения примеров включи JavaScript. Остальная страница доступна без него.</p></noscript>
+            </div>
+        </div>
+    </section>
+
+    <section id="programme" class="dj-section dj-programme" aria-labelledby="programme-title">
+        <div class="dj-wrap dj-programme-layout">
+            <div class="dj-programme-intro">
+                <p class="dj-eyebrow">Программа · 9 разделов</p>
+                <h2 id="programme-title">От первого запуска<br> <em>до работы с данными.</em></h2>
+                <p>Маршруты, шаблоны, модели и формы — постепенно собери целостное понимание Django.</p>
+                <p class="dj-programme-note">88 уроков. Раскрой раздел, чтобы посмотреть темы.</p>
+                <a class="dj-text-link" href="{{ course.stepik_url }}">Открыть программу на Stepik</a>
+            </div>
+            <div class="dj-programme-list">
+                {% for module in course.modules %}
+                <details class="dj-programme-module"{% if forloop.first %} open{% endif %}>
+                    <summary><span>{{ module.title }}<small>Уроков: {{ module.lessons|length }}</small></span><span class="dj-programme-toggle" aria-hidden="true">+</span></summary>
+                    <div class="dj-programme-body"><p>{{ module.summary }}</p><ol>{% for lesson in module.lessons %}<li>{{ lesson }}</li>{% endfor %}</ol></div>
+                </details>
+                {% endfor %}
             </div>
         </div>
     </section>
