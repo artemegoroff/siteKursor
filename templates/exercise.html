@@ -19,7 +19,7 @@
     <link rel="stylesheet/less" href="{% static 'base_static/css/taskCardStyle.less' %}" type="text/less">
     <link rel="stylesheet/less" href="{% static 'base_static/css/sidebarMenu.less' %}" type="text/less">
     {% if vopros.code_python or 'language-' in vopros.text %}
-        <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}">
+        <link rel="stylesheet" href="{% static 'base_static/css/css/prism.css' %}?v=toolbar-row-2">
         <script src="{% static 'base_static/js/prism.js' %}"></script>
     {% endif %}
 {% endblock %}
