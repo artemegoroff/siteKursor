@@ -1,4 +1,4 @@
-"""Per-user changelist settings without mutating the shared ModelAdmin."""
+"""Session-based changelist settings without mutating the shared ModelAdmin."""
 from copy import copy
 
 from django import forms
@@ -7,7 +7,7 @@ from django.core.exceptions import PermissionDenied, ValidationError
 from django.http import HttpResponseNotAllowed, HttpResponseRedirect, QueryDict
 from django.urls import path, reverse
 
-from .models import Lesson, LessonListPreference, slugify
+from .models import Lesson, slugify
 
 COLUMNS = (
     ('title', 'Название урока'), ('module', 'Модуль'),
@@ -16,6 +16,7 @@ COLUMNS = (
 )
 DEFAULT_VISIBLE = ('title', 'module', 'parent', 'sort_order', 'slug')
 EDITABLE = ('title', 'slug', 'seo_keywords')
+SESSION_KEY = 'lesson_admin_table'
 
 
 class TableSettingsForm(forms.Form):
@@ -76,9 +77,11 @@ class LessonTablePreferencesMixin:
 
     def _table_settings(self, request):
         if not hasattr(request, '_lesson_table_settings'):
-            preference = LessonListPreference.objects.filter(user=request.user).first()
-            raw_visible = preference.visible_fields if preference else list(DEFAULT_VISIBLE)
-            raw_editable = preference.editable_fields if preference else []
+            preference = request.session.get(SESSION_KEY, {})
+            if not isinstance(preference, dict):
+                preference = {}
+            raw_visible = preference.get('visible_fields', list(DEFAULT_VISIBLE))
+            raw_editable = preference.get('editable_fields', [])
             visible = set(raw_visible if isinstance(raw_visible, list) else DEFAULT_VISIBLE) & {name for name, _ in COLUMNS}
             visible.add('title')
             editable = set(raw_editable if isinstance(raw_editable, list) else []) & set(EDITABLE) & visible
@@ -155,7 +158,7 @@ class LessonTablePreferencesMixin:
         if request.method != 'POST':
             return HttpResponseNotAllowed(['POST'])
         if 'reset' in request.POST:
-            LessonListPreference.objects.filter(user=request.user).delete()
+            request.session.pop(SESSION_KEY, None)
             self.message_user(request, 'Настройки таблицы сброшены.')
         else:
             form = TableSettingsForm(request.POST)
@@ -163,7 +166,7 @@ class LessonTablePreferencesMixin:
                 data = form.cleaned_data
                 if not self.has_change_permission(request):
                     data['editable_fields'] = []
-                LessonListPreference.objects.update_or_create(user=request.user, defaults=data)
+                request.session[SESSION_KEY] = data
                 self.message_user(request, 'Настройки таблицы сохранены.')
             else:
                 self.message_user(request, 'Настройки не сохранены: выбраны недопустимые поля.', level=messages.ERROR)

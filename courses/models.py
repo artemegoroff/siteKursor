@@ -1,4 +1,3 @@
-from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify as django_slugify
@@ -255,17 +254,3 @@ class LessonBlock(models.Model):
         verbose_name = 'Блок урока'
         verbose_name_plural = 'Блоки урока'
         ordering = ['sort_order', 'id']
-
-
-class LessonListPreference(models.Model):
-    """Personal presentation settings; never grant editing permissions."""
-    user = models.OneToOneField(
-        settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
-        related_name='lesson_list_preference',
-    )
-    visible_fields = models.JSONField(default=list)
-    editable_fields = models.JSONField(default=list)
-
-    class Meta:
-        verbose_name = 'Настройки списка уроков'
-        verbose_name_plural = 'Настройки списка уроков'

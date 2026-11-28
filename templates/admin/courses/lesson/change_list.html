@@ -6,7 +6,7 @@
     <form method="post" action="{{ lesson_table_settings_url }}" data-table-settings>
         {% csrf_token %}
         <input type="hidden" name="return_query" value="{{ lesson_table_query }}">
-        <p>Настройки сохраняются для вашего аккаунта. Изменения уроков сохраняйте отдельной кнопкой «Сохранить» под таблицей.</p>
+        <p>Настройки сохраняются в текущей сессии и сбрасываются после выхода из аккаунта. Изменения уроков сохраняйте отдельной кнопкой «Сохранить» под таблицей.</p>
         <table><thead><tr><th scope="col">Поле</th><th scope="col">Показывать</th><th scope="col">Редактировать в списке</th></tr></thead><tbody>
         {% for option in lesson_table_options %}
         <tr data-column-option>

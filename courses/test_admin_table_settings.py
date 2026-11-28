@@ -7,7 +7,8 @@ from django.contrib.auth.models import Permission
 from django.test import Client, TestCase
 from django.urls import reverse
 
-from .models import LearningCourse, LearningModule, Lesson, LessonListPreference
+from .models import LearningCourse, LearningModule, Lesson
+from .admin_lesson_table import SESSION_KEY
 
 
 class LessonTableSettingsTests(TestCase):
@@ -57,8 +58,9 @@ class LessonTableSettingsTests(TestCase):
         self.assertIn('title', cl.formset.forms[0].fields)
         self.assertIsNot(cl.model_admin, admin.site._registry[Lesson])
         self.assertEqual(admin.site._registry[Lesson].list_editable, ())
-        self.client.force_login(self.second)
-        other = self.client.get(self.list_url).context['cl']
+        other_client = Client()
+        other_client.force_login(self.second)
+        other = other_client.get(self.list_url).context['cl']
         self.assertIn('module', other.list_display)
         self.assertFalse(other.list_editable)
         self.client.force_login(self.first)
@@ -99,28 +101,35 @@ class LessonTableSettingsTests(TestCase):
         response = self.client.get(response['Location'])
         self.assertEqual(response.context['cl'].result_count, 1)
 
-    def test_reset_only_affects_current_account(self):
+    def test_reset_only_affects_current_session(self):
         self.configure(editable=['slug'])
-        self.client.force_login(self.second)
-        self.configure(editable=['title'])
-        self.client.force_login(self.first)
+        other = Client()
+        other.force_login(self.first)
+        other.post(self.settings_url, {'visible_fields': ['title'], 'editable_fields': ['title']})
         self.client.post(self.settings_url, {'reset': '1'})
-        self.assertFalse(LessonListPreference.objects.filter(user=self.first).exists())
-        self.assertTrue(LessonListPreference.objects.filter(user=self.second).exists())
+        self.assertNotIn(SESSION_KEY, self.client.session)
+        self.assertEqual(other.session[SESSION_KEY]['editable_fields'], ['title'])
+        self.assertFalse(self.client.get(self.list_url).context['cl'].list_editable)
+
+    def test_logout_discards_session_settings(self):
+        self.configure(editable=['slug'])
+        self.client.logout()
+        self.client.force_login(self.first)
+        self.assertNotIn(SESSION_KEY, self.client.session)
         self.assertFalse(self.client.get(self.list_url).context['cl'].list_editable)
 
     def test_illegal_editable_fields_are_rejected_and_hidden_fields_not_editable(self):
         self.configure(editable=['slug'])
         for field in ['module', 'parent', 'sort_order', 'password']:
             self.configure(editable=[field])
-            self.assertEqual(LessonListPreference.objects.get(user=self.first).editable_fields, ['slug'])
+            self.assertEqual(self.client.session[SESSION_KEY]['editable_fields'], ['slug'])
         self.configure(visible=['title'], editable=['slug'])
-        self.assertFalse(LessonListPreference.objects.get(user=self.first).editable_fields)
+        self.assertFalse(self.client.session[SESSION_KEY]['editable_fields'])
 
     def test_read_only_user_cannot_enable_editing(self):
         self.client.force_login(self.reader)
         self.configure(editable=['title'])
-        self.assertFalse(LessonListPreference.objects.get(user=self.reader).editable_fields)
+        self.assertFalse(self.client.session[SESSION_KEY]['editable_fields'])
         cl = self.client.get(self.list_url).context['cl']
         self.assertFalse(cl.list_editable)
         self.assertNotIn('_reorder_', cl.list_display)
