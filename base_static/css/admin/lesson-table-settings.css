@@ -1,0 +1,12 @@
+.lesson-table-settings{margin:16px 0 22px;border:1px solid var(--hairline-color,#ddd);border-radius:8px;background:var(--body-bg,#fff);color:var(--body-fg,#333)}
+.lesson-table-settings>summary{padding:14px 18px;font-size:14px;font-weight:600;color:var(--link-fg,#417690);cursor:pointer}
+.lesson-table-settings form{padding:0 18px 18px}
+.lesson-table-settings p{max-width:750px;color:var(--body-quiet-color,#666);line-height:1.6}
+.lesson-table-settings table{width:100%;margin:14px 0;font-size:13px}
+.lesson-table-settings th,.lesson-table-settings td{padding:10px 12px;vertical-align:middle}
+.lesson-table-settings input[type=checkbox]{width:18px;height:18px;margin:0;vertical-align:middle;accent-color:var(--link-fg,#417690)}
+.lesson-table-settings__actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+.lesson-table-settings button.button{padding:10px 15px;border:0;cursor:pointer}
+#result_list .field-open_lesson{white-space:nowrap}
+#result_list input[type=text],#result_list textarea{max-width:100%;box-sizing:border-box}
+@media(max-width:767px){.lesson-table-settings form{padding:0 10px 14px}.lesson-table-settings th,.lesson-table-settings td{padding:10px 6px}.lesson-table-settings table{font-size:12px}}

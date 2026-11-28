@@ -1,0 +1,22 @@
+{% extends 'adminsortable2/change_list.html' %}
+{% block search %}
+{{ block.super }}
+<details class="lesson-table-settings">
+    <summary>Настроить таблицу</summary>
+    <form method="post" action="{{ lesson_table_settings_url }}" data-table-settings>
+        {% csrf_token %}
+        <input type="hidden" name="return_query" value="{{ lesson_table_query }}">
+        <p>Настройки сохраняются в текущей сессии и сбрасываются после выхода из аккаунта. Изменения уроков сохраняйте отдельной кнопкой «Сохранить» под таблицей.</p>
+        <table><thead><tr><th scope="col">Поле</th><th scope="col">Показывать</th><th scope="col">Редактировать в списке</th></tr></thead><tbody>
+        {% for option in lesson_table_options %}
+        <tr data-column-option>
+            <th scope="row">{{ option.label }}</th>
+            <td><input type="checkbox" name="visible_fields" value="{{ option.name }}" aria-label="Показывать: {{ option.label }}"{% if option.visible %} checked{% endif %}{% if option.name == 'title' %} disabled{% endif %}></td>
+            <td>{% if option.can_edit and lesson_table_can_edit %}<input type="checkbox" name="editable_fields" value="{{ option.name }}" aria-label="Редактировать: {{ option.label }}"{% if option.editable %} checked{% endif %}>{% elif option.name == 'sort_order' %}<span>Перетаскиванием</span>{% else %}<span>Только просмотр</span>{% endif %}</td>
+        </tr>
+        {% endfor %}
+        </tbody></table>
+        <div class="lesson-table-settings__actions"><button type="submit" name="apply" value="1" class="button">Применить</button><button type="submit" name="reset" value="1" class="button">Сбросить настройки</button></div>
+    </form>
+</details>
+{% endblock %}
